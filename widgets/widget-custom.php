@@ -1,5 +1,5 @@
-<div class="background-svg">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 370.404 387.706">
+<div class="background-svg" hidden>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 370.404 387.706">
         <defs>
             <linearGradient id="linear-gradient" x1="0.5" x2="0.525" y2="1.214" gradientUnits="objectBoundingBox">
                 <stop offset="0" stop-color="#fff" stop-opacity="0.702" />

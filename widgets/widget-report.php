@@ -1,5 +1,5 @@
 <p>Featured Reports</p>
-<amp-carousel class="featured-carousel" type="carousel" controls height="280">
+<amp-carousel class="featured-carousel" type="carousel" controls height="315px">
     <div class="featrued-card-container">
         <a href="#" aria-label="Bussiness Model">
             <div class="featured-img">
