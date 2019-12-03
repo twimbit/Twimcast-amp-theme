@@ -8,7 +8,10 @@
             </a>
         </div>
     <?php } ?>
-    <h3>TwimCast</h3>
+    <a href="<?php echo home_url(); ?>" class="sidebar-home">
+        <h3>TwimCast</h3>
+    </a>
+
     <div class="sidebar-icon">
         <a href="#">
             <svg id="menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="16" viewBox="0 0 22 16">

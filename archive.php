@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php get_header();
+$cat_img = get_field('thumbnail', get_queried_object())['sizes']['large'];
+$dir_path = get_template_directory_uri();
+?>
 
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">
@@ -11,215 +14,79 @@
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='https://playground.amp.dev/static/samples/img/image2.jpg' height="250" layout="fixed-height" alt="a sample image"></amp-img>
+                        <amp-img src='<?php echo $cat_img; ?>' height="250" layout="fixed-height" alt="a sample image"></amp-img>
                     </div>
                     <div class="post-title">
                         <h3>
-                            Customer Experience
+                            <?php echo get_queried_object()->name; ?>
                         </h3>
                         <div class="post-author-name">
                             <p><span>Jessi</span><span>CX</span></p>
                         </div>
                     </div>
                     <div class="post-excerpt">
-                        <p>A deep dive into how you can provide better customer experience at respective industries.</p>
+                        <p><?php echo get_queried_object()->category_description; ?></p>
                     </div>
                     <div class="recomended-posts">
-                        <div>
-                            <a href="#">
-                                <div class="post-list">
-                                    <amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-                                    <div style="flex:1;margin-left:10px">
-                                        <div class="rending-title">Title of the read</div>
-                                        <div class="trending-excerpt">content excerpt</div>
-                                        <div class="author-category">
-                                            <div class="author-name">
-                                                Author name
+                        <?php
+                        $args = array(
+                            'post_type' => array('post'),
+                            'cat' => get_queried_object()->term_id
+                        );
+                        $posts = get_posts($args);
+                        foreach ($posts as $post) {
+                            $featured_image = get_the_post_thumbnail_url($post, 'medium');
+                            $post_url = get_the_permalink($post);
+                            $post_title = $post->post_title;
+                            $post_excerpt = $post->post_excerpt;
+                            $post_author = get_the_author_meta('display_name', $post->post_author);
+                            $post_category = get_the_category($post->ID)[0]->name;
+                            $post_date = get_the_date('d M', $post);
+                            $post_readTime = get_field('length', $post); ?>
+
+                            <div>
+                                <a href="<?php echo $post_url; ?>">
+                                    <div class="post-list">
+                                        <amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                                        <div style="flex:1;margin-left:10px">
+                                            <div class="rending-title"><?php echo $post_title; ?></div>
+                                            <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
+                                            <div class="author-category">
+                                                <div class="author-name">
+                                                    <?php echo $post_author; ?>
+                                                </div>
+                                                <div class="category">
+                                                    <?php echo $post_category; ?>
+                                                </div>
                                             </div>
-                                            <div class="category">
-                                                Category
-                                            </div>
-                                        </div>
-                                        <div class="date-time-type">
-                                            <div class="date">
-                                                07 May
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="trending-time">
-                                                5 Mins
-                                            </div>
-                                            <div class="trending-type">
-                                                icon
-                                            </div>
-                                            <div class="add-to-queue">
-                                                <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-                                                    <path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-                                                    <path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-                                                </svg>
+                                            <div class="date-time-type">
+                                                <div class="date">
+                                                    <?php echo $post_date; ?>
+                                                </div>
+                                                <div class="divider"></div>
+                                                <div class="trending-time">
+                                                    <?php echo $post_readTime; ?> min
+                                                </div>
+                                                <div class="trending-type">
+                                                    <?php
+                                                        if ($post_type == 'podcast') { ?>
+                                                        <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+                                                    <?php    } else if ($post_type == 'read') { ?>
+                                                        <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+                                                    <?php    }
+                                                        ?>
+                                                </div>
+                                                <div class="add-to-queue">
+                                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
 
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="post-list">
-                                    <amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-                                    <div style="flex:1;margin-left:10px">
-                                        <div class="rending-title">Title of the read</div>
-                                        <div class="trending-excerpt">content excerpt</div>
-                                        <div class="author-category">
-                                            <div class="author-name">
-                                                Author name
-                                            </div>
-                                            <div class="category">
-                                                Category
-                                            </div>
-                                        </div>
-                                        <div class="date-time-type">
-                                            <div class="date">
-                                                07 May
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="trending-time">
-                                                5 Mins
-                                            </div>
-                                            <div class="trending-type">
-                                                icon
-                                            </div>
-                                            <div class="add-to-queue">
-                                                <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-                                                    <path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-                                                    <path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="post-list">
-                                    <amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-                                    <div style="flex:1;margin-left:10px">
-                                        <div class="rending-title">Title of the read</div>
-                                        <div class="trending-excerpt">content excerpt</div>
-                                        <div class="author-category">
-                                            <div class="author-name">
-                                                Author name
-                                            </div>
-                                            <div class="category">
-                                                Category
-                                            </div>
-                                        </div>
-                                        <div class="date-time-type">
-                                            <div class="date">
-                                                07 May
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="trending-time">
-                                                5 Mins
-                                            </div>
-                                            <div class="trending-type">
-                                                icon
-                                            </div>
-                                            <div class="add-to-queue">
-                                                <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-                                                    <path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-                                                    <path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="post-list">
-                                    <amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-                                    <div style="flex:1;margin-left:10px">
-                                        <div class="rending-title">Title of the read</div>
-                                        <div class="trending-excerpt">content excerpt</div>
-                                        <div class="author-category">
-                                            <div class="author-name">
-                                                Author name
-                                            </div>
-                                            <div class="category">
-                                                Category
-                                            </div>
-                                        </div>
-                                        <div class="date-time-type">
-                                            <div class="date">
-                                                07 May
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="trending-time">
-                                                5 Mins
-                                            </div>
-                                            <div class="trending-type">
-                                                icon
-                                            </div>
-                                            <div class="add-to-queue">
-                                                <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-                                                    <path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-                                                    <path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div>
-                            <a href="#">
-                                <div class="post-list">
-                                    <amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-                                    <div style="flex:1;margin-left:10px">
-                                        <div class="rending-title">Title of the read</div>
-                                        <div class="trending-excerpt">content excerpt</div>
-                                        <div class="author-category">
-                                            <div class="author-name">
-                                                Author name
-                                            </div>
-                                            <div class="category">
-                                                Category
-                                            </div>
-                                        </div>
-                                        <div class="date-time-type">
-                                            <div class="date">
-                                                07 May
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="trending-time">
-                                                5 Mins
-                                            </div>
-                                            <div class="trending-type">
-                                                icon
-                                            </div>
-                                            <div class="add-to-queue">
-                                                <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-                                                    <path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-                                                    <path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
+                            </div>
+                        <?php }
+                        ?>
                     </div>
                 </div>
             </div>

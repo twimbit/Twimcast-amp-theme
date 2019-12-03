@@ -144,7 +144,7 @@ $dir_path = get_template_directory_uri();
 									</div>
 								<?php	} else { ?>
 									<div>
-										<a href="#">
+										<a href="<?php echo $post_url; ?>">
 											<div class="trending-list">
 												<amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
 												<div style="flex:1;margin-left:10px">

@@ -105,6 +105,22 @@ body {
   word-wrap: break-word;
 }
 
+.recomended-posts >div {
+    transition: box-shadow 0.3s;
+}
+
+.recomended-posts > div:hover {#myTrendingList >
+    div: hover {     box-shadow: 0 0 11px rgba(33,33,33,.2); };
+}
+
+a.sidebar-home {
+    text-decoration: none;
+    color: #494949;
+}
+a.sidebar-home:hover{
+    color: #858585;
+}
+
 .add-to-queue img {
     width: 18px;
 }
@@ -642,6 +658,16 @@ a,
 path {
   transition: all 0.15s linear;
   /* width: 100%; */
+}
+
+li,ul {
+    transition: all 0.15s linear;
+    /* width: 100%; */
+}
+
+
+.recomended-posts > div:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 .featured-widget {
