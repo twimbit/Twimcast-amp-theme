@@ -105,6 +105,33 @@ body {
   word-wrap: break-word;
 }
 
+.sidebar-back path {
+    fill: #000;
+}
+
+.sidebar-back svg {
+    transform: scale(0.8);
+}
+
+.sidebar-back a {
+    text-decoration: none;
+}
+
+.sidebar-back {
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    left: 16px;
+    top: 20px;
+}
+
+.image-carousel {height: 160px;}
+
+.image-carousel:hover{
+    box-shadow: 1px 1px 11px 2px rgba(33,33,33,.2);
+}
+
+
 a.explore-all-link {
     text-decoration: none;
 }
@@ -652,9 +679,7 @@ path {
   border-radius: 4px;
   transition: box-shadow .3s;
 }
-.amp-carousel-style amp-img:hover{
- box-shadow: 0 0 11px rgba(33,33,33,.2);
-}
+
 
 .explore-all p {
   /* margin-top: 13px; */

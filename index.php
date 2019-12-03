@@ -9,7 +9,7 @@
 	<section class="widget-area">
 		<div id="main-widget-area" class="widget-area-section">
 			<?php $widgets = get_field('add_widgets', 'options');
-			print_r($widgets);
+			//print_r($widgets);
 			foreach ($widgets as $widget) {
 				if ($widget['acf_fc_layout'] == 'custom_carousel') {
 					$title = $widget['title'];
@@ -63,12 +63,12 @@
 
 						<!-- For desktop -->
 						<div class="show-desktop">
-							<amp-carousel height="160" type="carousel" controls>
+							<amp-carousel height="185" type="carousel" controls>
 								<?php foreach ($posts as $post) {
 											$featured_image = get_the_post_thumbnail_url($post, 'medium');
 											$post_url = get_the_permalink($post);
 											?>
-									<a href="<?php echo $post_url; ?>" style="margin-right:8px">
+									<a href="<?php echo $post_url; ?>" style="margin:10px" class="image-carousel">
 										<amp-img src='<?php echo $featured_image; ?>' width="250" height="160" alt="a samp"></amp-img>
 									</a>
 								<?php } ?>
@@ -101,7 +101,7 @@
 										if ($i == 1) { ?>
 									<div class="trending-first">
 										<div class="trending-list-container">
-											<a href="#" aria-label="Bussiness Model">
+											<a href="<?php echo $post_url; ?>" aria-label="Bussiness Model">
 												<div class="featured-img">
 													<amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
 												</div>
@@ -120,7 +120,7 @@
 														<?php echo $post_date; ?>
 													</div>
 													<div class="divider"></div>
-													<div class="trending-time">
+													<div class="trending-time" title="Read time">
 														<?php echo $post_readTime; ?> min
 													</div>
 													<div class="trending-type">
@@ -158,7 +158,7 @@
 															<?php echo $post_date; ?>
 														</div>
 														<div class="divider"></div>
-														<div class="trending-time">
+														<div class="trending-time" title="Read time">
 															<?php echo $post_readTime; ?> min
 														</div>
 														<div class="trending-type">
@@ -223,38 +223,53 @@
 					<div class="suggested-widget explore-all" style="max-width:900px">
 						<p><?php echo $title; ?> </p>
 						<amp-carousel class="featured-carousel" type="carousel" controls height="315px">
-							<div class="featrued-card-container">
-								<a href="#" aria-label="Bussiness Model">
-									<div class="featured-img">
-										<amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-									</div>
-									<div class="rending-title">Title of the read</div>
-									<div class="trending-excerpt">content excerpt</div>
-									<div class="author-category">
-										<div class="author-name">
-											Author name
+							<?php
+									foreach ($posts as $post) {
+										$featured_image = get_the_post_thumbnail_url($post, 'medium');
+										$post_url = get_the_permalink($post);
+										$post_title = $post->post_title;
+										$post_excerpt = $post->post_excerpt;
+										$post_author = get_the_author_meta('display_name', $post->post_author);
+										$post_category = get_the_category($post->ID)[0]->name;
+										$post_date = get_the_date('d M', $post);
+										$post_readTime = get_field('length', $post); ?>
+								<div class="featrued-card-container">
+									<a href="<?php echo $post_url; ?>" aria-label="Bussiness Model">
+										<div class="featured-img">
+											<amp-img width="251" height="160" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
 										</div>
-										<div class="category">
-											Category
+										<div class="rending-title"><?php echo $post_title; ?></div>
+										<div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
+										<div class="author-category">
+											<div class="author-name">
+												<?php echo $post_author; ?>
+											</div>
+											<div class="category">
+												<?php echo $post_category; ?>
+											</div>
 										</div>
-									</div>
-									<div class="date-time-type">
-										<div class="date">
-											07 May
+										<div class="date-time-type">
+											<div class="date">
+												<?php echo $post_date; ?>
+											</div>
+											<div class="divider"></div>
+											<div class="trending-time" title="Read time">
+												<?php echo $post_readTime; ?> min
+											</div>
+											<div class="trending-type">
+												icon
+											</div>
+											<div class="add-to-queue">
+												<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+													<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
+													<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
+													<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
+												</svg>
+											</div>
 										</div>
-										<div class="divider"></div>
-										<div class="trending-time">
-											5 Mins
-										</div>
-										<div class="trending-type">
-											icon
-										</div>
-										<div class="add-to-queue">
-											:
-										</div>
-									</div>
-								</a>
-							</div>
+									</a>
+								</div>
+							<?php } ?>
 						</amp-carousel>
 						<a href="#" class="explore-all-link">
 							<h4>Explore all <span>>></span></h4>
