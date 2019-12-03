@@ -105,6 +105,13 @@ body {
   word-wrap: break-word;
 }
 
+.add-to-queue img {
+    width: 18px;
+}
+.add-to-queue img:hover{filter: opacity(0.5);}
+
+.trending-type svg {transform: translate(4px, 1px) scale(1.1);}
+
 .sidebar-back path {
     fill: #000;
 }
@@ -548,7 +555,7 @@ footer.main-footer {
 }
 
 .trending-type {
-  margin-left: 6px;
+  margin-left: 9px;
 }
 
 .trending-time {

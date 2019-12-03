@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header();
+$dir_path = get_template_directory_uri();
+?>
 
 <main id="site-content" role="main">
 	<section id="twimcast-sidebar">
@@ -98,6 +100,7 @@
 										$post_category = get_the_category($post->ID)[0]->name;
 										$post_date = get_the_date('d M', $post);
 										$post_readTime = get_field('length', $post);
+										$post_type = get_field('intent_type', $post);
 										if ($i == 1) { ?>
 									<div class="trending-first">
 										<div class="trending-list-container">
@@ -124,14 +127,16 @@
 														<?php echo $post_readTime; ?> min
 													</div>
 													<div class="trending-type">
-														icon
+														<?php
+																		if ($post_type == 'podcast') { ?>
+															<img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+														<?php	} else if ($post_type == 'read') { ?>
+															<img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+														<?php	}
+																		?>
 													</div>
 													<div class="add-to-queue">
-														<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-															<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-															<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-															<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-														</svg>
+														<img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
 													</div>
 												</div>
 											</a>
@@ -162,14 +167,16 @@
 															<?php echo $post_readTime; ?> min
 														</div>
 														<div class="trending-type">
-															icon
+															<?php
+																			if ($post_type == 'podcast') { ?>
+																<img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+															<?php	} else if ($post_type == 'read') { ?>
+																<img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+															<?php	}
+																			?>
 														</div>
 														<div class="add-to-queue">
-															<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-																<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-																<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-																<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-															</svg>
+															<img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
 														</div>
 													</div>
 												</div>
@@ -257,14 +264,16 @@
 												<?php echo $post_readTime; ?> min
 											</div>
 											<div class="trending-type">
-												icon
+												<?php
+															if ($post_type == 'podcast') { ?>
+													<img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+												<?php	} else if ($post_type == 'read') { ?>
+													<img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+												<?php	}
+															?>
 											</div>
 											<div class="add-to-queue">
-												<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-													<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-													<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-													<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-												</svg>
+												<img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
 											</div>
 										</div>
 									</a>
