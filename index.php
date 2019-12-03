@@ -42,16 +42,21 @@
 				<?php
 					} else if ($widget['acf_fc_layout'] == 'image_carousel') {
 						$title = $widget['title'];
-						$post = $widget['post'];
+						$posts = $widget['posts'];
 						?>
 					<div class="featured-widget amp-carousel-style explore-all">
 						<p><?php echo $title; ?> </p>
 						<!-- for mobile -->
 						<div class="show-mobile">
 							<amp-carousel height="300" width="400" type="slides" layout="responsive">
-								<a href="#">
-									<amp-img src='https://playground.amp.dev/static/samples/img/image2.jpg' width="400" height="300" layout="responsive" alt="a sample image"></amp-img>
-								</a>
+								<?php foreach ($posts as $post) {
+											$featured_image = get_the_post_thumbnail_url($post, 'medium');
+											$post_url = get_the_permalink($post);
+											?>
+									<a href="<?php echo $post_url; ?>">
+										<amp-img src='<?php echo $featured_image; ?>' width="400" height="300" layout="responsive" alt="a sample image"></amp-img>
+									</a>
+								<?php } ?>
 							</amp-carousel>
 						</div>
 
@@ -59,9 +64,14 @@
 						<!-- For desktop -->
 						<div class="show-desktop">
 							<amp-carousel height="160" type="carousel" controls>
-								<a href="#" style="margin-right:8px">
-									<amp-img src='https://amp.dev/static/inline-examples/images/image1.jpg' width="250" height="160" alt="a samp"></amp-img>
-								</a>
+								<?php foreach ($posts as $post) {
+											$featured_image = get_the_post_thumbnail_url($post, 'medium');
+											$post_url = get_the_permalink($post);
+											?>
+									<a href="<?php echo $post_url; ?>" style="margin-right:8px">
+										<amp-img src='<?php echo $featured_image; ?>' width="250" height="160" alt="a samp"></amp-img>
+									</a>
+								<?php } ?>
 							</amp-carousel>
 						</div>
 
@@ -72,88 +82,106 @@
 					</div>
 				<?php } else if ($widget['acf_fc_layout'] == 'list') {
 						$title = $widget['title'];
-						$post = $widget['post'];
+						$posts = $widget['post'];
 						?>
 					<div class="trending-widget explore-all">
 						<p><?php echo $title; ?> </p>
 						<div id="myTrendingList">
-							<div class="trending-first">
-								<div class="trending-list-container">
-									<a href="#" aria-label="Bussiness Model">
-										<div class="featured-img">
-											<amp-img width="193" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-										</div>
-										<div class="rending-title">Title of the read</div>
-										<div class="trending-excerpt">content excerpt</div>
-										<div class="author-category">
-											<div class="author-name">
-												Author name
-											</div>
-											<div class="category">
-												Category
-											</div>
-										</div>
-										<div class="date-time-type">
-											<div class="date">
-												07 May
-											</div>
-											<div class="divider"></div>
-											<div class="trending-time">
-												5 Mins
-											</div>
-											<div class="trending-type">
-												icon
-											</div>
-											<div class="add-to-queue">
-												<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-													<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-													<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-													<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-												</svg>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div>
-								<a href="#">
-									<div class="trending-list">
-										<amp-img width="120" height="120" alt="List icon" src="https://playground.amp.dev/static/samples/img/product5_640x408.jpg"></amp-img>
-										<div style="flex:1;margin-left:10px">
-											<div class="rending-title">Title of the read</div>
-											<div class="trending-excerpt">content excerpt</div>
-											<div class="author-category">
-												<div class="author-name">
-													Author name
+							<?php
+									$i = 1;
+									foreach ($posts as $post) {
+										$featured_image = get_the_post_thumbnail_url($post, 'medium');
+										$post_url = get_the_permalink($post);
+										$post_title = $post->post_title;
+										$post_excerpt = $post->post_excerpt;
+										$post_author = get_the_author_meta('display_name', $post->post_author);
+										$post_category = get_the_category($post->ID)[0]->name;
+										$post_date = get_the_date('d M', $post);
+										$post_readTime = get_field('length', $post);
+										if ($i == 1) { ?>
+									<div class="trending-first">
+										<div class="trending-list-container">
+											<a href="#" aria-label="Bussiness Model">
+												<div class="featured-img">
+													<amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
 												</div>
-												<div class="category">
-													Category
+												<div class="rending-title"><?php echo $post_title; ?></div>
+												<div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
+												<div class="author-category">
+													<div class="author-name">
+														<?php echo $post_author; ?>
+													</div>
+													<div class="category">
+														<?php echo $post_category; ?>
+													</div>
 												</div>
-											</div>
-											<div class="date-time-type">
-												<div class="date">
-													07 May
+												<div class="date-time-type">
+													<div class="date">
+														<?php echo $post_date; ?>
+													</div>
+													<div class="divider"></div>
+													<div class="trending-time">
+														<?php echo $post_readTime; ?> min
+													</div>
+													<div class="trending-type">
+														icon
+													</div>
+													<div class="add-to-queue">
+														<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+															<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
+															<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
+															<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
+														</svg>
+													</div>
 												</div>
-												<div class="divider"></div>
-												<div class="trending-time">
-													5 Mins
-												</div>
-												<div class="trending-type">
-													icon
-												</div>
-												<div class="add-to-queue">
-													<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-														<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
-														<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
-														<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
-													</svg>
-												</div>
-											</div>
+											</a>
 										</div>
 									</div>
-								</a>
-								<div class="trending-list-divider"></div>
-							</div>
+								<?php	} else { ?>
+									<div>
+										<a href="#">
+											<div class="trending-list">
+												<amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+												<div style="flex:1;margin-left:10px">
+													<div class="rending-title"><?php echo $post_title; ?></div>
+													<div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
+													<div class="author-category">
+														<div class="author-name">
+															<?php echo $post_author; ?>
+														</div>
+														<div class="category">
+															<?php echo $post_category; ?>
+														</div>
+													</div>
+													<div class="date-time-type">
+														<div class="date">
+															<?php echo $post_date; ?>
+														</div>
+														<div class="divider"></div>
+														<div class="trending-time">
+															<?php echo $post_readTime; ?> min
+														</div>
+														<div class="trending-type">
+															icon
+														</div>
+														<div class="add-to-queue">
+															<svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+																<path d="M13,16c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,14.346,13,16z" id="XMLID_294_" />
+																<path d="M13,26c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,24.346,13,26z" id="XMLID_295_" />
+																<path d="M13,6c0,1.654,1.346,3,3,3s3-1.346,3-3s-1.346-3-3-3S13,4.346,13,6z" id="XMLID_297_" />
+															</svg>
+														</div>
+													</div>
+												</div>
+											</div>
+										</a>
+										<div class="trending-list-divider"></div>
+									</div>
+							<?php	}
+										$i = $i + 1;
+									} ?>
+
+
 						</div>
 						<a href="#" class="explore-all-link">
 							<h4>Explore all <span>>></span></h4>
