@@ -105,6 +105,14 @@ body {
   word-wrap: break-word;
 }
 
+a.explore-all-link {
+    text-decoration: none;
+}
+
+a.explore-all-link h4:hover{
+    color: black;
+}
+
 .background-svg svg {
     width: 100%;
     /* height: 100%; */
@@ -525,13 +533,14 @@ footer.main-footer {
   margin-right: 10px;
 }
 
+
 .add-to-queue svg{
-  height: 5px; */
-    width: 5px;
-    transform: scale(4);
+  height: 5px;
+  width: 5px;
+  transform: scale(4);
 }
 
-
+.add-to-queue svg:hover{fill: #0000007d;}
 
 .category {
   margin-left: 8px;
@@ -837,7 +846,7 @@ transition: box-shadow .3s;}
     /* background-color: #fff; */
     background: #fff;
     display: grid;
-    grid-template-columns: 204px auto auto;
+    grid-template-columns: 204px 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
 

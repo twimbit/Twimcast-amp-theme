@@ -193,5 +193,7 @@
         </a>
     </div>
 </div>
-<h4>Explore all <span>>></span> </h4>
+<a href="#" class="explore-all-link">
+    <h4>Explore all <span>>></span></h4>
+</a>
 <hr>

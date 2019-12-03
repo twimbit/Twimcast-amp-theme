@@ -38,65 +38,31 @@
     </form>
 </div>
 
+
+
 <div class="sidebar-menu">
     <ul class="sidebar-menu-ul-category">
-        <li class="sidebar-list-item">
-            <a href="#">
-                Custom Experience
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Banking & Digital Tranformation
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
+        <?php $cats = get_categories();
+        foreach ($cats as $val) {
+            $cat_name = $val->name;
+            $cat_link = get_category_link($val);
+            ?>
+            <li class="sidebar-list-item">
+                <a href="<?php echo $cat_link; ?>">
+                    <?php echo $cat_name; ?>
+                </a>
+            </li>
+        <?php }
+        ?>
 
-                Business Models
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Careers
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                CFO
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Technology
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Banking
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Open Banking
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Global Trade
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                APAC
-            </a>
-        </li>
-        <li class="sidebar-list-item sidebar-explore-all">
+        <li class="sidebar-list-item sidebar-explore-all" hidden>
             <a href="#">
                 Explore All...
             </a>
         </li>
     </ul>
+
+
     <div class="sidebar-divider"></div>
     <ul class="sidebar-menu-ul-category">
         <li class="sidebar-list-item">
@@ -114,7 +80,7 @@
                 Library
             </a>
         </li>
-        <li class="sidebar-list-item sidebar-explore-all">
+        <li class="sidebar-list-item sidebar-explore-all" hidden>
             <a href="#">
                 More...
             </a>

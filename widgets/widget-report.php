@@ -1,197 +1,201 @@
-<p>Featured Reports</p>
-<amp-carousel class="featured-carousel" type="carousel" controls height="315px">
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
+<div class="suggested-widget explore-all" style="max-width:900px">
+    <p>Featured Reports</p>
+    <amp-carousel class="featured-carousel" type="carousel" controls height="315px">
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="category">
-                    Category
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
+            </a>
+        </div>
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="trending-type">
-                    icon
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-                <div class="add-to-queue">
-                    :
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
+            </a>
+        </div>
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="category">
-                    Category
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
+            </a>
+        </div>
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="trending-type">
-                    icon
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-                <div class="add-to-queue">
-                    :
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
+            </a>
+        </div>
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="category">
-                    Category
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
+            </a>
+        </div>
+        <div class="featrued-card-container">
+            <a href="#" aria-label="Bussiness Model">
+                <div class="featured-img">
+                    <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
                 </div>
-                <div class="trending-type">
-                    icon
+                <div class="rending-title">Title of the read</div>
+                <div class="trending-excerpt">content excerpt</div>
+                <div class="author-category">
+                    <div class="author-name">
+                        Author name
+                    </div>
+                    <div class="category">
+                        Category
+                    </div>
                 </div>
-                <div class="add-to-queue">
-                    :
+                <div class="date-time-type">
+                    <div class="date">
+                        07 May
+                    </div>
+                    <div class="divider"></div>
+                    <div class="trending-time">
+                        5 Mins
+                    </div>
+                    <div class="trending-type">
+                        icon
+                    </div>
+                    <div class="add-to-queue">
+                        :
+                    </div>
                 </div>
-            </div>
-        </a>
-    </div>
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
-                </div>
-                <div class="category">
-                    Category
-                </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
-                </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
-                </div>
-                <div class="trending-type">
-                    icon
-                </div>
-                <div class="add-to-queue">
-                    :
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
-                </div>
-                <div class="category">
-                    Category
-                </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
-                </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
-                </div>
-                <div class="trending-type">
-                    icon
-                </div>
-                <div class="add-to-queue">
-                    :
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="featrued-card-container">
-        <a href="#" aria-label="Bussiness Model">
-            <div class="featured-img">
-                <amp-img width="251" height="160" alt="List icon" src="https://amp.dev/static/samples/img/image3.jpg"></amp-img>
-            </div>
-            <div class="rending-title">Title of the read</div>
-            <div class="trending-excerpt">content excerpt</div>
-            <div class="author-category">
-                <div class="author-name">
-                    Author name
-                </div>
-                <div class="category">
-                    Category
-                </div>
-            </div>
-            <div class="date-time-type">
-                <div class="date">
-                    07 May
-                </div>
-                <div class="divider"></div>
-                <div class="trending-time">
-                    5 Mins
-                </div>
-                <div class="trending-type">
-                    icon
-                </div>
-                <div class="add-to-queue">
-                    :
-                </div>
-            </div>
-        </a>
-    </div>
-</amp-carousel>
-<h4>Explore all <span>>></span> </h4>
-<hr>
+            </a>
+        </div>
+    </amp-carousel>
+    <a href="#" class="explore-all-link">
+        <h4>Explore all <span>>></span></h4>
+    </a>
+    <hr>
+</div>
