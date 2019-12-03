@@ -43,6 +43,7 @@
 <div class="sidebar-menu">
     <ul class="sidebar-menu-ul-category">
         <?php $cats = get_categories();
+        //print_r($cats);
         foreach ($cats as $val) {
             $cat_name = $val->name;
             $cat_link = get_category_link($val);
