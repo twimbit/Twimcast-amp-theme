@@ -53,50 +53,22 @@
 
 
 <div class="sidebar-menu">
-    <ul class="sidebar-menu-ul-category">
-        <?php $cats = get_categories();
-        //print_r($cats);
-        foreach ($cats as $val) {
-            $cat_name = $val->name;
-            $cat_link = get_category_link($val);
-            ?>
-            <li class="sidebar-list-item">
-                <a href="<?php echo $cat_link; ?>">
-                    <?php echo $cat_name; ?>
-                </a>
-            </li>
-        <?php }
-        ?>
+    <?php wp_nav_menu(array(
+        'theme_location' => 'sidebar-category-menu',
+        'container_class' => 'menu'
+    ));
+    ?>
 
-        <li class="sidebar-list-item sidebar-explore-all" hidden>
-            <a href="#">
-                Explore All...
-            </a>
-        </li>
-    </ul>
-
+    <li class="sidebar-list-item sidebar-explore-all" hidden>
+        <a href="#">
+            Explore All...
+        </a>
+    </li>
 
     <div class="sidebar-divider"></div>
-    <ul class="sidebar-menu-ul-category">
-        <li class="sidebar-list-item">
-            <a href="#">
-                Twimbit
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Creator
-            </a>
-        </li>
-        <li class="sidebar-list-item">
-            <a href="#">
-                Library
-            </a>
-        </li>
-        <li class="sidebar-list-item sidebar-explore-all" hidden>
-            <a href="#">
-                More...
-            </a>
-        </li>
-    </ul>
+    <?php wp_nav_menu(array(
+        'theme_location' => 'sidebar-bottom-menu',
+        'container_class' => 'menu'
+    ));
+    ?>
 </div>

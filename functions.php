@@ -258,24 +258,7 @@ function twentytwenty_non_latin_languages()
 
 add_action('wp_enqueue_scripts', 'twentytwenty_non_latin_languages');
 
-/**
- * Register navigation menus uses wp_nav_menu in five places.
- */
-function twentytwenty_menus()
-{
 
-	$locations = array(
-		'primary'  => __('Desktop Horizontal Menu', 'twentytwenty'),
-		'expanded' => __('Desktop Expanded Menu', 'twentytwenty'),
-		'mobile'   => __('Mobile Menu', 'twentytwenty'),
-		'footer'   => __('Footer Menu', 'twentytwenty'),
-		'social'   => __('Social Menu', 'twentytwenty'),
-	);
-
-	register_nav_menus($locations);
-}
-
-add_action('init', 'twentytwenty_menus');
 
 /**
  * Get the information about the logo.
@@ -756,6 +739,17 @@ function twentytwenty_get_elements_array()
 	return apply_filters('twentytwenty_get_elements_array', $elements);
 }
 
+/* Wordpress custom menus */
+function wpb_custom_new_menu()
+{
+	register_nav_menus(array(
+		'sidebar-category-menu' => __('Sidebar category menu'),
+		'sidebar-bottom-menu' => __('Sidebar bottom menu')
+	));
+}
+add_action('init', 'wpb_custom_new_menu');
+
+/* Adding acf options page */
 function register_acf_options_pages()
 {
 	if (function_exists('acf_add_options_page')) {
@@ -792,6 +786,7 @@ function getAudioLength($post_id)
 }
 
 add_action('save_post', 'cal_post_time');
+
 
 function cal_post_time($post_id)
 {
