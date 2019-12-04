@@ -31,7 +31,7 @@ $dir_path = get_template_directory_uri();
                         <?php
                         $args = array(
                             'post_type' => array('post'),
-                            'cat' => get_queried_object()->term_id
+                            'cat' => get_queried_object()->term_id,
                         );
                         $posts = get_posts($args);
                         foreach ($posts as $post) {
@@ -71,21 +71,23 @@ $dir_path = get_template_directory_uri();
                                                     <?php
                                                         if ($post_type == 'podcast') { ?>
                                                         <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
-                                                    <?php    } else if ($post_type == 'read') { ?>
+                                                    <?php } elseif ($post_type == 'read') { ?>
                                                         <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
-                                                    <?php    }
-                                                        ?>
-                                                </div>
-                                                <div class="add-to-queue">
-                                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-
+                                <div class="add-to-queue" on="tab:add-queue-menu.show()">
+                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+                                </div>
+                                <div id="add-queue-menu" hidden>
+                                    hello
+                                </div>
                             </div>
-                        <?php }
+                        <?php
+                        }
                         ?>
                     </div>
                 </div>
