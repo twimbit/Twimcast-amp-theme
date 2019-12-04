@@ -21,7 +21,7 @@ $dir_path = get_template_directory_uri();
                             <?php echo get_queried_object()->name; ?>
                         </h3>
                         <div class="post-author-name">
-                            <p><span>Jessi</span><span>CX</span></p>
+                            <p hidden><span>Jessi</span><span>CX</span></p>
                         </div>
                     </div>
                     <div class="post-excerpt">
@@ -75,16 +75,14 @@ $dir_path = get_template_directory_uri();
                                                         <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
                                                     <?php } ?>
                                                 </div>
+                                                <div class="add-to-queue" on="tab:add-queue-menu.show()">
+                                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                                <div class="add-to-queue" on="tab:add-queue-menu.show()">
-                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
-                                </div>
-                                <div id="add-queue-menu" hidden>
-                                    hello
-                                </div>
+
                             </div>
                         <?php
                         }
