@@ -15,6 +15,7 @@
                     </div>
                     <div class="post-title">
                         <h3>
+                            <!-- post content -->
                             <?php the_title(); ?>
                         </h3>
                         <div class="post-author-name">
