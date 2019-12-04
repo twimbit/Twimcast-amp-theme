@@ -104,6 +104,38 @@ body {
   word-wrap: break-word;
 }
 
+.post-play div {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #494949;
+    font-size: 15px;
+}
+
+.post-play {
+    position: absolute;
+    bottom: -24px;
+    right: 66px;
+    background-color: #fff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 22px 23px #00000029;
+}
+
+.podcast-player {
+    position: absolute;
+    bottom: 54px;
+    left: 0;
+    right: 0;
+    transition: display 1s;
+}
+
 .menu li:hover {
     font-weight: bold;
 }
@@ -119,6 +151,7 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-transform: capitalize;
 }
 
 ul {}
@@ -335,6 +368,7 @@ section.postArea {
 .post-image {
     height: 250px;
     box-shadow: 0px 22px 23px #00000029;
+    position: relative;
 }
 .post-image img{
    object-fit:cover;
@@ -390,6 +424,7 @@ li.sidebar-list-item:hover{
 
 .sidebar-menu {
   flex: 1;
+  position: relative;
 }
 
 ul.sidebar-menu-ul-category {

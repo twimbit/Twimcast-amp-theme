@@ -70,5 +70,15 @@
         'theme_location' => 'sidebar-bottom-menu',
         'container_class' => 'menu'
     ));
-    ?>
+    if (is_single()) {
+        $audio_url = get_field('audio_upload')['url'];
+        if (!(empty($audio_url))) {
+            ?>
+            <div class="podcast-player" id="player">
+                <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
+                    <div fallback>Your browser doesn’t support HTML5 audio</div>
+                </amp-audio>
+            </div>
+    <?php }
+    } ?>
 </div>

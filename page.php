@@ -11,36 +11,22 @@
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='<?php echo the_post_thumbnail_url('large'); ?>' height="250" layout="fixed-height" alt="a sample image"></amp-img>
-                        <?php $audio_url = get_field('audio_upload')['url'];
-                        if (!(empty($audio_url))) {
-                            ?>
-                            <div class="post-play" id="play-icon">
-                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show()">
-                                    play
-                                </div>
-                            </div>
-                            <div class="post-play" id="pause-icon" hidden>
-                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide()">
-                                    pause
-                                </div>
-                            </div>
-                        <?php } ?>
+                        <amp-img src='https://playground.amp.dev/static/samples/img/image2.jpg' height="250" layout="fixed-height" alt="a sample image"></amp-img>
                     </div>
                     <div class="post-title">
                         <h3>
-                            <!-- post content -->
-                            <?php the_title(); ?>
+                            Customer Experience
                         </h3>
                         <div class="post-author-name">
-                            <p><span><?php print_r($post_author = get_the_author_meta('display_name', $post->post_author)); ?></span><span>CX</span></p>
+                            <p><span>Jessi</span><span>CX</span></p>
                         </div>
                     </div>
                     <div class="post-excerpt">
-                        <p><?php echo the_excerpt(); ?></p>
+                        <p>A deep dive into how you can provide better customer experience at respective industries.</p>
                     </div>
                     <div class="recomended-posts">
-                        <?php echo get_post_field('post_content', get_the_ID()); ?>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero omnis est eum magnam sequi maxime expedita qui. Magnam quo iste, aspernatur qui ad et doloribus quasi! Excepturi magni sapiente, dolores ea incidunt repellat repellendus, pariatur unde nostrum saepe eius! Nisi voluptatibus earum labore, at nemo necessitatibus laboriosam optio tenetur, minima minus natus cupiditate, deleniti cum veniam veritatis ut repellendus delectus. Dolorem, ratione? Sapiente soluta accusamus qui ipsam quo tempore! Debitis rerum voluptates labore molestiae pariatur beatae, ex quia distinctio? Earum modi laboriosam enim delectus dolore voluptas. Iste reprehenderit beatae ullam vitae, dignissimos, labore accusantium ducimus suscipit reiciendis sequi quibusdam nisi?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint deleniti dolores beatae eaque, doloribus placeat aspernatur fugiat non et totam facere minus pariatur praesentium atque assumenda perspiciatis dicta ratione. Inventore, fugiat deleniti. Repudiandae unde iste ipsa, velit in eaque quod. Harum reprehenderit quod quidem architecto, repudiandae minima, assumenda error atque exercitationem suscipit accusamus saepe maiores doloremque, nihil autem. Ab vero quos asperiores iure ipsum delectus nisi quaerat similique praesentium totam, sequi voluptatibus, obcaecati eius quis repudiandae sit eveniet, qui ut? Fuga ab neque quam maiores id, incidunt cum ex vitae error modi voluptatibus fugiat in exercitationem optio earum perferendis, impedit eaque corrupti corporis eius qui voluptatum libero deleniti? A ducimus excepturi delectus soluta nostrum saepe labore quasi corrupti quia? Consequuntur quasi pariatur numquam at eaque! Veniam officia quos, reprehenderit consectetur temporibus optio debitis nostrum dolore quis fugiat aspernatur aliquam nesciunt accusantium numquam recusandae asperiores sed quaerat, fugit in facilis officiis! Quaerat aut quibusdam possimus, tempora laudantium ipsum libero alias rem, repellendus, suscipit harum assumenda explicabo neque vel? Et in expedita autem nemo iste! Nostrum laudantium at illum labore facere iusto minus sunt itaque! Vel, sunt soluta. Officiis et eaque vero, quia error veniam consequuntur iste. Cupiditate, quas consectetur! Deserunt, optio!</p>
                     </div>
                 </div>
             </div>
