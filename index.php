@@ -11,7 +11,7 @@ $dir_path = get_template_directory_uri();
 	<section class="widget-area">
 		<div id="main-widget-area" class="widget-area-section">
 			<?php $widgets = get_field('add_widgets', 'options');
-			//print_r($widgets);
+			print_r($widgets);
 			foreach ($widgets as $widget) {
 				if ($widget['acf_fc_layout'] == 'custom_carousel') {
 					$title = $widget['title'];
@@ -288,10 +288,16 @@ $dir_path = get_template_directory_uri();
 					<?php	} else if ($widget['acf_fc_layout'] == 'list_category') {
 							$title = $widget['title'];
 							$cat = $widget['category']->term_id;
+							$tags = array();
+							foreach ($widget['tags'] as $tag) {
+								//pushing tags in tags array
+								array_push($tags, $tag->name);
+							}
+							print_r($tags);
 							$args = array(
 								'post_type' => array('post'),
 								'cat' => $cat,
-								'tag' => array('trending')
+								'tag' => $tags
 							);
 							$posts = get_posts($args);
 							if (empty(!($posts))) { ?>
