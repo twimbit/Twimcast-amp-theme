@@ -13,7 +13,7 @@
     </a>
 
     <div class="sidebar-icon">
-        <a href="#">
+        <a href="#" on="tap:twimcast-sidebar.toggleClass(class='show')">
             <svg id="menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="16" viewBox="0 0 22 16">
                 <defs>
                     <clipPath id="clip-path">
@@ -75,6 +75,19 @@
         if (!(empty($audio_url))) {
             ?>
             <div class="podcast-player" id="player">
+                <div class="podcast-player-container">
+                    <div class="podcast-player-thumbnail">
+                        <amp-img src='<?php echo the_post_thumbnail_url('thumbnail'); ?>' height="52" width="52" alt="a sample image"></amp-img>
+                    </div>
+                    <div class="podcast-player-info">
+                        <div class="podcast-player-title">
+                            <h3><?php the_title(); ?></h3>
+                        </div>
+                        <div class="podcast-player-playlist">
+                            Playing from my list
+                        </div>
+                    </div>
+                </div>
                 <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>

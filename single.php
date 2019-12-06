@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+$dir_path = get_template_directory_uri();
+?>
 
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">
@@ -17,12 +19,12 @@
                             ?>
                             <div class="post-play" id="play-icon">
                                 <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show()">
-                                    play
+                                <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                             <div class="post-play" id="pause-icon" hidden>
                                 <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide()">
-                                    pause
+                                <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                         <?php } ?>

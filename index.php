@@ -3,7 +3,7 @@ $dir_path = get_template_directory_uri();
 ?>
 
 <main id="site-content" role="main">
-    <section id="twimcast-sidebar">
+    <section id="twimcast-sidebar" class="">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
@@ -234,7 +234,7 @@ $dir_path = get_template_directory_uri();
                         ?>
                     <div class="suggested-widget explore-all" style="max-width:900px">
                         <p><?php echo $title; ?> </p>
-                        <amp-carousel class="featured-carousel" type="carousel" controls height="315px">
+                        <amp-carousel class="featured-carousel" type="carousel" controls height="325px">
                             <?php
                                     foreach ($posts as $post) {
                                         $featured_image = get_the_post_thumbnail_url($post, 'medium');
