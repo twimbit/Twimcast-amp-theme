@@ -772,7 +772,8 @@ add_action('acf/init', 'register_acf_options_pages');
 /* getting reading time of post given on post id */
 function get_reading_time($post_id)
 {
-	$reading_time = do_shortcode('[get_reading_time label=”Reading Time:” postfix=”minutes” post_id=' . $post_id . ']');
+	//$reading_time = do_shortcode('[get_reading_time label=”Reading Time:” postfix=”minutes” post_id=' . $post_id . ']');
+	$reading_time =	get_post_meta($post_id)['reading_time'][0];
 	return $reading_time;
 }
 
@@ -792,10 +793,10 @@ add_action('save_post', 'cal_post_time');
 function cal_post_time($post_id)
 {
 	$fields_array = get_fields(get_post($post_id));
-	if ($fields_array['content_type'] == 'podcast') {
+	if ($fields_array['intent_type'] == 'podcast') {
 		$podcast_length =  getAudioLength($post_id);
 		update_field('length', $podcast_length, $post_id);
-	} else if ($fields_array['content_type'] == 'read') {
+	} else if ($fields_array['intent_type'] == 'read') {
 		$getReadingTime = get_reading_time($post_id);
 		update_field('length', $getReadingTime, $post_id);
 	}

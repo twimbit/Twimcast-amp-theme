@@ -1,4 +1,4 @@
-<?php get_header(); 
+<?php get_header();
 $dir_path = get_template_directory_uri();
 ?>
 
@@ -18,13 +18,13 @@ $dir_path = get_template_directory_uri();
                         if (!(empty($audio_url))) {
                             ?>
                             <div class="post-play" id="play-icon">
-                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show()">
-                                <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
+                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')">
+                                    <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                             <div class="post-play" id="pause-icon" hidden>
-                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide()">
-                                <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
+                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')">
+                                    <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                         <?php } ?>
@@ -38,11 +38,13 @@ $dir_path = get_template_directory_uri();
                             <p><span><?php print_r($post_author = get_the_author_meta('display_name', $post->post_author)); ?></span><span>CX</span></p>
                         </div>
                     </div>
-                    <div class="post-excerpt">
+                    <div class="post-excerpt" hidden>
                         <p><?php echo the_excerpt(); ?></p>
                     </div>
                     <div class="recomended-posts">
-                        <?php echo get_post_field('post_content', get_the_ID()); ?>
+                        <?php
+                        echo get_post_field('post_content', get_the_ID());
+                        ?>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
     </a>
 
     <div class="sidebar-icon">
-        <a href="#" on="tap:twimcast-sidebar.toggleClass(class='show')">
+        <div href="#" on="tap:twimcast-sidebar.toggleClass(class='show')">
             <svg id="menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="16" viewBox="0 0 22 16">
                 <defs>
                     <clipPath id="clip-path">
@@ -22,7 +22,7 @@
                 </defs>
                 <path id="_Icon_Сolor-2" data-name="🎨 Icon Сolor" d="M1.158,16A1.218,1.218,0,0,1,0,14.735V14.6a1.219,1.219,0,0,1,1.158-1.266H20.841A1.22,1.22,0,0,1,22,14.6v.136A1.219,1.219,0,0,1,20.841,16Zm0-6.666A1.219,1.219,0,0,1,0,8.068V7.932A1.218,1.218,0,0,1,1.158,6.667H20.841A1.219,1.219,0,0,1,22,7.932v.136a1.22,1.22,0,0,1-1.159,1.266Zm0-6.667A1.218,1.218,0,0,1,0,1.4V1.265A1.218,1.218,0,0,1,1.158,0H20.841A1.219,1.219,0,0,1,22,1.265V1.4a1.219,1.219,0,0,1-1.159,1.265Z" transform="translate(0)" fill="#0d1c2e" />
             </svg>
-        </a>
+        </div>
     </div>
 </div>
 <div class="sidebar-signup">
@@ -74,10 +74,11 @@
         $audio_url = get_field('audio_upload')['url'];
         if (!(empty($audio_url))) {
             ?>
-            <div class="podcast-player" id="player">
+            <div class="podcast-player hide-player" id="player">
                 <div class="podcast-player-container">
                     <div class="podcast-player-thumbnail">
-                        <amp-img src='<?php echo the_post_thumbnail_url('thumbnail'); ?>' height="52" width="52" alt="a sample image"></amp-img>
+                        <amp-img src='<?php echo the_post_thumbnail_url('thumbnail'); ?>' height="52" width="52" alt="a sample image">
+                        </amp-img>
                     </div>
                     <div class="podcast-player-info">
                         <div class="podcast-player-title">
