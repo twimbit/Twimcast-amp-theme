@@ -43,7 +43,7 @@
                                             if ($post_type == 'podcast') { ?>
                                         <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
                                     <?php    } else if ($post_type == 'read') { ?>
-                                        <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+                                        <span>read</span><img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
                                     <?php    }
                                             ?>
                                 </div>
@@ -83,7 +83,7 @@
                                                 if ($post_type == 'podcast') { ?>
                                             <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
                                         <?php    } else if ($post_type == 'read') { ?>
-                                            <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+                                            <span>read</span> <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
                                         <?php    }
                                                 ?>
                                     </div>

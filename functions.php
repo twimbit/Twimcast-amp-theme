@@ -209,13 +209,6 @@ function twentytwenty_register_scripts()
 
 	//wp_enqueue_script('twentytwenty-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false);
 	//wp_script_add_data('twentytwenty-js', 'async', true);
-
-	/*==============Amp scripts====================*/
-	wp_enqueue_script('amp-carousel', 'https://cdn.ampproject.org/v0/amp-carousel-0.2.js', array(), $theme_version, false);
-	wp_enqueue_script('amp-project', 'https://cdn.ampproject.org/v0.js', array(), $theme_version, false);
-	wp_enqueue_script('amp-list', 'https://cdn.ampproject.org/v0/amp-list-0.1.js', array(), $theme_version, false);
-	wp_enqueue_script('amp-bind', 'https://cdn.ampproject.org/v0/amp-bind-0.1.js', array(), $theme_version, false);
-	wp_enqueue_script('amp-audio', 'https://cdn.ampproject.org/v0/amp-audio-0.1.js', array(), $theme_version, false);
 }
 
 add_action('wp_enqueue_scripts', 'twentytwenty_register_scripts');
