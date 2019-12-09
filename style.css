@@ -556,19 +556,19 @@ section.postArea {
 }
 
 .light-share-container {
-    padding: 42px 45px 24px 45px;
-    background-color: #fff;
-    position: relative;
+  padding: 42px 45px 24px 45px;
+  background-color: #fff;
+  position: relative;
 }
 
 .light-share-container svg {
-    position: absolute;
-    transform: scale(0.6);
-    width: 32px;
-    height: 32px;
-    right: 4px;
-    top: 6px;
-    cursor: pointer;
+  position: absolute;
+  transform: scale(0.6);
+  width: 32px;
+  height: 32px;
+  right: 4px;
+  top: 6px;
+  cursor: pointer;
 }
 
 .post-right-container {
@@ -1104,9 +1104,7 @@ ul {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   word-break: break-word;
 }
-.sub-cat amp-img {
-  opacity: 0.5;
-}
+
 .sub-cat p {
   position: relative;
   top: -103px;
@@ -1114,6 +1112,29 @@ ul {
   width: 120px;
   font-size: 19px;
   color: #fff;
+  z-index: 2;
+  color: #fff;
+  white-space: normal;
+  height: 87px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 1.12;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-shadow: 2px 2px 4px #000;
+}
+
+amp-carousel {
+  padding-left: 46px;
+  padding-right: 46px;
+}
+
+.amp-carousel-button-prev {
+  left: 0px;
+}
+.amp-carousel-button-next {
+  right: 0px;
 }
 .sub-cat img {
   object-fit: cover;
@@ -1376,4 +1397,19 @@ ul {
 }
 .lightbox h1 {
   color: white;
+}
+.thumbnail-carousel {
+  position: relative;
+  height: 110px;
+}
+.thumbnail-carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.26);
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }

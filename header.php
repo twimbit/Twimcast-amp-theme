@@ -1,19 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="no-js" <?php language_attributes(); ?>>
+<html class="no-js" lang="en-US" amp="">
 
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<!-- Amp scripts -->
-	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-	<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
-	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 	<!-- iphone meta tags	 -->
 	<?php if (have_posts()) : while (have_posts()) : the_post();
 		endwhile;

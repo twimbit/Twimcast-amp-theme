@@ -16,7 +16,7 @@
             $image_url = $image['image']['sizes']['large'];
             $url = $image['link'];
             ?>
-            <a href="<?php echo $url; ?>">
+            <a href="<?php echo $url; ?>" style="width:690px">
                 <amp-img src='<?php echo $image_url; ?>' height="300" layout="fixed-height" alt="a sample image"></amp-img>
             </a>
         <?php } ?>
