@@ -57,17 +57,17 @@ $dir_path = get_template_directory_uri();
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='<?php echo the_post_thumbnail_url('large'); ?>' height="250" layout="fixed-height" alt="a sample image"></amp-img>
+                        <amp-img src='<?php echo the_post_thumbnail_url('large'); ?>' height="250" layout="responsive" width="768" alt="a sample image"></amp-img>
                         <?php $audio_url = get_field('audio_upload')['url'];
                         if (!(empty($audio_url))) {
                             ?>
                             <div class="post-play" id="play-icon">
-                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button">
+                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                     <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                             <div class="post-play" id="pause-icon" hidden>
-                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')" role="button">
+                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                     <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                                 </div>
                             </div>

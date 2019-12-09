@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
+                <amp-audio width="293" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
             </div>

@@ -11,10 +11,12 @@ $dir_path = get_template_directory_uri();
     <section class="postArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
-                <?php $file_url = get_fields(get_queried_object(), 'pdf_file');
+                <?php $file_url = get_field('pdf_file', get_queried_object());
                 if (!(empty($file_url))) { ?>
                     <div class="post-container" style="height: 99%;margin:0">
-                        <iframe height="100%" width="100%" src="<?php echo $dir_path; ?>/web/viewer.html" frameborder="0"></iframe>
+                        <amp-iframe height="130" width="100" layout="responsive" sandbox="allow-scripts allow-same-origin" src="<?php echo $dir_path . '/web/viewer.html?file=' . $file_url; ?>" frameborder="0">
+                            <amp-img layout="fill" src="https://foo.com/foo.png" placeholder></amp-img>
+                        </amp-iframe>
                     </div>
                 <?php } else { ?>
                     <div class="post-container">
@@ -23,18 +25,17 @@ $dir_path = get_template_directory_uri();
                         </div>
                         <div class="post-title">
                             <h3>
-                                Customer Experience
+                                <!-- post content -->
+                                <?php the_title(); ?>
                             </h3>
-                            <div class="post-author-name">
-                                <p><span>Jessi</span><span>CX</span></p>
-                            </div>
                         </div>
                         <div class="post-excerpt">
-                            <p>A deep dive into how you can provide better customer experience at respective industries.</p>
+                            <p><?php echo the_excerpt(); ?></p>
                         </div>
                         <div class="recomended-posts">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero omnis est eum magnam sequi maxime expedita qui. Magnam quo iste, aspernatur qui ad et doloribus quasi! Excepturi magni sapiente, dolores ea incidunt repellat repellendus, pariatur unde nostrum saepe eius! Nisi voluptatibus earum labore, at nemo necessitatibus laboriosam optio tenetur, minima minus natus cupiditate, deleniti cum veniam veritatis ut repellendus delectus. Dolorem, ratione? Sapiente soluta accusamus qui ipsam quo tempore! Debitis rerum voluptates labore molestiae pariatur beatae, ex quia distinctio? Earum modi laboriosam enim delectus dolore voluptas. Iste reprehenderit beatae ullam vitae, dignissimos, labore accusantium ducimus suscipit reiciendis sequi quibusdam nisi?</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint deleniti dolores beatae eaque, doloribus placeat aspernatur fugiat non et totam facere minus pariatur praesentium atque assumenda perspiciatis dicta ratione. Inventore, fugiat deleniti. Repudiandae unde iste ipsa, velit in eaque quod. Harum reprehenderit quod quidem architecto, repudiandae minima, assumenda error atque exercitationem suscipit accusamus saepe maiores doloremque, nihil autem. Ab vero quos asperiores iure ipsum delectus nisi quaerat similique praesentium totam, sequi voluptatibus, obcaecati eius quis repudiandae sit eveniet, qui ut? Fuga ab neque quam maiores id, incidunt cum ex vitae error modi voluptatibus fugiat in exercitationem optio earum perferendis, impedit eaque corrupti corporis eius qui voluptatum libero deleniti? A ducimus excepturi delectus soluta nostrum saepe labore quasi corrupti quia? Consequuntur quasi pariatur numquam at eaque! Veniam officia quos, reprehenderit consectetur temporibus optio debitis nostrum dolore quis fugiat aspernatur aliquam nesciunt accusantium numquam recusandae asperiores sed quaerat, fugit in facilis officiis! Quaerat aut quibusdam possimus, tempora laudantium ipsum libero alias rem, repellendus, suscipit harum assumenda explicabo neque vel? Et in expedita autem nemo iste! Nostrum laudantium at illum labore facere iusto minus sunt itaque! Vel, sunt soluta. Officiis et eaque vero, quia error veniam consequuntur iste. Cupiditate, quas consectetur! Deserunt, optio!</p>
+                            <?php
+                                echo get_post_field('post_content', get_the_ID());
+                                ?>
                         </div>
                     </div>
                 <?php }
