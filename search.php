@@ -81,7 +81,7 @@ if (have_posts()) {
                                                     <?php } ?>
                                                 </div>
                                                 <div class="add-to-queue" on="tab:add-queue-menu.show()">
-                                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+                                                    <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="" role="button">
                                                 </div>
                                             </div>
                                         </div>

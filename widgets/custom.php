@@ -17,7 +17,7 @@
             $url = $image['link'];
             ?>
             <a href="<?php echo $url; ?>" style="width:690px" target="_blank">
-                <amp-img src='<?php echo $image_url; ?>' height="300" layout="fixed-height" alt="a sample image"></amp-img>
+                <amp-img src='<?php echo $image_url; ?>' height="250" layout="fixed-height" alt="a sample image"></amp-img>
             </a>
         <?php } ?>
     </amp-carousel>

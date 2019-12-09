@@ -62,12 +62,12 @@ $dir_path = get_template_directory_uri();
                         if (!(empty($audio_url))) {
                             ?>
                             <div class="post-play" id="play-icon">
-                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')">
+                                <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button">
                                     <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
                             <div class="post-play" id="pause-icon" hidden>
-                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')">
+                                <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')" role="button">
                                     <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                                 </div>
                             </div>
