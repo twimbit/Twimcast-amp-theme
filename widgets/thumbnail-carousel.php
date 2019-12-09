@@ -8,7 +8,9 @@
             $cat_url = get_category_link($category);
             ?>
             <a href="<?php echo $cat_url; ?>" aria-label="Bussiness Model" class="thumbnail-carousel">
-                <amp-img src="<?php echo $cat_thumbnail; ?>" width="160" height="110" alt="suggested thumbnail"></amp-img>
+                <amp-img src="<?php echo $cat_thumbnail; ?>" width="160" height="110" alt="suggested thumbnail">
+                    <amp-img alt="Mountains" fallback height="250" width="160" height="110" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                </amp-img>
                 <p><?php echo $cat_name; ?></p>
             </a>
         <?php } ?>

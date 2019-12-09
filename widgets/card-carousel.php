@@ -1,5 +1,8 @@
 <div class="suggested-widget explore-all" style="max-width:900px">
-    <p><?php echo $title; ?> </p>
+    <p><?php echo $title;
+
+        $dir_path = get_template_directory_uri();
+        ?> </p>
     <amp-carousel class="featured-carousel" type="carousel" controls height="325px">
         <?php
         foreach ($posts as $post) {
@@ -14,7 +17,9 @@
             <div class="featrued-card-container">
                 <a href="<?php echo $post_url; ?>" aria-label="Bussiness Model" aria-label="<?php echo $post_author; ?>">
                     <div class="featured-img">
-                        <amp-img width="251" height="160" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                        <amp-img width="251" height="160" alt="List icon" src="<?php echo $featured_image; ?>">
+                            <amp-img alt="Mountains" fallback width="251" height="160" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                        </amp-img>
                     </div>
                     <div class="rending-title"><?php echo $post_title; ?></div>
                     <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>

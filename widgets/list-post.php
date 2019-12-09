@@ -20,7 +20,9 @@
                     <div class="trending-list-container">
                         <a href="<?php echo $post_url; ?>" aria-label="Bussiness Model">
                             <div class="featured-img">
-                                <amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                                <amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>">
+                                    <amp-img alt="Mountains" fallback height="160" width="193" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                                </amp-img>
                             </div>
                             <div class="rending-title"><?php echo $post_title; ?></div>
                             <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
@@ -60,7 +62,9 @@
                 <div>
                     <a href="<?php echo $post_url; ?>">
                         <div class="trending-list">
-                            <amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                            <amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>">
+                                <amp-img alt="Mountains" fallback height="120" width="120" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                            </amp-img>
                             <div style="flex:1;margin-left:10px">
                                 <div class="rending-title"><?php echo $post_title; ?></div>
                                 <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>

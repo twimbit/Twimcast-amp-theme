@@ -9,7 +9,9 @@
                 $post_title = $post->post_title;
                 ?>
                 <a href="<?php echo $post_url; ?>">
-                    <amp-img src='<?php echo $featured_image; ?>' width="400" height="300" layout="responsive" alt="a sample image"></amp-img>
+                    <amp-img src='<?php echo $featured_image; ?>' width="400" height="300" layout="responsive" alt="a sample image">
+                        <amp-img alt="Mountains" fallback height="300" width="400" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                    </amp-img>
                     <p><?php echo $post_title; ?></p>
                 </a>
             <?php } ?>
