@@ -1,6 +1,6 @@
 <div class="post-right">
     <div class="post-right-container">
-        <div href="#" on="tap:share-icons" role="button" tabindex="1">
+        <div href="#" on="tap:amp-share.toggleClass(class='hide-player')" role="button" tabindex="1" style="outline:none">
             <div class="post-share">
                 <div class="share-text">
                     Share
@@ -31,8 +31,8 @@
                 </p>
             </div>
         <?php } ?>
-        <div class="light-share-container">
-            <svg on="tap:share-icons.close" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">
+        <div class="light-share-container hide-player" id="amp-share">
+            <svg on="tap:amp-share.toggleClass(class='hide-player')" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">
                 <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97 29.698,31.112 31.112,29.698 16.97,15.556 " />
             </svg>
             <amp-social-share class="rounded" type="facebook" data-param-app_id="254325784911610" width="32" height="32"></amp-social-share>

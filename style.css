@@ -105,6 +105,7 @@ body {
   -webkit-font-smoothing: antialiased;
   word-break: break-word;
   word-wrap: break-word;
+  outline: none;
 }
 
 .post-read-time p {
@@ -429,7 +430,7 @@ section.widget-area {
 
 .post-excerpt {
   margin-top: 35px;
-  width: 525px;
+  /* width: 525px; */
   text-align: left;
   letter-spacing: 0;
   color: #494949;
@@ -536,7 +537,7 @@ section.widget-area {
 div#main-post-area {
   flex: 1;
   margin-right: 20px;
-  max-width: 768px;
+  /* max-width: 768px; */
 }
 
 section.postArea {
@@ -562,6 +563,7 @@ section.postArea {
   margin-top: 25px;
   display: flex;
   justify-content: center;
+  transition: opacity 0.4s;
 }
 .light-share-container amp-social-share {
   width: 32px;
@@ -926,6 +928,15 @@ footer.main-footer {
 #myTrendingList a {
   text-decoration: none;
 }
+.post-list {
+  display: flex;
+  height: 100%;
+  margin: 0px;
+  padding: 12px 0;
+  background: transparent
+    linear-gradient(270deg, #fff 0%, #fff 51%, rgba(255, 255, 255, 0) 100%) 0%
+    0% no-repeat padding-box;
+}
 
 .rending-title {
   font-size: 16px;
@@ -943,6 +954,7 @@ footer.main-footer {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   white-space: normal;
+  padding-right: 5px;
 }
 
 .date-time-type {
@@ -1018,7 +1030,8 @@ ul {
 .trending-widget {
   margin: 45px auto;
   min-width: 300px;
-  /* max-width: 400px; */
+  max-width: 900px;
+  padding: 0 22px;
 }
 
 .amp-carousel-style amp-carousel {
@@ -1209,8 +1222,8 @@ ul {
   }
 
   .trending-list > amp-img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
   }
   section.widget-area {
     margin-left: 280px;
@@ -1412,7 +1425,7 @@ ul {
   }
 
   section.postArea {
-    margin-left: 90px;
+    margin-left: 25px;
     /* overflow: auto; */
   }
   .show-sidebar {
@@ -1443,6 +1456,9 @@ ul {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  .trending-widget {
+    max-width: 520px;
+  }
   section.postArea {
     margin-left: auto;
     padding: 0 25px;
@@ -1523,8 +1539,13 @@ ul {
   transform: translate(-244px, 0px);
 }
 
+.hide-item {
+  display: none;
+}
+
 .hide-player {
   opacity: 0;
+  display: none;
 }
 
 .show-player {

@@ -120,7 +120,7 @@ if (empty(!($posts))) {
                 <?php    } else { ?>
                     <div class="<?php if ($i == 5) {
                                                 echo "show-desktop";
-                                            } ?>">
+                                            } ?>" style="padding-top: 4px">
                         <a href="<?php echo $post_url; ?>">
                             <div class="trending-list">
                                 <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>">
@@ -161,7 +161,9 @@ if (empty(!($posts))) {
                                 </div>
                             </div>
                         </a>
-                        <div class="trending-list-divider"></div>
+                        <div class="trending-list-divider <?php if ($i == 4 || $i == 5) {
+                                                                            echo "hide-item";
+                                                                        } ?>"></div>
                     </div>
             <?php if ($i == 5) break;
                     }
