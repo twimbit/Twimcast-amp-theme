@@ -29,7 +29,9 @@
                 $category_url = get_category_link(get_the_category($post->ID)[0]);
                 ?>
                 <a href="<?php echo $post_url; ?>" style="margin:10px" class="image-carousel">
-                    <amp-img src='<?php echo $featured_image; ?>' width="250" height="160" alt="a samp"></amp-img>
+                    <amp-img src='<?php echo $featured_image; ?>' layout="responsive" width="250" height="160" alt="a samp" style="height:160px;width:250px">
+                        <amp-img alt="Mountains" fallback height="160" width="250" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                    </amp-img>
                     <p><?php echo $post_title; ?></p>
                 </a>
             <?php } ?>
