@@ -8,7 +8,7 @@ $card_explore_all = get_category_link(get_the_category($widget['post'][0]->ID)[0
 
         $dir_path = get_template_directory_uri();
         ?> </p>
-    <amp-carousel class="featured-carousel" type="carousel" controls height="325px">
+    <amp-carousel class="featured-carousel" type="carousel" layout="responsive" controls>
         <?php
         foreach ($posts as $post) {
             $featured_image = get_the_post_thumbnail_url($post, 'medium');
