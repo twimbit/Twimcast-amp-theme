@@ -1,3 +1,5 @@
+<?php $title = $widget['title'];
+$media = $widget['media']; ?>
 <div class="custom-carousel amp-carousel-style explore-all">
     <div class="background-svg" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 370.404 387.706">
@@ -11,7 +13,7 @@
         </svg>
     </div>
     <p><?php echo $title; ?> </p>
-    <amp-carousel height="250" type="slides" layout="fixed-height">
+    <amp-carousel height="250" type="slides" layout="responsive">
         <?php foreach ($media as $image) {
             $image_url = $image['image']['sizes']['large'];
             $url = $image['link'];

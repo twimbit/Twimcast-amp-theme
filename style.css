@@ -774,7 +774,7 @@ section#twimcast-sidebar {
   width: 300px;
   /* background-color: #fff; */
   border-radius: 10px;
-  /* display: none; */
+  display: none;
 }
 
 .custom-carousel {
@@ -799,14 +799,14 @@ section#twimcast-sidebar {
 }
 
 footer.main-footer {
-  height: 100px;
+  height: 64px;
   background-color: #fff;
   position: fixed;
   z-index: 10;
   bottom: 0;
   right: 0;
   left: 0;
-  background: transparent;
+  background: #ffffff99;
   filter: drop-shadow(
     0px -1px 5px rgba(0, 0, 0, 0.08)
   ); /* Note: currently only Safari supports backdrop-filter */
@@ -1025,6 +1025,8 @@ ul {
   border-radius: 4px;
   /* box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16); */
   /* margin: 0 10px; */
+  width: 100%;
+  position: relative;
 }
 .amp-carousel-style amp-img {
   border-radius: 4px;
@@ -1205,6 +1207,12 @@ amp-carousel {
   body {
     background-color: #f2f2f1;
   }
+  .thumbnail-widget {
+    margin: 45px auto;
+    min-width: 300px;
+    /* max-width: 400px; */
+  }
+
   .custom-carousel {
     position: relative;
     /* top: 30px; */
@@ -1354,6 +1362,9 @@ amp-carousel {
     padding: 0 30px;
     position: relative;
   }
+  section#twimcast-sidebar {
+    display: block;
+  }
 }
 
 @media (min-width: 770px) and (max-width: 1366px) {
@@ -1374,6 +1385,57 @@ amp-carousel {
     /* display: inline; */
   }
 }
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .thumbnail-widget {
+    margin: 18px auto;
+    min-width: 300px;
+    /* max-width: 400px; */
+  }
+}
+@media (min-width: 320px) {
+  section.widget-area {
+    margin-left: 0;
+  }
+  .widget-area-section {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* top: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+    overflow: auto;
+    /* right: 0; */
+    padding: 0 5px;
+    padding-bottom: 20px;
+  }
+  .amp-carousel-style amp-carousel {
+    height: 160px;
+    /* position: absolute; */
+    border-radius: 4px;
+    /* box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.16); */
+    /* margin: 0 10px; */
+  }
+  .explore-all p {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  .rending-title {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  .trending-list amp-img {
+    width: 100px;
+    height: 100px;
+  }
+  .author-category {
+    height: 20px;
+  }
+  .date-time-type {
+    height: 15px;
+  }
+}
+
 .show {
   transform: translate(0px, 0px) !important;
 }
@@ -1415,4 +1477,10 @@ amp-carousel {
   background-color: rgba(0, 0, 0, 0.26);
   z-index: 1;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.trending-list-content {
+  flex: 1;
+  margin-left: 10px;
+  padding: 0 5px;
 }

@@ -1,3 +1,8 @@
+<?php
+$title = $widget['title'];
+$posts = $widget['post'];
+$category_url = get_category_link(get_the_category($widget['post'][0]->ID)[0]);
+?>
 <div class="trending-widget explore-all">
     <p><?php echo $title; ?> </p>
     <div id="myTrendingList">

@@ -57,7 +57,10 @@ $dir_path = get_template_directory_uri();
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='<?php echo the_post_thumbnail_url('large'); ?>' height="250" width="768" layout="fill" alt="a sample image"></amp-img>
+                        <amp-script width="200" height="50" script="hello-world">
+
+                            <button>Hello amp-script!</button>
+                        </amp-script>
                         <?php $audio_url = get_field('audio_upload')['url'];
                         if (!(empty($audio_url))) {
                             ?>
@@ -93,6 +96,13 @@ $dir_path = get_template_directory_uri();
         </div>
     </section>
 </main><!-- #site-content -->
+
+<script id="hello-world" type="text/plain" target="amp-script">
+    const btn = document.querySelector('button');
+  btn.addEventListener('click', () => {
+   alert('hello');
+  });
+</script>
 
 <?php
 get_footer();

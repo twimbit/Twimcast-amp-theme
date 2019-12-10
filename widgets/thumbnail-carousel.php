@@ -1,4 +1,8 @@
-<div class="trending-widget explore-all">
+<?php
+$title = $widget['title'];
+$categories = $widget['category'];
+?>
+<div class="thumbnail-widget explore-all">
     <p><?php echo $title; ?> </p>
     <amp-carousel class="sub-cat" type="carousel" controls height="120">
         <!-- Loop assigned categories -->
