@@ -12,8 +12,6 @@
 	<meta property="fb:app_id" content="713777305326587" />
 	<meta property="fb:admins" content="1626522259" />
 	<!-- Amp scripts -->
-	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
 	<script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
 	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>

@@ -25,9 +25,9 @@ $posts = $widget['posts'];
 
     <!-- For desktop -->
     <div class="show-desktop">
-        <amp-carousel height="185" type="carousel" controls layout="responsive">
+        <amp-carousel height="0" width="0" type="carousel" controls layout="responsive">
             <?php foreach ($posts as $post) {
-                $featured_image = get_the_post_thumbnail_url($post, 'medium');
+                $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
                 $category_url = get_category_link(get_the_category($post->ID)[0]);

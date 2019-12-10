@@ -4,7 +4,7 @@ $categories = $widget['category'];
 ?>
 <div class="thumbnail-widget explore-all">
     <p><?php echo $title; ?> </p>
-    <amp-carousel class="sub-cat" type="carousel" controls height="120" layout="responsive">
+    <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
         <!-- Loop assigned categories -->
         <?php foreach ($categories as $category) {
             $cat_name = $category->name;

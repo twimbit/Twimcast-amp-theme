@@ -1196,10 +1196,12 @@ ul {
     height: 110px;
     width: 100%;
     position: relative;
+    padding: 0 22px;
   }
   .featured-widget amp-carousel {
     width: 100%;
     height: 178px;
+    padding: 0 22px;
   }
 
   .trending-list > amp-img {
@@ -1219,6 +1221,7 @@ ul {
   .featured-carousel {
     width: 100%;
     position: relative;
+    padding: 0 22px;
   }
   .custom-carousel {
     position: relative;
@@ -1242,26 +1245,26 @@ ul {
     left: 12px;
   }
   .sub-cat .amp-carousel-button-prev {
-    left: -30px;
+    left: -12px;
   }
 
   .sub-cat .amp-carousel-button-next {
-    left: 30px;
+    left: 12px;
   }
 
   .featured-carousel .amp-carousel-button-prev {
-    left: -30px;
+    left: -12px;
   }
 
   .featured-carousel .amp-carousel-button-next {
-    left: 30px;
+    left: 12px;
   }
   .featured-widget .amp-carousel-button-prev {
-    left: -30px;
+    left: -12px;
   }
 
   .featured-widget .amp-carousel-button-next {
-    left: 30px;
+    left: 12px;
   }
 
   .featured-widget {
