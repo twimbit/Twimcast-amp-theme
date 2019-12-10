@@ -6,7 +6,7 @@ Requires at least: 4.7
 Requires PHP: 5.2.4
 Github Theme URI: https://github.com/twimbit/Twimcast-amp-theme
 Description: Developed and maintained by twimbit tech team.
-Author: the WordPress team
+Author: The Twimbit Tech Team
 Author URI: https://twimbit.com/
 Theme URI: https://twimbit.com
 License: GNU General Public License v2 or later
@@ -1202,7 +1202,7 @@ ul {
     height: 178px;
   }
 
-  .trending-list amp-img {
+  .trending-list > amp-img {
     width: 120px;
     height: 120px;
   }
@@ -1214,6 +1214,7 @@ ul {
     min-width: 300px;
     /* max-width: 900px; */
     padding: 0 22px;
+    overflow: hidden;
   }
   .featured-carousel {
     width: 100%;
@@ -1234,11 +1235,11 @@ ul {
   }
 
   .custom-carousel .amp-carousel-button-prev {
-    left: -23px;
+    left: -12px;
   }
 
   .custom-carousel .amp-carousel-button-next {
-    left: 23px;
+    left: 12px;
   }
   .sub-cat .amp-carousel-button-prev {
     left: -30px;
@@ -1271,6 +1272,8 @@ ul {
     border-radius: 10px;
     margin: 45px auto 16px auto;
     padding: 0 22px;
+    /* height: 178px; */
+    overflow: hidden;
   }
   .trending-widget {
     margin: 45px auto;
@@ -1361,6 +1364,7 @@ ul {
     margin: 45px auto;
     min-width: 300px;
     padding: 0 22px;
+    overflow: hidden;
     position: relative;
   }
 
@@ -1442,7 +1446,7 @@ ul {
   .widget-area-section {
     padding: 0 5px;
   }
-  .trending-list amp-img {
+  .trending-list > amp-img {
     width: 100px;
     height: 100px;
   }

@@ -1,6 +1,6 @@
 <?php
 $title = $widget['title'];
-$cat = $widget['category']->term_id;
+$cat = $widget['category'][0]->term_id;
 $list_category_explore_all = get_category_link($cat);
 $tags = array();
 foreach ((array) $widget['tags'] as $tag) {
