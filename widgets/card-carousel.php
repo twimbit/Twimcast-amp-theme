@@ -3,7 +3,7 @@ $title = $widget['title'];
 $post = $widget['post'];
 $card_explore_all = get_category_link(get_the_category($widget['post'][0]->ID)[0]);
 ?>
-<div class="suggested-widget explore-all" style="max-width:900px">
+<div class="suggested-widget explore-all">
     <p><?php echo $title;
 
         $dir_path = get_template_directory_uri();
