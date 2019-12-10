@@ -556,25 +556,33 @@ section.postArea {
 }
 
 .light-share-container {
-  padding: 42px 45px 24px 45px;
+  padding: 25px 0px 10px 0px;
   background-color: #fff;
   position: relative;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
-
-.light-share-container svg {
-  position: absolute;
-  transform: scale(0.6);
+.light-share-container amp-social-share {
   width: 32px;
   height: 32px;
-  right: 4px;
-  top: 6px;
+  margin-right: 5px;
+}
+.light-share-container svg {
+  position: absolute;
+  transform: scale(0.4);
+  width: 32px;
+  height: 32px;
+  right: 0px;
+  top: 0px;
   cursor: pointer;
 }
 
 .post-right-container {
-  margin-top: 76px;
   position: fixed;
   width: 224px;
+  height: 100vh;
+  padding-top: 76px;
 }
 .post-right-container a {
   text-decoration: none;
@@ -1173,13 +1181,8 @@ ul {
 }
 
 @media (max-width: 1280px) {
-  .post-right-container {
-    width: 130px;
-  }
   .postArea {
-    margin-left: 0;
     overflow: hidden;
-    padding-left: 0px !important;
   }
   .post-container {
     height: 99%;
@@ -1192,6 +1195,7 @@ ul {
   body {
     background-color: #f2f2f1;
   }
+
   .thumbnail-widget amp-carousel {
     height: 110px;
     width: 100%;
@@ -1439,6 +1443,19 @@ ul {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  section.postArea {
+    margin-left: auto;
+    padding: 0 25px;
+  }
+  .postArea-container {
+    min-width: auto;
+  }
+  div#main-post-area {
+    margin-right: auto;
+  }
+  .post-right {
+    display: none;
+  }
   .amp-carousel-style amp-carousel {
     height: 160px;
     border-radius: 4px;

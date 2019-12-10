@@ -31,6 +31,15 @@
                 </p>
             </div>
         <?php } ?>
+        <div class="light-share-container">
+            <svg on="tap:share-icons.close" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">
+                <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97 29.698,31.112 31.112,29.698 16.97,15.556 " />
+            </svg>
+            <amp-social-share class="rounded" type="facebook" data-param-app_id="254325784911610" width="32" height="32"></amp-social-share>
+            <amp-social-share class="rounded" type="linkedin" width="32" height="32"></amp-social-share>
+            <amp-social-share class="rounded" type="twitter" width="32" height="32"></amp-social-share>
+            <amp-social-share class="rounded" type="whatsapp" width="32" height="32"></amp-social-share>
+        </div>
     </div>
     <div class="post-playlist">
         <input type=text placeholder="Playlist" name=share id=post-subscribe aria-label="Search imput" />
@@ -38,20 +47,4 @@
             <a href="#">Subscribe</a>
         </div>
     </div>
-
-    <!-- Amp light box for share icons-->
-    <amp-lightbox id="share-icons" layout="nodisplay">
-        <div class="lightbox" on="tap:my-lightbox.close" role="button" tabindex="0">
-            <div class="light-share-container">
-                <svg on="tap:share-icons.close" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">
-                    <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97 29.698,31.112 31.112,29.698 16.97,15.556 " />
-                </svg>
-                <amp-social-share class="rounded" type="facebook" data-param-app_id="254325784911610" width="48" height="48"></amp-social-share>
-                <amp-social-share class="rounded" type="linkedin" width="48" height="48"></amp-social-share>
-                <amp-social-share class="rounded" type="twitter" width="48" height="48"></amp-social-share>
-                <amp-social-share class="rounded" type="whatsapp" width="48" height="48"></amp-social-share>
-            </div>
-        </div>
-    </amp-lightbox>
-    <!-- Amp light box end -->
 </div>
