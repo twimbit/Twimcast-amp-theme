@@ -1,6 +1,6 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
-$featured_image = the_post_thumbnail_url('large');
+$featured_image = get_the_post_thumbnail_url('large');
 if ((empty($featured_image))) {
     $featured_image = getRandomImageForCategory();
 }

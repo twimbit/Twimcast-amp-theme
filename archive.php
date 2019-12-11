@@ -27,7 +27,7 @@ if ((empty($cat_img))) {
                             <p hidden><span>Jessi</span><span>CX</span></p>
                         </div>
                     </div>
-                    <div class="post-excerpt">
+                    <div class="post-excerpt" hidden>
                         <p><?php echo get_queried_object()->category_description; ?></p>
                     </div>
                     <div class="recomended-posts" style="font-family: 'Montserrat';">

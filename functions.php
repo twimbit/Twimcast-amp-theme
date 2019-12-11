@@ -939,3 +939,13 @@ function wpbeginner_numeric_posts_nav()
 
 	echo '</ul></div>' . "\n";
 }
+
+//add_action('pre_post_update', 'wpse_105297_max_char');
+function wpse_105297_max_char($post_id)
+{
+	$post = get_post($post_id);
+	$title = $post->post_title;
+	$id = $post->ID;
+	$url = $bloginfo->url;
+	if (strlen($title) >= 5) wp_die("The max lenght is 100 for title");
+}
