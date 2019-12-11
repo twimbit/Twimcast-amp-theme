@@ -1,5 +1,9 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
+$featured_image = the_post_thumbnail_url('large');
+if ((empty($featured_image))) {
+    $featured_image = getRandomImageForCategory();
+}
 ?>
 <style scoped>
     h1,
@@ -57,7 +61,7 @@ $dir_path = get_template_directory_uri();
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='<?php echo the_post_thumbnail_url('large'); ?>' height="250" width="768" layout="fill" alt="a sample image"></amp-img>
+                        <amp-img src='<?php echo $featured_image; ?>' height="250" width="768" layout="fill" alt="a sample image"></amp-img>
                         <?php $audio_url = get_field('audio_upload')['url'];
                         if (!(empty($audio_url))) {
                             ?>
@@ -91,6 +95,7 @@ $dir_path = get_template_directory_uri();
             </div>
             <?php get_template_part('templates/twimcast', 'right') ?>
         </div>
+
     </section>
 </main><!-- #site-content -->
 

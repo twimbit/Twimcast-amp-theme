@@ -10,6 +10,9 @@ $categories = $widget['category'];
             $cat_name = $category->name;
             $cat_thumbnail = get_field('thumbnail', $category)['sizes']['thumbnail'];
             $cat_url = get_category_link($category);
+            if ((empty($cat_thumbnail))) {
+                $cat_thumbnail = getRandomImageForCategory();
+            }
             ?>
             <a href="<?php echo $cat_url; ?>" aria-label="Bussiness Model" class="thumbnail-carousel">
                 <amp-img src="<?php echo $cat_thumbnail; ?>" width="150" height="110" alt="suggested thumbnail">

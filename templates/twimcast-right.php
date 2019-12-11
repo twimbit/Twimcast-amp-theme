@@ -30,6 +30,13 @@
                         ?>
                 </p>
             </div>
+            <div class="post-excerpt">
+                <?php echo the_excerpt(); ?>
+            </div>
+        <?php } else if (is_archive()) { ?>
+            <div class="post-excerpt">
+                <?php echo get_queried_object()->category_description; ?>
+            </div>
         <?php } ?>
         <div class="light-share-container hide-player" id="amp-share">
             <svg on="tap:amp-share.toggleClass(class='hide-player')" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">

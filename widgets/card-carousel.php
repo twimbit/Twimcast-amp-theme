@@ -18,7 +18,11 @@ $card_explore_all = get_category_link(get_the_category($widget['post'][0]->ID)[0
             $post_author = get_the_author_meta('display_name', $post->post_author);
             $post_category = get_the_category($post->ID)[0]->name;
             $post_date = get_the_date('d M', $post);
-            $post_readTime = get_field('length', $post); ?>
+            $post_readTime = get_field('length', $post);
+            if ((empty($featured_image))) {
+                $featured_image = getRandomImageForPost();
+            }
+            ?>
             <div class="featrued-card-container">
                 <a href="<?php echo $post_url; ?>" aria-label="Bussiness Model" aria-label="<?php echo $post_author; ?>">
                     <div class="featured-img">

@@ -10,6 +10,7 @@ if (have_posts()) {
         array_push($s_posts, get_post(get_the_ID()));
     }
 }
+
 //$u_cats = array_unique($s_cats);
 ?>
 
@@ -47,7 +48,11 @@ if (have_posts()) {
                             $post_author = get_the_author_meta('display_name', $post->post_author);
                             $post_category = get_the_category($post->ID)[0]->name;
                             $post_date = get_the_date('d M', $post);
-                            $post_readTime = get_field('length', $post); ?>
+                            $post_readTime = get_field('length', $post);
+                            if ((empty($featured_image))) {
+                                $featured_image = getRandomImageForCategory();
+                            }
+                            ?>
 
                             <div>
                                 <a href="<?php echo $post_url; ?>">
@@ -93,6 +98,7 @@ if (have_posts()) {
                         }
                         ?>
                     </div>
+                    <?php wpbeginner_numeric_posts_nav(); ?>
                 </div>
             </div>
             <div class="post-right">

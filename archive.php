@@ -1,6 +1,9 @@
 <?php get_header();
 $cat_img = get_field('thumbnail', get_queried_object())['sizes']['large'];
 $dir_path = get_template_directory_uri();
+if ((empty($cat_img))) {
+    $cat_img = getRandomImageForCategory();
+}
 ?>
 
 <main id="site-content" role="main">
@@ -31,7 +34,9 @@ $dir_path = get_template_directory_uri();
                         <?php
                         $args = array(
                             'post_type' => array('post'),
+                            'posts_per_page' => get_option('posts_per_page'),
                             'cat' => get_queried_object()->term_id,
+                            'paged' => get_query_var('paged') ? absint(get_query_var('paged')) : 1
                         );
                         $posts = get_posts($args);
                         foreach ($posts as $post) {
@@ -43,7 +48,11 @@ $dir_path = get_template_directory_uri();
                             $post_category = get_the_category($post->ID)[0]->name;
                             $post_date = get_the_date('d M', $post);
                             $post_readTime = get_field('length', $post);
-                            $post_type = get_field('intent_type', $post); ?>
+                            $post_type = get_field('intent_type', $post);
+                            if ((empty($featured_image))) {
+                                $featured_image = getRandomImageForCategory();
+                            }
+                            ?>
 
                             <div>
                                 <a href="<?php echo $post_url; ?>">
@@ -88,7 +97,9 @@ $dir_path = get_template_directory_uri();
                         <?php
                         }
                         ?>
+
                     </div>
+                    <?php wpbeginner_numeric_posts_nav(); ?>
                 </div>
             </div>
             <?php get_template_part('templates/twimcast', 'right') ?>

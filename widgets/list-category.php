@@ -31,6 +31,9 @@ if (empty(!($posts))) {
                     $post_date = get_the_date('d M', $post);
                     $post_readTime = get_field('length', $post);
                     $post_type = get_field('intent_type', $post);
+                    if ((empty($featured_image))) {
+                        $featured_image = getRandomImageForPost();
+                    }
                     if ($i == 1) { ?>
                     <div class="trending-first show-desktop">
                         <div class="trending-list-container">
@@ -77,7 +80,7 @@ if (empty(!($posts))) {
                     <div class="show-mobile">
                         <a href="<?php echo $post_url; ?>">
                             <div class="trending-list">
-                                <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>">
+                                <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>" >
                                     <amp-img alt="Mountains" fallback height="120" width="120" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                                 </amp-img>
                                 <div class="trending-list-content">

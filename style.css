@@ -138,7 +138,7 @@ a.image-carousel::before {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #00000042;
+  background-color: rgba(0, 0, 0, 0.45);
   z-index: 1;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
@@ -216,6 +216,10 @@ section.postArea h4 {
   justify-content: center;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.i-amphtml-replaced-content {
+  object-fit: cover;
 }
 
 .podcast-player-thumbnail {
@@ -420,7 +424,7 @@ section.widget-area {
   padding-top: 40px;
   display: grid;
   grid-row-gap: 15px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .recomended-posts a {
@@ -429,13 +433,13 @@ section.widget-area {
 }
 
 .post-excerpt {
-  margin-top: 35px;
+  margin-top: 20px;
   /* width: 525px; */
   text-align: left;
   letter-spacing: 0;
   color: #494949;
   opacity: 1;
-  font-size: 18px;
+  font-size: 14px;
   /* border-bottom: 1px solid #00000052; */
   padding-bottom: 35px;
 }
@@ -605,6 +609,9 @@ section.postArea {
   margin-top: 76px;
   flex: 1;
   padding-bottom: 20px;
+  max-width: 768px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .sidebar-divider {
@@ -1210,7 +1217,7 @@ ul {
   }
 
   .thumbnail-widget amp-carousel {
-    height: 110px;
+    height: 120px;
     width: 100%;
     position: relative;
     padding: 0 22px;
@@ -1325,7 +1332,7 @@ ul {
     max-width: 940px;
     position: relative;
     overflow: auto;
-    padding: 0px 54px 50px 54px;
+    padding: 0px 0 50px 0;
     margin: 0 auto;
   }
   .explore-all img {
@@ -1574,7 +1581,41 @@ ul {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.45);
   z-index: 1;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Pagination css */
+.navigation {
+  font-family: "Montserrat";
+  text-align: center;
+  margin-bottom: 40px;
+}
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation li {
+  display: inline;
+}
+
+.navigation li a,
+.navigation li a:hover,
+.navigation li.active a,
+.navigation li.disabled {
+  background-color: #9d9283;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 12px;
+  padding: 0.75rem;
+}
+
+.navigation li a:hover,
+.navigation li.active a {
+  background-color: #534d44;
 }

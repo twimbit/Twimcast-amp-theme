@@ -11,6 +11,9 @@ $posts = $widget['posts'];
                 $featured_image = get_the_post_thumbnail_url($post, 'medium');
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
+                if ((empty($featured_image))) {
+                    $featured_image = getRandomImageForPost();
+                }
                 ?>
                 <a href="<?php echo $post_url; ?>">
                     <amp-img src='<?php echo $featured_image; ?>' width="400" height="300" layout="responsive" alt="a sample image">
@@ -31,6 +34,9 @@ $posts = $widget['posts'];
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
                 $category_url = get_category_link(get_the_category($post->ID)[0]);
+                if ((empty($featured_image))) {
+                    $featured_image = getRandomImageForPost();
+                }
                 ?>
                 <a href="<?php echo $post_url; ?>" style="margin:10px" class="image-carousel">
                     <amp-img src='<?php echo $featured_image; ?>' layout="responsive" width="250" height="160" alt="a samp" style="height:160px;width:250px">
