@@ -23,9 +23,12 @@ wp.domReady(function() {
   /* Adding class to element */
   exceedText.classList = "wp-block-limit";
 
+  /* inserting exceed limit element */
+  textAreaWrapper.insertBefore(exceedText, textAreaWrapper.firstChild);
+  exceedText.innerHTML = textArea.value.length + "/" + maxlen;
+
   /* event listner on textarea */
   textArea.addEventListener("keyup", function() {
-    textAreaWrapper.insertBefore(exceedText, textAreaWrapper.firstChild);
     exceedText.innerHTML = textArea.value.length + "/" + maxlen;
   });
 });
