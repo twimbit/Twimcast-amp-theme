@@ -5,6 +5,7 @@
  */
 /* global wp */
 wp.domReady(function() {
+  /* Twimcast custom wp-block title text area character limiting code */
   wp.blocks.unregisterBlockStyle("core/button", "squared");
   let textArea = document.querySelector(".wp-block textarea");
   textArea.setAttribute("maxlength", "100");

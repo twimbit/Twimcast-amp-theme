@@ -17,7 +17,7 @@ if ((empty($cat_img))) {
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
                     <div class="post-image">
-                        <amp-img src='<?php echo $cat_img; ?>' height="250" layout="fixed-height" alt="a sample image"></amp-img>
+                        <amp-img src='<?php echo $cat_img; ?>' height="250" layout="resposive" alt="a sample image"></amp-img>
                     </div>
                     <div class="post-title">
                         <h3>
@@ -99,7 +99,15 @@ if ((empty($cat_img))) {
                         ?>
 
                     </div>
-                    <?php wpbeginner_numeric_posts_nav(); ?>
+                    <?php // Previous/next page navigation.
+                    the_posts_pagination(
+                        array(
+                            'prev_text'          => __('Previous', 'twentytwenty'),
+                            'next_text'          => __('Next', 'twentytwenty'),
+                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'twentytwenty') . ' </span>',
+                        )
+                    );
+                    ?>
                 </div>
             </div>
             <?php get_template_part('templates/twimcast', 'right') ?>
