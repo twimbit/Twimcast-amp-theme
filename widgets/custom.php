@@ -1,5 +1,6 @@
 <?php $title = $widget['title'];
-$media = $widget['media']; ?>
+$media = $widget['media'];
+?>
 <div class="custom-carousel amp-carousel-style explore-all">
     <div class="background-svg" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 370.404 387.706">
@@ -15,11 +16,17 @@ $media = $widget['media']; ?>
     <p><?php echo $title; ?> </p>
     <amp-carousel height="250" type="slides" layout="responsive" width=750>
         <?php foreach ($media as $image) {
+            // print_r($image);
             $image_url = $image['image']['sizes']['large'];
             $url = $image['link'];
+            $width = $image['image']['sizes']['large-width'];
+            $height = $image['image']['sizes']['large-height'];
+            if ((empty($image_url))) {
+                $image_url = getRandomImageForCategory();
+            }
             ?>
-            <a href="<?php echo $url; ?>" style="width:670px;position:relative" target="_blank">
-                <amp-img src='<?php echo $image_url; ?>' height="250" width="670" layout="fill" alt="a sample image">
+            <a href="<?php echo $url; ?>" style="width:670px;position:relative;border-radius:4px" target="_blank">
+                <amp-img src='<?php echo $image_url; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image">
                     <amp-img alt="Mountains" fallback height="250" width="670" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                 </amp-img>
             </a>

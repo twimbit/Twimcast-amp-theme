@@ -10,7 +10,6 @@ $categories = $widget['category'];
             $cat_name = $category->name;
             $cat_thumbnail = get_field('thumbnail', $category)['sizes']['thumbnail'];
             $cat_url = get_category_link($category);
-            // print_r(get_field('thumbnail', $category));
             if ((empty($cat_thumbnail))) {
                 $cat_thumbnail = getRandomImageForCategory();
                 $width = 1;

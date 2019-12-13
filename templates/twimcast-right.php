@@ -14,13 +14,14 @@
                 </div>
             </div>
         </div>
-        <?php if (is_single() || is_page()) { ?>
+        <?php if ((is_single()) || (is_page())) { ?>
             <div class="post-author-name">
                 <p><span><?php echo get_the_author_meta('display_name', get_queried_object()->post_author); ?></span></p>
             </div>
             <div class="post-read-time">
                 <p>
                     <?php echo get_field('length', get_queried_object());
+                        // echo get_post_meta(get_the_ID())['reading_time'][0];
                         $post_type = get_field('intent_type', get_queried_object());
                         if ($post_type == 'podcast') { ?>
                         <span>min listen</span>
@@ -31,7 +32,7 @@
                 </p>
             </div>
             <div class="post-excerpt">
-                <?php echo the_excerpt(); ?>
+                <?php echo get_post_field('post_excerpt', get_the_ID()); ?>
             </div>
         <?php } else if (is_archive()) { ?>
             <div class="post-excerpt">

@@ -22,7 +22,8 @@ $dir_path = get_template_directory_uri();
                         </h3>
                     </div>
                     <div class="post-excerpt" hidden>
-                        <p><?php echo the_excerpt(); ?></p>
+                        <p><?php //echo the_excerpt(); 
+                            ?></p>
                     </div>
                     <div class="entry-content">
                         <?php

@@ -178,9 +178,6 @@ a.image-carousel p {
   padding: 10px 0;
 }
 
-section.postArea h4 {
-}
-
 .podcast-player-title h3 {
   font-weight: 600;
   text-align: left;
@@ -317,10 +314,6 @@ ul {
 ul#menu-home-screen {
   max-height: 228px;
   overflow: hidden;
-}
-
-.featured-content {
-  /* height: 100px; */
 }
 
 .recomended-posts > div {
@@ -1624,6 +1617,7 @@ ul {
 
 .entry-content {
   line-height: 1.5;
+  margin-bottom: 50px;
 }
 
 .entry-content > * {
