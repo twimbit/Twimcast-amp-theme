@@ -45,14 +45,18 @@ if (empty(!($posts))) {
                             <?php include(locate_template('templates/widget-templates/list-first.php', false, false)); ?>
                         </div>
                     </div>
-                    <div class="show-mobile list-divider">
+                    <div class="show-mobile">
                         <?php include(locate_template('templates/widget-templates/list-all.php', false, false)); ?>
+                        <div class="trending-list-divider"></div>
                     </div>
                 <?php    } else { ?>
                     <div class="<?php if ($i == 5) {
                                                 echo "show-desktop";
-                                            } ?> list-divider">
+                                            } ?>" style="padding-top: 4px">
                         <?php include(locate_template('templates/widget-templates/list-all.php', false, false)); ?>
+                        <div class="trending-list-divider <?php if ($i == 4 || $i == 5) {
+                                                                            echo "hide-item";
+                                                                        } ?>"></div>
                     </div>
             <?php if ($i == 5) break;
                     }

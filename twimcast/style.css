@@ -1048,7 +1048,7 @@ ul {
   margin: 45px auto;
   min-width: 300px;
   max-width: 900px;
-  padding: 0 14px;
+  padding: 0 22px;
 }
 
 .amp-carousel-style amp-carousel {
@@ -1119,7 +1119,7 @@ ul {
 
 .explore-all hr {
   width: 88%;
-  margin: auto;
+  margin-top: auto;
 }
 .sub-cat-inner-container {
   display: flex !important;
@@ -1208,20 +1208,6 @@ ul {
   background-position: 40% 36%;
   left: 30px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg style='pointer-events: none; display: block; width: 100%; height: 100%;' xmlns='http://www.w3.org/2000/svg' fill='black'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
-}
-
-.list-divider {
-  position: relative;
-  padding-top: 4px;
-}
-#myTrendingList::before {
-  content: "";
-  position: absolute;
-  left: 204px;
-  right: 0;
-  align-self: center;
-  height: 1px;
-  background-color: #e1dbdb;
 }
 
 @media (max-width: 1280px) {
@@ -1375,7 +1361,6 @@ ul {
     display: grid;
     grid-template-columns: 204px 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    position: relative;
   }
 
   .trending-list {
@@ -1491,15 +1476,6 @@ ul {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
-  .list-divider::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: #e1dbdb;
-  }
   .trending-widget {
     max-width: 520px;
   }
@@ -1564,12 +1540,6 @@ ul {
   }
   .navigation {
     margin-bottom: 66px;
-  }
-  #myTrendingList::before {
-    content: none;
-  }
-  .list-divider {
-    padding: 1px 0;
   }
 }
 @media (min-width: 425px) and (max-width: 768px) {
