@@ -19,9 +19,6 @@ $posts = $widget['posts'];
                     $width = 1;
                     $height = 1;
                 }
-                if ((empty($featured_image))) {
-                    $featured_image = getRandomImageForPost();
-                }
                 ?>
                 <a href="<?php echo $post_url; ?>">
                     <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
@@ -50,7 +47,6 @@ $posts = $widget['posts'];
                     $width = 1;
                     $height = 1;
                 }
-
                 ?>
                 <a href="<?php echo $post_url; ?>" style="margin:10px" class="image-carousel">
                     <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
