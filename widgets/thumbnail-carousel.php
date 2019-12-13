@@ -7,7 +7,6 @@ $categories = $widget['category'];
     <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
         <!-- Loop assigned categories -->
         <?php foreach ($categories as $category) {
-            $cat_name = $category->name;
             $cat_thumbnail = get_field('thumbnail', $category)['sizes']['thumbnail'];
             $cat_url = get_category_link($category);
             if ((empty($cat_thumbnail))) {
@@ -20,7 +19,7 @@ $categories = $widget['category'];
                 <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $cat_thumbnail; ?>">
                     <amp-img alt="Mountains" fallback width="150" height="110" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                 </amp-img>
-                <p><?php echo $cat_name; ?></p>
+                <p><?php echo $category->name; ?></p>
             </a>
         <?php } ?>
     </amp-carousel>
