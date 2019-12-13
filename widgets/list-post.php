@@ -18,6 +18,14 @@ $posts = $widget['post'];
             $post_date = get_the_date('d M', $post);
             $post_readTime = get_field('length', $post);
             $post_type = get_field('intent_type', $post);
+            $image_array = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+            $width = $image_array[1];
+            $height = $image_array[2];
+            if ((empty($featured_image))) {
+                $featured_image = getRandomImageForPost();
+                $width = 1;
+                $height = 1;
+            }
             if ($i == 1) {
                 ?>
                 <div class="trending-first">

@@ -39,9 +39,6 @@ if (empty(!($posts))) {
                         $width = 1;
                         $height = 1;
                     }
-                    if ((empty($featured_image))) {
-                        $featured_image = getRandomImageForPost();
-                    }
                     if ($i == 1) { ?>
                     <div class="trending-first show-desktop">
                         <div class="trending-list-container">
