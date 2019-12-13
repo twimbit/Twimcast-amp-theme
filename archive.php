@@ -1,6 +1,7 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
-$image_array = get_field('thumbnail', get_queried_object());
+$queriedObj = get_queried_object();
+$image_array = get_field('thumbnail', $queriedObj);
 $featured_image = $image_array['url'];
 $width = $image_array['width'];
 $height = $image_array['height'];
@@ -26,61 +27,53 @@ if ((empty($featured_image))) {
                     </div>
                     <div class="post-title">
                         <h3>
-                            <?php echo get_queried_object()->name; ?>
+                            <?php echo $queriedObj->name; ?>
                         </h3>
                         <div class="post-author-name">
                             <p hidden><span>Jessi</span><span>CX</span></p>
                         </div>
                     </div>
                     <div class="post-excerpt" hidden>
-                        <p><?php echo get_queried_object()->category_description; ?></p>
+                        <p><?php echo $queriedObj->category_description; ?></p>
                     </div>
                     <div class="recomended-posts" style="font-family: 'Montserrat';">
                         <?php
                         $args = array(
                             'post_type' => array('post'),
                             'posts_per_page' => get_option('posts_per_page'),
-                            'cat' => get_queried_object()->term_id,
+                            'cat' => $queriedObj->term_id,
                             'paged' => get_query_var('paged') ? absint(get_query_var('paged')) : 1
                         );
                         $posts = get_posts($args);
                         foreach ($posts as $post) {
                             $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
-                            $post_url = get_the_permalink($post);
-                            $post_title = $post->post_title;
-                            $post_excerpt = $post->post_excerpt;
-                            $post_author = get_the_author_meta('display_name', $post->post_author);
-                            $post_category = get_the_category($post->ID)[0]->name;
-                            $post_date = get_the_date('d M', $post);
-                            $post_readTime = get_field('length', $post);
                             $post_type = get_field('intent_type', $post);
                             if ((empty($featured_image))) {
                                 $featured_image = getRandomImageForCategory();
                             }
                             ?>
-
                             <div>
-                                <a href="<?php echo $post_url; ?>">
+                                <a href="<?php echo get_the_permalink($post); ?>">
                                     <div class="post-list">
                                         <amp-img width="120" height="120" layout="fill" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:10px">
-                                            <div class="rending-title"><?php echo $post_title; ?></div>
-                                            <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
+                                            <div class="rending-title"><?php echo $post->post_title; ?></div>
+                                            <div class="trending-excerpt"><?php echo $post->post_excerpt; ?></div>
                                             <div class="author-category">
                                                 <div class="author-name">
-                                                    <?php echo $post_author; ?>
+                                                    <?php echo get_the_author_meta('display_name', $post->post_author); ?>
                                                 </div>
                                                 <div class="category">
-                                                    <?php echo $post_category; ?>
+                                                    <?php echo get_the_category($post->ID)[0]->name; ?>
                                                 </div>
                                             </div>
                                             <div class="date-time-type">
                                                 <div class="date">
-                                                    <?php echo $post_date; ?>
+                                                    <?php echo get_the_date('d M', $post); ?>
                                                 </div>
                                                 <div class="divider"></div>
                                                 <div class="trending-time">
-                                                    <?php echo $post_readTime; ?> min
+                                                    <?php echo get_field('length', $post); ?> min
                                                 </div>
                                                 <div class="trending-type">
                                                     <?php
@@ -102,7 +95,6 @@ if ((empty($featured_image))) {
                         <?php
                         }
                         ?>
-
                     </div>
                     <?php // Previous/next page navigation.
                     the_posts_pagination(
