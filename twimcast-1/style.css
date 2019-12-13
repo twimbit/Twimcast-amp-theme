@@ -1,5 +1,5 @@
 /*
-Theme Name: Twimcast
+Theme Name: Twimcast 1
 Text Domain: twimcast
 Version: v1.0
 Requires at least: 4.7
@@ -597,7 +597,7 @@ section.postArea {
 }
 
 .post-image {
-  max-height: 250px;
+  height: 250px;
   box-shadow: 0px 22px 23px #00000029;
   position: relative;
   overflow: hidden;

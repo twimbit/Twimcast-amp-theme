@@ -98,15 +98,7 @@ if (have_posts()) {
                         }
                         ?>
                     </div>
-                    <?php // Previous/next page navigation.
-                    the_posts_pagination(
-                        array(
-                            'prev_text'          => __('Previous', 'twentytwenty'),
-                            'next_text'          => __('Next', 'twentytwenty'),
-                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'twentytwenty') . ' </span>',
-                        )
-                    );
-                    ?>
+                    <?php wpbeginner_numeric_posts_nav(); ?>
                 </div>
             </div>
             <div class="post-right">
