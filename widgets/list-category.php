@@ -31,6 +31,14 @@ if (empty(!($posts))) {
                     $post_date = get_the_date('d M', $post);
                     $post_readTime = get_field('length', $post);
                     $post_type = get_field('intent_type', $post);
+                    $image_array = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+                    $width = $image_array[1];
+                    $height = $image_array[2];
+                    if ((empty($featured_image))) {
+                        $featured_image = getRandomImageForPost();
+                        $width = 1;
+                        $height = 1;
+                    }
                     if ((empty($featured_image))) {
                         $featured_image = getRandomImageForPost();
                     }
@@ -39,7 +47,7 @@ if (empty(!($posts))) {
                         <div class="trending-list-container">
                             <a href="<?php echo $post_url; ?>" aria-label="Bussiness Model">
                                 <div class="featured-img">
-                                    <amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>">
+                                    <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
                                         <amp-img alt="Mountains" fallback height="160" width="193" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                                     </amp-img>
                                 </div>
@@ -80,7 +88,7 @@ if (empty(!($posts))) {
                     <div class="show-mobile">
                         <a href="<?php echo $post_url; ?>">
                             <div class="trending-list">
-                                <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>" >
+                                <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
                                     <amp-img alt="Mountains" fallback height="120" width="120" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                                 </amp-img>
                                 <div class="trending-list-content">

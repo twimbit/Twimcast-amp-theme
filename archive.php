@@ -57,7 +57,7 @@ if ((empty($cat_img))) {
                             <div>
                                 <a href="<?php echo $post_url; ?>">
                                     <div class="post-list">
-                                        <amp-img width="120" height="120" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                                        <amp-img width="120" height="120" layout="fill" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:10px">
                                             <div class="rending-title"><?php echo $post_title; ?></div>
                                             <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>

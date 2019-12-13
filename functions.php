@@ -102,6 +102,9 @@ function twentytwenty_theme_support()
 	// Add theme support for selective refresh for widgets.
 	add_theme_support('customize-selective-refresh-widgets');
 
+	// add pages excerpt
+	add_post_type_support('page', 'excerpt');
+
 	/*
 	 * Adds `async` and `defer` support for scripts registered or enqueued
 	 * by the theme.
@@ -846,7 +849,8 @@ function final_allowed_block_types($allowed_blocks)
 		'core/nextpage',
 		'core/media-text',
 		'core/columns',
-		'core/embed'
+		'core/embed',
+		'core/shortcode'
 	);
 }
 //Function to remove description box from post and pages

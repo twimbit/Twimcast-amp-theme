@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <?php if ((is_single())) { ?>
+        <?php if (is_single() || is_page()) { ?>
             <div class="post-author-name">
                 <p><span><?php echo get_the_author_meta('display_name', get_queried_object()->post_author); ?></span></p>
             </div>
