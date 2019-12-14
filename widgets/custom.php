@@ -26,9 +26,17 @@ $media = $widget['media'];
     </amp-carousel>
     <div class="amp-selector show-mobile">
         <amp-selector id="carouselWithPreviewSelector" class="carousel-preview" on="select:carouselWithPreview.goToSlide(index=event.targetOption)" layout="container">
-            <div class="carousel-dot" option="0" selected></div>
-            <div option="1" class="carousel-dot"></div>
-            <div option="2" class="carousel-dot"></div>
+            <?php
+            $i = 0;
+            foreach ($media as $val) {
+                if ($i == 0) {
+                    ?>
+                    <div class="carousel-dot" option="<?php echo $i; ?>" selected></div>
+                <?php } else { ?>
+                    <div option="<?php echo $i; ?>" class="carousel-dot"></div>
+            <?php }
+                $i++;
+            } ?>
         </amp-selector>
     </div>
 </div>
