@@ -21,6 +21,7 @@ if (empty(!($posts))) {
         <div id="myTrendingList">
             <?php
                 $i = 1;
+                $postsNumber = count($posts);
                 foreach ($posts as $post) {
                     $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
                     $post_url = get_the_permalink($post);
@@ -31,148 +32,39 @@ if (empty(!($posts))) {
                     $post_date = get_the_date('d M', $post);
                     $post_readTime = get_field('length', $post);
                     $post_type = get_field('intent_type', $post);
+                    $image_array = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+                    $width = $image_array[1];
+                    $height = $image_array[2];
+                    if ((empty($featured_image))) {
+                        $featured_image = getRandomImageForPost();
+                        $width = 1;
+                        $height = 1;
+                    }
                     if ($i == 1) { ?>
                     <div class="trending-first show-desktop">
                         <div class="trending-list-container">
-                            <a href="<?php echo $post_url; ?>" aria-label="Bussiness Model">
-                                <div class="featured-img">
-                                    <amp-img width="193" height="160" alt="List icon" src="<?php echo $featured_image; ?>">
-                                        <amp-img alt="Mountains" fallback height="160" width="193" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
-                                    </amp-img>
-                                </div>
-                                <div class="rending-title"><?php echo $post_title; ?></div>
-                                <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
-                                <div class="author-category">
-                                    <div class="author-name">
-                                        <?php echo $post_author; ?>
-                                    </div>
-                                    <div class="category">
-                                        <?php echo $post_category; ?>
-                                    </div>
-                                </div>
-                                <div class="date-time-type">
-                                    <div class="date">
-                                        <?php echo $post_date; ?>
-                                    </div>
-                                    <div class="divider"></div>
-                                    <div class="trending-time" title="Read time">
-                                        <?php echo $post_readTime; ?> min
-                                    </div>
-                                    <div class="trending-type">
-                                        <?php
-                                                    if ($post_type == 'podcast') { ?>
-                                            <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
-                                        <?php    } else if ($post_type == 'read') { ?>
-                                            <span>read</span><img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
-                                        <?php    }
-                                                    ?>
-                                    </div>
-                                    <div class="add-to-queue">
-                                        <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
-                                    </div>
-                                </div>
-                            </a>
+                            <?php include(locate_template('templates/widget-templates/list-first.php', false, false)); ?>
                         </div>
                     </div>
-                    <div class="show-mobile">
-                        <a href="<?php echo $post_url; ?>">
-                            <div class="trending-list">
-                                <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>">
-                                    <amp-img alt="Mountains" fallback height="120" width="120" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
-                                </amp-img>
-                                <div class="trending-list-content">
-                                    <div class="rending-title"><?php echo $post_title; ?></div>
-                                    <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
-                                    <div class="author-category">
-                                        <div class="author-name">
-                                            <?php echo $post_author; ?>
-                                        </div>
-                                        <div class="category">
-                                            <?php echo $post_category; ?>
-                                        </div>
-                                    </div>
-                                    <div class="date-time-type">
-                                        <div class="date">
-                                            <?php echo $post_date; ?>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="trending-time" title="Read time">
-                                            <?php echo $post_readTime; ?> min
-                                        </div>
-                                        <div class="trending-type">
-                                            <?php
-                                                        if ($post_type == 'podcast') { ?>
-                                                <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
-                                            <?php    } else if ($post_type == 'read') { ?>
-                                                <span>read</span> <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
-                                            <?php    }
-                                                        ?>
-                                        </div>
-                                        <div class="add-to-queue">
-                                            <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="trending-list-divider"></div>
+                    <div class="show-mobile list-divider">
+                        <?php include(locate_template('templates/widget-templates/list-all.php', false, false)); ?>
                     </div>
                 <?php    } else { ?>
                     <div class="<?php if ($i == 5) {
                                                 echo "show-desktop";
-                                            } ?>" style="padding-top: 4px">
-                        <a href="<?php echo $post_url; ?>">
-                            <div class="trending-list">
-                                <amp-img layout="responsive" height="120" width="120" alt="List icon" src="<?php echo $featured_image; ?>">
-                                    <amp-img alt="Mountains" fallback height="120" width="120" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
-                                </amp-img>
-                                <div class="trending-list-content">
-                                    <div class="rending-title"><?php echo $post_title; ?></div>
-                                    <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
-                                    <div class="author-category">
-                                        <div class="author-name">
-                                            <?php echo $post_author; ?>
-                                        </div>
-                                        <div class="category">
-                                            <?php echo $post_category; ?>
-                                        </div>
-                                    </div>
-                                    <div class="date-time-type">
-                                        <div class="date">
-                                            <?php echo $post_date; ?>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="trending-time" title="Read time">
-                                            <?php echo $post_readTime; ?> min
-                                        </div>
-                                        <div class="trending-type">
-                                            <?php
-                                                        if ($post_type == 'podcast') { ?>
-                                                <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
-                                            <?php    } else if ($post_type == 'read') { ?>
-                                                <span>read</span> <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
-                                            <?php    }
-                                                        ?>
-                                        </div>
-                                        <div class="add-to-queue">
-                                            <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="trending-list-divider <?php if ($i == 4 || $i == 5) {
-                                                                            echo "hide-item";
-                                                                        } ?>"></div>
+                                            } ?> list-divider">
+                        <?php include(locate_template('templates/widget-templates/list-all.php', false, false)); ?>
                     </div>
             <?php if ($i == 5) break;
                     }
                     $i = $i + 1;
                 } ?>
         </div>
-        <a href="<?php echo $list_category_explore_all; ?>" class="explore-all-link">
-            <h4>Explore all <span>>></span></h4>
-        </a>
+        <div class="explore-all-link">
+            <?php if ($postsNumber > 5) { ?>
+                <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
+            <?php } ?>
+        </div>
         <hr>
     </div>
 <?php }

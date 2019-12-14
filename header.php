@@ -16,8 +16,9 @@
 	<script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
 	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-	<!-- amp script hash -->
-	<meta name="amp-script-src" content="sha384-YCFs8k-ouELcBTgzKzNAujZFxygwiqimSqKK7JqeKaGNflwDxaC3g2toj7s_kxWG" />
+	<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+
+	<!-- Amp analytics -->
 	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	<amp-analytics type="gtag" data-credentials="include">
 		<script type="application/json">
@@ -33,13 +34,7 @@
 			}
 		</script>
 	</amp-analytics>
-	<!-- <script>
-		if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-			window.location.assign("https://twimcast.com");
-		} else {
-			window.location.assign("https://my.twimcast.com");
-		}
-	</script> -->
+
 	<?php if (is_single()) { ?>
 		<!-- Open Graph -->
 		<meta property="og:url" content="<?php the_permalink() ?>" />
