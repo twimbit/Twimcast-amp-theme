@@ -6,7 +6,7 @@ $posts = $widget['posts'];
     <p><?php echo $title; ?> </p>
     <!-- for mobile -->
     <div class="show-mobile">
-        <amp-carousel height="0" width="0" type="slides" layout="responsive">
+        <amp-carousel height="0" width="0" type="slides" layout="responsive" id="carouselWithPreview-image" on="slideChange:carouselWithPreviewSelector-image.toggle(index=event.index, value=true)">
             <?php foreach ($posts as $post) {
                 $featured_image = get_the_post_thumbnail_url($post, 'medium');
                 $post_url = get_the_permalink($post);
@@ -28,6 +28,13 @@ $posts = $widget['posts'];
                 </a>
             <?php } ?>
         </amp-carousel>
+        <div class="amp-selector show-mobile">
+            <amp-selector id="carouselWithPreviewSelector-image" class="carousel-preview" on="select:carouselWithPreview-image.goToSlide(index=event.targetOption)" layout="container">
+                <div class="carousel-dot" option="0" selected></div>
+                <div option="1" class="carousel-dot"></div>
+                <div option="2" class="carousel-dot"></div>
+            </amp-selector>
+        </div>
     </div>
 
 
