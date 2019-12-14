@@ -21,6 +21,7 @@ if (empty(!($posts))) {
         <div id="myTrendingList">
             <?php
                 $i = 1;
+                $postsNumber = count($posts);
                 foreach ($posts as $post) {
                     $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
                     $post_url = get_the_permalink($post);
@@ -59,9 +60,11 @@ if (empty(!($posts))) {
                     $i = $i + 1;
                 } ?>
         </div>
-        <a href="<?php echo $list_category_explore_all; ?>" class="explore-all-link">
-            <h4>Explore all <span>>></span></h4>
-        </a>
+        <div class="explore-all-link">
+            <?php if ($postsNumber > 5) { ?>
+                <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
+            <?php } ?>
+        </div>
         <hr>
     </div>
 <?php }
