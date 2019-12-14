@@ -1228,6 +1228,25 @@ amp-selector [option] {
   margin-left: 10px;
   padding: 0 5px;
 }
+.thumbnail-carousel {
+  position: relative;
+  height: 116px;
+  overflow: hidden;
+  width: 200px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+.thumbnail-carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
 
 .amp-carousel-button {
   background-color: rgb(255, 255, 255);
@@ -1526,6 +1545,14 @@ amp-selector [option] {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+  .thumbnail-carousel {
+    height: 67px;
+    width: 160px;
+  }
+  .thumbnail-widget amp-carousel {
+    height: 75px;
+    margin-left: 14px;
+  }
   .list-divider::before {
     content: "";
     position: absolute;
@@ -1613,6 +1640,15 @@ amp-selector [option] {
   .list-divider {
     padding: 1px 0;
   }
+  .sub-cat p {
+    top: -156px;
+    left: 11px;
+    width: 137px;
+    font-size: 19px;
+    height: 46px;
+    line-height: 1.12;
+    -webkit-line-clamp: 2;
+  }
 }
 @media (min-width: 425px) and (max-width: 768px) {
   .thumbnail-widget {
@@ -1666,25 +1702,6 @@ amp-selector [option] {
 }
 .lightbox h1 {
   color: white;
-}
-.thumbnail-carousel {
-  position: relative;
-  height: 116px;
-  overflow: hidden;
-  width: 200px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-}
-.thumbnail-carousel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .entry-content {
