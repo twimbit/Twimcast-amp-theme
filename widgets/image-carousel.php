@@ -20,7 +20,7 @@ $posts = $widget['posts'];
                     $height = 1;
                 }
                 ?>
-                <a href="<?php echo $post_url; ?>">
+                <a href="<?php echo $post_url; ?>" class="image-slide">
                     <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
                         <amp-img alt="Mountains" fallback height="300" width="400" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                     </amp-img>

@@ -6,19 +6,20 @@ $media = $widget['media'];
 
     </div>
     <p><?php echo $title; ?> </p>
-    <amp-carousel height="250" type="slides" layout="responsive" width=750 id="carouselWithPreview" on="slideChange:carouselWithPreviewSelector.toggle(index=event.index, value=true)">
+    <!-- on="slideChange:carouselWithPreviewSelector.toggle(index=event.index, value=true)"  -->
+    <amp-carousel height="0" type="slides" layout="responsive" width="0" id="carouselWithPreview" controls>
         <?php foreach ($media as $image) {
-            // print_r($image);
-            $image_url = $image['image']['sizes']['large'];
+            //print_r($image);
+            $image_url = $image['image']['url'];
             $url = $image['link'];
-            $width = $image['image']['sizes']['large-width'];
-            $height = $image['image']['sizes']['large-height'];
+            $width = $image['image']['width'];
+            $height = $image['image']['height'];
             if ((empty($image_url))) {
                 $image_url = getRandomImageForCategory();
             }
             ?>
             <a href="<?php echo $url; ?>" style="width:670px;position:relative;border-radius:4px" target="_blank">
-                <amp-img src='<?php echo $image_url; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image">
+                <amp-img src='<?php echo $image_url; ?>' height="300" width="400" layout="responsive" alt="a sample image">
                     <amp-img alt="Mountains" fallback height="250" width="670" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                 </amp-img>
             </a>
