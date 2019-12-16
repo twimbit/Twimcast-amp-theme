@@ -45,5 +45,5 @@ $posts = $widget['post'];
 
 
     </div>
-    <hr style="margin-top:70px">
+
 </div>

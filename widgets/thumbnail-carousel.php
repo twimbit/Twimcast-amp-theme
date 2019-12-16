@@ -26,5 +26,5 @@ $categories = $widget['category'];
     <a href="#" class="explore-all-link" hidden>
         <h4>Explore all <span>>></span></h4>
     </a>
-    <hr style="margin-top: 60px">
+
 </div>
