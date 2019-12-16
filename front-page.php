@@ -10,9 +10,12 @@ $dir_path = get_template_directory_uri();
     </section>
     <section class="widget-area">
         <div id="main-widget-area" class="widget-area-section">
-            <?php $widgets = get_field('add_widgets', 'options');
+            <?php
+            if (function_exists('get_field')) {
+                $widgets = get_field('add_widgets', 'options');
+            }
             //print_r($widgets);
-            foreach ($widgets as $widget) {
+            foreach ((array) $widgets as $widget) {
                 if ($widget['acf_fc_layout'] == 'custom_carousel') {
                     include(locate_template('widgets/custom.php', false, false));
                 } else if ($widget['acf_fc_layout'] == 'image_carousel') {
