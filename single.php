@@ -91,12 +91,12 @@ if ((empty($featured_image))) {
                     <?php $audio_url = get_field('audio_upload')['url'];
                     if (!(empty($audio_url))) {
                         ?>
-                        <div class="post-play show-desktop" id="play-icon">
+                        <div class="post-play show-desktop-play" id="play-icon">
                             <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                 <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                             </div>
                         </div>
-                        <div class="post-play show-desktop" id="pause-icon" hidden>
+                        <div class="post-play show-desktop-play" id="pause-icon" hidden>
                             <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                 <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                             </div>
