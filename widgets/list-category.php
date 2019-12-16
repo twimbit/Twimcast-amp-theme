@@ -61,10 +61,10 @@ if (empty(!($posts))) {
                 } ?>
         </div>
         <div class="explore-all-link">
-            <?php if ($postsNumber > 5) { ?>
+
                 <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
-            <?php } ?>
+
         </div>
-        <hr>
+
     </div>
 <?php }

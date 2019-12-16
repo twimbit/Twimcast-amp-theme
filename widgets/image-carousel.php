@@ -76,5 +76,4 @@ $posts = $widget['posts'];
     <a href="<?php echo $category_url; ?>" class="explore-all-link" hidden>
         <h4>Explore all <span>>></span></h4>
     </a>
-    <hr style="margin-top:60px">
 </div>
