@@ -33,19 +33,23 @@
 <div class="sidebar-search">
     <form action="<?php echo site_url(); ?>" class="sidebar-form">
         <div class="search d-flex">
-            <div class="search-icon">
+
+            <input type=text required=required placeholder="Search" name=s id=searchTerm aria-label="Search imput" />
+            <button class="search-icon" type="submit" aria-label="Search">
+
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
                     <defs>
                         <clipPath id="clip-path">
                             <path id="_Icon_Сolor" data-name="🎨 Icon Сolor" d="M17,18a.994.994,0,0,1-.707-.293l-3.4-3.395A7.91,7.91,0,0,1,8,16a8,8,0,1,1,8-8,7.909,7.909,0,0,1-1.688,4.9l3.395,3.4A1,1,0,0,1,17,18ZM8,2a6,6,0,1,0,6,6A6.007,6.007,0,0,0,8,2Z" transform="translate(0)" fill="#0d1c2e" />
                         </clipPath>
                     </defs>
-                    <g id="search">
+                    <g id="search" >
                         <path id="_Icon_Сolor-2" data-name="🎨 Icon Сolor" d="M17,18a.994.994,0,0,1-.707-.293l-3.4-3.395A7.91,7.91,0,0,1,8,16a8,8,0,1,1,8-8,7.909,7.909,0,0,1-1.688,4.9l3.395,3.4A1,1,0,0,1,17,18ZM8,2a6,6,0,1,0,6,6A6.007,6.007,0,0,0,8,2Z" fill="#0d1c2e" />
                     </g>
                 </svg>
-            </div>
-            <input type=text required=required placeholder="Insights, podcasts, or reports" name=s id=searchTerm aria-label="Search imput" />
+
+            </button>
+
         </div>
     </form>
 </div>
