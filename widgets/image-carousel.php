@@ -63,7 +63,7 @@ $posts = $widget['posts'];
                     $height = 1;
                 }
                 ?>
-                <a href="<?php echo $post_url; ?>" style="margin:10px" class="image-carousel">
+                <a href="<?php echo $post_url; ?>" style="margin-right:10px" class="image-carousel">
                     <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
                         <amp-img alt="Mountains" fallback height="160" width="250" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                     </amp-img>

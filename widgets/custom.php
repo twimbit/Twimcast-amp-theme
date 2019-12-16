@@ -18,7 +18,7 @@ $media = $widget['media'];
                 $image_url = getRandomImageForCategory();
             }
             ?>
-            <a href="<?php echo $url; ?>" style="width:670px;position:relative;border-radius:4px" target="_blank">
+            <a href="<?php echo $url; ?>" style="position:relative;border-radius:4px" target="_blank">
                 <amp-img src='<?php echo $image_url; ?>' height="300" width="400" layout="responsive" alt="a sample image">
                     <amp-img alt="Mountains" fallback height="250" width="670" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                 </amp-img>
