@@ -26,7 +26,9 @@
                             // echo get_post_meta(get_the_ID())['reading_time'][0];
                             $post_type = get_field('intent_type', get_queried_object());
                             if ($post_type == 'podcast') { ?>
-                        <img style="margin-left: 8px" width="15" src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="" title="Play Podcast" on="tap:amp-player.play()">
+                        <div class="player-icon" id="right-play" alt="" title="Play Podcast" on="tap:amp-player.play(),right-play.hide(),right-pause.show()"></div>
+
+                        <div class="player-pause" id="right-pause" alt="" title="Play Podcast" on="tap:amp-player.pause(),right-pause.hide(),right-play.show()" hidden></div>
                     <?php    } else if ($post_type == 'read') { ?>
                         <span style="margin-left: 5px"> mins read time</span>
                     <?php    }
