@@ -94,10 +94,10 @@
                         </div>
                     </div>
                 </div>
-                <amp-audio width="auto" id="amp-player" height="50" src="https://kievents.co/twimcast/wp-content/uploads/2019/11/Diplo-Revolution-SEANBOBO-REMIX-1.mp3" controlslist="nodownload">
+                <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
             </div>
     <?php }
-                                } ?>
+                                                                    } ?>
 </div>
