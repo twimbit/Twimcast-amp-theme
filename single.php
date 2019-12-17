@@ -12,59 +12,6 @@ if ((empty($featured_image))) {
 }
 ?>
 
-<style scoped>
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-weight: 600;
-        font-family: 'Open sans', sans-serif !important;
-        line-height: 1.5;
-        margin: 10px 0
-    }
-
-    h1 {
-        font-weight: 700;
-        font-size: 32px;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-
-    h3 {
-        font-weight: 500;
-        font-size: 27px;
-        margin-top: 16px
-    }
-
-    h4 {
-        font-size: 24px;
-        font-weight: 400;
-    }
-
-    h5 {
-        font-size: 20px;
-        font-weight: 400;
-        color: #7f7f7f;
-    }
-
-    h6 {
-        font-size: 18px;
-        font-weight: 400;
-        color: #7f7f7f;
-    }
-
-    .podcast-player-cover {
-        margin-top: 20px;
-    }
-
-    .podcast-player-cover amp-audio {
-        width: 100%;
-    }
-</style>
 
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">

@@ -1,3 +1,4 @@
+<?php $dir_path = get_template_directory_uri(); ?>
 <div class="post-right">
     <div class="post-right-container" id="post-right-anim">
         <div href="#" role="button" tabindex="1" style="outline:none">
@@ -20,14 +21,14 @@
                 <p><span><?php echo get_the_author_meta('display_name', get_queried_object()->post_author); ?></span></p>
             </div>
             <div class="post-read-time">
-                <p>
+                <p style="display: flex;align-items: center;font-size: 13px;">
                     <?php echo get_field('length', get_queried_object());
                             // echo get_post_meta(get_the_ID())['reading_time'][0];
                             $post_type = get_field('intent_type', get_queried_object());
                             if ($post_type == 'podcast') { ?>
-                        <span>min listen</span>
+                        <img style="margin-left: 8px" width="15" src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="" title="Play Podcast" on="tap:amp-player.play()">
                     <?php    } else if ($post_type == 'read') { ?>
-                        <span>min read time</span>
+                        <span style="margin-left: 5px"> mins read time</span>
                     <?php    }
                     ?>
                 </p>
