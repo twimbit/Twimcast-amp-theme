@@ -1,3 +1,4 @@
+<?php $dir_path = get_template_directory_uri(); ?>
 <div class="sidebar-heading">
     <?php if (!(is_home())) { ?>
         <div class="sidebar-back">
@@ -43,7 +44,7 @@
                             <path id="_Icon_Сolor" data-name="🎨 Icon Сolor" d="M17,18a.994.994,0,0,1-.707-.293l-3.4-3.395A7.91,7.91,0,0,1,8,16a8,8,0,1,1,8-8,7.909,7.909,0,0,1-1.688,4.9l3.395,3.4A1,1,0,0,1,17,18ZM8,2a6,6,0,1,0,6,6A6.007,6.007,0,0,0,8,2Z" transform="translate(0)" fill="#0d1c2e" />
                         </clipPath>
                     </defs>
-                    <g id="search" >
+                    <g id="search">
                         <path id="_Icon_Сolor-2" data-name="🎨 Icon Сolor" d="M17,18a.994.994,0,0,1-.707-.293l-3.4-3.395A7.91,7.91,0,0,1,8,16a8,8,0,1,1,8-8,7.909,7.909,0,0,1-1.688,4.9l3.395,3.4A1,1,0,0,1,17,18ZM8,2a6,6,0,1,0,6,6A6.007,6.007,0,0,0,8,2Z" fill="#0d1c2e" />
                     </g>
                 </svg>
@@ -58,9 +59,9 @@
 
 <div class="sidebar-menu">
     <?php wp_nav_menu(array(
-        'theme_location' => 'sidebar-category-menu',
-        'container_class' => 'menu'
-    ));
+                        'theme_location' => 'sidebar-category-menu',
+                        'container_class' => 'menu'
+                    ));
     ?>
 
     <li class="sidebar-list-item sidebar-explore-all" hidden>
@@ -71,14 +72,14 @@
 
     <div class="sidebar-divider"></div>
     <?php wp_nav_menu(array(
-        'theme_location' => 'sidebar-bottom-menu',
-        'container_class' => 'menu'
-    ));
-    if (is_single()) {
-        $audio_url = get_field('audio_upload')['url'];
-        if (!(empty($audio_url))) {
-            ?>
-            <div class="podcast-player hide-player" id="player">
+                        'theme_location' => 'sidebar-bottom-menu',
+                        'container_class' => 'menu'
+                    ));
+                    if (is_single()) {
+                        $audio_url = get_field('audio_upload')['url'];
+                        if (!(empty($audio_url))) {
+    ?>
+            <div class="podcast-player" id="player">
                 <div class="podcast-player-container">
                     <div class="podcast-player-thumbnail">
                         <amp-img src='<?php echo the_post_thumbnail_url('thumbnail'); ?>' height="52" width="52" alt="a sample image">
@@ -93,10 +94,10 @@
                         </div>
                     </div>
                 </div>
-                <amp-audio width="293" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
+                <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                 </amp-audio>
             </div>
     <?php }
-    } ?>
+                                                                    } ?>
 </div>
