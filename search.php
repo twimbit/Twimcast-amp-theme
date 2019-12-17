@@ -20,7 +20,7 @@ if (have_posts()) {
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
     </section>
-    <section class="postArea">
+    <section class="archiveArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
                 <div class="post-container">

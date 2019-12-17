@@ -56,7 +56,7 @@
 </div>
 
 
-
+<h3 class="sidebar-title">Top Categories</h3>
 <div class="sidebar-menu">
     <?php wp_nav_menu(array(
                         'theme_location' => 'sidebar-category-menu',

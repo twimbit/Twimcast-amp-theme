@@ -64,6 +64,14 @@ td {
   text-align: inherit;
 }
 
+h3.sidebar-title {
+    margin-top: 34px;
+    margin-left: 29px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .custom-carousel p {
   /* margin-top: 13px; */
   margin-bottom: 26px;
@@ -184,7 +192,7 @@ a.image-carousel p {
 }
 
 .menu {
-  padding: 10px 0;
+  /* padding: 10px 0; */
 }
 
 .podcast-player-title h3 {
@@ -319,7 +327,7 @@ ul {
   /* margin-left: 20px; */
   list-style: none;
   /* gap: 21px; */
-  margin-top: 5px;
+  /* margin-top: 5px; */
   /* padding-bottom: 20px; */
 }
 
@@ -1862,7 +1870,7 @@ amp-selector [option] {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-  font-family: merriweather, "open-sans", sans-serif;
+  font-family: merriweather, "Open sans", sans-serif;
   font-size: 19px;
   letter-spacing: normal;
 }
