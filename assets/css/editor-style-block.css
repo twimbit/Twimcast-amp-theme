@@ -364,7 +364,7 @@ html[lang="th"] .edit-post-visual-editor * {
 }
 
 .wp-block {
-  max-width: 800px; /* Based on one-column post width; 644px + 30px to account for padding. */
+  max-width: 674px; /* Based on one-column post width; 644px + 30px to account for padding. */
 }
 
 /* Alignments */
