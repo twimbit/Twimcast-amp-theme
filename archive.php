@@ -18,7 +18,7 @@ if ((empty($featured_image))) {
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
     </section>
-    <section class="postArea">
+    <section class="archiveArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
@@ -38,20 +38,20 @@ if ((empty($featured_image))) {
                     </div>
                     <div class="recomended-posts" style="font-family: 'Montserrat';">
                         <?php
-                        $args = array(
-                            'post_type' => array('post'),
-                            'posts_per_page' => get_option('posts_per_page'),
-                            'cat' => $queriedObj->term_id,
-                            'paged' => get_query_var('paged') ? absint(get_query_var('paged')) : 1
-                        );
-                        $posts = get_posts($args);
-                        foreach ($posts as $post) {
-                            $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
-                            $post_type = get_field('intent_type', $post);
-                            if ((empty($featured_image))) {
-                                $featured_image = getRandomImageForCategory();
-                            }
-                            ?>
+                                                                                                                $args = array(
+                                                                                                                    'post_type' => array('post'),
+                                                                                                                    'posts_per_page' => get_option('posts_per_page'),
+                                                                                                                    'cat' => $queriedObj->term_id,
+                                                                                                                    'paged' => get_query_var('paged') ? absint(get_query_var('paged')) : 1
+                                                                                                                );
+                                                                                                                $posts = get_posts($args);
+                                                                                                                foreach ($posts as $post) {
+                                                                                                                    $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
+                                                                                                                    $post_type = get_field('intent_type', $post);
+                                                                                                                    if ((empty($featured_image))) {
+                                                                                                                        $featured_image = getRandomImageForCategory();
+                                                                                                                    }
+                        ?>
                             <div>
                                 <a href="<?php echo get_the_permalink($post); ?>">
                                     <div class="post-list">
@@ -77,7 +77,7 @@ if ((empty($featured_image))) {
                                                 </div>
                                                 <div class="trending-type">
                                                     <?php
-                                                        if ($post_type == 'podcast') { ?>
+                                                                                                                    if ($post_type == 'podcast') { ?>
                                                         <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
                                                     <?php } elseif ($post_type == 'read') { ?>
                                                         <span>read</span><img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
@@ -93,17 +93,17 @@ if ((empty($featured_image))) {
 
                             </div>
                         <?php
-                        }
+                                                                                                                }
                         ?>
                     </div>
                     <?php // Previous/next page navigation.
-                    the_posts_pagination(
-                        array(
-                            'prev_text'          => __('Previous', 'twentytwenty'),
-                            'next_text'          => __('Next', 'twentytwenty'),
-                            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'twentytwenty') . ' </span>',
-                        )
-                    );
+                                                                                                                the_posts_pagination(
+                                                                                                                    array(
+                                                                                                                        'prev_text'          => __('Previous', 'twentytwenty'),
+                                                                                                                        'next_text'          => __('Next', 'twentytwenty'),
+                                                                                                                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'twentytwenty') . ' </span>',
+                                                                                                                    )
+                                                                                                                );
                     ?>
                 </div>
             </div>
@@ -113,4 +113,4 @@ if ((empty($featured_image))) {
 </main><!-- #site-content -->
 
 <?php
-get_footer();
+                                                                                                                get_footer();
