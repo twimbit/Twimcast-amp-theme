@@ -65,50 +65,18 @@ if ((empty($featured_image))) {
         width: 100%;
     }
 </style>
-<amp-animation id="showAnim" layout="nodisplay">
-    <script type="application/json">
-        {
-            "duration": "0ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [{
-                "selector": "postArea-section",
-                "keyframes": [{
-                    "visibility": "visible"
-                }]
-            }]
-        }
-    </script>
-</amp-animation>
 
-<amp-animation id="hideAnim" layout="nodisplay">
-    <script type="application/json">
-        {
-            "duration": "0ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [{
-                "selector": "postArea-section",
-                "keyframes": [{
-                    "visibility": "hidden"
-                }]
-            }]
-        }
-    </script>
-</amp-animation>
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
     </section>
-    <section class="postArea" id="postArea-section">
+    <section class="postArea" id="postTest">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
-                    <div class="post-image" id="post-amp-img">
+                    <div class="post-image">
                         <amp-img src='<?php echo $featured_image; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image"></amp-img>
                     </div>
                     <?php if (is_single()) {
@@ -154,8 +122,6 @@ if ((empty($featured_image))) {
             </div>
             <?php get_template_part('templates/twimcast', 'right') ?>
         </div>
-        <amp-position-observer target="postArea-section" on="enter:hideAnim.start; exit:showAnim.start;" layout="nodisplay">
-        </amp-position-observer>
     </section>
 </main><!-- #site-content -->
 
