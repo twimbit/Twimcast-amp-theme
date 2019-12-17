@@ -567,6 +567,7 @@ section.postArea {
   letter-spacing: -0.004em;
   word-break: break-word;
   height: 100%;
+  background: white;
 }
 
 .light-share-container {
@@ -1354,7 +1355,7 @@ amp-selector [option] {
 
 @media (min-width: 770px) {
   body {
-    background-color: #fffffd;
+    background-color: #f2f2f1;
   }
 
   .thumbnail-widget amp-carousel {
