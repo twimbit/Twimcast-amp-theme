@@ -887,7 +887,7 @@ footer.main-footer {
   transition: box-shadow 0.3s;
   margin-bottom: 10px;
   margin-top: 10px;
-  height: 288px;
+  height: 300px;
   position: relative;
 }
 
@@ -1339,7 +1339,7 @@ amp-selector [option] {
 
 @media (min-width: 770px) {
   body {
-    background-color: #f2f2f1;
+    background-color: #fffffd;
   }
 
   .thumbnail-widget amp-carousel {
@@ -1445,7 +1445,7 @@ amp-selector [option] {
   section#twimcast-sidebar {
     width: 20vw;
     border-radius: 15px;
-    background-color: #ffffffb3;
+    background-color: #f7f7f7b3;
     display: block;
     border-radius: 0px 15px 15px 0px;
     opacity: 1;
@@ -1536,7 +1536,7 @@ amp-selector [option] {
     margin-bottom: 50px;
     margin: 45px auto;
     min-width: 300px;
-    padding: 0 22px;
+    /* padding: 0 22px; */
     overflow: hidden;
     position: relative;
   }
