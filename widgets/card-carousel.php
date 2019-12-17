@@ -25,7 +25,7 @@ $card_explore_all = get_category_link(get_the_category($widget['post'][0]->ID)[0
                 <a href="<?php echo get_the_permalink($post); ?>" aria-label="Bussiness Model" aria-label="<?php echo $post_author; ?>">
                     <div class="featured-img">
                         <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
-                            <amp-img alt="Mountains" fallback width="251" height="160" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                            <amp-img alt="Mountains" fallback width="251" height="200"  src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                         </amp-img>
                     </div>
                     <div class="rending-title"><?php echo $post->post_title; ?></div>

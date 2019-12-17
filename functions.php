@@ -870,6 +870,6 @@ function getRandomImageForPost()
 
 function getRandomImageForCategory()
 {
-	$num = rand(1, 15);
-	return 'https://my.twimcast.com/wp-content/uploads/assets/post%20(' . $num . ').svg';
+	$num = rand(1, 13);
+	return 'https://my.twimcast.com/wp-content/uploads/assets/category%20(' . $num . ').svg';
 }

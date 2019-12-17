@@ -1,5 +1,6 @@
+
 <div class="post-right">
-    <div class="post-right-container">
+    <div class="post-right-container" id="post-right-anim">
         <div href="#" on="tap:amp-share.toggleClass(class='hide-player')" role="button" tabindex="1" style="outline:none">
             <div class="post-share">
                 <div class="share-text">
@@ -21,14 +22,14 @@
             <div class="post-read-time">
                 <p>
                     <?php echo get_field('length', get_queried_object());
-                        // echo get_post_meta(get_the_ID())['reading_time'][0];
-                        $post_type = get_field('intent_type', get_queried_object());
-                        if ($post_type == 'podcast') { ?>
+                            // echo get_post_meta(get_the_ID())['reading_time'][0];
+                            $post_type = get_field('intent_type', get_queried_object());
+                            if ($post_type == 'podcast') { ?>
                         <span>min listen</span>
                     <?php    } else if ($post_type == 'read') { ?>
                         <span>min read time</span>
                     <?php    }
-                        ?>
+                    ?>
                 </p>
             </div>
             <div class="post-excerpt">
@@ -55,4 +56,5 @@
             <a href="#">Subscribe</a>
         </div>
     </div>
+   
 </div>
