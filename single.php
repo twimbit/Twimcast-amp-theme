@@ -11,6 +11,7 @@ if ((empty($featured_image))) {
     $height = 1;
 }
 ?>
+
 <style scoped>
     h1,
     h2,
@@ -64,13 +65,14 @@ if ((empty($featured_image))) {
         width: 100%;
     }
 </style>
+
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
     </section>
-    <section class="postArea">
+    <section class="postArea" id="postTest">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
@@ -78,19 +80,19 @@ if ((empty($featured_image))) {
 <!--                        <amp-img src='--><?php //echo $featured_image; ?><!--' height="--><?php //echo $height; ?><!--" width="--><?php //echo $width; ?><!--" layout="responsive" alt="a sample image"></amp-img>-->
 <!--                    </div>-->
                     <?php if (is_single()) {
-                        $audio_url = get_field('audio_upload')['url'];
-                        if (!(empty($audio_url))) {
-                            ?>
+                                                                                                                    $audio_url = get_field('audio_upload')['url'];
+                                                                                                                    if (!(empty($audio_url))) {
+                    ?>
                             <div class="podcast-player-cover show-mobile">
                                 <amp-audio width="auto" height="40" src="https://ia801402.us.archive.org/16/items/EDIS-SRP-0197-06/EDIS-SRP-0197-06.mp3" controlslist="nodownload">
                                     <div fallback>Your browser doesn’t support HTML5 audio</div>
                                 </amp-audio>
                             </div>
                     <?php }
-                    } ?>
+                                                                                                                } ?>
                     <?php $audio_url = get_field('audio_upload')['url'];
-                    if (!(empty($audio_url))) {
-                        ?>
+                                                                                                                if (!(empty($audio_url))) {
+                    ?>
                         <div class="post-play show-desktop-play" id="play-icon">
                             <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                 <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
@@ -113,16 +115,15 @@ if ((empty($featured_image))) {
                     </div>
                     <div class="entry-content">
                         <?php
-                        echo get_post_field('post_content', get_the_ID());
+                                                                                                                echo get_post_field('post_content', get_the_ID());
                         ?>
                     </div>
                 </div>
             </div>
             <?php get_template_part('templates/twimcast', 'right') ?>
         </div>
-
     </section>
 </main><!-- #site-content -->
 
 <?php
-get_footer();
+                                                                                                                get_footer();

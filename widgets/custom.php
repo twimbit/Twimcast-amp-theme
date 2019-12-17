@@ -17,10 +17,10 @@ $media = $widget['media'];
             if ((empty($image_url))) {
                 $image_url = getRandomImageForCategory();
             }
-            ?>
-            <a href="<?php echo $url; ?>" style="position:relative;border-radius:4px" target="_blank">
+        ?>
+            <a href="<?php echo $url; ?>" style="height:264px;top:14px;position:relative;border-radius:4px" target="_blank">
                 <amp-img src='<?php echo $image_url; ?>' height="300" width="400" layout="responsive" alt="a sample image">
-                    <amp-img alt="Mountains" fallback height="250" width="670" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
+                    <amp-img alt="Mountains" fallback height="300" width="400" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                 </amp-img>
             </a>
         <?php } ?>
@@ -28,16 +28,16 @@ $media = $widget['media'];
     <div class="amp-selector show-mobile">
         <amp-selector id="carouselWithPreviewSelector" class="carousel-preview" on="select:carouselWithPreview.goToSlide(index=event.targetOption)" layout="container">
             <?php
-            $i = 0;
-            foreach ($media as $val) {
-                if ($i == 0) {
-                    ?>
+                                                                                $i = 0;
+                                                                                foreach ($media as $val) {
+                                                                                    if ($i == 0) {
+            ?>
                     <div class="carousel-dot" option="<?php echo $i; ?>" selected></div>
                 <?php } else { ?>
                     <div option="<?php echo $i; ?>" class="carousel-dot"></div>
             <?php }
-                $i++;
-            } ?>
+                                                                                    $i++;
+                                                                                } ?>
         </amp-selector>
     </div>
 </div>
