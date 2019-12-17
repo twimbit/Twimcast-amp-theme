@@ -55,6 +55,14 @@ if ((empty($featured_image))) {
         font-weight: 400;
         color: #7f7f7f;
     }
+
+    .podcast-player-cover {
+        margin-top: 20px;
+    }
+
+    .podcast-player-cover amp-audio {
+        width: 100%;
+    }
 </style>
 <main id="site-content" role="main">
     <section id="twimcast-sidebar">
@@ -69,15 +77,26 @@ if ((empty($featured_image))) {
                     <div class="post-image">
                         <amp-img src='<?php echo $featured_image; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image"></amp-img>
                     </div>
+                    <?php if (is_single()) {
+                        $audio_url = get_field('audio_upload')['url'];
+                        if (!(empty($audio_url))) {
+                            ?>
+                            <div class="podcast-player-cover show-mobile">
+                                <amp-audio width="auto" height="40" src="https://ia801402.us.archive.org/16/items/EDIS-SRP-0197-06/EDIS-SRP-0197-06.mp3" controlslist="nodownload">
+                                    <div fallback>Your browser doesn’t support HTML5 audio</div>
+                                </amp-audio>
+                            </div>
+                    <?php }
+                    } ?>
                     <?php $audio_url = get_field('audio_upload')['url'];
                     if (!(empty($audio_url))) {
                         ?>
-                        <div class="post-play" id="play-icon">
+                        <div class="post-play show-desktop-play" id="play-icon">
                             <div href="#" on="tap:amp-player.play(),play-icon.hide(),pause-icon.show(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                 <img src="<?php echo $dir_path . '/assets/images/svg/play-icon.svg'; ?>" alt="">
                             </div>
                         </div>
-                        <div class="post-play" id="pause-icon" hidden>
+                        <div class="post-play show-desktop-play" id="pause-icon" hidden>
                             <div href="#" on="tap:amp-player.pause(),play-icon.show(),pause-icon.hide(),player.toggleClass(class='hide-player')" role="button" tabindex="1">
                                 <img src="<?php echo $dir_path . '/assets/images/svg/pause-icon.svg'; ?>" alt="">
                             </div>
