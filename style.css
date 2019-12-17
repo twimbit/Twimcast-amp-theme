@@ -556,7 +556,7 @@ section.postArea {
   display: flex;
   margin-left: 280px;
   padding-left: 54px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-family: "Merriweather", serif;
   font-size: 18px;
   font-weight: 300;
@@ -621,7 +621,7 @@ section.postArea {
   margin-right: auto;
   margin-left: auto;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 0 16px;
 }
 
@@ -1084,7 +1084,7 @@ ul {
   width: 80%;
   position: relative;
   height: 300px;
-  /* margin: 10px; */
+  margin: 10px;
 }
 .amp-carousel-style amp-img {
   border-radius: 4px;
@@ -1305,7 +1305,7 @@ amp-selector [option] {
 
 .amp-carousel-button-next {
   background-position: 40% 36%;
-  /* left: 30px; */
+  /* left: 38px; */
   /* top: -110px; */
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg style='pointer-events: none; display: block; width: 100%; height: 100%;' xmlns='http://www.w3.org/2000/svg' fill='black'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
 }
@@ -1389,9 +1389,14 @@ amp-selector [option] {
 
   .custom-carousel .amp-carousel-button-prev {
     left: auto;
-    top: -12px;
-    right: 28px;
+    /* top: -12px; */
+    right: 33px;
   }
+
+.amp-carousel-button.amp-carousel-button-prev.amp-disabled {
+    visibility: visible;
+    opacity: 0.2;
+}
 
   .custom-carousel .amp-carousel-button-next {
     right: 0;
@@ -1839,24 +1844,22 @@ amp-selector [option] {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond,
-    "Times New Roman", serif;
+  font-family: merriweather,"open-sans",sans-serif;
+  font-size: 19px;
   letter-spacing: normal;
 }
 
 .entry-content cite,
 .entry-content figcaption,
 .entry-content .wp-caption-text {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-    sans-serif;
+  font-family: merriweather,"open-sans",sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
   .entry-content cite,
   .entry-content figcaption,
   .entry-content .wp-caption-text {
-    font-family: "Inter var", -apple-system, BlinkMacSystemFont,
-      "Helvetica Neue", Helvetica, sans-serif;
+    font-family: merriweather,"open-sans",sans-serif;
   }
 }
 
@@ -1882,7 +1885,7 @@ amp-selector [option] {
   margin-top: 4rem;
   margin-right: auto;
   margin-bottom: 4rem;
-  margin-left: auto;
+  margin-left: -72px;
 }
 
 [class*="__inner-container"]
@@ -1899,8 +1902,9 @@ amp-selector [option] {
   margin-bottom: 5rem;
   margin-left: auto;
   max-width: 100vw;
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 100vw;
+  left: -24vw;
 }
 
 [class*="__inner-container"] > .alignfull {
@@ -2039,7 +2043,7 @@ amp-selector [option] {
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright {
     /*rtl:ignore*/
-    margin-right: calc((100vw - 58rem - 8rem) / -2);
+    /* margin-right: calc((100vw - 58rem - 8rem) / -2); */
   }
 
   [class*="wp-block"]:not(.alignwide):not(.alignfull)
@@ -2082,6 +2086,7 @@ amp-selector [option] {
 
   .entry-content {
     font-size: 2.1rem;
+    margin-top: 30px;
   }
 
   .entry-content p,
@@ -2225,7 +2230,7 @@ amp-selector [option] {
   .entry-content > .alignleft,
   .entry-content > p .alignleft,
   .entry-content > .wp-block-image .alignleft {
-    position: absolute;
+    position: relative;
 
     /*rtl:ignore*/
     right: calc((100vw - 58rem) / 2 + 58rem + 2rem);
@@ -2298,7 +2303,7 @@ amp-selector [option] {
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright,
   [class*="__inner-container"] > .alignright {
-    position: absolute;
+    position: relative;
 
     /*rtl:ignore*/
     left: calc((100vw - 58rem) / 2 + 58rem + 2rem);
@@ -2452,20 +2457,20 @@ amp-selector [option] {
   .entry-content > p .alignleft,
   .entry-content > .wp-block-image .alignleft {
     /*rtl:ignore*/
-    right: calc((100vw - 58rem) / 2 + 58rem + 4rem);
+    right: calc((100vw - 174rem) / 2 + 7rem + 4rem);
 
     /*rtl:ignore*/
-    margin-left: -31rem;
+    margin-left: 0rem;
   }
 
   .entry-content > .alignright,
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright {
     /*rtl:ignore*/
-    left: calc((100vw - 58rem) / 2 + 58rem + 4rem);
+    left: calc((100vw - 174rem) / 2 + 7rem + 4rem);
 
     /*rtl:ignore*/
-    margin-right: -31rem;
+    margin-right: 0;
   }
 
   .entry-content > .alignwide {
@@ -2599,6 +2604,6 @@ amp-selector [option] {
     [class*="__inner-container"]
     > .wp-block-image
     .alignright {
-    max-width: 29rem;
+    max-width: 74rem;
   }
 }
