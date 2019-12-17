@@ -55,7 +55,7 @@ if ((empty($featured_image))) {
                             <div>
                                 <a href="<?php echo get_the_permalink($post); ?>">
                                     <div class="post-list">
-                                        <amp-img width="120" height="120" layout="responsive" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                                        <amp-img width="120" height="120" layout="fill" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:10px">
                                             <div class="rending-title"><?php echo $post->post_title; ?></div>
                                             <div class="trending-excerpt"><?php echo $post->post_excerpt; ?></div>
