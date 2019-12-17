@@ -150,7 +150,7 @@ a.image-carousel::before {
 
 a.image-carousel p {
   position: relative;
-  top: -306px;
+  top: -327px;
   left: 15px;
   width: 90%;
   font-size: 18px;
@@ -556,7 +556,7 @@ section.postArea {
   display: flex;
   margin-left: 280px;
   padding-left: 54px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-family: "Merriweather", serif;
   font-size: 18px;
   font-weight: 300;
@@ -621,7 +621,7 @@ section.postArea {
   margin-right: auto;
   margin-left: auto;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 0 16px;
 }
 
@@ -1832,8 +1832,8 @@ amp-selector [option] {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond,
-    "Times New Roman", serif;
+  font-family: merriweather, open-sans;
+  font-size: 19px;
   letter-spacing: normal;
 }
 
@@ -1875,7 +1875,7 @@ amp-selector [option] {
   margin-top: 4rem;
   margin-right: auto;
   margin-bottom: 4rem;
-  margin-left: auto;
+  margin-left: -72px;
 }
 
 [class*="__inner-container"]
@@ -1892,8 +1892,9 @@ amp-selector [option] {
   margin-bottom: 5rem;
   margin-left: auto;
   max-width: 100vw;
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 100vw;
+  left: -24vw;
 }
 
 [class*="__inner-container"] > .alignfull {
@@ -2032,7 +2033,7 @@ amp-selector [option] {
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright {
     /*rtl:ignore*/
-    margin-right: calc((100vw - 58rem - 8rem) / -2);
+    /* margin-right: calc((100vw - 58rem - 8rem) / -2); */
   }
 
   [class*="wp-block"]:not(.alignwide):not(.alignfull)
@@ -2075,6 +2076,7 @@ amp-selector [option] {
 
   .entry-content {
     font-size: 2.1rem;
+    margin-top: 30px;
   }
 
   .entry-content p,
@@ -2218,7 +2220,7 @@ amp-selector [option] {
   .entry-content > .alignleft,
   .entry-content > p .alignleft,
   .entry-content > .wp-block-image .alignleft {
-    position: absolute;
+    position: relative;
 
     /*rtl:ignore*/
     right: calc((100vw - 58rem) / 2 + 58rem + 2rem);
@@ -2291,7 +2293,7 @@ amp-selector [option] {
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright,
   [class*="__inner-container"] > .alignright {
-    position: absolute;
+    position: relative;
 
     /*rtl:ignore*/
     left: calc((100vw - 58rem) / 2 + 58rem + 2rem);
@@ -2445,20 +2447,20 @@ amp-selector [option] {
   .entry-content > p .alignleft,
   .entry-content > .wp-block-image .alignleft {
     /*rtl:ignore*/
-    right: calc((100vw - 58rem) / 2 + 58rem + 4rem);
+    right: calc((100vw - 174rem) / 2 + 7rem + 4rem);
 
     /*rtl:ignore*/
-    margin-left: -31rem;
+    margin-left: 0rem;
   }
 
   .entry-content > .alignright,
   .entry-content > p .alignright,
   .entry-content > .wp-block-image .alignright {
     /*rtl:ignore*/
-    left: calc((100vw - 58rem) / 2 + 58rem + 4rem);
+    left: calc((100vw - 174rem) / 2 + 7rem + 4rem);
 
     /*rtl:ignore*/
-    margin-right: -31rem;
+    margin-right: 0;
   }
 
   .entry-content > .alignwide {
@@ -2592,6 +2594,6 @@ amp-selector [option] {
     [class*="__inner-container"]
     > .wp-block-image
     .alignright {
-    max-width: 29rem;
+    max-width: 74rem;
   }
 }
