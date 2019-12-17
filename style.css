@@ -1337,7 +1337,7 @@ amp-selector [option] {
 
 @media (min-width: 770px) {
   body {
-    background-color: #f2f2f1;
+    background-color: #fffffd;
   }
 
   .thumbnail-widget amp-carousel {
@@ -1443,7 +1443,7 @@ amp-selector [option] {
   section#twimcast-sidebar {
     width: 20vw;
     border-radius: 15px;
-    background-color: #ffffffb3;
+    background-color: #f7f7f7b3;
     display: block;
     border-radius: 0px 15px 15px 0px;
     opacity: 1;
