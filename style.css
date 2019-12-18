@@ -762,7 +762,7 @@ a.sidebar-home:hover {
 }
 
 .sidebar-back svg {
-  transform: scale(0.8);
+  transform: scale(0.7);
 }
 
 .sidebar-back a {
@@ -774,7 +774,6 @@ a.sidebar-home:hover {
   width: 32px;
   position: absolute;
   left: 16px;
-  top: 20px;
 }
 
 .image-carousel {
@@ -2191,7 +2190,8 @@ section#twimcast-sidebar {
     align-items: center;
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 15px;
   }
   section#twimcast-sidebar {
     width: 100%;

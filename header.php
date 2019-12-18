@@ -106,7 +106,7 @@
 				</svg>
 
 			</a>
-			<div class="footer-search footer-icon" style="flex: 0.5;margin-right: 20px;">
+			<div class="footer-search footer-icon" style="flex: 0.3;margin-right: 20px;">
 				<a class="footer-search footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
 						<defs>
