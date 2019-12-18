@@ -818,7 +818,6 @@ section.widget-area {
   margin-left: 20vw;
   /* margin-left: 280px; */
   transition: all 0.3s;
-  width: 80vw;
 }
 
 .postArea-container {
@@ -1789,7 +1788,7 @@ amp-selector [option] {
     height: 110px;
   }
   section.widget-area {
-    /* margin-left: 20vw; */
+    width: 80vw;
   }
   .thumbnail-widget {
     margin: 45px auto;
@@ -2082,15 +2081,19 @@ amp-selector [option] {
   .amp-carousel-style amp-carousel {
     height: 244px;
     border-radius: 4px;
+    width: auto;
   }
   .custom-carousel {
     padding-bottom: 20px;
+    display: block;
   }
   section.widget-area {
     margin-left: 0;
   }
   .widget-area-section {
     padding: 0 14px;
+    max-width: 550px;
+    margin: 0 auto;
   }
   .trending-list > amp-img {
     width: 100px;
@@ -2099,6 +2102,26 @@ amp-selector [option] {
   .explore-all p {
     font-size: 20px;
     margin-bottom: 25px;
+  }
+  .explore-all {
+    width: 100%;
+    max-width: 100%;
+  }
+  .image-slide p {
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    width: 95%;
+  }
+  .image-slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
   }
   .rending-title {
     font-size: 14px;
@@ -2138,7 +2161,7 @@ amp-selector [option] {
     padding: 1px 0;
   }
   .sub-cat p {
-    top: -156px;
+    top: 7px;
     left: 11px;
     width: 137px;
     font-size: 19px;
@@ -2149,8 +2172,6 @@ amp-selector [option] {
   .image-slide {
     position: absolute;
     /* top: -220px; */
-    left: 15px;
-    width: 370px;
     font-size: 19px;
     color: #fff;
     white-space: normal;
@@ -2165,26 +2186,18 @@ amp-selector [option] {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     text-shadow: 2px 2px 4px #000;
+    border-radius: 4px;
   }
-}
-@media (min-width: 425px) and (max-width: 768px) {
+  .featrued-card-container {
+    width: 220px;
+    height: 257px;
+  }
   .thumbnail-widget {
+    max-width: 100%;
     margin: 18px auto;
-    min-width: 300px;
-    /* max-width: 400px; */
   }
 }
 
-@media (min-width: 520px) and (max-width: 768px) {
-  .thumbnail-widget {
-    margin: 18px auto;
-    max-width: 520px;
-  }
-  .suggested-widget {
-    max-width: 520px;
-    margin: 18px auto;
-  }
-}
 .show {
   transform: translate(0px, 0px) !important;
 }

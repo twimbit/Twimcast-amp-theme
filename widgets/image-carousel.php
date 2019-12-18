@@ -21,10 +21,10 @@ $posts = $widget['posts'];
                 }
             ?>
                 <a href="<?php echo $post_url; ?>" class="image-slide">
+                    <p><?php echo $post_title; ?></p>
                     <amp-img width="<?php echo $width; ?>" layout="responsive" height="<?php echo $height; ?>" alt="List icon" src="<?php echo $featured_image; ?>">
                         <amp-img alt="Mountains" fallback width="400" height="368" src="<?php echo $dir_path; ?>/assets/images/fallback.jpg"></amp-img>
                     </amp-img>
-                    <p><?php echo $post_title; ?></p>
                 </a>
             <?php } ?>
         </amp-carousel>
