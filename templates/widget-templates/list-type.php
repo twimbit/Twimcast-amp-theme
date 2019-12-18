@@ -14,20 +14,24 @@
     </div>
     <div class="divider"></div>
     <?php $audio_url = get_field('audio_upload', $post)['url'];
-                                if (($audio_url) || ($post_type == 'read')) { ?>
+                                if ($audio_url) { ?>
         <div class="trending-time" title="Read time">
             <?php echo $post_readTime; ?>
         </div>
         <div class="trending-type">
-            <?php
-                                    if ($post_type == 'podcast') { ?>
-                <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
-            <?php    } else if ($post_type == 'read') { ?>
-                min <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
-            <?php    }
-            ?>
+            <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+        </div>
+    <?php    } else if (($post_type == 'read') || ($post_type == "podcast")) { ?>
+        <div class="trending-time" title="Read time">
+            <span> <?php if (!(empty($post_readTime))) {
+                                        echo $post_readTime;
+                                    } ?></span>
+        </div>
+        <div class="trending-type">
+            min <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
         </div>
     <?php } ?>
+
     <div class="add-to-queue">
         <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
     </div>
