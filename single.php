@@ -32,30 +32,65 @@ if ((empty($featured_image))) {
                                     ?>
                     <!--" layout="responsive" alt="a sample image"></amp-img>-->
                     <!--                    </div>-->
-                    <?php if (is_single()) {
-                                                                        $audio_url = get_field('audio_upload')['url'];
-                                                                        if (!(empty($audio_url))) {
-                    ?>
-                            <div class="podcast-player-cover show-mobile">
-                                <amp-audio width="auto" height="40" src="<?php echo $audio_url; ?>" controlslist="nodownload">
-                                    <div fallback>Your browser doesn’t support HTML5 audio</div>
-                                </amp-audio>
-                            </div>
-                    <?php }
-                                                                    } ?>
 
-                    <div class="post-title">
-                        <h3>
-                            <!-- post content -->
-                            <?php the_title(); ?>
-                        </h3>
+                    <div class="post-title-player-area">
+                        <div class="post-title">
+                            <h3>
+                                <!-- post content -->
+                                <?php the_title(); ?>
+                            </h3>
+                        </div>
+                        <div class="post-meta-data show-mobile">
+                            <div class="post-share">
+                                <div class="share-text" hidden>
+                                    Share
+                                </div>
+
+                                <div class="share-icon">
+                                    <span>999</span>
+                                    <amp-social-share class="rounded" type="facebook" data-param-app_id="254325784911610" width="20" height="20"></amp-social-share>
+                                    <amp-social-share class="rounded" type="linkedin" width="20" height="20"></amp-social-share>
+                                    <amp-social-share class="rounded" type="twitter" width="20" height="20"></amp-social-share>
+                                    <amp-social-share class="rounded" type="whatsapp" width="20" height="20"></amp-social-share>
+                                </div>
+                            </div>
+                            <div class="post-author-name" style="margin-top: 10px">
+                                <p><span><?php echo get_the_author_meta('display_name', get_queried_object()->post_author); ?> in <?php echo get_the_category(get_the_ID())[0]->name; ?></span></p>
+                            </div>
+                            <div class="post-read-time">
+                                <p style="display: flex;align-items: center;font-size: 13px;">
+                                    <?php echo get_field('length', get_queried_object());
+                                                                                                                                    // echo get_post_meta(get_the_ID())['reading_time'][0];
+                                                                                                                                    $post_type = get_field('intent_type', get_queried_object());
+                                                                                                                                    if ($post_type == 'podcast') { ?>
+
+                                    <?php    } else if ($post_type == 'read') { ?>
+                                        <span style="margin-left: 5px"> mins read time</span>
+                                    <?php    }
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="post-excerpt">
+                            <?php if (is_single()) {
+                                                                                                                                        $audio_url = get_field('audio_upload')['url'];
+                                                                                                                                        if (!(empty($audio_url))) {
+                            ?>
+                                    <div class="podcast-player-cover show-mobile">
+                                        <amp-audio style="width:100%" width="auto" height="40" src="<?php echo $audio_url; ?>" controlslist="nodownload">
+                                            <div fallback>Your browser doesn’t support HTML5 audio</div>
+                                        </amp-audio>
+                                    </div>
+                            <?php }
+                                                                                                                                    } ?>
+                        </div>
                     </div>
-                    <div class="post-excerpt" hidden>
-                        <p><?php echo the_excerpt(); ?></p>
-                    </div>
+
+
+                    <!-- Post text -->
                     <div class="entry-content">
                         <?php
-                                                                    echo get_post_field('post_content', get_the_ID());
+                                                                                                                                    echo get_post_field('post_content', get_the_ID());
                         ?>
                     </div>
                 </div>
@@ -66,4 +101,4 @@ if ((empty($featured_image))) {
 </main><!-- #site-content -->
 
 <?php
-                                                                    get_footer();
+                                                                                                                                    get_footer();

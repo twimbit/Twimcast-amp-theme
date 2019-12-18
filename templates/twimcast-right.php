@@ -26,9 +26,7 @@
                             // echo get_post_meta(get_the_ID())['reading_time'][0];
                             $post_type = get_field('intent_type', get_queried_object());
                             if ($post_type == 'podcast') { ?>
-                        <div class="player-icon" id="right-play" alt="" title="Play Podcast" on="tap:amp-player.play(),right-play.hide(),right-pause.show()" role="button" tabindex="1"></div>
-
-                        <div class="player-pause" id="right-pause" alt="" title="Play Podcast" on="tap:amp-player.pause(),right-pause.hide(),right-play.show()" hidden role="button" tabindex="1"></div>
+                        <div class="player-icon" id="right-play" alt="" title="Play Podcast" on="tap:amp-player.play()" role="button" tabindex="1"></div>
                     <?php    } else if ($post_type == 'read') { ?>
                         <span style="margin-left: 5px"> mins read time</span>
                     <?php    }
@@ -49,7 +47,6 @@
             <svg on="tap:amp-share.toggleClass(class='hide-player')" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve" tabindex="1" role="button">
                 <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97 29.698,31.112 31.112,29.698 16.97,15.556 " />
             </svg>
-
         </div>
     </div>
     <div class="post-playlist">
