@@ -2212,6 +2212,8 @@ section#twimcast-sidebar {
     margin-left: 0;
     padding-left: 0;
     height: fit-content;
+    max-width: 550px;
+    margin: 0 auto;
   }
   .sidebar-heading h3 {
     margin: 0;
