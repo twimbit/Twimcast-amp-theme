@@ -7,7 +7,7 @@ $media = $widget['media'];
     </div>
     <p><?php echo $title; ?> </p>
     <!-- on="slideChange:carouselWithPreviewSelector.toggle(index=event.index, value=true)"  -->
-    <amp-carousel height="0" type="slides" layout="responsive" width="0" id="carouselWithPreview" controls>
+    <amp-carousel height="0" type="slides" layout="responsive" width="0" id="carouselWithPreview" on="slideChange:carouselWithPreviewSelector.toggle(index=event.index, value=true)" controls>
         <?php foreach ($media as $image) {
             //print_r($image);
             $image_url = $image['image']['url'];

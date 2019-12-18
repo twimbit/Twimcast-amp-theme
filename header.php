@@ -107,7 +107,7 @@
 
 			</a>
 			<div class="footer-search footer-icon" style="flex: 0.5;margin-right: 20px;">
-				<a href="#" class="footer-search footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
+				<a class="footer-search footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
 						<defs>
 							<clipPath id="clip-path">
@@ -119,7 +119,7 @@
 						</g>
 					</svg>
 				</a>
-				<a href="#" class="footer-profile footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
+				<a class="footer-profile footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="16" viewBox="0 0 23 16">
 						<defs>
 							<clipPath id="clip-path">
@@ -135,7 +135,7 @@
 					</svg>
 				</a>
 			</div>
-			<a href="#" class="footer-explore footer-icon" hidden>
+			<a class="footer-explore footer-icon" hidden>
 				<svg xmlns="http://www.w3.org/2000/svg" width="15.986" height="18.329" viewBox="0 0 15.986 18.329">
 					<g id="Component_409_1" data-name="Component 409 – 1" transform="translate(1 0.164)">
 						<line id="Line_1" data-name="Line 1" y2="18.126" fill="none" stroke="#0d1c2e" stroke-width="2" />

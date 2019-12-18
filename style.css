@@ -492,7 +492,7 @@ iframe.instagram-media {
 .explore-all {
   border-bottom: #d4d3d3 solid 2px;
   width: 90%;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .post-read-time p {
@@ -775,7 +775,6 @@ a.sidebar-home:hover {
   position: absolute;
   left: 16px;
   top: 20px;
-  display: none;
 }
 
 .image-carousel {
@@ -1480,7 +1479,7 @@ ul {
   /* border-radius: 10px; */
   /* padding-right: 5px; */
   /* padding-left: 5px; */
-  margin: 45px auto;
+  margin: 20px auto;
   /* display: flex; */
   /* flex-direction: column; */
 }
@@ -1532,6 +1531,7 @@ ul {
   display: flex;
   align-items: center;
   margin-right: 12px;
+  margin: 0;
 }
 .explore-all-link a {
   font-size: 15px;
@@ -1878,7 +1878,7 @@ section#twimcast-sidebar {
     overflow: hidden;
   }
   .trending-widget {
-    margin: 45px auto;
+    margin: 20px auto;
     min-width: 300px;
     width: 90%;
   }
