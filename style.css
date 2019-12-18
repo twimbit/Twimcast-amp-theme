@@ -1025,7 +1025,7 @@ section.postArea {
 }
 
 .post-container {
-  margin-top: 76px;
+  margin-top: 20px;
   flex: 1;
   padding-bottom: 20px;
   max-width: 800px;
@@ -1140,12 +1140,12 @@ input#searchTerm {
 
 .sidebar-icon {
   position: absolute;
-  left: -15px;
-  border-radius: 50%;
+  right: 19px;
+  border-radius: 5px;
   width: 32px;
   height: 32px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px #00000029;
+  background: #e5dcce 0% 0% no-repeat padding-box;
+  /* box-shadow: 0px 3px 6px rgba(0,0,0,.16); */
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -1226,8 +1226,12 @@ input#searchTerm {
 section#twimcast-sidebar {
   width: 300px;
   /* background-color: #fff; */
-  border-radius: 10px;
   display: none;
+}
+
+.overflow-stop {
+  position: fixed;
+  z-index: 10;
 }
 
 .custom-carousel {
@@ -1674,9 +1678,6 @@ amp-selector [option] {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
-.sidebar-icon {
-  display: none;
-}
 .trending-list-content {
   flex: 1;
   margin-left: 10px;
@@ -1773,11 +1774,6 @@ section#twimcast-sidebar {
 @media (max-width: 1280px) {
   .postArea {
     overflow: hidden;
-  }
-  .post-container {
-    height: 99%;
-    /* margin: 0; */
-    /* overflow: hidden; */
   }
 }
 
@@ -1994,6 +1990,9 @@ section#twimcast-sidebar {
   .trending-list-content {
     padding: 0;
   }
+  .sidebar-icon {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2001,9 +2000,7 @@ section#twimcast-sidebar {
     margin-left: 25px;
     /* overflow: auto; */
   }
-  .show-sidebar {
-    display: block;
-  }
+
   section.widget-area {
     margin-left: 40px;
   }
@@ -2184,9 +2181,7 @@ section#twimcast-sidebar {
     max-width: 100%;
     margin: 18px auto;
   }
-  #site-content {
-    margin-top: 80px;
-  }
+
   .footer-home h3 {
     height: 100%;
     color: #717171;
@@ -2199,10 +2194,32 @@ section#twimcast-sidebar {
     justify-content: center;
   }
   section#twimcast-sidebar {
-    width: 80%;
-    margin-top: -28px;
+    width: 100%;
     right: 0;
+    top: 0;
     transform: translate(768px, 0px);
+    z-index: 10;
+    overflow-y: scroll;
+  }
+
+  .post-title {
+    margin-top: auto;
+  }
+  #site-content {
+    padding-top: 52px;
+  }
+  .archiveArea {
+    margin-left: 0;
+    padding-left: 0;
+    height: fit-content;
+  }
+  .sidebar-heading h3 {
+    margin: 0;
+  }
+  a.sidebar-home {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -2241,7 +2258,7 @@ section#twimcast-sidebar {
 
 .entry-content {
   line-height: 1.5;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 .entry-content > * {

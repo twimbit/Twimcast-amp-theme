@@ -40,4 +40,4 @@ $dir_path = get_template_directory_uri();
 </main><!-- #site-content -->
 
 <?php
-get_footer();
+            get_footer();
