@@ -65,11 +65,11 @@ td {
 }
 
 h3.sidebar-title {
-  margin-top: 34px;
-  margin-left: 29px;
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 500;
+    margin-top: 34px;
+    margin-left: 29px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .custom-carousel p {
@@ -581,7 +581,7 @@ a.image-carousel p {
 }
 
 .menu {
-  padding: 10px 0;
+  /* padding: 10px 0; */
 }
 
 .podcast-player-title h3 {
@@ -728,7 +728,7 @@ ul {
   /* margin-left: 20px; */
   list-style: none;
   /* gap: 21px; */
-  margin-top: 5px;
+  /* margin-top: 5px; */
   /* padding-bottom: 20px; */
 }
 
@@ -1894,7 +1894,20 @@ section#twimcast-sidebar {
     min-width: 300px;
     width: 90%;
   }
-
+  section#twimcast-sidebar {
+    width: 20vw;
+    border-radius: 15px;
+    background-color: #efefefb3;
+    display: block;
+    border-radius: 0px 15px 15px 0px;
+    opacity: 1;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    position: fixed;
+    height: 100%;
+    z-index: 100;
+    transition: all 0.3s;
+  }
   #site-content {
     display: flex;
     grid-auto-columns: 280px 1fr;
@@ -2370,7 +2383,7 @@ section#twimcast-sidebar {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-  font-family: merriweather, "open-sans", sans-serif;
+  font-family: merriweather, "Open sans", sans-serif;
   font-size: 19px;
   letter-spacing: normal;
 }
