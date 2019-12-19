@@ -22,12 +22,27 @@
             </div>
             <div class="post-read-time">
                 <p style="display: flex;align-items: center;font-size: 13px;">
-                    <?php echo get_field('length', get_queried_object());
+                    <?php
                             // echo get_post_meta(get_the_ID())['reading_time'][0];
                             $post_type = get_field('intent_type', get_queried_object());
-                            if ($post_type == 'podcast') { ?>
-                        <div class="player-icon" id="right-play" alt="" title="Play Podcast" on="tap:amp-player.play()" role="button" tabindex="1"></div>
-                    <?php    } else if ($post_type == 'read') { ?>
+                            if ($post_type == 'podcast') {
+                                if (is_single()) {
+                                    $audio_url = get_field('audio_upload')['url'];
+                                    if (!(empty($audio_url))) {
+                    ?>
+                                <div class="amp-player-post">
+                                    <amp-audio width="auto" id="amp-player" height="30" src="https://my.twimcast.com/wp-content/uploads/2019/11/Diplo-Revolution-SEANBOBO-REMIX-1.mp3" controlslist="nodownload">
+                                        <div fallback>Your browser doesn’t support HTML5 audio</div>
+                                    </amp-audio>
+                                </div>
+
+
+                        <?php }
+                                }
+                            } else if ($post_type == 'read') {
+                                echo '<span>' . get_field('length', get_queried_object()) . '</span>';
+                        ?>
+
                         <span style="margin-left: 5px"> mins read time</span>
                     <?php    }
                     ?>

@@ -63,29 +63,5 @@
                         'theme_location' => 'sidebar-bottom-menu',
                         'container_class' => 'menu'
                     ));
-                    if (is_single()) {
-                        $audio_url = get_field('audio_upload')['url'];
-                        if (!(empty($audio_url))) {
     ?>
-            <div class="podcast-player show-desktop" id="player">
-                <div class="podcast-player-container">
-                    <div class="podcast-player-thumbnail">
-                        <amp-img src='<?php echo the_post_thumbnail_url('thumbnail'); ?>' height="52" width="52" alt="a sample image">
-                        </amp-img>
-                    </div>
-                    <div class="podcast-player-info">
-                        <div class="podcast-player-title">
-                            <h3><?php the_title(); ?></h3>
-                        </div>
-                        <div class="podcast-player-playlist">
-                            Playing from my list
-                        </div>
-                    </div>
-                </div>
-                <amp-audio width="auto" id="amp-player" height="50" src="<?php echo $audio_url; ?>" controlslist="nodownload">
-                    <div fallback>Your browser doesn’t support HTML5 audio</div>
-                </amp-audio>
-            </div>
-    <?php }
-                                                                    } ?>
 </div>
