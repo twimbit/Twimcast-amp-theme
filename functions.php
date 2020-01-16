@@ -25,10 +25,10 @@ function twentytwenty_theme_support()
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
-	add_theme_support('post-thumbnails');
+	//add_theme_support('post-thumbnails');
 
 	// Set post thumbnail size.
-	set_post_thumbnail_size(1200, 9999);
+	//set_post_thumbnail_size(1200, 9999);
 
 	// Add custom image size used in Cover Template.
 	add_image_size('twentytwenty-fullscreen', 1980, 9999);
@@ -166,6 +166,20 @@ function twentytwenty_register_styles()
 
 add_action('wp_enqueue_scripts', 'twentytwenty_register_styles');
 
+
+
+// Limit media library access
+add_filter('ajax_query_attachments_args', 'wpb_show_current_user_attachments');
+function wpb_show_current_user_attachments($query)
+{
+	$user_id = get_current_user_id();
+	if ($user_id && !current_user_can('activate_plugins') && !current_user_can('edit_others_posts
+')) {
+		$query['author'] = $user_id;
+	}
+	return $query;
+}
+
 /**
  * Register and Enqueue Scripts.
  */
@@ -195,7 +209,7 @@ add_action('wp_enqueue_scripts', 'twentytwenty_register_scripts');
 function twentytwenty_skip_link_focus_fix()
 {
 	// The following is minified via `terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
-	?>
+?>
 	<script>
 		/(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function() {
 			var t, e = location.hash.substring(1);

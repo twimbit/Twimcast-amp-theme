@@ -31,7 +31,7 @@
                             if (!(empty($audio_url))) {
                     ?>
                                 <div class="amp-player-post">
-                                    <amp-audio width="auto" id="amp-player" height="30" src="https://my.twimcast.com/wp-content/uploads/2019/11/Diplo-Revolution-SEANBOBO-REMIX-1.mp3" controlslist="nodownload">
+                                    <amp-audio width="auto" id="amp-player" height="30" src="<?php echo $audio_url; ?>" controlslist="nodownload">
                                         <div fallback>Your browser doesn’t support HTML5 audio</div>
                                     </amp-audio>
                                 </div>

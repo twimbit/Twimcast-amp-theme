@@ -18,6 +18,11 @@
     <a href="https://twimbit.typeform.com/to/XojIj8?intent=twimcast" target="_blank">
         Sign Up <span> Beta</span>
     </a>
+    <div class="send-to-pwa show-mobile" style="margin-left: 15px;">
+        <a href="https://twimcast.com" target="_blank">
+            <span style="font-size: 13px;margin-top: 0;">Open web App</span>
+        </a>
+    </div>
 </div>
 <div class="sidebar-search">
     <form action="<?php echo site_url(); ?>" class="sidebar-form">
@@ -47,9 +52,9 @@
 <h3 class="sidebar-title">Top Categories</h3>
 <div class="sidebar-menu">
     <?php wp_nav_menu(array(
-                        'theme_location' => 'sidebar-category-menu',
-                        'container_class' => 'menu'
-                    ));
+        'theme_location' => 'sidebar-category-menu',
+        'container_class' => 'menu'
+    ));
     ?>
 
     <li class="sidebar-list-item sidebar-explore-all" hidden>
@@ -60,8 +65,8 @@
 
     <div class="sidebar-divider"></div>
     <?php wp_nav_menu(array(
-                        'theme_location' => 'sidebar-bottom-menu',
-                        'container_class' => 'menu'
-                    ));
+        'theme_location' => 'sidebar-bottom-menu',
+        'container_class' => 'menu'
+    ));
     ?>
 </div>
