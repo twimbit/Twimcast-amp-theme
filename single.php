@@ -90,7 +90,8 @@ if ((empty($featured_image))) {
                     <!-- Post text -->
                     <div class="entry-content">
                         <?php
-                        echo get_post_field('post_content', get_the_ID());
+                        // echo get_post_field('post_content', get_the_ID());
+                        echo the_content();
                         ?>
                     </div>
                 </div>

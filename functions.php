@@ -33,6 +33,9 @@ function twentytwenty_theme_support()
 	// Add custom image size used in Cover Template.
 	add_image_size('twentytwenty-fullscreen', 1980, 9999);
 
+	// Add blur image size
+	add_image_size('pre-load', 20, 20);
+
 	// Custom logo.
 	$logo_width  = 120;
 	$logo_height = 90;
@@ -879,11 +882,83 @@ function yikes_remove_description_tab($tabs)
 function getRandomImageForPost()
 {
 	$num = rand(1, 43);
-	return 'https://my.twimcast.com/wp-content/uploads/assets/post%20(' . $num . ').svg';
+	return 'https://twimcast.com/wp-content/uploads/assets/post%20(' . $num . ').svg';
 }
 
 function getRandomImageForCategory()
 {
 	$num = rand(1, 13);
-	return 'https://my.twimcast.com/wp-content/uploads/assets/category%20(' . $num . ').svg';
+	return 'https://twimcast.com/wp-content/uploads/assets/category%20(' . $num . ').svg';
 }
+
+
+
+
+/**
+ * Taxonomy: classifiers.
+ */
+
+$labels = [
+	"name" => __("classifiers", "twimcast"),
+	"singular_name" => __("classifier", "twimcast"),
+	'add_new_item' => 'Add New Classifier',
+];
+
+$args = [
+	"label" => __("classifiers", "twimcast"),
+	"labels" => $labels,
+	"public" => true,
+	"publicly_queryable" => true,
+	"hierarchical" => false,
+	"show_ui" => true,
+	"show_in_menu" => true,
+	"show_in_nav_menus" => true,
+	"query_var" => true,
+	"rewrite" => ['slug' => 'classifier', 'with_front' => true,],
+	"show_admin_column" => true,
+	"show_in_rest" => true,
+	"rest_base" => "classifier",
+	"rest_controller_class" => "WP_REST_Terms_Controller",
+	"show_in_quick_edit" => true,
+	"capabilities" => array(
+		'manage_terms' => 'manage_categories', //by default only admin
+		'edit_terms' => 'manage_classfier',
+		'delete_terms' => 'manage_classfier',
+		'assign_terms' => 'edit_classfier'
+	),
+	'show_in_graphql' => true,
+	'graphql_single_name' => 'Classifier',
+	'graphql_plural_name' => 'Classifiers',
+	'hierarchical' => true,
+
+];
+register_taxonomy("classifier", ["post"], $args);
+
+
+
+/* Replacing title delimiters */
+function replace_the_title_filter($content)
+{
+
+	// Add image to the beginning of each page
+	$content = str_replace(array('&#8217;'), "'", $content);
+	$content = str_replace(array('&#8216;'), "‘", $content);
+	$content = str_replace(array('&#8211;'), "–", $content);
+	$content = str_replace(array('&#038;'), "&", $content);
+	$content = str_replace(array('&#8221;'), '"', $content);
+
+	// Returns the content.
+	return $content;
+}
+add_filter('the_title', 'replace_the_title_filter', 20);
+
+
+/* Replacing title delimiters */
+function replace_the_content_filter($content)
+{
+
+
+	$content = str_replace(array('<img'), '<amp-img lightbox', $content);
+	return $content;
+}
+//add_filter('the_content', 'replace_the_content_filter', 20);
