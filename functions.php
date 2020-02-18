@@ -114,6 +114,9 @@ function twentytwenty_theme_support()
 	 */
 	$loader = new TwentyTwenty_Script_Loader();
 	add_filter('script_loader_tag', array($loader, 'filter_script_loader_tag'), 10, 2);
+
+	/* setting image by default to file */
+	// update_option( 'image_default_link_type', 'file' );
 }
 
 add_action('after_setup_theme', 'twentytwenty_theme_support');
@@ -165,6 +168,9 @@ function twentytwenty_register_styles()
 
 	// Add print CSS.
 	wp_enqueue_style('twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print');
+
+	// theme style sheet
+	wp_enqueue_style('Twimcast style', get_template_directory_uri() . '/assets/css/style-old.css', $theme_version, 'theme-css');
 }
 
 add_action('wp_enqueue_scripts', 'twentytwenty_register_styles');
@@ -240,24 +246,7 @@ function twentytwenty_non_latin_languages()
 
 add_action('wp_enqueue_scripts', 'twentytwenty_non_latin_languages');
 
-/**
- * Register navigation menus uses wp_nav_menu in five places.
- */
-function twentytwenty_menus()
-{
 
-	$locations = array(
-		'primary'  => __('Desktop Horizontal Menu', 'twentytwenty'),
-		'expanded' => __('Desktop Expanded Menu', 'twentytwenty'),
-		'mobile'   => __('Mobile Menu', 'twentytwenty'),
-		'footer'   => __('Footer Menu', 'twentytwenty'),
-		'social'   => __('Social Menu', 'twentytwenty'),
-	);
-
-	register_nav_menus($locations);
-}
-
-add_action('init', 'twentytwenty_menus');
 
 /**
  * Get the information about the logo.
@@ -336,48 +325,7 @@ function twentytwenty_skip_link()
 
 add_action('wp_body_open', 'twentytwenty_skip_link', 5);
 
-/**
- * Register widget areas.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function twentytwenty_sidebar_registration()
-{
 
-	// Arguments used in all register_sidebar() calls.
-	$shared_args = array(
-		'before_title'  => '<h2 class="widget-title subheading heading-size-3">',
-		'after_title'   => '</h2>',
-		'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-		'after_widget'  => '</div></div>',
-	);
-
-	// Footer #1.
-	register_sidebar(
-		array_merge(
-			$shared_args,
-			array(
-				'name'        => __('Footer #1', 'twentytwenty'),
-				'id'          => 'sidebar-1',
-				'description' => __('Widgets in this area will be displayed in the first column in the footer.', 'twentytwenty'),
-			)
-		)
-	);
-
-	// Footer #2.
-	register_sidebar(
-		array_merge(
-			$shared_args,
-			array(
-				'name'        => __('Footer #2', 'twentytwenty'),
-				'id'          => 'sidebar-2',
-				'description' => __('Widgets in this area will be displayed in the second column in the footer.', 'twentytwenty'),
-			)
-		)
-	);
-}
-
-add_action('widgets_init', 'twentytwenty_sidebar_registration');
 
 /**
  * Enqueue supplemental block editor styles.
@@ -776,7 +724,7 @@ function wpb_custom_new_menu()
 }
 add_action('init', 'wpb_custom_new_menu');
 
-/* Adding acf options page */
+/* Adding acf options page (main widget page for home page)*/
 function register_acf_options_pages()
 {
 	if (function_exists('acf_add_options_page')) {
@@ -785,7 +733,7 @@ function register_acf_options_pages()
 			'page_title'      => __('Home Page Widgets'),
 			'menu_title'      => __('Home Page Widgets'),
 			'menu_slug' 	=> 'home-page-widgets',
-			'capability'	=> 'edit_posts',
+			'capability'	=> 'edit_others_posts',
 			'show_in_graphql' => true,
 
 		));
@@ -803,6 +751,12 @@ function get_reading_time($post_id)
 	return $reading_time;
 }
 
+/* get substring before string or character */
+function before($symbol, $inthat)
+{
+	return substr($inthat, 0, strpos($inthat, $symbol));
+}
+
 
 /* getting audio length which is attached to a post $post_id integer value */
 function getAudioLength($post_id)
@@ -810,18 +764,25 @@ function getAudioLength($post_id)
 	require_once(ABSPATH . 'wp-admin/includes/media.php');
 	$audio_file_path = get_attached_file(get_fields(get_post($post_id))['audio_upload']['ID']);
 	$length = wp_read_audio_metadata($audio_file_path)['length_formatted'];
-	return $length;
+	return before(':', $length);
 }
 
 add_action('save_post', 'cal_post_time');
 
 
+/* Calculating post and audio length */
 function cal_post_time($post_id)
 {
 	$fields_array = get_fields(get_post($post_id));
 	if ($fields_array['intent_type'] == 'podcast') {
 		$podcast_length =  getAudioLength($post_id);
-		update_field('length', $podcast_length, $post_id);
+		if ($podcast_length) {
+			update_field('length', $podcast_length, $post_id);
+		} else {
+			$getReadingTime = get_reading_time($post_id);
+			update_field('length', $getReadingTime, $post_id);
+			update_field('intent_type', 'read', $post_id);
+		}
 	} else if ($fields_array['intent_type'] == 'read') {
 		$getReadingTime = get_reading_time($post_id);
 		update_field('length', $getReadingTime, $post_id);
@@ -879,21 +840,6 @@ function yikes_remove_description_tab($tabs)
 }
 
 
-function getRandomImageForPost()
-{
-	$num = rand(1, 43);
-	return 'https://twimcast.com/wp-content/uploads/assets/post%20(' . $num . ').svg';
-}
-
-function getRandomImageForCategory()
-{
-	$num = rand(1, 13);
-	return 'https://twimcast.com/wp-content/uploads/assets/category%20(' . $num . ').svg';
-}
-
-
-
-
 /**
  * Taxonomy: classifiers.
  */
@@ -932,7 +878,7 @@ $args = [
 	'hierarchical' => true,
 
 ];
-register_taxonomy("classifier", ["post"], $args);
+//register_taxonomy("classifier", ["post"], $args);
 
 
 
@@ -953,12 +899,121 @@ function replace_the_title_filter($content)
 add_filter('the_title', 'replace_the_title_filter', 20);
 
 
-/* Replacing title delimiters */
-function replace_the_content_filter($content)
+
+// Show only posts and media related to logged in author
+add_action('pre_get_posts', 'query_set_only_author');
+function query_set_only_author($wp_query)
 {
-
-
-	$content = str_replace(array('<img'), '<amp-img lightbox', $content);
-	return $content;
+	global $current_user;
+	if (is_admin() && !current_user_can('edit_others_posts')) {
+		$wp_query->set('author', $current_user->ID);
+		add_filter('views_edit-post', 'fix_post_counts');
+		add_filter('views_upload', 'fix_media_counts');
+	}
 }
-//add_filter('the_content', 'replace_the_content_filter', 20);
+
+// Fix post counts
+function fix_post_counts($views)
+{
+	global $current_user, $wp_query;
+	unset($views['mine']);
+	$types = array(
+		array('status' =>  NULL),
+		array('status' => 'publish'),
+		array('status' => 'draft'),
+		array('status' => 'pending'),
+		array('status' => 'trash')
+	);
+	foreach ($types as $type) {
+		$query = array(
+			'author'      => $current_user->ID,
+			'post_type'   => 'post',
+			'post_status' => $type['status']
+		);
+		$result = new WP_Query($query);
+		if ($type['status'] == NULL) :
+			$class = ($wp_query->query_vars['post_status'] == NULL) ? ' class="current"' : '';
+			$views['all'] = sprintf(
+				__('<a href="%s"' . $class . '>All <span class="count">(%d)</span></a>', 'all'),
+				admin_url('edit.php?post_type=post'),
+				$result->found_posts
+			);
+		elseif ($type['status'] == 'publish') :
+			$class = ($wp_query->query_vars['post_status'] == 'publish') ? ' class="current"' : '';
+			$views['publish'] = sprintf(
+				__('<a href="%s"' . $class . '>Published <span class="count">(%d)</span></a>', 'publish'),
+				admin_url('edit.php?post_status=publish&post_type=post'),
+				$result->found_posts
+			);
+		elseif ($type['status'] == 'draft') :
+			$class = ($wp_query->query_vars['post_status'] == 'draft') ? ' class="current"' : '';
+			$views['draft'] = sprintf(
+				__('<a href="%s"' . $class . '>Draft' . ((sizeof($result->posts) > 1) ? "s" : "") . ' <span class="count">(%d)</span></a>', 'draft'),
+				admin_url('edit.php?post_status=draft&post_type=post'),
+				$result->found_posts
+			);
+		elseif ($type['status'] == 'pending') :
+			$class = ($wp_query->query_vars['post_status'] == 'pending') ? ' class="current"' : '';
+			$views['pending'] = sprintf(
+				__('<a href="%s"' . $class . '>Pending <span class="count">(%d)</span></a>', 'pending'),
+				admin_url('edit.php?post_status=pending&post_type=post'),
+				$result->found_posts
+			);
+		elseif ($type['status'] == 'trash') :
+			$class = ($wp_query->query_vars['post_status'] == 'trash') ? ' class="current"' : '';
+			$views['trash'] = sprintf(
+				__('<a href="%s"' . $class . '>Trash <span class="count">(%d)</span></a>', 'trash'),
+				admin_url('edit.php?post_status=trash&post_type=post'),
+				$result->found_posts
+			);
+		endif;
+	}
+	return $views;
+}
+
+// Fix media counts
+function fix_media_counts($views)
+{
+	$_total_posts = array();
+	$_num_posts = array();
+	global $wpdb, $current_user, $post_mime_types, $avail_post_mime_types;
+	$views = array();
+	$count = $wpdb->get_results("
+        SELECT post_mime_type, COUNT( * ) AS num_posts 
+        FROM $wpdb->posts 
+        WHERE post_type = 'attachment' 
+        AND post_author = $current_user->ID 
+        AND post_status != 'trash' 
+        GROUP BY post_mime_type
+    ", ARRAY_A);
+	foreach ($count as $row)
+		$_num_posts[$row['post_mime_type']] = $row['num_posts'];
+	$_total_posts = array_sum($_num_posts);
+	$detached = isset($_REQUEST['detached']) || isset($_REQUEST['find_detached']);
+	if (!isset($total_orphans))
+		$total_orphans = $wpdb->get_var("
+            SELECT COUNT( * ) 
+            FROM $wpdb->posts 
+            WHERE post_type = 'attachment' 
+            AND post_author = $current_user->ID 
+            AND post_status != 'trash' 
+            AND post_parent < 1
+        ");
+	$matches = wp_match_mime_types(array_keys($post_mime_types), array_keys($_num_posts));
+	foreach ($matches as $type => $reals)
+		foreach ($reals as $real)
+			$num_posts[$type] = (isset($num_posts[$type])) ? $num_posts[$type] + $_num_posts[$real] : $_num_posts[$real];
+	$class = (empty($_GET['post_mime_type']) && !$detached && !isset($_GET['status'])) ? ' class="current"' : '';
+	$views['all'] = "<a href='upload.php'$class>" . sprintf(__('All <span class="count">(%s)</span>', 'uploaded files'), number_format_i18n($_total_posts)) . '</a>';
+	foreach ($post_mime_types as $mime_type => $label) {
+		$class = '';
+		if (!wp_match_mime_types($mime_type, $avail_post_mime_types))
+			continue;
+		if (!empty($_GET['post_mime_type']) && wp_match_mime_types($mime_type, $_GET['post_mime_type']))
+			$class = ' class="current"';
+		if (!empty($num_posts[$mime_type]))
+			$views[$mime_type] = "<a href='upload.php?post_mime_type=$mime_type'$class>" . sprintf(translate_nooped_plural($label[2], $num_posts[$mime_type]), $num_posts[$mime_type]) . '</a>';
+	}
+	$views['detached'] = '<a href="upload.php?detached=1"' . ($detached ? ' class="current"' : '') . '>' . sprintf(__('Unattached <span class="count">(%s)</span>', 'detached files'), $total_orphans) . '</a>';
+	return $views;
+}
