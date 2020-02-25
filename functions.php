@@ -724,70 +724,6 @@ function wpb_custom_new_menu()
 }
 add_action('init', 'wpb_custom_new_menu');
 
-/* Adding acf options page (main widget page for home page)*/
-function register_acf_options_pages()
-{
-	if (function_exists('acf_add_options_page')) {
-
-		$home_page_widgets = acf_add_options_page(array(
-			'page_title'      => __('Home Page Widgets'),
-			'menu_title'      => __('Home Page Widgets'),
-			'menu_slug' 	=> 'home-page-widgets',
-			'capability'	=> 'edit_others_posts',
-			'show_in_graphql' => true,
-
-		));
-	}
-}
-add_action('acf/init', 'register_acf_options_pages');
-
-
-
-/* getting reading time of post given on post id */
-function get_reading_time($post_id)
-{
-	$reading_time = do_shortcode('[get_reading_time label=”Reading Time:” postfix=”minutes” post_id=' . $post_id . ']');
-	//$reading_time =	get_post_meta($post_id)['reading_time'][0];
-	return $reading_time;
-}
-
-/* get substring before string or character */
-function before($symbol, $inthat)
-{
-	return substr($inthat, 0, strpos($inthat, $symbol));
-}
-
-
-/* getting audio length which is attached to a post $post_id integer value */
-function getAudioLength($post_id)
-{
-	require_once(ABSPATH . 'wp-admin/includes/media.php');
-	$audio_file_path = get_attached_file(get_fields(get_post($post_id))['audio_upload']['ID']);
-	$length = wp_read_audio_metadata($audio_file_path)['length_formatted'];
-	return before(':', $length);
-}
-
-add_action('save_post', 'cal_post_time');
-
-
-/* Calculating post and audio length */
-function cal_post_time($post_id)
-{
-	$fields_array = get_fields(get_post($post_id));
-	if ($fields_array['intent_type'] == 'podcast') {
-		$podcast_length =  getAudioLength($post_id);
-		if ($podcast_length) {
-			update_field('length', $podcast_length, $post_id);
-		} else {
-			$getReadingTime = get_reading_time($post_id);
-			update_field('length', $getReadingTime, $post_id);
-			update_field('intent_type', 'read', $post_id);
-		}
-	} else if ($fields_array['intent_type'] == 'read') {
-		$getReadingTime = get_reading_time($post_id);
-		update_field('length', $getReadingTime, $post_id);
-	}
-}
 
 // Function for adding tags and category in page
 add_action('init', 'myplugin_settings');
@@ -840,6 +776,7 @@ function yikes_remove_description_tab($tabs)
 }
 
 
+
 /**
  * Taxonomy: classifiers.
  */
@@ -853,19 +790,19 @@ $labels = [
 $args = [
 	"label" => __("classifiers", "twimcast"),
 	"labels" => $labels,
-	"public" => true,
+	"public" => false,
 	"publicly_queryable" => true,
 	"hierarchical" => false,
-	"show_ui" => true,
-	"show_in_menu" => true,
-	"show_in_nav_menus" => true,
+	"show_ui" => false,
+	"show_in_menu" => false,
+	"show_in_nav_menus" => false,
 	"query_var" => true,
 	"rewrite" => ['slug' => 'classifier', 'with_front' => true,],
-	"show_admin_column" => true,
+	"show_admin_column" => false,
 	"show_in_rest" => true,
 	"rest_base" => "classifier",
 	"rest_controller_class" => "WP_REST_Terms_Controller",
-	"show_in_quick_edit" => true,
+	"show_in_quick_edit" => false,
 	"capabilities" => array(
 		'manage_terms' => 'manage_categories', //by default only admin
 		'edit_terms' => 'manage_classfier',
@@ -880,142 +817,17 @@ $args = [
 ];
 //register_taxonomy("classifier", ["post"], $args);
 
-
-
-/* Replacing title delimiters */
-function replace_the_title_filter($content)
+function update_posts()
 {
-
-	// Add image to the beginning of each page
-	$content = str_replace(array('&#8217;'), "'", $content);
-	$content = str_replace(array('&#8216;'), "‘", $content);
-	$content = str_replace(array('&#8211;'), "–", $content);
-	$content = str_replace(array('&#038;'), "&", $content);
-	$content = str_replace(array('&#8221;'), '"', $content);
-
-	// Returns the content.
-	return $content;
-}
-add_filter('the_title', 'replace_the_title_filter', 20);
-
-
-
-// Show only posts and media related to logged in author
-add_action('pre_get_posts', 'query_set_only_author');
-function query_set_only_author($wp_query)
-{
-	global $current_user;
-	//$pagenow holds the name of the current page being viewed
-	global $pagenow;
-	if (is_admin() && !current_user_can('edit_others_posts') && ('edit.php' == $pagenow)) {
-		$wp_query->set('author', $current_user->ID);
-		add_filter('views_edit-post', 'fix_post_counts');
-		add_filter('views_upload', 'fix_media_counts');
+	$args = array('post_type' => 'post', 'numberposts' => 100);
+	$posts = get_posts($args);
+	foreach ($posts as $val) {
+		if (empty(get_field('intent_type', $val->ID))) {
+			update_field('intent_type', 'read', $val->ID);
+		}
+		if (empty(get_field('length', $val->ID))) {
+			update_field('length', '1', $val->ID);
+		}
 	}
 }
-
-// Fix post counts
-function fix_post_counts($views)
-{
-	global $current_user, $wp_query;
-	unset($views['mine']);
-	$types = array(
-		array('status' =>  NULL),
-		array('status' => 'publish'),
-		array('status' => 'draft'),
-		array('status' => 'pending'),
-		array('status' => 'trash')
-	);
-	foreach ($types as $type) {
-		$query = array(
-			'author'      => $current_user->ID,
-			'post_type'   => 'post',
-			'post_status' => $type['status']
-		);
-		$result = new WP_Query($query);
-		if ($type['status'] == NULL) :
-			$class = ($wp_query->query_vars['post_status'] == NULL) ? ' class="current"' : '';
-			$views['all'] = sprintf(
-				__('<a href="%s"' . $class . '>All <span class="count">(%d)</span></a>', 'all'),
-				admin_url('edit.php?post_type=post'),
-				$result->found_posts
-			);
-		elseif ($type['status'] == 'publish') :
-			$class = ($wp_query->query_vars['post_status'] == 'publish') ? ' class="current"' : '';
-			$views['publish'] = sprintf(
-				__('<a href="%s"' . $class . '>Published <span class="count">(%d)</span></a>', 'publish'),
-				admin_url('edit.php?post_status=publish&post_type=post'),
-				$result->found_posts
-			);
-		elseif ($type['status'] == 'draft') :
-			$class = ($wp_query->query_vars['post_status'] == 'draft') ? ' class="current"' : '';
-			$views['draft'] = sprintf(
-				__('<a href="%s"' . $class . '>Draft' . ((sizeof($result->posts) > 1) ? "s" : "") . ' <span class="count">(%d)</span></a>', 'draft'),
-				admin_url('edit.php?post_status=draft&post_type=post'),
-				$result->found_posts
-			);
-		elseif ($type['status'] == 'pending') :
-			$class = ($wp_query->query_vars['post_status'] == 'pending') ? ' class="current"' : '';
-			$views['pending'] = sprintf(
-				__('<a href="%s"' . $class . '>Pending <span class="count">(%d)</span></a>', 'pending'),
-				admin_url('edit.php?post_status=pending&post_type=post'),
-				$result->found_posts
-			);
-		elseif ($type['status'] == 'trash') :
-			$class = ($wp_query->query_vars['post_status'] == 'trash') ? ' class="current"' : '';
-			$views['trash'] = sprintf(
-				__('<a href="%s"' . $class . '>Trash <span class="count">(%d)</span></a>', 'trash'),
-				admin_url('edit.php?post_status=trash&post_type=post'),
-				$result->found_posts
-			);
-		endif;
-	}
-	return $views;
-}
-
-// Fix media counts
-function fix_media_counts($views)
-{
-	$_total_posts = array();
-	$_num_posts = array();
-	global $wpdb, $current_user, $post_mime_types, $avail_post_mime_types;
-	$views = array();
-	$count = $wpdb->get_results("
-        SELECT post_mime_type, COUNT( * ) AS num_posts 
-        FROM $wpdb->posts 
-        WHERE post_type = 'attachment' 
-        AND post_author = $current_user->ID 
-        AND post_status != 'trash' 
-        GROUP BY post_mime_type
-    ", ARRAY_A);
-	foreach ($count as $row)
-		$_num_posts[$row['post_mime_type']] = $row['num_posts'];
-	$_total_posts = array_sum($_num_posts);
-	$detached = isset($_REQUEST['detached']) || isset($_REQUEST['find_detached']);
-	if (!isset($total_orphans))
-		$total_orphans = $wpdb->get_var("
-            SELECT COUNT( * ) 
-            FROM $wpdb->posts 
-            WHERE post_type = 'attachment' 
-            AND post_author = $current_user->ID 
-            AND post_status != 'trash' 
-            AND post_parent < 1
-        ");
-	$matches = wp_match_mime_types(array_keys($post_mime_types), array_keys($_num_posts));
-	foreach ($matches as $type => $reals)
-		foreach ($reals as $real)
-			$num_posts[$type] = (isset($num_posts[$type])) ? $num_posts[$type] + $_num_posts[$real] : $_num_posts[$real];
-	$class = (empty($_GET['post_mime_type']) && !$detached && !isset($_GET['status'])) ? ' class="current"' : '';
-	$views['all'] = "<a href='upload.php'$class>" . sprintf(__('All <span class="count">(%s)</span>', 'uploaded files'), number_format_i18n($_total_posts)) . '</a>';
-	foreach ($post_mime_types as $mime_type => $label) {
-		$class = '';
-		if (!wp_match_mime_types($mime_type, $avail_post_mime_types))
-			continue;
-		if (!empty($_GET['post_mime_type']) && wp_match_mime_types($mime_type, $_GET['post_mime_type']))
-			$class = ' class="current"';
-		if (!empty($num_posts[$mime_type]))
-			$views[$mime_type] = "<a href='upload.php?post_mime_type=$mime_type'$class>" . sprintf(translate_nooped_plural($label[2], $num_posts[$mime_type]), $num_posts[$mime_type]) . '</a>';
-	}
-	$views['detached'] = '<a href="upload.php?detached=1"' . ($detached ? ' class="current"' : '') . '>' . sprintf(__('Unattached <span class="count">(%s)</span>', 'detached files'), $total_orphans) . '</a>';
-	return $views;
-}
+//add_action('init', 'update_posts');

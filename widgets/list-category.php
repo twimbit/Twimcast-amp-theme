@@ -23,7 +23,7 @@ if (empty(!($posts))) {
             $i = 1;
             $postsNumber = count($posts);
             foreach ($posts as $post) {
-                $featured_image = get_the_post_thumbnail_url($post, 'thumbnail');
+                $featured_image = "";
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
                 $post_excerpt = $post->post_excerpt;
@@ -32,13 +32,8 @@ if (empty(!($posts))) {
                 $post_date = get_the_date('d M', $post);
                 $post_readTime = get_field('length', $post);
                 $post_type = get_field('intent_type', $post);
-                $image_array = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
-                $width = $image_array[1];
-                $height = $image_array[2];
                 if ((empty($featured_image))) {
                     $featured_image = getRandomImageForPost();
-                    $width = 1;
-                    $height = 1;
                 }
                 if ($i == 1) { ?>
                     <div class="trending-first show-desktop">

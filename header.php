@@ -88,7 +88,7 @@
 </head>
 
 <body>
-	<header class="main-footer show-mobile">
+	<header class="main-footer show-mobile" hidden>
 		<div class="footer-container">
 			<a href="<?php echo home_url(); ?>" class="footer-home footer-icon">
 				<h3>TwimCast</h3>

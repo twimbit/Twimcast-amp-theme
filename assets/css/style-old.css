@@ -1745,7 +1745,7 @@ section#twimcast-sidebar {
 #myTrendingList::before {
   content: "";
   position: absolute;
-  left: 204px;
+  left: 370px;
   right: 0;
   align-self: center;
   height: 1px;
@@ -1794,7 +1794,7 @@ section#twimcast-sidebar {
   }
   .featured-carousel {
     width: 100%;
-    height: 314px;
+    height: 334px;
     position: relative;
     padding-top: 14px;
   }
@@ -2242,7 +2242,7 @@ section#twimcast-sidebar {
     margin-top: auto;
   }
   #site-content {
-    padding-top: 52px;
+    /* padding-top: 52px; */
   }
   .archiveArea {
     margin-left: 0;

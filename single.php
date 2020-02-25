@@ -1,15 +1,15 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
-$featured_image = get_the_post_thumbnail_url();
+//$featured_image = get_the_post_thumbnail_url();
 // print_r($featured_image);
-$image_array = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
-$width = $image_array[1];
-$height = $image_array[2];
-if ((empty($featured_image))) {
-    $featured_image = getRandomImageForPost();
-    $width = 1;
-    $height = 1;
-}
+// $image_array = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
+// $width = $image_array[1];
+// $height = $image_array[2];
+// if ((empty($featured_image))) {
+//     $featured_image = getRandomImageForPost();
+//     $width = 1;
+//     $height = 1;
+// }
 ?>
 
 
