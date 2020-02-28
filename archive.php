@@ -7,17 +7,15 @@ $width = $image_array['width'];
 $height = $image_array['height'];
 if ((empty($featured_image))) {
     $featured_image = getRandomImageForCategory();
-    $width = 1;
-    $height = 1;
 }
 ?>
 
 <main id="site-content" role="main">
-    <section id="twimcast-sidebar">
+    <amp-sidebar id="twimcast-sidebar" layout="nodisplay" side="right">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
-    </section>
+    </amp-sidebar>
     <section class="archiveArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
@@ -36,7 +34,7 @@ if ((empty($featured_image))) {
                     <div class="post-excerpt" hidden>
                         <p><?php echo $queriedObj->category_description; ?></p>
                     </div>
-                    <div class="recomended-posts" style="font-family: 'Montserrat';">
+                    <div class="recomended-posts">
                         <?php
                         $args = array(
                             'post_type' => array('post'),
@@ -64,7 +62,7 @@ if ((empty($featured_image))) {
                             <div>
                                 <a href="<?php echo get_the_permalink($post); ?>">
                                     <div class="post-list">
-                                        <amp-img width="120" height="120" layout="responsive" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
+                                        <amp-img width="120" height="120" layout="responsive" object-fit="cover" alt="List icon" src="<?php echo $featured_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:10px">
                                             <?php include(locate_template('templates/widget-templates/list-type.php', false, false)); ?>
                                         </div>

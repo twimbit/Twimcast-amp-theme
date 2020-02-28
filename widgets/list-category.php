@@ -23,7 +23,7 @@ if (empty(!($posts))) {
             $i = 1;
             $postsNumber = count($posts);
             foreach ($posts as $post) {
-                $featured_image = "";
+                $featured_image = get_field('featured_images', $post)[0];
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
                 $post_excerpt = $post->post_excerpt;

@@ -42,9 +42,27 @@ $posts = $widget['posts'];
 
     <!-- For desktop -->
     <div class="show-desktop">
-        <amp-carousel height="0" width="0" type="carousel" controls layout="responsive">
+
+        <amp-carousel height="341" type="carousel" layout="fixed-height" controls style="margin-left:0">
             <?php foreach ($posts as $post) {
-                $featured_image = "";
+                $featured_image = get_field('featured_images', $post)[0];
+                $post_url = get_the_permalink($post);
+                $post_title = $post->post_title;
+                $category_url = get_category_link(get_the_category($post->ID)[0]);
+                if ((empty($featured_image))) {
+                    $featured_image = getRandomImageForPost();
+                }
+            ?>
+                <a class="image-slide-carousel" href="<?php echo $post_url; ?>">
+                    <h3 class="featured-description"><?php echo $post_title; ?></h3>
+                    <amp-img height="300" alt="List icon" object-fit="cover" src="<?php echo $featured_image; ?>" style="box-shadow: 0px 3px 6px #00000029"></amp-img>
+                </a>
+            <?php } ?>
+        </amp-carousel>
+
+        <amp-carousel height="0" width="0" type="carousel" controls layout="responsive" hidden>
+            <?php foreach ($posts as $post) {
+                $featured_image = get_field('featured_images', $post)[0];
                 $post_url = get_the_permalink($post);
                 $post_title = $post->post_title;
                 $category_url = get_category_link(get_the_category($post->ID)[0]);

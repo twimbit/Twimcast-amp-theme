@@ -11,7 +11,7 @@ $card_explore_all = get_category_link(get_the_category($widget['post'][0]->ID)[0
     <amp-carousel class="featured-carousel" height="0" width="0" type="carousel" layout="responsive" controls>
         <?php
         foreach ($posts as $post) {
-            $featured_image = "";
+            $featured_image = get_field('featured_images', $post)[0];
             $post_url = get_the_permalink($post);
             $post_title = $post->post_title;
             $post_excerpt = $post->post_excerpt;

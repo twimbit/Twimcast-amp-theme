@@ -5,12 +5,6 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!-- iphone meta tags	 -->
-	<?php if (have_posts()) : while (have_posts()) : the_post();
-		endwhile;
-	endif; ?>
-	<meta property="fb:app_id" content="713777305326587" />
-	<meta property="fb:admins" content="1626522259" />
 	<!-- Amp scripts -->
 	<script async="" src="https://cdn.ampproject.org/v0.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
@@ -18,6 +12,7 @@
 	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 	<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
 	<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+	<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
 
 	<!-- Amp analytics
 	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -37,32 +32,9 @@
 	</amp-analytics> -->
 
 	<?php if (is_single()) { ?>
-		<!-- Open Graph -->
-		<meta property="og:url" content="<?php the_permalink() ?>" />
-		<meta property="og:title" content="<?php single_post_title(''); ?>" />
-		<meta property="og:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
-		<meta property="og:type" content="article" />
-		<meta property="og:image" content="<?php if (function_exists('wp_get_attachment_thumb_url')) {
-												echo wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID));
-											} ?>" />
-		<!-- Schema.org -->
-		<meta itemprop="name" content="<?php single_post_title(''); ?>" />
-		<meta itemprop="description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
-		<meta itemprop="image" content="<?php if (function_exists('wp_get_attachment_thumb_url')) {
-											echo wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID));
-										} ?>" />
-		<!-- Twitter Cards -->
-		<meta property="twitter:card" content="summary" />
-		<meta property="twitter:site" content="Twimbit.pro" />
-		<meta property="twitter:title" content="<?php single_post_title(''); ?>" />
-		<meta property="twitter:description" content="<?php echo strip_tags(get_the_excerpt($post->ID)); ?>" />
-		<meta property="twitter:creator" content="Twimbit User" />
-		<meta property="twitter:image" content="<?php if (function_exists('wp_get_attachment_thumb_url')) {
-													echo wp_get_attachment_thumb_url(get_post_thumbnail_id($post->ID));
-												} ?>" />
-		<meta property="twitter:url" content="<?php the_permalink() ?>" />
-		<meta property="twitter:domain" content="Twimbit Pro" />
-
+		<meta name="twitter:image" content="<?php echo get_field('featured_images', get_queried_object()->ID)[0]; ?>">
+		<meta property="og:image" content="<?php echo get_field('featured_images', get_queried_object()->ID)[0]; ?>">
+		<meta property="og:image:secure_url" content="<?php echo get_field('featured_images', get_queried_object()->ID)[0]; ?>">
 	<?php } ?>
 	<title>
 		<?php
@@ -88,10 +60,10 @@
 </head>
 
 <body>
-	<header class="main-footer show-mobile" hidden>
+	<header class="main-footer show-mobile">
 		<div class="footer-container">
 			<a href="<?php echo home_url(); ?>" class="footer-home footer-icon">
-				<h3>TwimCast</h3>
+				<h3>Twimbit</h3>
 			</a>
 			<a href="<?php echo home_url(); ?>" class="footer-home footer-icon" hidden>
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21.988" viewBox="0 0 21 21.988">
@@ -107,7 +79,7 @@
 
 			</a>
 			<div class="footer-search footer-icon" style="flex: 0.3;margin-right: 20px;">
-				<a class="footer-search footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
+				<a class="footer-search footer-icon" on="tap:twimcast-sidebar.open" role="button" tabindex="1">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
 						<defs>
 							<clipPath id="clip-path">
@@ -119,7 +91,7 @@
 						</g>
 					</svg>
 				</a>
-				<a class="footer-profile footer-icon" on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
+				<a class="footer-profile footer-icon" on="tap:twimcast-sidebar.open" role="button" tabindex="1">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="16" viewBox="0 0 23 16">
 						<defs>
 							<clipPath id="clip-path">

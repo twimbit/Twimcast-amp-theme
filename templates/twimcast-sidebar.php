@@ -1,12 +1,13 @@
 <?php $dir_path = get_template_directory_uri();
 ?>
+
 <div class="sidebar-heading">
     <a href="<?php echo home_url(); ?>" class="sidebar-home">
         <h3>TwimCast</h3>
     </a>
 
     <div class="sidebar-icon show-sidebar">
-        <div on="tap:twimcast-sidebar.toggleClass(class='show'),site-content.toggleClass(class='overflow-stop')" role="button" tabindex="1">
+        <div on="tap:twimcast-sidebar.close" role="button" tabindex="1">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.112 31.112" style="enable-background:new 0 0 31.112 31.112;" xml:space="preserve">
                 <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97 
 	29.698,31.112 31.112,29.698 16.97,15.556 " />

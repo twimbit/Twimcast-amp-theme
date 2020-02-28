@@ -15,11 +15,11 @@ if (have_posts()) {
 ?>
 
 <main id="site-content" role="main">
-    <section id="twimcast-sidebar">
+<amp-sidebar id="twimcast-sidebar" layout="nodisplay" side="right">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
-    </section>
+    </amp-sidebar>
     <section class="archiveArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
