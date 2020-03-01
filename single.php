@@ -198,7 +198,7 @@ $insta_read = get_field('featured_images', get_queried_object());
                             $post_excerpt = $post->post_excerpt;
                             $post_author = get_the_author_meta('display_name', $post->post_author);
                             $post_category = get_the_category($post->ID)[0]->name;
-                            $post_date = get_the_date('d M', $post);
+                            $post_date = get_the_date("M d ,  Y", $post);
                             $post_readTime = get_field('length', $post);
                             $post_type = get_field('intent_type', $post);
                             if ((empty($featured_image))) {

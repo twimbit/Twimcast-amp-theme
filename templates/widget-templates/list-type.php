@@ -16,10 +16,11 @@
     <?php $audio_url = get_field('audio_upload', $post)['url'];
     if ($audio_url) { ?>
         <div class="trending-time" title="Read time">
-            <?php echo $post_readTime; ?>
+            <span><?php echo $post_readTime; ?> mins</span>
         </div>
         <div class="trending-type">
-            <img src="<?php echo $dir_path . '/assets/images/svg/headphone.svg'; ?>" alt="">
+            <!-- <img src="<?php //echo $dir_path . '/assets/images/svg/headphone.svg'; 
+                            ?>" alt=""> -->
         </div>
     <?php    } else if (($post_type == 'read') || ($post_type == "podcast")) { ?>
         <div class="trending-time" title="Read time">
@@ -28,11 +29,14 @@
                     } ?></span>
         </div>
         <div class="trending-type">
-            <span>min</span> <img src="<?php echo $dir_path . '/assets/images/svg/book.svg'; ?>" alt="">
+            <span>min</span>
+            <!-- <img src="<?php //echo $dir_path . '/assets/images/svg/book.svg'; 
+                            ?>" alt=""> -->
         </div>
     <?php } ?>
 
     <div class="add-to-queue">
-        <img src="<?php echo $dir_path . '/assets/images/svg/queue.svg'; ?>" alt="">
+        <!-- <img src="<?php //echo $dir_path . '/assets/images/svg/queue.svg'; 
+                        ?>" alt=""> -->
     </div>
 </div>
