@@ -1,5 +1,4 @@
 <?php
-
 function twentytwenty_theme_support()
 {
 
