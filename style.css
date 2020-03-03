@@ -1,5 +1,5 @@
 /*
-Theme Name: Twimcast - AMP
+Theme Name: Twimbit - AMP
 Text Domain: twimcast
 Version: v1.0
 Requires at least: 4.7
@@ -504,7 +504,7 @@ ul {
 }
 
 .entry-content > *:last-child {
-    margin-bottom: 30px!important;
+    margin-bottom: 30px !important;
 }
 
 .read-more-button-wrap {
@@ -617,7 +617,6 @@ ul {
 /* Wide */
 
 
-
 [class*="__inner-container"] > .alignwide {
     width: 100%;
 }
@@ -691,18 +690,17 @@ ul {
 
 @media (max-width: 479px) {
     /* Entry Content ------------------------- */
-
-  .alignwide {
-    max-width: 120rem;
-    position: relative;
-    /*width: calc(100% - 4rem);*/
-  }
+    .alignwide {
+        max-width: 120rem;
+        position: relative;
+        /*width: calc(100% - 4rem);*/
+    }
 
     /* LISTS */
     ul,
     ol {
         margin: 0 0 3rem 2rem;
-		margin-left: 2rem!important;
+        margin-left: 2rem !important;
     }
 
     li {
@@ -712,12 +710,11 @@ ul {
 
 @media (min-width: 700px) {
     /* Element Base ------------------------- */
-
-  .alignwide {
-    max-width: 120rem;
-    position: relative;
-    width: calc(100% - 4rem);
-  }
+    .alignwide {
+        max-width: 120rem;
+        position: relative;
+        width: calc(100% - 4rem);
+    }
 
     ul,
     ol {
@@ -1655,7 +1652,7 @@ iframe {
     border: solid 0.5px rgba(0, 0, 0, 0.06);
     margin: 10px 0px;
     border-radius: 10px;
-	background:white;
+    background: white;
     box-shadow: 5px 5px 14px #e0e0e0, -3px -5px 69px #ffffff;
 }
 
@@ -1663,7 +1660,7 @@ iframe {
     border: solid 0.5px rgba(0, 0, 0, 0.06);
     margin: 10px 0px;
     border-radius: 10px;
-	background:white;
+    background: white;
     box-shadow: 5px 5px 14px #e0e0e0, -3px -5px 69px #ffffff;
 }
 
@@ -1673,7 +1670,7 @@ iframe {
 .wp-block-file a.wp-block-file__button:visited {
     border-radius: 3px;
     background: linear-gradient(145deg, #f7f7f7, #ffffff);
-    box-shadow:  35px 35px 69px #e0e0e0,
+    box-shadow: 35px 35px 69px #e0e0e0,
     -35px -35px 69px #ffffff;
 }
 
@@ -1817,12 +1814,12 @@ iframe {
     margin-right: 0;
 }
 
-@media(max-width: 700px){
-  .alignwide {
-    max-width: 120rem;
-    position: relative;
-    /*width: calc(100% - 4rem);*/
-  }
+@media (max-width: 700px) {
+    .alignwide {
+        max-width: 120rem;
+        position: relative;
+        /*width: calc(100% - 4rem);*/
+    }
 }
 
 @media (min-width: 600px) {
@@ -2266,11 +2263,11 @@ iframe {
 
 @media (max-width: 600px) {
 
-  .alignwide {
-    max-width: 120rem;
-    position: relative;
-    /*width: calc(100% - 4rem);*/
-  }
+    .alignwide {
+        max-width: 120rem;
+        position: relative;
+        /*width: calc(100% - 4rem);*/
+    }
 
     .wp-block-media-text {
         -ms-grid-columns: 100% !important;
@@ -2300,7 +2297,8 @@ iframe {
         -ms-grid-row: 1;
         grid-row: 1;
     }
-    .wp-block-media-text{
+
+    .wp-block-media-text {
         -ms-grid-columns: 100% !important;
         grid-template-columns: 100% !important;
     }

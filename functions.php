@@ -464,7 +464,7 @@ function twentytwenty_block_editor_settings()
         add_theme_support('editor-color-palette', $editor_color_palette);
     }
 
-    // Block Editor Font Sizes.
+    // Block Editor Font Sizes.ṇ
     add_theme_support(
         'editor-font-sizes',
         array(
