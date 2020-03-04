@@ -600,9 +600,9 @@ ul {
 /* Full */
 
 .alignfull {
-    max-width: 100vw;
+    /*max-width: 100vw;*/
     position: relative;
-    margin: 5rem -16px 5rem -56px;
+    margin: 5rem -16px 5rem -16px;
 }
 
 [class*="__inner-container"] > .alignfull {
@@ -867,6 +867,7 @@ ul {
     .alignfull {
         /*width: 100vw;*/
         /*margin-left: -20vw;*/
+        margin: 5rem -16px 5rem -56px;
     }
 }
 
