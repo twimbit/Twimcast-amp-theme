@@ -78,7 +78,7 @@ html {
 }
 
 body {
-    background-color: #ebebe0;
+    background-color: #f9f9f9;
     box-sizing: border-box;
     color: #000;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
@@ -685,28 +685,24 @@ a.image-carousel p {
 
 .menu li:hover {
     font-weight: 600;
-    background-color: #ede8e1;
-    color: #ede7df;
+    background-color: hsla(0, 0%, 79.6%, .19);
+    /*color: #ede7df;*/
 }
 
 .menu a {
     text-decoration: none;
-    text-decoration: none;
-    color: #000000;
-    transition: hover 0.15s ease-in-out;
+    color: #000;
+    transition: hover .15s ease-in-out;
     font-size: 16px;
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
-    /* position: absolute; */
-    /* right: 0; */
-    /* left: 0; */
-    /* top: 0; */
-    /* bottom: 0; */
-    /* align-items: center; */
-    display: flex;
+    /* white-space: normal; */
+    display: -webkit-box;
     font-weight: 400;
+    /* width: 93%; */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 ul {
@@ -727,6 +723,10 @@ ul#menu-home-screen {
 
 .recomended-posts > div {
     transition: box-shadow 0.3s;
+}
+
+.recomended-posts > div:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
 #myTrendingList > div:hover {
@@ -849,7 +849,7 @@ section.widget-area {
 }
 
 .recomended-posts {
-    border-bottom: 25px solid #f5f5f5;
+    /*border-bottom: 25px solid #f5f5f5;*/
     padding-top: 15px;
     display: grid;
     /*margin-bottom: 50px;*/
@@ -1471,7 +1471,7 @@ header.main-footer {
     color: #000;
     font-weight: 600;
     margin-bottom: 5px;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
     /*height: 59px;*/
     text-transform: capitalize;
     overflow: hidden;
@@ -1479,7 +1479,7 @@ header.main-footer {
     display: -webkit-box;
     line-height: 20px;
     /* The number of lines to be displayed */
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     white-space: normal;
     padding-right: 5px;
@@ -1920,11 +1920,17 @@ section#twimcast-sidebar {
 
 .twimbit-sidebar-desktop {
     position: fixed;
+    z-index: 2;
     height: 100vh;
     width: 16vw;
     min-width: 200px;
     background-color: #fff;
     border: .1px solid rgba(0, 0, 0, .06);
+}
+
+.category-title {
+    margin-left: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, SegoeUI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 
@@ -1935,6 +1941,35 @@ section#twimcast-sidebar {
 }
 
 @media (min-width: 770px) {
+    .category-meta {
+        display: flex;
+        background-color: #fff;
+        height: 120px;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    .category-title h3, p {
+        margin: 0;
+    }
+
+    .category-title h3 {
+        font-weight: 600;
+        font-size: 22px;
+        height: 35px;
+    }
+
+    .category-title p {
+        color: #635c5c;
+        display: flex;
+        font-size: 16px;
+        background: #fff;
+        align-items: center;
+    }
+
+    .post-read-time p {
+        font-size: 15px;
+    }
 
     .post-content-container {;
         padding-left: 40px;
@@ -2041,10 +2076,6 @@ section#twimcast-sidebar {
         width: 56vw;
         flex: 2;
         /*max-width: 768px;*/
-    }
-
-    body {
-        background-color: #f5f5f5;
     }
 
     .thumbnail-widget amp-carousel {
@@ -2226,8 +2257,8 @@ section#twimcast-sidebar {
 
     .post-list > amp-img {
         object-fit: cover;
-        height: 66px;
-        width: 66px;
+        height: 80px;
+        width: 80px;
         position: relative;
     }
 
@@ -2302,6 +2333,14 @@ section#twimcast-sidebar {
 }
 
 @media (max-width: 1024px) {
+    .post-read-time span {
+        font-size: 13px;
+    }
+
+    .post-author-name span {
+        font-size: 13px;
+    }
+
     section.widget-area {
         margin-left: 20vw;
     }

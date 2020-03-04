@@ -108,7 +108,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                 <span style="margin-right: 5px;font-size: 15px;font-weight: 500;align-items: center;display: flex;"
                                       class="show-desktop" hidden>•</span>
                                 <div class="post-read-time">
-                                    <p style="display: flex;align-items: center;font-size: 15px;">
+                                    <p style="display: flex;align-items: center;">
                                         <span><?php echo get_the_date( "M d ,  Y" ); ?></span>
                                         <span style="margin:0 5px">•</span>
                                         <span><?php echo get_field( 'length', get_queried_object() ); ?> mins</span>

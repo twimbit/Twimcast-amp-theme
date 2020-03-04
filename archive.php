@@ -2,11 +2,9 @@
 $dir_path       = get_template_directory_uri();
 $queriedObj     = get_queried_object();
 $image_array    = get_field( 'thumbnail', $queriedObj );
-$featured_image = $image_array['url'];
-$width          = $image_array['width'];
-$height         = $image_array['height'];
-if ( ( empty( $featured_image ) ) ) {
-	$featured_image = getRandomImageForCategory();
+$category_image = $image_array['url'];
+if ( ( empty( $category_image ) ) ) {
+	$category_image = getRandomImageForCategory();
 }
 ?>
 
@@ -25,17 +23,19 @@ if ( ( empty( $featured_image ) ) ) {
             <div class="postArea-container">
                 <div id="main-post-area" class="post-div">
                     <div class="post-container">
-                        <div class="post-title">
-                            <h3 style="margin-left: 16px;margin-bottom: 16px;">
-								<?php echo $queriedObj->name; ?>
-                            </h3>
-                            <div class="post-author-name">
-                                <p hidden><span>Jessi</span><span>CX</span></p>
+                        <div class="category-meta">
+                            <div class="category-image">
+                                <amp-img width="100" height="100" alt="List icon" lightbox="category"
+                                         src="<?php echo $category_image; ?>"></amp-img>
+                            </div>
+                            <div class="category-title">
+                                <h3>
+									<?php echo $queriedObj->name; ?>
+                                </h3>
+                                <p><?php echo $queriedObj->category_description; ?></p>
                             </div>
                         </div>
-                        <div class="post-excerpt" hidden>
-                            <p><?php echo $queriedObj->category_description; ?></p>
-                        </div>
+
                         <div class="recomended-posts" style="border-bottom: 25px solid #f5f5f500;">
 							<?php
 							$args  = array(
