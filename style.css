@@ -493,6 +493,11 @@ ul {
     padding: 0 16px;
 }
 
+.entry-content > * {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.25em;
+}
 
 .entry-content > *:first-child {
     margin-top: 0;
@@ -595,14 +600,9 @@ ul {
 /* Full */
 
 .alignfull {
-    margin-top: 5rem;
-    margin-right: auto;
-    margin-bottom: 5rem;
-    margin-left: auto;
     max-width: 100vw;
     position: relative;
-    margin-left: -16px;
-    margin-right: -16px;
+    margin: 5rem -16px 5rem -56px;
 }
 
 [class*="__inner-container"] > .alignfull {
@@ -865,8 +865,8 @@ ul {
     }
 
     .alignfull {
-        width: 100vw;
-        margin-left: -20vw;
+        /*width: 100vw;*/
+        /*margin-left: -20vw;*/
     }
 }
 
@@ -874,9 +874,9 @@ ul {
     /* Entry Content ------------------------- */
     /* ALIGNMENT CLASSES */
     .entry-content > .alignfull {
-        margin-bottom: 10rem;
-        margin-top: 10rem;
-        margin-left: -20vw;
+        /*margin-bottom: 10rem;*/
+        /*margin-top: 10rem;*/
+        /*margin-left: -20vw;*/
     }
 
     [class*="wp-block"].alignwide.has-background
@@ -3202,10 +3202,4 @@ pre.wp-block-verse {
 .entry-content a {
     font-weight: bold;
     color: black;
-}
-
-.entry-content > * {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.25em;
 }

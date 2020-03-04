@@ -37,10 +37,6 @@
                 <p style="padding-bottom: 5px;font-weight: 600;color: #000;"><?php echo get_the_category( get_the_ID() )[0]->name; ?></p>
                 <p style="font-size: 14px;color: #000;font-weight: 400;"><?php echo get_the_category( get_the_ID() )[0]->description; ?></p>
             </div>
-		<?php } else if ( is_archive() ) { ?>
-            <div class="post-excerpt">
-				<?php echo get_queried_object()->category_description; ?>
-            </div>
 		<?php } ?>
         <div class="light-share-container hide-player" id="amp-share">
             <svg on="tap:amp-share.toggleClass(class='hide-player')" version="1.1" id="Capa_1" x="0px" y="0px"
