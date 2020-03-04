@@ -54,7 +54,7 @@ if ( have_posts() ) {
 								$post_date      = get_the_date( 'd M', $post );
 								$post_readTime  = get_field( 'length', $post );
 								$post_type      = get_field( 'intent_type', $post );
-								$featured_image = get_the_post_thumbnail_url( $post, 'medium' );
+								$featured_image = get_field( 'featured_images', $post )[0];
 								if ( ( empty( $featured_image ) ) ) {
 									$featured_image = getRandomImageForCategory();
 								}

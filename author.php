@@ -1,10 +1,10 @@
 <?php get_header();
-$dir_path       = get_template_directory_uri();
-$queriedObj     = get_queried_object();
-$image_array    = get_field( 'thumbnail', $queriedObj );
-$category_image = $image_array['url'];
-if ( ( empty( $category_image ) ) ) {
-	$category_image = getRandomImageForCategory();
+$dir_path     = get_template_directory_uri();
+$queriedObj   = get_queried_object();
+$image_array  = get_field( 'thumbnail', $queriedObj );
+$author_image = get_field( 'author_image', 'user_' . $queriedObj->data->ID )['sizes']['thumbnail'];
+if ( ( empty( $author_image ) ) ) {
+	$author_image = getRandomImageForCategory();
 }
 ?>
 
@@ -26,13 +26,13 @@ if ( ( empty( $category_image ) ) ) {
                         <div class="category-meta">
                             <div class="category-image">
                                 <amp-img width="100" height="100" alt="List icon" lightbox="category"
-                                         src="<?php echo $category_image; ?>"></amp-img>
+                                         src="<?php echo $author_image; ?>"></amp-img>
                             </div>
                             <div class="category-title">
                                 <h3>
-									<?php echo $queriedObj->name; ?>
+									<?php echo $queriedObj->data->display_name; ?>
                                 </h3>
-                                <p><?php echo $queriedObj->category_description; ?></p>
+                                <p><?php echo $queriedObj->roles[0]; ?></p>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@ if ( ( empty( $category_image ) ) ) {
 							$args  = array(
 								'post_type'      => array( 'post' ),
 								'posts_per_page' => get_option( 'posts_per_page' ),
-								'cat'            => $queriedObj->term_id,
+								'author'            => $queriedObj->data->ID,
 								'paged'          => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
 							);
 							$posts = get_posts( $args );
