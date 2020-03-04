@@ -218,9 +218,7 @@ hr {
     margin: 4rem 0;
 }
 
-.entry-content {
-    border-bottom: 25px solid #f5f5f5;
-}
+
 
 .entry-content hr,
 hr.styled-separator {
@@ -846,7 +844,7 @@ section.widget-area {
     display: flex;
     flex: 1;
     margin: 0 auto;
-    max-width: 1366px;
+    /*max-width: 1366px;*/
     /*min-width: 768px;*/
     justify-content: space-between;
 }
@@ -855,7 +853,6 @@ section.widget-area {
     border-bottom: 25px solid #f5f5f5;
     padding-top: 15px;
     display: grid;
-    grid-row-gap: 15px;
     /*margin-bottom: 50px;*/
     font-family: Segoe UI, SegoeUI, -apple-system, BlinkMacSystemFont,
     Helvetica Neue, Helvetica, sans-serif;
@@ -1041,7 +1038,7 @@ section.postArea {
 
 .post-right-container {
     position: fixed;
-    width: 224px;
+    width: 18%;
     height: fit-content;
     margin-top: 76px;
     /*background-color: rgba(255, 255, 255, 0.7);*/
@@ -1050,6 +1047,7 @@ section.postArea {
     backdrop-filter: blur(30px);
     padding: 10px;
     border-radius: 7px;
+    margin-left: 30px;
 }
 
 .post-right-container a {
@@ -1073,7 +1071,7 @@ section.postArea {
     /* margin-top: 20px; */
     flex: 1;
     padding-bottom: 20px;
-    max-width: 800px;
+    /*max-width: 800px;*/
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -1475,7 +1473,7 @@ header.main-footer {
     font-weight: 600;
     margin-bottom: 5px;
     margin-top: 5px;
-    height: 59px;
+    /*height: 59px;*/
     text-transform: capitalize;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1980,7 +1978,9 @@ section#twimcast-sidebar {
     .entry-content {
         background-color: #fff;
         padding-top: 50px;
-        padding-left: 60px;
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     section.postArea {
@@ -2018,6 +2018,16 @@ section#twimcast-sidebar {
     .post-author-name {
         margin-top: auto;
         margin-right: 5px;
+        position: relative;
+    }
+
+    .post-author-name-black-line::before {
+        content: "";
+        position: absolute;
+        height: 3px;
+        background-color: #000;
+        left: -540px;
+        right: 273px;
     }
 
     .post-author-cat {
@@ -2032,6 +2042,7 @@ section#twimcast-sidebar {
     div#main-post-area {
         margin-top: 76px;
         width: 56vw;
+        flex: 2;
         /*max-width: 768px;*/
     }
 
@@ -2269,10 +2280,11 @@ section#twimcast-sidebar {
     }
 
     .post-right {
-        width: 300px;
+        /*width: 300px;*/
         /* flex: 1; */
         /* padding: 0 30px; */
         position: relative;
+        flex: 1;
     }
 
     .post-right p {
@@ -2348,14 +2360,16 @@ section#twimcast-sidebar {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
-    .post-list{
+    .post-list {
         padding: 10px;
         /*border-bottom: 1px solid #ccc;*/
     }
-    .recomended-posts{
+
+    .recomended-posts {
         padding: 0;
         grid-row-gap: 0;
     }
+
     .sidebar-icon {
         display: none;
     }

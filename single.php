@@ -43,6 +43,12 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
             top: auto;
         }
 
+        @media (min-width: 770px) {
+            .rending-title {
+                height: 59px;
+            }
+        }
+
     </style>
 
     <main id="site-content" role="main">
@@ -94,8 +100,8 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                         <amp-social-share type="system" width="25" height="25"></amp-social-share>
                                     </div>
                                 </div>
-                                <div class="post-author-name">
-                                    <amp-img width="20" height="20" layout="responsive" alt="List icon"
+                                <div class="post-author-name post-author-name-black-line">
+                                    <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox-user
                                              src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>"></amp-img>
                                     <span><a href="<?php echo $author_permalink; ?>"><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></a></span><span>in</span>
                                     <a href="<?php echo $category_permalink; ?>"><span
@@ -173,12 +179,13 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
 
                         <!-- Post text -->
-                        <div class="entry-content">
-							<?php
-							echo get_post_field( 'post_content', get_the_ID() );
-							?>
+                        <div class="post-content-container" style="background-color: #fff;">
+                            <div class="entry-content">
+								<?php
+								echo get_post_field( 'post_content', get_the_ID() );
+								?>
+                            </div>
                         </div>
-
                         <!--Author and insight-->
                         <div class="recomended-posts" style="grid-row-gap:0;">
 							<?php
