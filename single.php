@@ -96,7 +96,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                 </div>
                                 <div class="post-author-name">
                                     <amp-img width="20" height="20" layout="responsive" alt="List icon"
-                                             src="<?php echo $author_image; ?>"></amp-img>
+                                             src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>"></amp-img>
                                     <span><a href="<?php echo $author_permalink; ?>"><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></a></span><span>in</span>
                                     <a href="<?php echo $category_permalink; ?>"><span
                                                 class="post-author-cat"><?php echo get_the_category( get_the_ID() )[0]->name; ?></span></a>
@@ -151,9 +151,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                             >
 												<?php foreach ( $insta_read as $key => $val ) { ?>
                                                     <amp-img
+                                                            tabindex="1"
+                                                            role="insta reads"
                                                             lightbox
-                                                            option=<?php echo $key; ?>
-                                                            key=<?php echo $key; ?>
                                                             src=<?php echo $val; ?>
                                                             height="250"
                                                             width="250"
@@ -190,7 +190,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 							?>
                             <div>
                                 <a href="<?php echo $author_permalink; ?>">
-                                    <div class="post-list">
+                                    <div class="post-list" style="padding-left: 40px;">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
                                                  alt="List icon" src="<?php echo $author_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">
@@ -212,9 +212,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 								}
 								?>
                                 <a href="<?php echo $category_permalink; ?>">
-                                    <div class="post-list">
+                                    <div class="post-list" style="padding-left: 40px;">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
-                                                 alt="List icon" src="<?php echo $cat_image; ?>"></amp-img>
+                                                 alt="List icon" src="<?php echo $cat_image; ?>" role=""></amp-img>
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">
                                             <h5 style="color: rgb(102, 96, 96);font-size: 12px;">Insight From</h5>
                                             <h3 class="post-writer" style="margin:0"><?php echo $cat_title; ?></h3>

@@ -25,9 +25,6 @@ if ((empty($featured_image))) {
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
                 <div class="post-container">
-                    <div class="post-image">
-                        <amp-img src='<?php echo $featured_image; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image"></amp-img>
-                    </div>
                     <div class="post-title">
                         <h3 style="margin-left: 16px;margin-bottom: 16px;" >
                             <?php echo $queriedObj->name; ?>

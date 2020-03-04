@@ -1465,6 +1465,7 @@ header.main-footer {
     margin: 0;
     padding: 12px 0;
     background-color: #fff;
+    border-bottom: 1px solid #ccc;
     /*background: transparent linear-gradient(270deg, #fff 0%, #fff 51%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;*/
 }
 
@@ -1947,6 +1948,7 @@ section#twimcast-sidebar {
         grid-auto-flow: column;
         justify-content: center;
         margin-top: 80px;
+        margin-left: 40px;
     }
 
     .recommended .post-list {
@@ -1968,7 +1970,7 @@ section#twimcast-sidebar {
     .recomended-posts {
         padding-left: 0;
         padding-right: 0;
-        margin-left: 40px;
+        /*margin-left: 40px;*/
     }
 
     .recomended-posts div:nth-child(5) {
@@ -2348,7 +2350,7 @@ section#twimcast-sidebar {
 @media (min-width: 320px) and (max-width: 768px) {
     .post-list{
         padding: 10px;
-        border-bottom: 1px solid #ccc;
+        /*border-bottom: 1px solid #ccc;*/
     }
     .recomended-posts{
         padding: 0;
