@@ -219,7 +219,6 @@ hr {
 }
 
 
-
 .entry-content hr,
 hr.styled-separator {
     background: linear-gradient(
@@ -1882,6 +1881,7 @@ section#twimcast-sidebar {
     border-radius: 50%;
     margin-right: 5px;
     width: 20px;
+    background-color: #d8d8d8;
     height: 20px;
 }
 
@@ -1935,6 +1935,10 @@ section#twimcast-sidebar {
 }
 
 @media (min-width: 770px) {
+
+    .post-content-container {;
+        padding-left: 40px;
+    }
 
     .post-title-player-area {
         margin-left: 4vw;
@@ -2013,21 +2017,14 @@ section#twimcast-sidebar {
 
     .post-meta-data {
         margin-bottom: 20px;
+        position: relative;
+        align-items: center;
     }
 
     .post-author-name {
         margin-top: auto;
         margin-right: 5px;
         position: relative;
-    }
-
-    .post-author-name-black-line::before {
-        content: "";
-        position: absolute;
-        height: 3px;
-        background-color: #000;
-        left: -540px;
-        right: 273px;
     }
 
     .post-author-cat {

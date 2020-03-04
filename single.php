@@ -85,10 +85,6 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                             </div>
                             <div class="post-meta-data ">
                                 <div class="post-share show-mobile">
-                                    <div class="share-text" hidden>
-                                        Share
-                                    </div>
-
                                     <div class="share-icon">
                                         <span>999</span>
                                         <amp-social-share class="rounded" type="facebook" width="25" height="25"
@@ -100,6 +96,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                         <amp-social-share type="system" width="25" height="25"></amp-social-share>
                                     </div>
                                 </div>
+                                <hr style="margin: 0;height: 4px;width: 500px;position: absolute;background-color: #000;left: -500px;">
                                 <div class="post-author-name post-author-name-black-line">
                                     <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox-user
                                              src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>"></amp-img>
@@ -179,7 +176,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
 
                         <!-- Post text -->
-                        <div class="post-content-container" style="background-color: #fff;">
+                        <div class="post-content-container" style="background-color: #fff">
                             <div class="entry-content">
 								<?php
 								echo get_post_field( 'post_content', get_the_ID() );
