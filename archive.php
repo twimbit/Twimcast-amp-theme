@@ -11,6 +11,11 @@ if ((empty($featured_image))) {
 ?>
 
 <main id="site-content" role="main">
+    <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
+        <div class="twimcast-sidebar-container">
+			<?php get_template_part( 'templates/twimcast', 'sidebar' ); ?>
+        </div>
+    </div>
     <amp-sidebar id="twimcast-sidebar" layout="nodisplay" side="right">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
@@ -24,7 +29,7 @@ if ((empty($featured_image))) {
                         <amp-img src='<?php echo $featured_image; ?>' height="<?php echo $height; ?>" width="<?php echo $width; ?>" layout="responsive" alt="a sample image"></amp-img>
                     </div>
                     <div class="post-title">
-                        <h3>
+                        <h3 style="margin-left: 16px;margin-bottom: 16px;" >
                             <?php echo $queriedObj->name; ?>
                         </h3>
                         <div class="post-author-name">
@@ -34,7 +39,7 @@ if ((empty($featured_image))) {
                     <div class="post-excerpt" hidden>
                         <p><?php echo $queriedObj->category_description; ?></p>
                     </div>
-                    <div class="recomended-posts">
+                    <div class="recomended-posts" style="border-bottom: 25px solid #f5f5f500;">
                         <?php
                         $args = array(
                             'post_type' => array('post'),

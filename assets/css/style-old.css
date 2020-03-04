@@ -848,7 +848,7 @@ section.widget-area {
     margin: 0 auto;
     max-width: 1366px;
     /*min-width: 768px;*/
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .recomended-posts {
@@ -1082,11 +1082,11 @@ section.postArea {
 }
 
 .sidebar-divider {
-    margin-left: 20px;
+    margin-left: 42px;
     width: 100px;
     height: 1px;
     background-color: #000;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .sidebar-explore-all {
@@ -1121,12 +1121,13 @@ li.sidebar-list-item:hover {
 .twimcast-sidebar-container {
     display: flex;
     flex-direction: column;
-    /* height: 100%; */
+    height: 100vh;
 }
 
 .sidebar-menu {
     flex: 1;
     position: relative;
+    margin-top: 30px;
 }
 
 .sidebar-menu ul,
@@ -1151,10 +1152,11 @@ ul.sidebar-menu-ul-category {
     display: flex;
     justify-content: center;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .search-icon svg path {
-    fill: #494949b5;
+    fill: #000;
 }
 
 form.sidebar-form {
@@ -1164,24 +1166,28 @@ form.sidebar-form {
 }
 
 input#searchTerm {
-    width: 80%;
-    border: none;
     outline: none;
-    font-size: 16px;
     opacity: 0.5;
     padding-left: 10px;
+    text-align: inherit;
+    font-size: 13px;
+    margin: 0 -13px 0 0;
+    width: 100%;
+    float: right;
+    -webkit-transition: width .7s ease;
+    transition: width .7s ease;
+    height: 4rem;
+    border: none;
 }
 
 .search.d-flex {
     display: flex;
     width: 90%;
-    background: #ffffff 0% 0% no-repeat padding-box;
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.25);
+    background: #fff 0% 0% no-repeat padding-box;
     opacity: 1;
-    /* padding: 6px; */
     border-radius: 2px;
-    height: 30px;
-    border: #d6d5d5 solid 0.7px;
+    height: 40px;
+    border-bottom: 1px solid #807575;
 }
 
 .sidebar-icon {
@@ -1221,8 +1227,8 @@ input#searchTerm {
 
 .sidebar-signup a {
     text-decoration: none;
-    box-shadow: 0px 2px 5px #00000029;
-    border: 1px solid #9d9283;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .16);
+    border: 1px solid #6d6d6d;
     opacity: 1;
     font-size: 13px;
     width: 114px;
@@ -1236,10 +1242,11 @@ input#searchTerm {
 .sidebar-signup span {
     text-align: left;
     letter-spacing: 0;
-    color: #494949;
+    color: #000;
     margin-left: 5px;
     font-size: 10px;
-    margin-top: 5px;
+    margin-top: -5px;
+    font-weight: 600;
 }
 
 .sidebar-heading {
@@ -1247,7 +1254,7 @@ input#searchTerm {
     justify-content: center;
     height: 76px;
     align-items: center;
-    background: transparent linear-gradient(270deg, #e8e2d8 0%, #e8e2d800 100%) 0% 0% no-repeat padding-box;
+    background: linear-gradient(90deg, #020024, #004c4a 35%);
     /* border-radius: 0px 15px 0px 0px; */
     opacity: 1;
     position: relative;
@@ -1907,10 +1914,20 @@ section#twimcast-sidebar {
     margin-left: 10px;
 }
 
-amp-sidebar {
+.mobile-sidebar {
     max-width: 100vw;
     width: 100vw;
 }
+
+.twimbit-sidebar-desktop {
+    position: fixed;
+    height: 100vh;
+    width: 16vw;
+    min-width: 200px;
+    background-color: #fff;
+    border: .1px solid rgba(0, 0, 0, .06);
+}
+
 
 @media (max-width: 1280px) {
     .postArea {
@@ -1920,11 +1937,16 @@ amp-sidebar {
 
 @media (min-width: 770px) {
 
+    .post-title-player-area {
+        margin-left: 4vw;
+    }
+
     .recommended {
         grid-template-columns: 30% 30% 30%;
         grid-column-gap: 10px;
         grid-auto-flow: column;
         justify-content: center;
+        margin-top: 80px;
     }
 
     .recommended .post-list {
@@ -1946,6 +1968,7 @@ amp-sidebar {
     .recomended-posts {
         padding-left: 0;
         padding-right: 0;
+        margin-left: 40px;
     }
 
     .recomended-posts div:nth-child(5) {
@@ -1955,11 +1978,12 @@ amp-sidebar {
     .entry-content {
         background-color: #fff;
         padding-top: 50px;
+        padding-left: 60px;
     }
 
     section.postArea {
         background-color: #ffffff00;
-        margin-left: 250px;
+        margin-left: 16vw;
         padding-left: 0;
     }
 
@@ -1991,6 +2015,7 @@ amp-sidebar {
 
     .post-author-name {
         margin-top: auto;
+        margin-right: 5px;
     }
 
     .post-author-cat {
@@ -2005,7 +2030,7 @@ amp-sidebar {
     div#main-post-area {
         margin-top: 76px;
         width: 56vw;
-        max-width: 768px;
+        /*max-width: 768px;*/
     }
 
     body {
@@ -2321,6 +2346,23 @@ amp-sidebar {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+    .post-list{
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    .recomended-posts{
+        padding: 0;
+        grid-row-gap: 0;
+    }
+    .sidebar-icon {
+        display: none;
+    }
+
+    #twimcast-sidebar {
+        width: 90vw;
+        background-color: #fff;
+    }
+
     section.postArea {
         height: calc(100vh - 52px);
 
@@ -2573,7 +2615,7 @@ amp-sidebar {
         max-width: 550px;
         margin: 0 auto;
         margin-top: 25px;
-        padding: 0 16px;
+        padding: 0;
     }
 
     .alignwide {

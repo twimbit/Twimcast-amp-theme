@@ -46,6 +46,11 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
     </style>
 
     <main id="site-content" role="main">
+        <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
+            <div class="twimcast-sidebar-container">
+				<?php get_template_part( 'templates/twimcast', 'sidebar' ); ?>
+            </div>
+        </div>
         <amp-sidebar id="twimcast-sidebar" layout="nodisplay" side="right">
             <div class="twimcast-sidebar-container">
 				<?php get_template_part( 'templates/twimcast', 'sidebar' ); ?>
@@ -98,7 +103,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
                                 </div>
                                 <span style="margin-right: 5px;font-size: 15px;font-weight: 500;align-items: center;display: flex;"
-                                      class="show-desktop">•</span>
+                                      class="show-desktop" hidden>•</span>
                                 <div class="post-read-time">
                                     <p style="display: flex;align-items: center;font-size: 15px;">
                                         <span><?php echo get_the_date( "M d ,  Y" ); ?></span>
@@ -183,7 +188,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 								$author_image = getRandomImageForCategory();
 							}
 							?>
-                            <div style="border-bottom: 1px solid #e1e1e1;">
+                            <div>
                                 <a href="<?php echo $author_permalink; ?>">
                                     <div class="post-list">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
@@ -195,7 +200,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                     </div>
                                 </a>
                             </div>
-                            <div style="border-bottom: 1px solid #e1e1e1;">
+                            <div>
 								<?php
 								$catObj      = get_the_category( get_queried_object()->ID )[0];
 								$cat_image   = get_field( 'thumbnail', 'term_' . $catObj->term_id )['sizes']['thumbnail'];
@@ -236,7 +241,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 							?>
 
                             <div class="recomended-posts recommended"
-                                 style="grid-row-gap:0;position: relative;margin-top: 80px;">
+                                 style="grid-row-gap:0;position: relative;">
                                 <h3 class="recomended-title">Related</h3>
 								<?php
 								foreach ( $posts as $post ) {
@@ -253,7 +258,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 										$featured_image = getRandomImageForCategory();
 									}
 									?>
-                                    <div style="border-bottom: 1px solid #e1e1e1;">
+                                    <div>
                                         <a href="<?php echo get_the_permalink( $post ); ?>">
                                             <div class="post-list">
                                                 <amp-img width="120" height="120" layout="responsive"
