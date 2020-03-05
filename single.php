@@ -194,7 +194,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 							?>
                             <div>
                                 <a href="<?php echo $author_permalink; ?>">
-                                    <div class="post-list" style="padding-left: 40px;">
+                                    <div class="post-list author-cat">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
                                                  alt="List icon" src="<?php echo $author_image; ?>"></amp-img>
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">
@@ -216,7 +216,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 								}
 								?>
                                 <a href="<?php echo $category_permalink; ?>">
-                                    <div class="post-list" style="padding-left: 40px;">
+                                    <div class="post-list author-cat">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
                                                  alt="List icon" src="<?php echo $cat_image; ?>" role=""></amp-img>
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">

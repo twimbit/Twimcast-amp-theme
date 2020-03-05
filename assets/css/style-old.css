@@ -1941,6 +1941,9 @@ section#twimcast-sidebar {
 }
 
 @media (min-width: 770px) {
+    .author-cat{
+        padding-left: 40px;
+    }
     .category-meta {
         display: flex;
         background-color: #fff;
