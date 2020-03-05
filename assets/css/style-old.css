@@ -2396,6 +2396,31 @@ section#twimcast-sidebar {
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
+    .category-title p {
+        font-weight: 500;
+        font-size: 16px;
+        color: rgb(101, 96, 96);
+    }
+
+    .category-title h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .category-image amp-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .category-meta {
+        display: flex;
+        height: 140px;
+        margin-bottom: 20px;
+        padding: 10px 10px 40px 15px;
+        background-color: #fff;
+    }
+
     .post-list {
         padding: 10px;
         /*border-bottom: 1px solid #ccc;*/
@@ -2415,10 +2440,6 @@ section#twimcast-sidebar {
         background-color: #fff;
     }
 
-    section.postArea {
-        height: calc(100vh - 52px);
-
-    }
 
     .post-inta-reads {
         background-color: #f1f3f4;
@@ -2666,7 +2687,7 @@ section#twimcast-sidebar {
         height: fit-content;
         max-width: 550px;
         margin: 0 auto;
-        margin-top: 25px;
+        /*margin-top: 25px;*/
         padding: 0;
     }
 

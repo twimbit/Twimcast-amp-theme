@@ -34,11 +34,23 @@
 	</amp-analytics> -->
 
 	<?php if ( is_single() ) { ?>
-        <meta name="twitter:image" content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
+        <meta property="og:title" content="<?php echo the_title(); ?>">
+        <meta property="og:site_name" content="Twimbit">
+        <meta property="og:description" content="<?php echo strip_tags( get_the_excerpt( get_the_ID() ) ); ?>">
+
         <meta property="og:image" content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
         <meta property="og:image:secure_url"
               content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
+        <meta property="og:url"
+              content="<?php echo  get_the_permalink( get_the_ID() ); ?>">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <meta name="twitter:image:alt" content="Twimbit">
+        <meta name="twitter:title" content="<?php echo the_title(); ?>">
+        <meta name="twitter:description" content="<?php echo strip_tags( get_the_excerpt( get_the_ID() ) ); ?>">
+        <meta name="twitter:image" content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
 	<?php } ?>
+
     <title>
 		<?php
 		global $page, $paged;
