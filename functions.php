@@ -918,47 +918,6 @@ function yikes_remove_description_tab( $tabs ) {
 	return $tabs;
 }
 
-
-/**
- * Taxonomy: classifiers.
- */
-
-$labels = [
-	"name"          => __( "classifiers", "twimcast" ),
-	"singular_name" => __( "classifier", "twimcast" ),
-	'add_new_item'  => 'Add New Classifier',
-];
-
-$args = [
-	"label"                 => __( "classifiers", "twimcast" ),
-	"labels"                => $labels,
-	"public"                => false,
-	"publicly_queryable"    => true,
-	"hierarchical"          => false,
-	"show_ui"               => false,
-	"show_in_menu"          => false,
-	"show_in_nav_menus"     => false,
-	"query_var"             => true,
-	"rewrite"               => [ 'slug' => 'classifier', 'with_front' => true, ],
-	"show_admin_column"     => false,
-	"show_in_rest"          => true,
-	"rest_base"             => "classifier",
-	"rest_controller_class" => "WP_REST_Terms_Controller",
-	"show_in_quick_edit"    => false,
-	"capabilities"          => array(
-		'manage_terms' => 'manage_categories', //by default only admin
-		'edit_terms'   => 'manage_classfier',
-		'delete_terms' => 'manage_classfier',
-		'assign_terms' => 'edit_classfier'
-	),
-	'show_in_graphql'       => true,
-	'graphql_single_name'   => 'Classifier',
-	'graphql_plural_name'   => 'Classifiers',
-	'hierarchical'          => true,
-
-];
-//register_taxonomy("classifier", ["post"], $args);
-
 function update_posts() {
 	$args  = array( 'post_type' => 'post', 'numberposts' => 100 );
 	$posts = get_posts( $args );
@@ -971,4 +930,11 @@ function update_posts() {
 		}
 	}
 }
+
 //add_action('init', 'update_posts');
+//print_r( get_field( 'add_widgets', 'options' ) );
+//update_field( 'add_widgets_1_select_order_card_order_by', 'ASC', 'options' );
+//update_field( 'add_widgets_1_select_order_card_order', 'date', 'options' );
+//print_r( get_field_object( 'category_widgets_' . 0 . '_posts', 'term_' . 72 ));
+//print_r( get_term_by('slug', 'featured', 'category')->term_id );
+//print_r( $post_reading_time = get_reading_time( 13346 ) );

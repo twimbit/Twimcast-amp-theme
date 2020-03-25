@@ -15,6 +15,9 @@
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-fx-collection"
             src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    <script async custom-element="amp-position-observer"
+            src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+    <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
 
     <!-- Amp analytics
 	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -42,7 +45,7 @@
         <meta property="og:image:secure_url"
               content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
         <meta property="og:url"
-              content="<?php echo  get_the_permalink( get_the_ID() ); ?>">
+              content="<?php echo get_the_permalink( get_the_ID() ); ?>">
         <meta name="twitter:card" content="summary_large_image">
 
         <meta name="twitter:image:alt" content="Twimbit">
