@@ -2313,14 +2313,16 @@ section#twimcast-sidebar {
         overflow: hidden;
         margin: 0 auto;
         padding: 20px 19px;
-        background: linear-gradient(145deg,#fbfbfb,#f3f3f3);
+        background: linear-gradient(145deg, #fbfbfb, #f3f3f3);
         box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
         width: 100%;
         margin-bottom: 30px;
     }
-    .explore-all{
+
+    .explore-all {
         border-bottom: none;
     }
+
     .explore-all p {
         font-weight: bold;
     }
@@ -2338,14 +2340,13 @@ section#twimcast-sidebar {
 
     .trending-widget {
         margin: 20px auto;
+        padding: 40px;
         min-width: 300px;
-        width: 90%;
+        width: 100%;
         background-color: #fff;
-        padding-top: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        box-shadow: 3px 3px 14px rgba(0, 0, 0, .16);
         border-radius: 10px;
+        max-width: 100%;
+        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
     }
 
     section#twimcast-sidebar {
