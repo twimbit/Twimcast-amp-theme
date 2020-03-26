@@ -2,7 +2,8 @@
 $title = $widget['title'];
 $posts = $widget['posts'];
 ?>
-<div class="featured-widget amp-carousel-style explore-all">
+<div class="featured-widget amp-carousel-style explore-all" >
+    <div id="featured-widget" class="widget-anchor "></div>
     <p><?php echo $title; ?> </p>
     <!-- for mobile -->
     <div class="show-mobile">

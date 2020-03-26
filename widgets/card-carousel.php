@@ -6,7 +6,8 @@ $select_type = $widget['select_type'];
 $orderby     = $widget['select_order']['card_order_by'];
 $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
-$tags        = array();
+//print_r( $select_type );
+$tags = array();
 foreach ( (array) $widget['tags'] as $tag ) {
 	//pushing tags in tags array
 	array_push( $tags, $tag->slug );
@@ -43,9 +44,11 @@ if ( $query_type == 'cat_tag' ) {
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['post'];
 }
+//print_r( $posts );
 $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID )[0] );
 ?>
 <div class="suggested-widget explore-all">
+    <div id="card-carousel" class="widget-anchor "></div>
     <p><?php echo $title;
 
 		$dir_path = get_template_directory_uri();

@@ -3,8 +3,12 @@ $dir_path       = get_template_directory_uri();
 $queriedObj     = get_queried_object();
 $image_array    = get_field( 'thumbnail', $queriedObj );
 $category_image = $image_array['url'];
+$cover_image    = get_field( 'cover_image', $queriedObj )['url'];
 if ( ( empty( $category_image ) ) ) {
 	$category_image = getRandomImageForCategory();
+}
+if ( function_exists( 'get_field' ) ) {
+	$widgets = get_field( 'category_widgets', $queriedObj );
 }
 ?>
     <style>
@@ -19,12 +23,13 @@ if ( ( empty( $category_image ) ) ) {
         }
 
         .category-cover {
-            background-image: url("<?php echo getRandomImageForCategory(); ?>");
+            background-image: url("<?php echo $cover_image; ?>");
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
             height: 270px;
             position: relative;
+            background-position: center;
         }
 
         .category-title-top {
@@ -109,8 +114,25 @@ if ( ( empty( $category_image ) ) ) {
         }
 
         .post-container {
-            padding-top: 50px;
             background-color: #fff;
+            padding: 20px 100px 20px 100px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .widget-list li {
+            max-width: 150px;
+        }
+
+        .widget-list span {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            -webkit-line-clamp: 1;
         }
 
         @media (min-width: 770px) {
@@ -118,7 +140,13 @@ if ( ( empty( $category_image ) ) ) {
                 margin-top: 0;
                 width: auto;
             }
+
+            .explore-all {
+                display: inline-block;
+                box-shadow: 3px 3px 14px rgba(0, 0, 0, .16);
+            }
         }
+
 
         /*transform: scale(0.25) translate(84px, 330px);*/
     </style>
@@ -181,16 +209,53 @@ if ( ( empty( $category_image ) ) ) {
                             </script>
                         </amp-animation>
                         <ul>
-                            <li><a href="#">First widget</a></li>
-                            <li><a href="#">First widget</a></li>
-                            <li><a href="#">First widget</a></li>
-                            <li><a href="#">First widget</a></li>
+							<?php
+							//print_r($widgets);
+							foreach ( (array) $widgets as $widget ) {
+								if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
+									if ( $widget['show_on_top'] == "yes" ) { ?>
+                                        <li><a href="#featured-widget"><?php echo $widget['title'] ?></a></li>
+									<?php }
+								} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {
+									if ( $widget['show_on_top'] == "yes" ) { ?>
+                                        <li><a href="#thumbnail-carousel"><?php echo $widget['title'] ?></a></li>
+									<?php }
+								} else if ( $widget['acf_fc_layout'] == 'card_carousel' ) {
+									if ( $widget['show_on_top'] == "yes" ) { ?>
+                                        <li><a href="#card-carousel"><?php echo $widget['title'] ?></a></li>
+									<?php }
+								} else if ( $widget['acf_fc_layout'] == 'list_category' ) {
+									if ( $widget['show_on_top'] == "yes" ) { ?>
+                                        <li><a href="#list-category"><?php echo $widget['title'] ?></a></li>
+									<?php }
+								} else if ( $widget['acf_fc_layout'] == 'standard' ) {
+									if ( $widget['show_on_top'] == "yes" ) { ?>
+                                        <li><a href="#trending-widget"><span><?php echo $widget['title'] ?></span></a>
+                                        </li>
+									<?php }
+								}
+							}
+							?>
                         </ul>
                     </div>
 
                     <div class="post-container">
-
-						<?php include( locate_template( 'templates/widget-templates/cards.php', false, false ) ); ?>
+						<?php
+						//print_r($widgets);
+						foreach ( (array) $widgets as $widget ) {
+							if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
+								include( locate_template( 'widgets/image-carousel.php', false, false ) );
+							} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {
+								include( locate_template( 'widgets/thumbnail-carousel.php', false, false ) );
+							} else if ( $widget['acf_fc_layout'] == 'card_carousel' ) {
+								include( locate_template( 'widgets/card-carousel.php', false, false ) );
+							} else if ( $widget['acf_fc_layout'] == 'list_category' ) {
+								include( locate_template( 'widgets/list-category.php', false, false ) );
+							} else if ( $widget['acf_fc_layout'] == 'standard' ) {
+								include( locate_template( 'widgets/standard.php', false, false ) );
+							}
+						}
+						?>
 
                     </div>
                 </div>

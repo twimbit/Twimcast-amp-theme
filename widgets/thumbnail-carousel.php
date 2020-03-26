@@ -25,7 +25,8 @@ if ( ! empty( $series ) ) {
 	?>
 
     <div class="thumbnail-widget explore-all">
-        <p style="margin-left: 0;padding-top: 20px;"><?php echo $title; ?> </p>
+        <div id="thumbnail-carousel" class="widget-anchor "></div>
+        <p style="margin-left: 0"><?php echo $title; ?> </p>
         <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
             <!-- Loop assigned categories -->
 			<?php foreach ( $series as $val ) {
@@ -43,7 +44,7 @@ if ( ! empty( $series ) ) {
 				?>
                 <a href="<?php echo $cat_url; ?>" aria-label="Bussiness Model" class="thumbnail-carousel">
                     <p><?php echo $cat_name; ?></p>
-                    <amp-img layout="fixed-height" object-fit="cover" height="117" alt="List icon"
+                    <amp-img layout="fixed-height" object-fit="cover" height="87" alt="List icon"
                              src="<?php echo $cat_thumbnail; ?>">
                     </amp-img>
 

@@ -46,7 +46,8 @@ if ( $query_type == 'cat_tag' ) {
 
 if ( empty( ! ( $posts ) ) ) {
 	?>
-    <div class="trending-widget explore-all">
+    <div class="trending-widget explore-all" id="list-category">
+        <div id="list-category" class="widget-anchor "></div>
         <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
         <div id="myTrendingList">
 			<?php

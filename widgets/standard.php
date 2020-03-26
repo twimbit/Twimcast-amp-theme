@@ -7,6 +7,7 @@ $orderby     = $widget['select_order']['card_order_by'];
 $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
 $tags        = array();
+
 foreach ( (array) $widget['tags'] as $tag ) {
 	//pushing tags in tags array
 	array_push( $tags, $tag->slug );
@@ -17,7 +18,7 @@ $args = array(
 	'numberposts' => $postCount,
 	'post_type'   => array( 'post' ),
 	'tax_query'   => array(
-		'relation' => 'AND',
+		'relation' => 'OR',
 		array(
 			'taxonomy' => 'category',
 			'field'    => 'id',
@@ -43,10 +44,10 @@ if ( $query_type == 'cat_tag' ) {
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['posts'];
 }
-
 if ( empty( ! ( $posts ) ) ) {
 	?>
     <div class="trending-widget explore-all">
+        <div id="trending-widget" class="widget-anchor "></div>
         <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
         <div id="myTrendingList">
 			<?php
@@ -93,7 +94,7 @@ if ( empty( ! ( $posts ) ) ) {
 				$i = $i + 1;
 			} ?>
         </div>
-		<?php if ( $query_type == 'cat_tag' ) { ?>
+		<?php if ( $query_type == 'cat_tag' && ! $widget['show_on_top'] ) { ?>
             <div class="explore-all-link">
                 <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
             </div>
