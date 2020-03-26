@@ -1948,6 +1948,40 @@ section#twimcast-sidebar {
         height: 70px;
     }
 
+    .card-widget-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-gap: 15px;
+        margin-top: 30px;
+        padding: 0 10px;
+    }
+
+    .widget-area-section {
+        margin: 0 30px;
+    }
+
+    .card-widget-container .list-divider {
+        border-radius: 4px;
+        grid-column: span 1;
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+
+    .card-widget-container .list-divider:hover {
+        border-radius: 3px;
+        background-color: #ededed;
+        box-shadow: 35px 35px 69px #e0e0e0, -35px -35px 69px #fff;
+    }
+
+    .card-widget-card a {
+        text-decoration: none;
+    }
+
+    .card-widget-container .trending-list > amp-img {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
     .trending-first .author-category {
         padding: 0 30px;
     }
@@ -2275,15 +2309,18 @@ section#twimcast-sidebar {
     .featured-widget {
         position: relative;
         min-width: 300px;
-        /* max-width: 900px; */
         opacity: 1;
-        /* border-radius: 10px; */
-        /* margin: 45px auto 16px auto; */
-        /* padding: 0 22px; */
-        /* height: 178px; */
         overflow: hidden;
+        margin: 0 auto;
+        padding: 20px 19px;
+        background: linear-gradient(145deg,#fbfbfb,#f3f3f3);
+        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
+        width: 100%;
+        margin-bottom: 30px;
     }
-
+    .explore-all{
+        border-bottom: none;
+    }
     .explore-all p {
         font-weight: bold;
     }
@@ -2417,12 +2454,13 @@ section#twimcast-sidebar {
     }
 
     .suggested-widget {
-        margin-bottom: 50px;
-        margin: 45px auto;
+        padding: 40px;
         min-width: 300px;
-        /* padding: 0 22px; */
         overflow: hidden;
         position: relative;
+        width: 100%;
+        background: linear-gradient(145deg, #fbfbfb, #f3f3f3);
+        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
     }
 
     .trending-first {
