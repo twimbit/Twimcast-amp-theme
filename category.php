@@ -285,7 +285,11 @@ if ( function_exists( 'get_field' ) ) {
                     <div class="category-cover">
                         <div class="background-blur"></div>
                         <div class="category-title-top">
-
+                            <amp-position-observer
+                                    on="enter:animateSmall.start;exit:animateSmall.start,animateSmall.reverse"
+                                    intersection-ratios="0.8"
+                                    layout="nodisplay">
+                            </amp-position-observer>
                             <div class="title-desc">
                                 <h3><?php echo $queriedObj->name; ?></h3>
                                 <h4><?php echo $queriedObj->category_description; ?></h4>
@@ -295,30 +299,25 @@ if ( function_exists( 'get_field' ) ) {
 
                     <div class="widget-list">
                         <div class="category-thumb">
-                            <amp-position-observer
-                                    on="scroll:animateSmall.seekTo(percent=event.percent)"
-                                    intersection-ratios="1"
-                                    layout="nodisplay">
-                            </amp-position-observer>
                             <amp-img id="categoryThumb" src="<?php echo $category_image; ?>"
                                      object-fit="cover"
                                      height="141" width="141" layout="responsive"></amp-img>
                         </div>
-                        <amp-animation id="animate" layout="nodisplay">
+                        <amp-animation id="animateSmall" layout="nodisplay">
                             <script type="application/json">
                                 {
-                                    "duration": "500ms",
-                                    "fill": "both",
+                                    "duration": "300ms",
                                     "easing": "ease-out",
+                                    "fill": "both",
                                     "animations": [
                                         {
                                             "selector": "#categoryThumb",
                                             "keyframes": [
                                                 {
-                                                    "transform": "scale(1) translate(42px, -185px)"
+                                                    "transform": "scale(0.25) translate(84px, -190px)"
                                                 },
                                                 {
-                                                    "transform": "scale(0.2) translate(42px, -100px)"
+                                                    "transform": "scale(1) translate(42px, -155px)"
                                                 }
                                             ]
                                         }
