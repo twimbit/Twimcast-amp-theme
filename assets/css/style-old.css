@@ -1957,7 +1957,7 @@ section#twimcast-sidebar {
     }
 
     .widget-area-section {
-        margin: 0 30px;
+        margin: 0 100px;
     }
 
     .card-widget-container .list-divider {
@@ -2215,7 +2215,7 @@ section#twimcast-sidebar {
         height: 150px;
         width: 100%;
         position: relative;
-        padding-top: 29px;
+        padding-top: 12px;
     }
 
     .featured-widget amp-carousel {
@@ -2236,15 +2236,15 @@ section#twimcast-sidebar {
     }
 
     section.widget-area {
-        width: 80vw;
+        margin-left: 16vw;
     }
 
     .thumbnail-widget {
         margin: 45px auto;
         min-width: 300px;
-        width: 90%;
-        /* padding: 0 22px; */
+        width: 100%;
         overflow: hidden;
+        padding: 40px;
     }
 
     .featured-carousel {
@@ -2313,21 +2313,24 @@ section#twimcast-sidebar {
         overflow: hidden;
         margin: 0 auto;
         padding: 20px 19px;
-        background: linear-gradient(145deg, #fbfbfb, #f3f3f3);
-        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
         width: 100%;
         margin-bottom: 30px;
     }
 
     .explore-all {
         border-bottom: none;
+        background-color: #fff;
+        border-radius: 8px;
     }
 
     .explore-all p {
         font-weight: bold;
+        bottom: 10px;
+        top: auto;
+        height: auto;
     }
 
-    .trending-widget > p:after {
+    .trending-widget > p:after, .suggested-widget > p:after, .thumbnail-widget > p:after {
         content: "";
         position: absolute;
         left: 0;
@@ -2338,15 +2341,14 @@ section#twimcast-sidebar {
 
     }
 
+
     .trending-widget {
         margin: 20px auto;
         padding: 40px;
         min-width: 300px;
         width: 100%;
         background-color: #fff;
-        border-radius: 10px;
         max-width: 100%;
-        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
     }
 
     section#twimcast-sidebar {
@@ -2460,8 +2462,6 @@ section#twimcast-sidebar {
         overflow: hidden;
         position: relative;
         width: 100%;
-        background: linear-gradient(145deg, #fbfbfb, #f3f3f3);
-        box-shadow: 35px 35px 69px #e8e8e8, -35px -35px 69px #fff;
     }
 
     .trending-first {
