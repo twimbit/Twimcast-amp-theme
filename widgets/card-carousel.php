@@ -47,7 +47,9 @@ if ( $query_type == 'cat_tag' ) {
 //print_r( $posts );
 $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID )[0] );
 ?>
-<div class="suggested-widget explore-all">
+<div class="suggested-widget explore-all"  style="background-image: <?php if ( isMobile() ) {
+	     echo generateRandomColor();
+     } ?>">
     <div id="card-carousel" class="widget-anchor "></div>
     <p><?php echo $title;
 
@@ -70,7 +72,7 @@ $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID 
 					$featured_image = getRandomImageForPost();
 				}
 				?>
-                <div class="featrued-card-container">
+                <div class="featrued-card-container" ">
                     <a href="<?php echo get_the_permalink( $post ); ?>" aria-label="Bussiness Model"
                        aria-label="<?php echo $post_author; ?>">
                         <div class="featured-img">

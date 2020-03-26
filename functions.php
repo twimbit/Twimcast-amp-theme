@@ -931,6 +931,22 @@ function update_posts() {
 	}
 }
 
+function generateRandomColor() {
+	$colors = array(
+		'linear-gradient(#ff9a9e 0%, #fad0c4 100%)',
+		'linear-gradient(#ff9a9e 0%, #fad0c4 100%)',
+		'linear-gradient(#a18cd1 0%, #fbc2eb 100%)',
+		'linear-gradient(#84fab0 0%, #8fd3f4 100%)',
+		'linear-gradient(#fda085 0%, #f6d365 100%)',
+		'linear-gradient(#d4fc79 0%, #96e6a1 100%)'
+	);
+
+	return $colors[ rand( 0, 4 ) ];
+}
+
+
+
+
 //add_action('init', 'update_posts');
 //print_r( get_field( 'add_widgets', 'options' ) );
 //update_field( 'add_widgets_1_select_order_card_order_by', 'ASC', 'options' );

@@ -24,9 +24,11 @@ if ( $select_series == 'category' ) {
 if ( ! empty( $series ) ) {
 	?>
 
-    <div class="thumbnail-widget explore-all">
+    <div class="thumbnail-widget explore-all" style="background-image: <?php if ( isMobile() ) {
+		echo generateRandomColor();
+	} ?>">
         <div id="thumbnail-carousel" class="widget-anchor "></div>
-        <p style="margin-left: 0"><?php echo $title; ?> </p>
+        <p><?php echo $title; ?> </p>
         <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
             <!-- Loop assigned categories -->
 			<?php foreach ( $series as $val ) {

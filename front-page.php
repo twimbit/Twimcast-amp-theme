@@ -1,7 +1,6 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
 ?>
-
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">

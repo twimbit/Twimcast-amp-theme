@@ -12,11 +12,7 @@ if ( function_exists( 'get_field' ) ) {
 }
 ?>
     <style>
-        .archiveArea {
-            margin-left: 16vw;
-            padding-left: 0;
-            font-family: "Segoe UI Regular", "Segoe UI Symbo", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-        }
+
 
         div#main-post-area {
             margin-right: 0;
@@ -58,6 +54,8 @@ if ( function_exists( 'get_field' ) ) {
             box-shadow: 0 3px 6px black;
             position: sticky;
             top: 0;
+            height: 141px;
+            width: 141px;
         }
 
         .category-thumb {
@@ -115,7 +113,6 @@ if ( function_exists( 'get_field' ) ) {
 
         .post-container {
             background-color: #fff;
-            padding: 20px 100px 20px 100px;
         }
 
         html {
@@ -142,18 +139,132 @@ if ( function_exists( 'get_field' ) ) {
             margin-right: 40px;
         }
 
+        .share-tooltip .category-share-lt {
+            position: absolute;
+            top: 41px;
+            right: 21px;
+            width: fit-content;
+            height: fit-content;
+            padding: 10px 10px 6px 10px;
+            background-color: #767676;
+            color: #000;
+            border-radius: 10px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility, opacity .3s;
+        }
+
+        .share-tooltip .category-share-lt::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 85%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #767676 transparent;
+        }
+
+        .share-tooltip:hover .category-share-lt {
+            opacity: 1;
+            visibility: visible;
+            transition: visibility, opacity .3s;
+        }
+
+        .category-share-lt amp-social-share {
+            border-radius: 50%;
+            background-size: 23px;
+            background-color: rgba(0, 0, 0, 0.33);
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
+        }
+
+        .category-share-lt amp-social-share:hover {
+            background-color: #000;
+            -webkit-transition: background-color 0.3s ease-out;
+            -moz-transition: background-color 0.3s ease-out;
+            -o-transition: background-color 0.3s ease-out;
+            transition: background-color 0.3s ease-out;
+        }
+
         @media (min-width: 770px) {
             div#main-post-area {
                 margin-top: 0;
                 width: auto;
             }
 
+            .post-container {
+                padding: 20px 100px 20px 100px;
+            }
+
             .explore-all {
                 display: inline-block;
                 box-shadow: 3px 3px 14px rgba(0, 0, 0, .16);
             }
+
+            .archiveArea {
+                margin-left: 16vw;
+                padding-left: 0;
+                font-family: "Segoe UI Regular", "Segoe UI Symbo", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+            }
         }
 
+        @media (max-width: 768px) {
+            .post-container {
+                background-color: #fff;
+                display: block;
+                max-width: 550px;
+                padding-top: 20px;
+            }
+
+            .widget-list {
+                position: relative;
+            }
+
+            .background-blur {
+                height: 105px;
+            }
+
+            .category-title-top {
+                height: 105px;
+            }
+
+            .title-desc {
+                margin-left: 135px;
+            }
+
+            .title-desc h3 {
+                font-size: 24px;
+            }
+
+            .title-desc h4 {
+                font-size: 16px;
+            }
+
+            .category-thumb amp-img {
+                width: 96px;
+                height: 96px;
+                z-index: 1;
+                transform: scale(1) translate(13px, -110px);
+            }
+
+            .widget-list ul {
+                position: absolute;
+                overflow-x: auto;
+                width: 100%;
+            }
+
+            .widget-list li {
+                max-width: 150px;
+                min-width: fit-content;
+            }
+
+            .category-share {
+                display: none;
+            }
+        }
 
         /*transform: scale(0.25) translate(84px, 330px);*/
     </style>
@@ -191,7 +302,7 @@ if ( function_exists( 'get_field' ) ) {
                             </amp-position-observer>
                             <amp-img id="categoryThumb" src="<?php echo $category_image; ?>"
                                      object-fit="cover"
-                                     height="141" width="141"></amp-img>
+                                     height="141" width="141" layout="responsive"></amp-img>
                         </div>
                         <amp-animation id="animate" layout="nodisplay">
                             <script type="application/json">
@@ -244,57 +355,7 @@ if ( function_exists( 'get_field' ) ) {
 							}
 							?>
                         </ul>
-                        <style>
-                            .share-tooltip .category-share-lt {
-                                position: absolute;
-                                top: 41px;
-                                right: 21px;
-                                width: fit-content;
-                                height: fit-content;
-                                padding: 10px 10px 6px 10px;
-                                background-color: #767676;
-                                color: #000;
-                                border-radius: 10px;
-                                visibility: hidden;
-                                opacity: 0;
-                                transition: visibility, opacity .3s;
-                            }
 
-                            .share-tooltip .category-share-lt::after {
-                                content: "";
-                                position: absolute;
-                                bottom: 100%;
-                                left: 85%;
-                                margin-left: -5px;
-                                border-width: 5px;
-                                border-style: solid;
-                                border-color: transparent transparent #767676 transparent;
-                            }
-
-                            .share-tooltip:hover .category-share-lt {
-                                opacity: 1;
-                                visibility: visible;
-                                transition: visibility, opacity .3s;
-                            }
-
-                            .category-share-lt amp-social-share {
-                                border-radius: 50%;
-                                background-size: 23px;
-                                background-color: rgba(0, 0, 0, 0.33);
-                                -webkit-transition: background-color 0.3s ease-out;
-                                -moz-transition: background-color 0.3s ease-out;
-                                -o-transition: background-color 0.3s ease-out;
-                                transition: background-color 0.3s ease-out;
-                            }
-
-                            .category-share-lt amp-social-share:hover {
-                                background-color: #000;
-                                -webkit-transition: background-color 0.3s ease-out;
-                                -moz-transition: background-color 0.3s ease-out;
-                                -o-transition: background-color 0.3s ease-out;
-                                transition: background-color 0.3s ease-out;
-                            }
-                        </style>
                         <div class="category-share"><a role="button" class="share-tooltip" style="cursor: pointer">
                                 <svg width="19" height="18" viewBox="0 0 19 18">
                                     <path d="M16,18a3,3,0,0,1-3-3,1.746,1.746,0,0,1,.022-.238c0-.033.009-.065.013-.1L5.1,11.139a3,3,0,1,1,0-4.279l7.934-3.525c0-.033-.008-.065-.013-.1A1.746,1.746,0,0,1,13,3a3.01,3.01,0,1,1,.9,2.139L5.966,8.665c0,.032.008.064.013.1a1.321,1.321,0,0,1,0,.476c0,.032-.009.065-.013.1L13.9,12.861A3,3,0,1,1,16,18Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,16,14ZM3,8A1,1,0,1,0,4,9,1,1,0,0,0,3,8ZM16,2a1,1,0,1,0,1,1A1,1,0,0,0,16,2Z"

@@ -465,7 +465,6 @@ iframe.instagram-media {
 }
 
 .explore-all {
-    border-bottom: #d4d3d3 solid 2px;
     width: 90%;
     padding-bottom: 20px;
 }
@@ -1543,7 +1542,6 @@ ul {
     /* border-radius: 10px; */
     /* padding-right: 5px; */
     /* padding-left: 5px; */
-    margin: 20px auto;
     /* display: flex; */
     /* flex-direction: column; */
 }
@@ -1558,7 +1556,7 @@ ul {
 }
 
 .trending-widget {
-    margin: 45px auto;
+    margin: 0 auto;
     min-width: 300px;
     max-width: 88%;
     /* padding: 50px; */
@@ -1569,7 +1567,6 @@ ul {
     width: 80%;
     position: relative;
     height: 300px;
-    margin: 10px;
 }
 
 .amp-carousel-style amp-img {
@@ -1654,7 +1651,6 @@ ul {
 .amp-selector {
     display: flex;
     height: 20px;
-    margin-top: 27px;
 }
 
 .amp-selector amp-selector {
@@ -2686,6 +2682,8 @@ section#twimcast-sidebar {
 
     .trending-widget {
         max-width: 520px;
+        background-color: #fff;
+        padding: 0 14px;
     }
 
     section.postArea {
@@ -2721,7 +2719,6 @@ section#twimcast-sidebar {
     }
 
     .widget-area-section {
-        padding: 0 14px;
         max-width: 550px;
         margin: 0 auto;
     }
@@ -2731,9 +2728,18 @@ section#twimcast-sidebar {
         height: 100px;
     }
 
-    .explore-all p {
+    .explore-all > p {
         font-size: 20px;
         margin-bottom: 25px;
+        margin-left: 20px;
+    }
+
+    .suggested-widget amp-carousel {
+        margin-left: 22px;
+    }
+
+    .trending-widget > p {
+        margin-left: 0;
     }
 
     .explore-all {
@@ -2765,11 +2771,12 @@ section#twimcast-sidebar {
     }
 
     .author-category {
-        height: 20px;
+        padding: 0 7px;
     }
 
     .date-time-type {
         height: 15px;
+        padding: 0 7px;
     }
 
     amp-carousel {
@@ -2790,8 +2797,8 @@ section#twimcast-sidebar {
     }
 
     .rending-title {
-        height: 40px;
         -webkit-line-clamp: 2;
+        padding: 5px 7px 0 7px;
     }
 
     .navigation {
@@ -2810,7 +2817,7 @@ section#twimcast-sidebar {
         top: 7px;
         left: 11px;
         width: 137px;
-        font-size: 19px;
+        font-size: 16px;
         height: 46px;
         line-height: 1.12;
         -webkit-line-clamp: 2;
@@ -2839,11 +2846,13 @@ section#twimcast-sidebar {
     .featrued-card-container {
         width: 220px;
         height: 257px;
+        background-color: #fff;
+        padding: 0;
     }
+
 
     .thumbnail-widget {
         max-width: 100%;
-        margin: 18px auto;
     }
 
     .footer-home h3 {

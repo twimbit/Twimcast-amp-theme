@@ -695,7 +695,7 @@ ul {
     ul,
     ol {
         margin: 0 0 3rem 2rem;
-        margin-left: 2rem !important;
+        margin-left: 2rem;
     }
 
     li {
