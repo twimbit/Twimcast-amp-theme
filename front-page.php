@@ -33,6 +33,8 @@ $dir_path = get_template_directory_uri();
 						include( locate_template( 'widgets/card-carousel.php', false, false ) );
 					} else if ( $widget['acf_fc_layout'] == 'list_category' ) {
 						include( locate_template( 'widgets/list-category.php', false, false ) );
+					} else if ( $widget['acf_fc_layout'] == 'standard' ) {
+						include( locate_template( 'widgets/standard.php', false, false ) );
 					}
 				}
 				?>

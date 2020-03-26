@@ -93,9 +93,10 @@ if ( empty( ! ( $posts ) ) ) {
 				$i = $i + 1;
 			} ?>
         </div>
-        <div class="explore-all-link">
-            <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
-        </div>
-
+		<?php if ( $query_type == 'cat_tag' ) { ?>
+            <div class="explore-all-link">
+                <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
+            </div>
+		<?php } ?>
     </div>
 <?php }

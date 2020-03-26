@@ -1956,6 +1956,21 @@ section#twimcast-sidebar {
         padding: 0 30px;
     }
 
+    .trending-first .trending-excerpt {
+        font-size: 15px;
+        color: #000000;
+        padding: 0 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 20px;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        margin-bottom: 12px;
+        height: auto;
+    }
+
     .author-cat {
         padding-left: 40px;
     }
@@ -1980,6 +1995,10 @@ section#twimcast-sidebar {
     .trending-span-3 .rending-title {
         margin-top: 10px;
         margin-left: 10px;
+    }
+
+    .list-divider .featured-img amp-img {
+        border-top-left-radius: 10px;
     }
 
     .trending-span-3 .author-category {
