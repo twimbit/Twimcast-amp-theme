@@ -10,7 +10,7 @@
                 <div class="share-icon">
                     <span>999</span>
                     <amp-social-share class="rounded" type="facebook" width="20" height="20"
-                                      data-share-endpoint="http://www.facebook.com/sharer.php?u="></amp-social-share>
+                                      data-share-endpoint="http://www.facebook.com/sharer.php"></amp-social-share>
                     <amp-social-share class="rounded" type="linkedin" width="20" height="20"></amp-social-share>
                     <amp-social-share class="rounded" type="twitter" width="20" height="20"></amp-social-share>
                     <amp-social-share type="system" width="20" height="20"></amp-social-share>

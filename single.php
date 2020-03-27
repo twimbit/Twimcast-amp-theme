@@ -181,6 +181,12 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 								<?php
 								echo get_post_field( 'post_content', get_the_ID() );
 								?>
+                                <div class="content-tags">
+									<?php
+									foreach ( get_the_tags( get_queried_object()->term_id ) as $tag_val ) { ?>
+                                        <a href="<?php echo get_category_link( $tag_val->term_id ); ?>"><span><?php echo $tag_val->name; ?></span></a>
+									<?php } ?>
+                                </div>
                             </div>
                         </div>
                         <!--Author and insight-->

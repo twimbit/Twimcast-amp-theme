@@ -1928,10 +1928,43 @@ section#twimcast-sidebar {
 }
 
 .category-title {
-    margin-left: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, SegoeUI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
 }
 
+.content-tags {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-tags a {
+    margin-right: 10px;
+    font-size: 14px;
+    background-color: #f1f3f4;
+    padding: 6px;
+    border-radius: 17px;
+    text-decoration: none;
+    font-weight: 500;
+    min-width: fit-content;
+    margin-bottom: 8px;
+}
+
+.content-tags a:hover {
+    background-color: #d1d1d1;
+    text-decoration: none;
+}
+
+.category-meta {
+    display: flex;
+    background-color: #fff;
+    height: fit-content;
+    padding: 0;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI Regular', 'Segoe UI Symbol', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+}
 
 @media (max-width: 1280px) {
     .postArea {
@@ -2084,13 +2117,6 @@ section#twimcast-sidebar {
         height: 141px;
     }
 
-    .category-meta {
-        display: flex;
-        background-color: #fff;
-        height: 120px;
-        padding: 10px;
-        margin-bottom: 30px;
-    }
 
     .category-title h3, p {
         margin: 0;
@@ -2133,6 +2159,7 @@ section#twimcast-sidebar {
 
     .recommended .post-list {
         flex-direction: column;
+        padding: 15px;
     }
 
     .recommended > div {
@@ -2172,7 +2199,6 @@ section#twimcast-sidebar {
     }
 
     .post-container {
-        padding: 0 40px;
         margin-left: 0;
         margin-right: 0;
     }
@@ -2442,7 +2468,7 @@ section#twimcast-sidebar {
         display: flex;
         height: 100%;
         margin: 0;
-        padding: 15px
+        padding: 15px 15px 15px 56px;
         /*background: transparent linear-gradient(270deg, #ffffff 0%, #ffffff 51%, #ffffff00 100%) 0% 0% no-repeat padding-box;*/
     }
 
@@ -2591,6 +2617,7 @@ section#twimcast-sidebar {
         font-weight: 500;
         font-size: 16px;
         color: rgb(101, 96, 96);
+        margin: 0;
     }
 
     .category-title h3 {
@@ -2599,17 +2626,9 @@ section#twimcast-sidebar {
         font-weight: 500;
     }
 
-    .category-image amp-img {
-        width: 90px;
-        height: 90px;
-    }
-
-    .category-meta {
-        display: flex;
-        height: 140px;
-        margin-bottom: 20px;
-        padding: 10px 10px 40px 15px;
-        background-color: #fff;
+    .category-image {
+        font-size: 45px;
+        margin-left: 15px;
     }
 
     .post-list {

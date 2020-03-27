@@ -209,6 +209,7 @@ if ( function_exists( 'get_field' ) ) {
                 padding-left: 0;
                 font-family: "Segoe UI Regular", "Segoe UI Symbo", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
             }
+
         }
 
         @media (max-width: 768px) {
@@ -285,11 +286,7 @@ if ( function_exists( 'get_field' ) ) {
                     <div class="category-cover">
                         <div class="background-blur"></div>
                         <div class="category-title-top">
-                            <amp-position-observer
-                                    on="enter:animateSmall.start;exit:animateSmall.start,animateSmall.reverse"
-                                    intersection-ratios="0.8"
-                                    layout="nodisplay">
-                            </amp-position-observer>
+
                             <div class="title-desc">
                                 <h3><?php echo $queriedObj->name; ?></h3>
                                 <h4><?php echo $queriedObj->category_description; ?></h4>
@@ -303,28 +300,13 @@ if ( function_exists( 'get_field' ) ) {
                                      object-fit="cover"
                                      height="141" width="141" layout="responsive"></amp-img>
                         </div>
-                        <amp-animation id="animateSmall" layout="nodisplay">
-                            <script type="application/json">
-                                {
-                                    "duration": "300ms",
-                                    "easing": "ease-out",
-                                    "fill": "both",
-                                    "animations": [
-                                        {
-                                            "selector": "#categoryThumb",
-                                            "keyframes": [
-                                                {
-                                                    "transform": "scale(0.25) translate(84px, -190px)"
-                                                },
-                                                {
-                                                    "transform": "scale(1) translate(42px, -155px)"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            </script>
-                        </amp-animation>
+                        <amp-script script=myScript layout=container>
+                            <div id="test"></div>
+                        </amp-script>
+                        <script type=text/plain target=amp-script id=myScript>
+                                document.getElementById("test").classList.add='Hello-world';
+
+                        </script>
                         <ul>
 							<?php
 							//print_r($widgets);

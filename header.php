@@ -15,9 +15,6 @@
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-fx-collection"
             src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
-    <script async custom-element="amp-position-observer"
-            src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
-    <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
 
     <!-- Amp analytics
@@ -36,6 +33,7 @@
 			}
 		</script>
 	</amp-analytics> -->
+    <meta name="amp-script-src" content="sha384-fake_hash_of_local_script"/>
 
 	<?php if ( is_single() ) { ?>
         <meta property="og:title" content="<?php echo the_title(); ?>">
