@@ -24,7 +24,7 @@ $posts = $widget['posts'];
 				?>
                 <a href="<?php echo $post_url; ?>" class="image-slide">
                     <p><?php echo $post_title; ?></p>
-                    <amp-img object-fit="cover" layout="fixed-height" height="216" alt="List icon"
+                    <amp-img object-fit="cover" layout="responsive" height="1" width="1" alt="List icon"
                              src="<?php echo $featured_image; ?>">
                     </amp-img>
                 </a>

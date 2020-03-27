@@ -1572,6 +1572,7 @@ ul {
 .amp-carousel-style amp-img {
     border-radius: 4px;
     transition: box-shadow 0.3s;
+    height: 100%;
 }
 
 .explore-all p {
@@ -1651,6 +1652,7 @@ ul {
 .amp-selector {
     display: flex;
     height: 20px;
+    margin-top: 12px;
 }
 
 .amp-selector amp-selector {
@@ -2048,9 +2050,7 @@ section#twimcast-sidebar {
         height: auto;
     }
 
-    .author-cat {
-        padding-left: 40px;
-    }
+
 
     .trending-list-container {
         padding: 0;
@@ -2063,10 +2063,15 @@ section#twimcast-sidebar {
         height: 100%;
     }
 
+    .trending-first .featured-img img {
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 0;
+    }
+
     .featured-img amp-img {
         height: 100%;
         border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
     }
 
     .trending-span-3 .rending-title {
@@ -2468,8 +2473,11 @@ section#twimcast-sidebar {
         display: flex;
         height: 100%;
         margin: 0;
-        padding: 15px 15px 15px 56px;
+        padding: 15px;
         /*background: transparent linear-gradient(270deg, #ffffff 0%, #ffffff 51%, #ffffff00 100%) 0% 0% no-repeat padding-box;*/
+    }
+    .author-cat {
+        padding: 15px 15px 15px 56px;
     }
 
     .post-list > amp-img {
@@ -2850,7 +2858,7 @@ section#twimcast-sidebar {
         white-space: normal;
         white-space: normal;
         margin: 0;
-        height: 216px;
+        height: 100%;
         z-index: 2;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2983,7 +2991,7 @@ section#twimcast-sidebar {
     font-weight: 600;
 }
 
-.card-desc h4, h5 {
+.card-desc h4, .card-desc h5 {
     font-size: 15px;
     font-weight: 500;
 }
