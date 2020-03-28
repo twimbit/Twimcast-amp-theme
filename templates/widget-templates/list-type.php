@@ -1,4 +1,4 @@
-<div class="rending-title"><?php echo $post_title; ?></div>
+<div class="rending-title" title="<?php echo $post_title; ?>"><?php echo $post_title; ?></div>
 <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
 <div class="author-category">
     <span class="author-name">

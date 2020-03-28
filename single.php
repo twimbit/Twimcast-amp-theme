@@ -157,7 +157,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                                             tabindex="1"
                                                             role="insta reads"
                                                             lightbox
-                                                            src=<?php echo $val; ?>
+                                                            src=<?php echo $val['url']; ?>
                                                             height="250"
                                                             width="250"
                                                             layout="responsive"
@@ -180,13 +180,15 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                             <div class="entry-content">
 								<?php
 								echo get_post_field( 'post_content', get_the_ID() );
-								?>
-                                <div class="content-tags">
-									<?php
-									foreach ( (array) get_the_tags( get_queried_object()->term_id ) as $tag_val ) { ?>
-                                        <a href="<?php echo get_category_link( $tag_val->term_id ); ?>"><span><?php echo $tag_val->name; ?></span></a>
-									<?php } ?>
-                                </div>
+								if ( get_the_tags( get_queried_object()->term_id ) ) {
+									?>
+                                    <div class="content-tags">
+										<?php
+										foreach ( (array) get_the_tags( get_queried_object()->term_id ) as $tag_val ) { ?>
+                                            <a href="<?php echo get_category_link( $tag_val->term_id ); ?>"><span><?php echo $tag_val->name; ?></span></a>
+										<?php } ?>
+                                    </div>
+								<?php } ?>
                             </div>
                         </div>
                         <!--Author and insight-->
@@ -255,7 +257,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                 <h3 class="recomended-title">Related</h3>
 								<?php
 								foreach ( $posts as $post ) {
-									$featured_image = get_field( 'featured_images', $post )[0];
+									$featured_image = get_field( 'featured_images', $post )[0]['sizes']['medium'];
 									$post_url       = get_the_permalink( $post );
 									$post_title     = $post->post_title;
 									$post_excerpt   = $post->post_excerpt;

@@ -66,7 +66,7 @@ if ( ( empty( $category_image ) ) ) {
 								$post_date      = get_the_date( 'd M', $post );
 								$post_readTime  = get_field( 'length', $post );
 								$post_type      = get_field( 'intent_type', $post );
-								$featured_image = get_field( 'featured_images', $post )[0];
+								$featured_image = get_field( 'featured_images', $post )[0]['sizes']['thumbnail'];
 								$post_type      = get_field( 'intent_type', $post );
 								if ( ( empty( $featured_image ) ) ) {
 									$featured_image = getRandomImageForCategory();
