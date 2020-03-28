@@ -313,26 +313,35 @@ if ( function_exists( 'get_field' ) ) {
 							<?php
 							// Show on top login for each widget
 							//print_r($widgets);
-							foreach ( (array) $widgets as $widget ) {
+							foreach ( (array) $widgets as $category_top => $widget ) {
 								if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li><a href="#featured-widget"><?php echo $widget['title'] ?></a></li>
+                                        <li>
+                                            <a href="#featured-widget<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                        </li>
 									<?php }
 								} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li><a href="#thumbnail-carousel"><?php echo $widget['title'] ?></a></li>
+                                        <li>
+                                            <a href="#thumbnail-carousel<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                        </li>
 									<?php }
 								} else if ( $widget['acf_fc_layout'] == 'card_carousel' ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li><a href="#card-carousel"><?php echo $widget['title'] ?></a></li>
+                                        <li>
+                                            <a href="#card-carousel<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                        </li>
 									<?php }
 								} else if ( $widget['acf_fc_layout'] == 'list_category' ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li><a href="#list-category"><?php echo $widget['title'] ?></a></li>
+                                        <li>
+                                            <a href="#list-category<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                        </li>
 									<?php }
 								} else if ( $widget['acf_fc_layout'] == 'standard' ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li><a href="#trending-widget"><span><?php echo $widget['title'] ?></span></a>
+                                        <li>
+                                            <a href="#trending-widget<?php echo '-' . $category_top; ?>"><span><?php echo $widget['title'] ?></span></a>
                                         </li>
 									<?php }
 								}
@@ -364,7 +373,7 @@ if ( function_exists( 'get_field' ) ) {
 						<?php
 						//print_r($widgets);
 						/* Adding widgets */
-						foreach ( (array) $widgets as $widget ) {
+						foreach ( (array) $widgets as $category_key => $widget ) {
 							if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
 								include( locate_template( 'widgets/image-carousel.php', false, false ) );
 							} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {

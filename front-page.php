@@ -20,7 +20,7 @@ $dir_path = get_template_directory_uri();
 				}
 				//print_r($widgets);
 				// widgets added
-				foreach ( (array) $widgets as $widget ) {
+				foreach ( (array) $widgets as $widget_key => $widget ) {
 					if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
 						include( locate_template( 'widgets/image-carousel.php', false, false ) );
 					} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {

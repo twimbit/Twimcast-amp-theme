@@ -28,14 +28,16 @@ if ( $query_type == 'cat_tag' ) {
 if ( $posts ) {
 	?>
     <div class="trending-widget explore-all">
-        <div id="trending-widget" class="widget-anchor "></div>
+        <div id="trending-widget<?php if ( $widget['show_on_top'] == "yes" ) {
+			echo '-' . $category_key;
+		}?>" class="widget-anchor "></div>
         <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
         <div id="myTrendingList">
 			<?php
 			$i           = 1;
 			$postsNumber = count( $posts );
 			foreach ( $posts as $post ) {
-				$featured_image = get_field( 'featured_images', $post )[0];
+				$featured_image = get_field( 'featured_images', $post )[0]['sizes']['medium'];
 				$post_url       = get_the_permalink( $post );
 				$post_title     = $post->post_title;
 				$post_excerpt   = $post->post_excerpt;

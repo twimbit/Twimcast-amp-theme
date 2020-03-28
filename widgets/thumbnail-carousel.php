@@ -27,7 +27,9 @@ if ( ! empty( $series ) ) {
     <div class="thumbnail-widget explore-all" style="background-image: <?php if ( isMobile() ) {
 		echo generateRandomColor();
 	} ?>">
-        <div id="thumbnail-carousel" class="widget-anchor "></div>
+        <div id="thumbnail-carousel<?php if ( $widget['show_on_top'] == "yes" ) {
+			echo '-' . $category_key;
+		}  ?>" class="widget-anchor "></div>
         <p><?php echo $title; ?> </p>
         <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
             <!-- Loop assigned categories -->

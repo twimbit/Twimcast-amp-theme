@@ -38,10 +38,13 @@ if ( $posts ) {
 			?>
 
             <div class="show-mobile">
-                <amp-carousel height="0" width="0" type="slides" layout="responsive" id="carouselWithPreview-image"
-                              on="slideChange:carouselWithPreviewSelector-image.toggle(index=event.index, value=true)">
+                <amp-carousel height="0" width="0" type="slides" layout="responsive"
+                              id="carouselWithPreview-image<?php if ( $widget['show_on_top'] == "yes" ) {
+					              echo '-' . $category_key;
+				              } ?>"
+                              on="slideChange:carouselWithPreviewSelector-image<?php echo '-' . $widget_key; ?>.toggle(index=event.index, value=true)">
 					<?php foreach ( $posts as $post ) {
-						$featured_image = get_field( 'featured_images', $post )[0];
+						$featured_image = get_field( 'featured_images', $post )[0]['sizes']['large'];
 						$post_url       = get_the_permalink( $post );
 						$post_title     = $post->post_title;
 						if ( ( empty( $featured_image ) ) ) {
@@ -57,8 +60,9 @@ if ( $posts ) {
 					<?php } ?>
                 </amp-carousel>
                 <div class="amp-selector show-mobile">
-                    <amp-selector id="carouselWithPreviewSelector-image" class="carousel-preview"
-                                  on="select:carouselWithPreview-image.goToSlide(index=event.targetOption)"
+                    <amp-selector id="carouselWithPreviewSelector-image<?php echo '-' . $widget_key; ?>"
+                                  class="carousel-preview"
+                                  on="select:carouselWithPreview-image<?php echo '-' . $widget_key; ?>.goToSlide(index=event.targetOption)"
                                   layout="container">
 						<?php
 						$i = 0;
@@ -81,7 +85,7 @@ if ( $posts ) {
 
                 <amp-carousel height="341" type="carousel" layout="fixed-height" controls style="margin-left:0">
 					<?php foreach ( $posts as $post ) {
-						$featured_image = get_field( 'featured_images', $post )[0];
+						$featured_image = get_field( 'featured_images', $post )[0]['sizes']['large'];
 						$post_url       = get_the_permalink( $post );
 						$post_title     = $post->post_title;
 						$category_url   = get_category_link( get_the_category( $post->ID )[0] );
