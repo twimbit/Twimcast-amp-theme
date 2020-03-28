@@ -29,8 +29,10 @@ if ( ! empty( $series ) ) {
 	} ?>">
         <div id="thumbnail-carousel<?php if ( $widget['show_on_top'] == "yes" ) {
 			echo '-' . $category_key;
-		}  ?>" class="widget-anchor "></div>
-        <p><?php echo $title; ?> </p>
+		} ?>" class="widget-anchor "></div>
+		<?php if ( $title ) { ?>
+            <p><?php echo $title; ?> </p>
+		<?php } ?>
         <amp-carousel class="sub-cat" type="carousel" controls height="0" width="0" layout="responsive">
             <!-- Loop assigned categories -->
 			<?php foreach ( $series as $val ) {

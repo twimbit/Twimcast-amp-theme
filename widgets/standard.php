@@ -30,8 +30,10 @@ if ( $posts ) {
     <div class="trending-widget explore-all">
         <div id="trending-widget<?php if ( $widget['show_on_top'] == "yes" ) {
 			echo '-' . $category_key;
-		}?>" class="widget-anchor "></div>
-        <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
+		} ?>" class="widget-anchor "></div>
+		<?php if ( $title ) { ?>
+            <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
+		<?php } ?>
         <div id="myTrendingList">
 			<?php
 			$i           = 1;

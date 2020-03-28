@@ -7,6 +7,9 @@ $cover_image    = get_field( 'cover_image', $queriedObj )['url'];
 if ( ( empty( $category_image ) ) ) {
 	$category_image = getRandomImageForCategory();
 }
+if ( ( empty( $cover_image ) ) ) {
+	$cover_image = getRandomImageForCategory();
+}
 if ( function_exists( 'get_field' ) ) {
 	$widgets = get_field( 'category_widgets', $queriedObj );
 }

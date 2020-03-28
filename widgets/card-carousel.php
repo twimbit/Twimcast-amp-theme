@@ -41,7 +41,9 @@ height: 40px;
     <div id="card-carousel<?php if ( $widget['show_on_top'] == "yes" ) {
 			echo '-' . $category_key;
 		}?>" class="widget-anchor "></div>
-    <p><?php echo $title;?> </p>
+    <?php if ( $title ) { ?>
+            <p><?php echo $title; ?> </p>
+		<?php } ?>
 	<?php if ( isMobile() ) { ?>
         <amp-carousel class="featured-carousel" height="0" width="0" type="carousel" layout="responsive" controls>
 			<?php
