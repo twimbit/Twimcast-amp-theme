@@ -504,7 +504,7 @@ iframe.instagram-media {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
 }
 
 .post-writer {
@@ -1778,7 +1778,7 @@ amp-selector [option] {
     margin-left: 280px;
     padding-left: 54px;
     /* overflow-x: hidden; */
-    font-family: "Merriweather", serif;
+    /*font-family: "Merriweather", serif;*/
     font-size: 18px;
     font-weight: 300;
     text-align: left;
@@ -1945,7 +1945,7 @@ section#twimcast-sidebar {
     margin-right: 10px;
     font-size: 14px;
     background-color: #f1f3f4;
-    padding: 6px;
+    padding: 6px 10px;
     border-radius: 17px;
     text-decoration: none;
     font-weight: 500;
@@ -1966,6 +1966,7 @@ section#twimcast-sidebar {
     margin-bottom: 30px;
     font-family: 'Segoe UI Regular', 'Segoe UI Symbol', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 }
+
 
 @media (max-width: 1280px) {
     .postArea {
@@ -2050,7 +2051,6 @@ section#twimcast-sidebar {
     }
 
 
-
     .trending-list-container {
         padding: 0;
         height: 100%;
@@ -2097,6 +2097,7 @@ section#twimcast-sidebar {
 
     .list-divider .author-category {
         margin-left: 10px;
+        margin-bottom: 5px;
     }
 
     .list-divider .date-time-type {
@@ -2439,9 +2440,10 @@ section#twimcast-sidebar {
         background: #fff;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-auto-rows: 240px;
+        /*grid-auto-rows: 240px;*/
         position: relative;
         grid-row-gap: 25px;
+        grid-auto-rows: minmax(240px, auto);
         grid-column-gap: 10px;
         margin-top: 20px;
     }
@@ -2475,6 +2477,7 @@ section#twimcast-sidebar {
         padding: 15px;
         /*background: transparent linear-gradient(270deg, #ffffff 0%, #ffffff 51%, #ffffff00 100%) 0% 0% no-repeat padding-box;*/
     }
+
     .author-cat {
         padding: 15px 15px 15px 56px;
     }
@@ -2588,7 +2591,7 @@ section#twimcast-sidebar {
         display: flex;
         margin-left: 20vw;
         padding-left: 20px;
-        font-family: "Merriweather", serif;
+        /*font-family: "Merriweather", serif;*/
         font-size: 18px;
         font-weight: 300;
         text-align: left;
@@ -2839,6 +2842,10 @@ section#twimcast-sidebar {
         padding: 1px 0;
     }
 
+    .list-divider a {
+        text-decoration: none;
+    }
+
     .sub-cat p {
         top: 7px;
         left: 11px;
@@ -2871,9 +2878,9 @@ section#twimcast-sidebar {
 
     .featrued-card-container {
         width: 220px;
-        height: 257px;
+        height: fit-content;
         background-color: #fff;
-        padding: 0;
+        padding: 0 0 8px 0;
     }
 
 

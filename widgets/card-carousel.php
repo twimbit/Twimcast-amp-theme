@@ -12,11 +12,8 @@ if ( ! $widget['show_on_top'] ) {
 	$cat = get_queried_object()->term_id;
 }
 
-$tags = array();
-foreach ( (array) $widget['tags'] as $tag ) {
-	//pushing tags in tags array
-	array_push( $tags, $tag->slug );
-}
+$tags        = get_widget_tags( $widget['tags'] );
+
 $list_category_explore_all = get_category_link( $cat );
 //print_r( $tags );
 
@@ -25,18 +22,24 @@ if ( $query_type == 'cat_tag' ) {
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['post'];
 }
+$dir_path = get_template_directory_uri();
 //print_r( $posts );
 $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID )[0] );
 if ( $posts ) {
 ?>
-<div class="suggested-widget explore-all"  style="background-image: <?php if ( isMobile() ) {
-	     echo generateRandomColor();
-     } ?>">
-    <div id="card-carousel" class="widget-anchor "></div>
-    <p><?php echo $title;
+<style>
+@media (max-width: 768px) and (min-width: 320px){
+.suggested-widget .author-name {
+height: 40px;
+}
+.suggested-widget .rending-title {
 
-		$dir_path = get_template_directory_uri();
-		?> </p>
+    height: 45px;
+}}
+</style>
+<div class="suggested-widget explore-all"  style="background-image: <?php if ( isMobile() ) { echo generateRandomColor(); } ?>">
+    <div id="card-carousel" class="widget-anchor "></div>
+    <p><?php echo $title;?> </p>
 	<?php if ( isMobile() ) { ?>
         <amp-carousel class="featured-carousel" height="0" width="0" type="carousel" layout="responsive" controls>
 			<?php

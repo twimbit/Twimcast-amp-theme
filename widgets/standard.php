@@ -1,6 +1,5 @@
 <?php
 $title       = $widget['title'];
-$cat         = $widget['category'][0]->term_id;
 $postCount   = $widget['post_count'];
 $select_type = $widget['select_type'];
 $orderby     = $widget['select_order']['card_order_by'];
@@ -8,16 +7,25 @@ $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
 $tags        = get_widget_tags( $widget['tags'] );
 
+if ( ! $widget['show_on_top'] ) {
+	$cat = $widget['category'][0];
+} else {
+	$cat = get_queried_object()->term_id;
+}
+
 $list_category_explore_all = get_category_link( $cat );
 //print_r( $tags );
 
 
 if ( $query_type == 'cat_tag' ) {
 	$posts = get_post_by_widget_query( $cat, $tags, $postCount, $select_type, $orderby, $order );
+
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['posts'];
 }
-if ( empty( ! ( $posts ) ) ) {
+
+
+if ( $posts ) {
 	?>
     <div class="trending-widget explore-all">
         <div id="trending-widget" class="widget-anchor "></div>

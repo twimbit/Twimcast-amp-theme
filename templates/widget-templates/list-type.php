@@ -2,9 +2,9 @@
 <div class="trending-excerpt"><?php echo $post_excerpt; ?></div>
 <div class="author-category">
     <span class="author-name">
-		<?php echo $post_author; ?>
+		<span title="<?php echo $post_author; ?>"><?php echo $post_author; ?></span>
         in
-        <?php echo $post_category; ?>
+        <span title="<?php echo $post_category; ?>"><?php echo $post_category; ?></span>
     </span>
 
 </div>

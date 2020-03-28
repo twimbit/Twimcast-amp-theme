@@ -234,6 +234,7 @@ if ( function_exists( 'get_field' ) ) {
 
             .title-desc {
                 margin-left: 135px;
+                flex: 1;
             }
 
             .title-desc h3 {
@@ -242,6 +243,14 @@ if ( function_exists( 'get_field' ) ) {
 
             .title-desc h4 {
                 font-size: 16px;
+                width: 90%;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+                -webkit-line-clamp: 2;
+                margin: 6px 0 0 0;
             }
 
             .category-thumb amp-img {
@@ -300,15 +309,9 @@ if ( function_exists( 'get_field' ) ) {
                                      object-fit="cover"
                                      height="141" width="141" layout="responsive"></amp-img>
                         </div>
-                        <amp-script script=myScript layout=container>
-                            <div id="test"></div>
-                        </amp-script>
-                        <script type=text/plain target=amp-script id=myScript>
-                                document.getElementById("test").classList.add='Hello-world';
-
-                        </script>
                         <ul>
 							<?php
+							// Show on top login for each widget
 							//print_r($widgets);
 							foreach ( (array) $widgets as $widget ) {
 								if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
@@ -360,6 +363,7 @@ if ( function_exists( 'get_field' ) ) {
                     <div class="post-container">
 						<?php
 						//print_r($widgets);
+						/* Adding widgets */
 						foreach ( (array) $widgets as $widget ) {
 							if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
 								include( locate_template( 'widgets/image-carousel.php', false, false ) );
