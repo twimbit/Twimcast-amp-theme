@@ -96,7 +96,7 @@ html {
 body {
     box-sizing: border-box;
     color: #000;
-    font-family: "'Segoe UI Regular', 'Segoe UI Symbol'", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    font-family: 'Segoe UI Regular', 'Segoe UI Symbol', -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Helvetica, sans-serif;
     font-size: 20px;
     /* letter-spacing: -0.015em; */
@@ -130,7 +130,6 @@ h5 .faux-heading {
     font-feature-settings: "lnum";
     font-variant-numeric: lining-nums;
     font-weight: 700;
-    letter-spacing: -0.0415625em;
     line-height: 1.25;
     margin: 3.5rem 0 2rem;
 }
@@ -551,6 +550,11 @@ ul {
     font-family: 'Merriweather', serif;
     font-size: 17px;
     letter-spacing: normal;
+    font-weight: 400;
+}
+
+.entry-content ul {
+    padding: 0 0 0 16px;
 }
 
 .entry-content cite,

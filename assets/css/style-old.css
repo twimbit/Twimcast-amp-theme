@@ -81,8 +81,8 @@ body {
     background-color: #f9f9f9;
     box-sizing: border-box;
     color: #000;
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Helvetica, sans-serif;
+    /*font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue",*/
+    /*Helvetica, sans-serif;*/
     font-size: 20px;
     /* letter-spacing: -0.015em; */
     text-align: left;
@@ -115,7 +115,6 @@ h5 .faux-heading {
     font-feature-settings: "lnum";
     font-variant-numeric: lining-nums;
     font-weight: 700;
-    letter-spacing: -0.0415625em;
     line-height: 1.25;
     margin: 3.5rem 0 2rem;
 }
@@ -1705,7 +1704,7 @@ amp-selector [option] {
 .sub-cat p {
     position: absolute;
     left: 11px;
-    width: 160px;
+    width: 80%;
     font-size: 19px;
     color: #fff;
     color: #fff;
@@ -1715,7 +1714,7 @@ amp-selector [option] {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    line-height: 1.12;
+    line-height: 1.32;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     text-shadow: 2px 2px 4px #000;
@@ -1978,7 +1977,7 @@ section#twimcast-sidebar {
     .sub-cat p {
         position: absolute;
         left: 11px;
-        width: 150px;
+        width: 80%;
         font-size: 16px;
         height: auto;
         top: auto;

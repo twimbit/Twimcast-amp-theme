@@ -1,12 +1,17 @@
 <?php
 $title       = $widget['title'];
-$cat         = $widget['category'][0]->term_id;
 $postCount   = $widget['post_count'];
 $select_type = $widget['select_type'];
 $orderby     = $widget['select_order']['card_order_by'];
 $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
 //print_r( $select_type );
+if ( ! $widget['show_on_top'] ) {
+	$cat = $widget['category'][0];
+} else {
+	$cat = get_queried_object()->term_id;
+}
+
 $tags = array();
 foreach ( (array) $widget['tags'] as $tag ) {
 	//pushing tags in tags array
@@ -14,38 +19,15 @@ foreach ( (array) $widget['tags'] as $tag ) {
 }
 $list_category_explore_all = get_category_link( $cat );
 //print_r( $tags );
-$args = array(
-	'numberposts' => $postCount,
-	'post_type'   => array( 'post' ),
-	'tax_query'   => array(
-		'relation' => 'OR',
-		array(
-			'taxonomy' => 'category',
-			'field'    => 'id',
-			'terms'    => $cat
-		),
-		array(
-			'taxonomy' => 'post_tag',
-			'field'    => 'slug',
-			'terms'    => $tags
-		),
-		array(
-			'taxonomy' => 'types',
-			'field'    => 'id',
-			'terms'    => $select_type
-		)
-	),
-	'order_by'    => $orderby,
-	'order'       => $order
-);
 
 if ( $query_type == 'cat_tag' ) {
-	$posts = get_posts( $args );
+	$posts = get_post_by_widget_query($cat,$tags,$postCount,$select_type,$orderby,$order);
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['post'];
 }
 //print_r( $posts );
 $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID )[0] );
+if ( $posts ) {
 ?>
 <div class="suggested-widget explore-all"  style="background-image: <?php if ( isMobile() ) {
 	     echo generateRandomColor();
@@ -110,3 +92,4 @@ $card_explore_all = get_category_link( get_the_category( $widget['post'][0]->ID 
         </div>
 	<?php } ?>
 </div>
+<?php } ?>

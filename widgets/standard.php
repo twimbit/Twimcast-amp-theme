@@ -6,41 +6,14 @@ $select_type = $widget['select_type'];
 $orderby     = $widget['select_order']['card_order_by'];
 $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
-$tags        = array();
+$tags        = get_widget_tags( $widget['tags'] );
 
-foreach ( (array) $widget['tags'] as $tag ) {
-	//pushing tags in tags array
-	array_push( $tags, $tag->slug );
-}
 $list_category_explore_all = get_category_link( $cat );
 //print_r( $tags );
-$args = array(
-	'numberposts' => $postCount,
-	'post_type'   => array( 'post' ),
-	'tax_query'   => array(
-		'relation' => 'OR',
-		array(
-			'taxonomy' => 'category',
-			'field'    => 'id',
-			'terms'    => $cat
-		),
-		array(
-			'taxonomy' => 'post_tag',
-			'field'    => 'slug',
-			'terms'    => $tags
-		),
-		array(
-			'taxonomy' => 'types',
-			'field'    => 'id',
-			'terms'    => $select_type
-		)
-	),
-	'order_by'    => $orderby,
-	'order'       => $order
-);
+
 
 if ( $query_type == 'cat_tag' ) {
-	$posts = get_posts( $args );
+	$posts = get_post_by_widget_query( $cat, $tags, $postCount, $select_type, $orderby, $order );
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['posts'];
 }
