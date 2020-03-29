@@ -932,6 +932,38 @@ function update_posts() {
 }
 
 
+function cptui_register_my_taxes_types() {
+
+	/**
+	 * Taxonomy: types.
+	 */
+
+	$labels = [
+		"name"          => __( "types", "twimbit" ),
+		"singular_name" => __( "type", "twimbit" ),
+	];
+
+	$args = [
+		"label"                 => __( "types", "twimbit" ),
+		"labels"                => $labels,
+		"public"                => false,
+		"publicly_queryable"    => true,
+		"hierarchical"          => true,
+		"show_ui"               => false,
+		"show_in_menu"          => false,
+		"show_in_nav_menus"     => false,
+		"query_var"             => true,
+		"rewrite"               => [ 'slug' => 'types', 'with_front' => true, 'hierarchical' => true, ],
+		"show_admin_column"     => false,
+		"show_in_rest"          => true,
+		"rest_base"             => "types",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"show_in_quick_edit"    => false,
+	];
+	register_taxonomy( "types", [ "post" ], $args );
+}
+
+add_action( 'init', 'cptui_register_my_taxes_types' );
 
 
 

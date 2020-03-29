@@ -7,7 +7,16 @@ if ( ( empty( $author_image ) ) ) {
 	$author_image = getRandomImageForCategory();
 }
 ?>
+    <style>
+        .category-image amp-img {
+            margin-top: 17px    ;
+        }
 
+        .category-title {
+            justify-content: unset;
+            margin-top: 17px;
+        }
+    </style>
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">
@@ -25,7 +34,7 @@ if ( ( empty( $author_image ) ) ) {
                     <div class="post-container">
                         <div class="category-meta">
                             <div class="category-image">
-                                <amp-img width="100" height="100" alt="List icon" lightbox="category"
+                                <amp-img width="70" height="70" alt="List icon" lightbox="category"
                                          src="<?php echo $author_image; ?>"></amp-img>
                             </div>
                             <div class="category-title">
@@ -41,7 +50,7 @@ if ( ( empty( $author_image ) ) ) {
 							$args  = array(
 								'post_type'      => array( 'post' ),
 								'posts_per_page' => get_option( 'posts_per_page' ),
-								'author'            => $queriedObj->data->ID,
+								'author'         => $queriedObj->data->ID,
 								'paged'          => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
 							);
 							$posts = get_posts( $args );
