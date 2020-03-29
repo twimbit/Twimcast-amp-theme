@@ -16,6 +16,7 @@ if ( ! $widget['show_on_top'] ) {
 //print_r( $cat );
 $list_category_explore_all = get_category_link( $cat );
 
+$unique_id = return_unique_id( $widget['show_on_top'], $widget['acf_fc_layout'], $category_key, $widget_key );
 
 if ( $query_type == 'cat_tag' ) {
 	$posts = get_post_by_widget_query( $cat, $tags, $postCount, $select_type, $orderby, $order );
@@ -23,13 +24,17 @@ if ( $query_type == 'cat_tag' ) {
 	$posts = $widget['posts'];
 }
 
+
 if ( $posts ) {
 	?>
     <div class="featured-widget amp-carousel-style explore-all"
          style="background-image: <?php if ( isMobile() ) {
 		     echo generateRandomColor();
 	     } ?>">
-        <div id="featured-widget" class="widget-anchor "></div>
+
+        <div id="<?php echo $unique_id; ?>"
+             class="widget-anchor"></div>
+
 		<?php if ( $title ) { ?>
             <p><?php echo $title; ?> </p>
 		<?php }
@@ -39,10 +44,8 @@ if ( $posts ) {
 
             <div class="show-mobile">
                 <amp-carousel height="0" width="0" type="slides" layout="responsive"
-                              id="carouselWithPreview-image<?php if ( $widget['show_on_top'] == "yes" ) {
-					              echo '-' . $category_key;
-				              } ?>"
-                              on="slideChange:carouselWithPreviewSelector-image<?php echo '-' . $widget_key; ?>.toggle(index=event.index, value=true)">
+                              id="carouselWithPreview-image<?php echo $unique_id; ?>"
+                              on="slideChange:carouselWithPreviewSelector-image<?php echo $unique_id; ?>.toggle(index=event.index, value=true)">
 					<?php foreach ( $posts as $post ) {
 						$featured_image = get_field( 'featured_images', $post )[0]['sizes']['large'];
 						$post_url       = get_the_permalink( $post );
@@ -60,9 +63,9 @@ if ( $posts ) {
 					<?php } ?>
                 </amp-carousel>
                 <div class="amp-selector show-mobile">
-                    <amp-selector id="carouselWithPreviewSelector-image<?php echo '-' . $widget_key; ?>"
+                    <amp-selector id="carouselWithPreviewSelector-image<?php echo $unique_id; ?>"
                                   class="carousel-preview"
-                                  on="select:carouselWithPreview-image<?php echo '-' . $widget_key; ?>.goToSlide(index=event.targetOption)"
+                                  on="select:carouselWithPreview-image<?php echo $unique_id; ?>.goToSlide(index=event.targetOption)"
                                   layout="container">
 						<?php
 						$i = 0;

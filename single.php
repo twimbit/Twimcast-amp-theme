@@ -11,7 +11,7 @@ $dir_path = get_template_directory_uri();
 //     $height = 1;
 // }
 $insta_read         = get_field( 'featured_images', get_queried_object() );
-$author_image       = get_field( 'author_image', 'user_' . get_queried_object()->post_author )['sizes']['thumbnail'];
+$author_image       = get_field( 'author_image', 'user_' . get_queried_object()->post_author )['sizes']['large'];
 $author_permalink   = get_author_posts_url( get_queried_object()->post_author );
 $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->term_id );
 ?>
@@ -98,7 +98,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                 </div>
                                 <hr style="margin: 0;height: 4px;width: 500px;position: absolute;background-color: #000;left: -500px;">
                                 <div class="post-author-name post-author-name-black-line">
-                                    <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox-user
+                                    <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox="user"
                                              src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>"></amp-img>
                                     <span><a href="<?php echo $author_permalink; ?>"><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></a></span><span>in</span>
                                     <a href="<?php echo $category_permalink; ?>"><span
@@ -137,7 +137,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                                       controls class="show-mobile">
 											<?php
 											foreach ( $insta_read as $val ) { ?>
-                                                <amp-img src="<?php echo $val; ?>" width="1" object-fit="cover"
+                                                <amp-img src="<?php echo $val['url']; ?>" width="1" object-fit="cover"
                                                          height="1" layout="responsive"></amp-img>
 											<?php } ?>
                                         </amp-carousel>

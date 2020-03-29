@@ -27,9 +27,8 @@ if ( ! empty( $series ) ) {
     <div class="thumbnail-widget explore-all" style="background-image: <?php if ( isMobile() ) {
 		echo generateRandomColor();
 	} ?>">
-        <div id="thumbnail-carousel<?php if ( $widget['show_on_top'] == "yes" ) {
-			echo '-' . $category_key;
-		} ?>" class="widget-anchor "></div>
+        <div id="<?php echo return_unique_id( $widget['show_on_top'], $widget['acf_fc_layout'], $category_key ); ?>"
+             class="widget-anchor"></div>
 		<?php if ( $title ) { ?>
             <p><?php echo $title; ?> </p>
 		<?php } ?>
@@ -50,7 +49,7 @@ if ( ! empty( $series ) ) {
 				?>
                 <a href="<?php echo $cat_url; ?>" aria-label="Bussiness Model" class="thumbnail-carousel">
                     <p><?php echo $cat_name; ?></p>
-                    <amp-img layout="fixed-height" object-fit="cover" height="87" alt="List icon"
+                    <amp-img layout="fixed-height" object-fit="cover" height="81" alt="List icon"
                              src="<?php echo $cat_thumbnail; ?>">
                     </amp-img>
 

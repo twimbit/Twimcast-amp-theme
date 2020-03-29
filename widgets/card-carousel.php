@@ -38,9 +38,7 @@ height: 40px;
 }}
 </style>
 <div class="suggested-widget explore-all"  style="background-image: <?php if ( isMobile() ) { echo generateRandomColor(); } ?>">
-    <div id="card-carousel<?php if ( $widget['show_on_top'] == "yes" ) {
-			echo '-' . $category_key;
-		}?>" class="widget-anchor "></div>
+    <div id="<?php echo return_unique_id( $widget['show_on_top'], $widget['acf_fc_layout'], $category_key ); ?>" class="widget-anchor"></div>
     <?php if ( $title ) { ?>
             <p><?php echo $title; ?> </p>
 		<?php } ?>

@@ -1758,18 +1758,20 @@ amp-selector [option] {
 
 .trending-list-content {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 5px;
     padding: 0 5px;
 }
 
 .thumbnail-carousel {
     position: relative;
-    height: 87px;
+    height: 81px;
     overflow: hidden;
     width: 21%;
     margin-right: 2px;
     border-radius: 10px;
     min-width: 160px;
+    box-shadow: 0 2px 7px rgba(0,0,0,.16);
+
 }
 
 .archiveArea {
@@ -1795,7 +1797,7 @@ amp-selector [option] {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(114deg,rgba(15, 15, 15, 0.8),rgba(15, 15, 15, 0.8));
+    background: linear-gradient(114deg, rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8));
     z-index: 1;
     /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);*/
 }
@@ -2442,9 +2444,8 @@ section#twimcast-sidebar {
         grid-template-columns: repeat(6, 1fr);
         /*grid-auto-rows: 240px;*/
         position: relative;
-        grid-row-gap: 25px;
+        grid-gap: 15px;
         grid-auto-rows: minmax(240px, auto);
-        grid-column-gap: 10px;
         margin-top: 20px;
     }
 
@@ -2576,7 +2577,7 @@ section#twimcast-sidebar {
         flex: 1;
         display: flex;
         margin-left: 200px;
-        font-family: "Merriweather", serif;
+        /*font-family: "Merriweather", serif;*/
         font-size: 18px;
         font-weight: 300;
         text-align: left;
@@ -2688,7 +2689,7 @@ section#twimcast-sidebar {
     .thumbnail-carousel {
         height: 67px;
         width: 160px;
-        box-shadow: 0 2px 7px rgba(0,0,0,.16);
+        box-shadow: 0 2px 7px rgba(0, 0, 0, .16);
         border-radius: 0;
     }
 
@@ -2698,6 +2699,19 @@ section#twimcast-sidebar {
     }
 
     .list-divider::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #e1dbdb;
+    }
+    .trending-span-3{
+        position: relative;
+        padding: 1px 0;
+    }
+    .trending-span-3::before {
         content: "";
         position: absolute;
         bottom: 0;
@@ -2750,7 +2764,7 @@ section#twimcast-sidebar {
     }
 
     .widget-area-section {
-        max-width: 550px;
+        max-width: 768px;
         margin: 0 auto;
     }
 
@@ -2925,7 +2939,7 @@ section#twimcast-sidebar {
         margin-left: 0;
         padding-left: 0;
         height: fit-content;
-        max-width: 550px;
+        max-width: 768px;
         margin: 0 auto;
         /*margin-top: 25px;*/
         padding: 0;

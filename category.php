@@ -52,21 +52,20 @@ if ( function_exists( 'get_field' ) ) {
         }
 
         .category-thumb amp-img {
-            transform: scale(1) translate(42px, -155px);
+            transform: scale(1) translate(49px, -22px);
             border-radius: 7px;
             box-shadow: 0 3px 6px black;
             position: sticky;
-            top: 0;
             height: 141px;
             width: 141px;
         }
 
         .category-thumb {
-            height: 46px;
+            height: 100%;
         }
 
         .title-desc {
-            margin-left: 210px;
+            margin-left: 80px;
             color: #fff;
         }
 
@@ -81,6 +80,32 @@ if ( function_exists( 'get_field' ) ) {
             font-size: 18px;
         }
 
+        .widget-list amp-carousel {
+            height: 46px;
+            padding: 0 35px;
+        }
+
+        .widget-list .amp-carousel-button:hover {
+            background-color: hsla(0, 0%, 79.6%, .19);
+            border-radius: 0;
+        }
+
+        .widget-list .amp-carousel-button {
+            top: 0;
+            margin: 0;
+            height: 46px;
+            width: 35px;
+            background-position: 40% 40%;
+        }
+
+        .widget-list .amp-carousel-button-prev {
+            left: 0;
+        }
+
+        .widget-list .amp-carousel-button-next {
+            right: 0;
+        }
+
         .widget-list {
             background-color: #fff;
             position: sticky;
@@ -93,10 +118,11 @@ if ( function_exists( 'get_field' ) ) {
 
         .widget-list ul {
             list-style: none;
-            display: flex;
+            display: grid;
+            overflow: hidden;
             height: 46px;
             align-items: center;
-            margin: 0;
+            margin: 0 20px 0 110px;
         }
 
 
@@ -124,6 +150,7 @@ if ( function_exists( 'get_field' ) ) {
 
         .widget-list li {
             max-width: 150px;
+            min-width: fit-content;
         }
 
         .widget-list span {
@@ -219,7 +246,7 @@ if ( function_exists( 'get_field' ) ) {
             .post-container {
                 background-color: #fff;
                 display: block;
-                max-width: 550px;
+                max-width: 768px;
                 padding-top: 20px;
             }
 
@@ -236,7 +263,7 @@ if ( function_exists( 'get_field' ) ) {
             }
 
             .title-desc {
-                margin-left: 135px;
+                margin-left: 100px;
                 flex: 1;
             }
 
@@ -260,22 +287,19 @@ if ( function_exists( 'get_field' ) ) {
                 width: 96px;
                 height: 96px;
                 z-index: 1;
-                transform: scale(1) translate(13px, -110px);
+                transform: scale(1) translate(74px, -7px);
             }
 
             .widget-list ul {
-                position: absolute;
-                overflow-x: auto;
-                width: 100%;
-            }
-
-            .widget-list li {
-                max-width: 150px;
-                min-width: fit-content;
+                margin: 0 20px 0 20px;
             }
 
             .category-share {
                 display: none;
+            }
+            .amp-carousel-button{
+                display: block;
+                border-radius: 0;
             }
         }
 
@@ -298,7 +322,11 @@ if ( function_exists( 'get_field' ) ) {
                     <div class="category-cover">
                         <div class="background-blur"></div>
                         <div class="category-title-top">
-
+                            <div class="category-thumb">
+                                <amp-img id="categoryThumb" src="<?php echo $category_image; ?>"
+                                         object-fit="cover" lightbox="thumbnail"
+                                         height="141" width="141" layout="responsive"></amp-img>
+                            </div>
                             <div class="title-desc">
                                 <h3><?php echo $queriedObj->name; ?></h3>
                                 <h4><?php echo $queriedObj->category_description; ?></h4>
@@ -307,49 +335,22 @@ if ( function_exists( 'get_field' ) ) {
                     </div>
 
                     <div class="widget-list">
-                        <div class="category-thumb">
-                            <amp-img id="categoryThumb" src="<?php echo $category_image; ?>"
-                                     object-fit="cover"
-                                     height="141" width="141" layout="responsive"></amp-img>
-                        </div>
                         <ul>
-							<?php
-							// Show on top login for each widget
-							//print_r($widgets);
-							foreach ( (array) $widgets as $category_top => $widget ) {
-								if ( $widget['acf_fc_layout'] == 'image_carousel' ) {
+                            <amp-carousel class="show-on-top" height="46" width="0" type="carousel"
+                                          layout="responsive" controls>
+								<?php
+								// Show on top login for each widget
+								//print_r($widgets);
+								foreach ( (array) $widgets as $category_top => $widget ) {
 									if ( $widget['show_on_top'] == "yes" ) { ?>
                                         <li>
-                                            <a href="#featured-widget<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                            <a href="<?php echo '#' . $widget['acf_fc_layout'] . '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
                                         </li>
-									<?php }
-								} else if ( $widget['acf_fc_layout'] == 'thumbnail_carousel' ) {
-									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li>
-                                            <a href="#thumbnail-carousel<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
-                                        </li>
-									<?php }
-								} else if ( $widget['acf_fc_layout'] == 'card_carousel' ) {
-									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li>
-                                            <a href="#card-carousel<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
-                                        </li>
-									<?php }
-								} else if ( $widget['acf_fc_layout'] == 'list_category' ) {
-									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li>
-                                            <a href="#list-category<?php echo '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
-                                        </li>
-									<?php }
-								} else if ( $widget['acf_fc_layout'] == 'standard' ) {
-									if ( $widget['show_on_top'] == "yes" ) { ?>
-                                        <li>
-                                            <a href="#trending-widget<?php echo '-' . $category_top; ?>"><span><?php echo $widget['title'] ?></span></a>
-                                        </li>
+
 									<?php }
 								}
-							}
-							?>
+								?>
+                            </amp-carousel>
                         </ul>
 
                         <div class="category-share"><a role="button" class="share-tooltip" style="cursor: pointer">
