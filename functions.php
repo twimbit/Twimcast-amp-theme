@@ -959,6 +959,9 @@ function cptui_register_my_taxes_types() {
 		"rest_base"             => "types",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
 		"show_in_quick_edit"    => false,
+		"show_in_graphql" 		=> 	true,
+		"graphql_single_name" 	=> "type",
+		"graphql_plural_name" 	=> "types"
 	];
 	register_taxonomy( "types", [ "post" ], $args );
 }

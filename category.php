@@ -122,7 +122,7 @@ if ( function_exists( 'get_field' ) ) {
             overflow: hidden;
             height: 46px;
             align-items: center;
-            margin: 0 20px 0 110px;
+            margin: 0 20px 0 75px;
         }
 
 
@@ -209,6 +209,7 @@ if ( function_exists( 'get_field' ) ) {
             -moz-transition: background-color 0.3s ease-out;
             -o-transition: background-color 0.3s ease-out;
             transition: background-color 0.3s ease-out;
+            margin-right: 4px;
         }
 
         .category-share-lt amp-social-share:hover {
