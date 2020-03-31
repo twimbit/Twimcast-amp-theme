@@ -1770,7 +1770,7 @@ amp-selector [option] {
     margin-right: 2px;
     border-radius: 10px;
     min-width: 160px;
-    box-shadow: 0 2px 7px rgba(0,0,0,.16);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .16);
 
 }
 
@@ -1797,9 +1797,9 @@ amp-selector [option] {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(114deg, rgba(15, 15, 15, 0.8), rgba(15, 15, 15, 0.8));
+    background: linear-gradient(#004c4a 0%, #000f26 100%);
     z-index: 1;
-    /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);*/
+    opacity: 0.8;
 }
 
 .amp-carousel-button {
@@ -2707,10 +2707,12 @@ section#twimcast-sidebar {
         height: 1px;
         background-color: #e1dbdb;
     }
-    .trending-span-3{
+
+    .trending-span-3 {
         position: relative;
         padding: 1px 0;
     }
+
     .trending-span-3::before {
         content: "";
         position: absolute;
