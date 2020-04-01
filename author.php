@@ -9,7 +9,7 @@ if ( ( empty( $author_image ) ) ) {
 ?>
     <style>
         .category-image amp-img {
-            margin-top: 17px    ;
+            margin-top: 17px;
         }
 
         .category-title {
@@ -48,10 +48,11 @@ if ( ( empty( $author_image ) ) ) {
                         <div class="recomended-posts" style="border-bottom: 25px solid #f5f5f500;">
 							<?php
 							$args  = array(
-								'post_type'      => array( 'post' ),
-								'posts_per_page' => get_option( 'posts_per_page' ),
-								'author'         => $queriedObj->data->ID,
-								'paged'          => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
+								'post_type'        => array( 'post' ),
+								'posts_per_page'   => get_option( 'posts_per_page' ),
+								'author'           => $queriedObj->data->ID,
+								'category__not_in' => array( 1 ),
+								'paged'            => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
 							);
 							$posts = get_posts( $args );
 							foreach ( $posts as $post ) {

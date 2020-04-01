@@ -1,9 +1,9 @@
 /*
-Theme Name: Twimbit - AMP 2
-Text Domain: twimcast
-Version: v1.0
+Theme Name: Twimbit - AMP
+Text Domain: Twimbit
+Version: v2.0
 Requires at least: 4.7
-Requires PHP: 5.2.4
+Requires PHP: 7.0
 Github Theme URI: https://github.com/twimbit/Twimcast-amp-theme
 Description: Developed and maintained by twimbit tech team.
 Author: The Twimbit Tech Team
@@ -14,7 +14,7 @@ License URI: https://twimbit.com
 
 */
 @import url("https://fonts.googleapis.com/css?family='Segoe UI Regular', 'Segoe UI Symbol':300,400,500,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
+
 
 html,
 body {
