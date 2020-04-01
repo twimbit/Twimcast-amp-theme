@@ -298,7 +298,8 @@ if ( function_exists( 'get_field' ) ) {
             .category-share {
                 display: none;
             }
-            .amp-carousel-button{
+
+            .amp-carousel-button {
                 display: block;
                 border-radius: 0;
             }
@@ -343,7 +344,7 @@ if ( function_exists( 'get_field' ) ) {
 								// Show on top login for each widget
 								//print_r($widgets);
 								foreach ( (array) $widgets as $category_top => $widget ) {
-									if ( $widget['show_on_top'] == "yes" ) { ?>
+									if ( $widget['show_on_top'] == "yes" && $widget['title'] ) { ?>
                                         <li>
                                             <a href="<?php echo '#' . $widget['acf_fc_layout'] . '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
                                         </li>
