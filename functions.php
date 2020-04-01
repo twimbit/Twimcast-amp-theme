@@ -904,7 +904,8 @@ function final_allowed_block_types( $allowed_blocks ) {
 		'core/media-text',
 		'core/columns',
 		'core/embed',
-		'core/shortcode'
+		'core/shortcode',
+        'core/html'
 	);
 }
 
