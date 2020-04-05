@@ -54,7 +54,7 @@ if ( function_exists( 'get_field' ) ) {
         }
 
         .category-thumb amp-img {
-            transform: scale(1) translate(49px, -22px);
+            transform: scale(1) translate(16px, -22px);
             border-radius: 7px;
             box-shadow: 0 3px 6px black;
             position: sticky;
@@ -67,7 +67,7 @@ if ( function_exists( 'get_field' ) ) {
         }
 
         .title-desc {
-            margin-left: 80px;
+            margin-left: 50px;
             color: #fff;
         }
 
@@ -124,7 +124,7 @@ if ( function_exists( 'get_field' ) ) {
             overflow: hidden;
             height: 46px;
             align-items: center;
-            margin: 0 20px 0 20px;
+            margin: 0;
         }
 
 
@@ -136,6 +136,7 @@ if ( function_exists( 'get_field' ) ) {
             display: flex;
             align-items: center;
             padding: 0 10px;
+            position: relative;
         }
 
         .widget-list a:hover {
@@ -158,7 +159,7 @@ if ( function_exists( 'get_field' ) ) {
         .widget-list > div {
             display: flex;
             max-width: 1200px;
-            margin: 0 100px;
+            margin: 0 auto;
             width: 100%;
         }
 
@@ -180,9 +181,10 @@ if ( function_exists( 'get_field' ) ) {
         }
 
         .share-tooltip .category-share-lt {
+            display: flex;
             position: absolute;
             top: 41px;
-            right: 21px;
+            right: -13px;
             width: fit-content;
             height: fit-content;
             padding: 10px 10px 6px 10px;
@@ -315,16 +317,11 @@ if ( function_exists( 'get_field' ) ) {
                 display: block;
                 border-radius: 0;
             }
-            .widget-list > div{
-                margin: 0 20px;
-            }
+
         }
 
         /*transform: scale(0.25) translate(84px, 330px);*/
     </style>
-    <script>
-        alert('hello');
-    </script>
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">
