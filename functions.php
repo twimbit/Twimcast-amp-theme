@@ -905,7 +905,7 @@ function final_allowed_block_types( $allowed_blocks ) {
 		'core/columns',
 		'core/embed',
 		'core/shortcode',
-        'core/html'
+		'core/html'
 	);
 }
 
@@ -922,15 +922,10 @@ function yikes_remove_description_tab( $tabs ) {
 function update_posts() {
 	$args  = array( 'post_type' => 'post', 'numberposts' => 100 );
 	$posts = get_posts( $args );
-	foreach ( $posts as $val ) {
-		if ( empty( get_field( 'intent_type', $val->ID ) ) ) {
-			update_field( 'intent_type', 'read', $val->ID );
-		}
-		if ( empty( get_field( 'length', $val->ID ) ) ) {
-			update_field( 'length', '1', $val->ID );
-		}
-	}
+	wp_update_post( $posts );
 }
+
+//add_action( 'init', 'update_posts' );
 
 
 function cptui_register_my_taxes_types() {
@@ -960,17 +955,24 @@ function cptui_register_my_taxes_types() {
 		"rest_base"             => "types",
 		"rest_controller_class" => "WP_REST_Terms_Controller",
 		"show_in_quick_edit"    => false,
-		"show_in_graphql" 		=> 	true,
-		"graphql_single_name" 	=> "type",
-		"graphql_plural_name" 	=> "types"
+		"show_in_graphql"       => true,
+		"graphql_single_name"   => "type",
+		"graphql_plural_name"   => "types"
 	];
 	register_taxonomy( "types", [ "post" ], $args );
 }
 
 add_action( 'init', 'cptui_register_my_taxes_types' );
-
-
-
+//require_once( ABSPATH . 'wp-includes/ID3/getid3.php' );
+//$filename_url = get_fields( get_post( 45 ) )['audio_upload']['url'];
+//$filename     = tempnam( '/tmp', 'getid3' );
+//echo $filename;
+//file_put_contents( $filename, file_get_contents( $filename_url ) );
+//$getID3 = new getID3;
+//
+//$file             = $getID3->analyze( $filename );
+//$playtime_seconds = $file['playtime_seconds'];
+//echo $playtime_seconds;
 
 //add_action('init', 'update_posts');
 //print_r( get_field( 'add_widgets', 'options' ) );
@@ -979,3 +981,9 @@ add_action( 'init', 'cptui_register_my_taxes_types' );
 //print_r( get_field_object( 'category_widgets_' . 0 . '_posts', 'term_' . 72 ));
 //print_r( get_term_by('slug', 'featured', 'category')->term_id );
 //print_r( $post_reading_time = get_reading_time( 13346 ) );
+function theme_scripts() {
+	wp_enqueue_script( 'jquery' );
+}
+
+add_action( 'wp_enqueue_scripts', 'theme_scripts' );
+

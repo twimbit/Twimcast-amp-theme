@@ -39,6 +39,8 @@ if ( function_exists( 'get_field' ) ) {
             right: 0;
             height: 130px;
             display: flex;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
         .background-blur {
@@ -108,7 +110,7 @@ if ( function_exists( 'get_field' ) ) {
 
         .widget-list {
             background-color: #fff;
-            position: sticky;
+            position: relative;
             top: 0;
             z-index: 1;
             border-bottom: 1px #ccc solid;
@@ -122,7 +124,7 @@ if ( function_exists( 'get_field' ) ) {
             overflow: hidden;
             height: 46px;
             align-items: center;
-            margin: 0 20px 0 75px;
+            margin: 0 20px 0 20px;
         }
 
 
@@ -153,6 +155,13 @@ if ( function_exists( 'get_field' ) ) {
             min-width: fit-content;
         }
 
+        .widget-list > div {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 100px;
+            width: 100%;
+        }
+
         .widget-list span {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -164,9 +173,10 @@ if ( function_exists( 'get_field' ) ) {
 
         .category-share {
             margin-left: auto;
+            margin-right: 20px;
             display: flex;
             align-items: center;
-            margin-right: 40px;
+            padding-right: 30px;
         }
 
         .share-tooltip .category-share-lt {
@@ -233,6 +243,8 @@ if ( function_exists( 'get_field' ) ) {
             .explore-all {
                 display: inline-block;
                 box-shadow: 3px 3px 14px rgba(0, 0, 0, .16);
+                max-width: 1200px;
+                margin: 20px auto;
             }
 
             .archiveArea {
@@ -264,7 +276,7 @@ if ( function_exists( 'get_field' ) ) {
             }
 
             .title-desc {
-                margin-left: 100px;
+                margin-left: 50px;
                 flex: 1;
             }
 
@@ -288,11 +300,11 @@ if ( function_exists( 'get_field' ) ) {
                 width: 96px;
                 height: 96px;
                 z-index: 1;
-                transform: scale(1) translate(74px, -7px);
+                transform: scale(1) translate(32px, -7px);
             }
 
             .widget-list ul {
-                margin: 0 20px 0 20px;
+                margin: 0;
             }
 
             .category-share {
@@ -303,10 +315,16 @@ if ( function_exists( 'get_field' ) ) {
                 display: block;
                 border-radius: 0;
             }
+            .widget-list > div{
+                margin: 0 20px;
+            }
         }
 
         /*transform: scale(0.25) translate(84px, 330px);*/
     </style>
+    <script>
+        alert('hello');
+    </script>
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">
@@ -337,41 +355,43 @@ if ( function_exists( 'get_field' ) ) {
                     </div>
 
                     <div class="widget-list">
-                        <ul>
-                            <amp-carousel class="show-on-top" height="46" width="0" type="carousel"
-                                          layout="responsive" controls>
-								<?php
-								// Show on top login for each widget
-								//print_r($widgets);
-								foreach ( (array) $widgets as $category_top => $widget ) {
-									if ( $widget['show_on_top'] == "yes" && $widget['title'] ) { ?>
-                                        <li>
-                                            <a href="<?php echo '#' . $widget['acf_fc_layout'] . '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
-                                        </li>
+                        <div>
+                            <ul>
+                                <amp-carousel class="show-on-top" height="46" width="0" type="carousel"
+                                              layout="responsive" controls>
+									<?php
+									// Show on top login for each widget
+									//print_r($widgets);
+									foreach ( (array) $widgets as $category_top => $widget ) {
+										if ( $widget['show_on_top'] == "yes" && $widget['title'] ) { ?>
+                                            <li>
+                                                <a href="<?php echo '#' . $widget['acf_fc_layout'] . '-' . $category_top; ?>"><?php echo $widget['title'] ?></a>
+                                            </li>
 
-									<?php }
-								}
-								?>
-                            </amp-carousel>
-                        </ul>
+										<?php }
+									}
+									?>
+                                </amp-carousel>
+                            </ul>
 
-                        <div class="category-share"><a role="button" class="share-tooltip" style="cursor: pointer">
-                                <svg width="19" height="18" viewBox="0 0 19 18">
-                                    <path d="M16,18a3,3,0,0,1-3-3,1.746,1.746,0,0,1,.022-.238c0-.033.009-.065.013-.1L5.1,11.139a3,3,0,1,1,0-4.279l7.934-3.525c0-.033-.008-.065-.013-.1A1.746,1.746,0,0,1,13,3a3.01,3.01,0,1,1,.9,2.139L5.966,8.665c0,.032.008.064.013.1a1.321,1.321,0,0,1,0,.476c0,.032-.009.065-.013.1L13.9,12.861A3,3,0,1,1,16,18Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,16,14ZM3,8A1,1,0,1,0,4,9,1,1,0,0,0,3,8ZM16,2a1,1,0,1,0,1,1A1,1,0,0,0,16,2Z"
-                                          transform="translate(0)" fill="#494949"/>
-                                </svg>
-                                <div class="category-share-lt">
-                                    <amp-social-share type="email" height="34" width="34"></amp-social-share>
-                                    <amp-social-share type="facebook" height="34" width="34"
-                                                      data-share-endpoint="http://www.facebook.com/sharer.php">
+                            <div class="category-share"><a role="button" class="share-tooltip" style="cursor: pointer">
+                                    <svg width="19" height="18" viewBox="0 0 19 18">
+                                        <path d="M16,18a3,3,0,0,1-3-3,1.746,1.746,0,0,1,.022-.238c0-.033.009-.065.013-.1L5.1,11.139a3,3,0,1,1,0-4.279l7.934-3.525c0-.033-.008-.065-.013-.1A1.746,1.746,0,0,1,13,3a3.01,3.01,0,1,1,.9,2.139L5.966,8.665c0,.032.008.064.013.1a1.321,1.321,0,0,1,0,.476c0,.032-.009.065-.013.1L13.9,12.861A3,3,0,1,1,16,18Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,16,14ZM3,8A1,1,0,1,0,4,9,1,1,0,0,0,3,8ZM16,2a1,1,0,1,0,1,1A1,1,0,0,0,16,2Z"
+                                              transform="translate(0)" fill="#494949"/>
+                                    </svg>
+                                    <div class="category-share-lt">
+                                        <amp-social-share type="email" height="34" width="34"></amp-social-share>
+                                        <amp-social-share type="facebook" height="34" width="34"
+                                                          data-share-endpoint="http://www.facebook.com/sharer.php">
 
-                                    </amp-social-share>
-                                    <amp-social-share type="linkedin" height="34" width="34"></amp-social-share>
-                                    <amp-social-share type="twitter" height="34" width="34"></amp-social-share>
-                                    <amp-social-share type="whatsapp" height="34" width="34"></amp-social-share>
-                                </div>
-                            </a>
+                                        </amp-social-share>
+                                        <amp-social-share type="linkedin" height="34" width="34"></amp-social-share>
+                                        <amp-social-share type="twitter" height="34" width="34"></amp-social-share>
+                                        <amp-social-share type="whatsapp" height="34" width="34"></amp-social-share>
+                                    </div>
+                                </a>
 
+                            </div>
                         </div>
                     </div>
 

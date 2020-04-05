@@ -14,7 +14,7 @@ if ( ! $widget['show_on_top'] ) {
 }
 
 $list_category_explore_all = get_category_link( $cat );
-//print_r( $tags );
+//print_r( $select_type );
 
 
 if ( $query_type == 'cat_tag' ) {

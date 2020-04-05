@@ -1161,7 +1161,7 @@ form.sidebar-form {
     margin-left: 20px;
 }
 
-input#searchTerm {
+input.searchTerm {
     outline: none;
     opacity: 0.5;
     padding-left: 10px;
@@ -2792,6 +2792,7 @@ section#twimcast-sidebar {
     .explore-all {
         width: 100%;
         max-width: 100%;
+        padding-top: 20px;
     }
 
     .image-slide p {
