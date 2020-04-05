@@ -1,60 +1,44 @@
 <?php
 $title       = $widget['title'];
-$cat         = $widget['category'][0]->term_id;
 $postCount   = $widget['post_count'];
 $select_type = $widget['select_type'];
 $orderby     = $widget['select_order']['card_order_by'];
 $order       = $widget['select_order']['card_order'];
 $query_type  = $widget['query_type'];
-$tags        = array();
-foreach ( (array) $widget['tags'] as $tag ) {
-	//pushing tags in tags array
-	array_push( $tags, $tag->slug );
+$tags        = get_widget_tags( $widget['tags'] );
+
+if ( ! $widget['show_on_top'] ) {
+	$cat = $widget['category'][0];
+} else {
+	$cat = get_queried_object()->term_id;
 }
+
 $list_category_explore_all = get_category_link( $cat );
-//print_r( $tags );
-$args = array(
-	'numberposts' => $postCount,
-	'post_type'   => array( 'post' ),
-	'tax_query'   => array(
-		'relation' => 'AND',
-		array(
-			'taxonomy' => 'category',
-			'field'    => 'id',
-			'terms'    => $cat
-		),
-		array(
-			'taxonomy' => 'post_tag',
-			'field'    => 'slug',
-			'terms'    => $tags
-		),
-		array(
-			'taxonomy' => 'types',
-			'field'    => 'id',
-			'terms'    => $select_type
-		)
-	),
-	'order_by'    => $orderby,
-	'order'       => $order
-);
+//print_r( $select_type );
+
 
 if ( $query_type == 'cat_tag' ) {
-	$posts = get_posts( $args );
+	$posts = get_post_by_widget_query( $cat, $tags, $postCount, $select_type, $orderby, $order );
+
 } else if ( $query_type == 'post' ) {
 	$posts = $widget['posts'];
 }
 
-if ( empty( ! ( $posts ) ) ) {
+
+if ( $posts ) {
 	?>
-    <div class="trending-widget explore-all" id="list-category">
-        <div id="list-category" class="widget-anchor "></div>
-        <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
+    <div class="trending-widget explore-all">
+        <div id="<?php echo return_unique_id( $widget['show_on_top'], $widget['acf_fc_layout'], $category_key ); ?>"
+             class="widget-anchor"></div>
+		<?php if ( $title ) { ?>
+            <p style="margin-bottom: 27px;"><?php echo $title; ?> </p>
+		<?php } ?>
         <div id="myTrendingList">
 			<?php
 			$i           = 1;
 			$postsNumber = count( $posts );
 			foreach ( $posts as $post ) {
-				$featured_image = get_field( 'featured_images', $post )[0];
+				$featured_image = get_field( 'featured_images', $post )[0]['sizes']['medium'];
 				$post_url       = get_the_permalink( $post );
 				$post_title     = $post->post_title;
 				$post_excerpt   = $post->post_excerpt;
@@ -94,9 +78,10 @@ if ( empty( ! ( $posts ) ) ) {
 				$i = $i + 1;
 			} ?>
         </div>
-        <div class="explore-all-link">
-            <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
-        </div>
-
+		<?php if ( $query_type == 'cat_tag' && ! $widget['show_on_top'] ) { ?>
+            <div class="explore-all-link">
+                <h4><a href="<?php echo $list_category_explore_all; ?>">Explore all <span>>></span> </a></h4>
+            </div>
+		<?php } ?>
     </div>
 <?php }

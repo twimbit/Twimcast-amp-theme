@@ -7,7 +7,21 @@ if ( ( empty( $category_image ) ) ) {
 	$category_image = getRandomImageForCategory();
 }
 ?>
+    <style>
+        @media (min-width: 770px) {
+            .category-meta {
+                height: fit-content;
+                padding: 0;
+            }
 
+            .category-image {
+                font-size: 70px;
+                margin-left: 10px;
+            }
+        }
+
+
+    </style>
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">
@@ -25,14 +39,11 @@ if ( ( empty( $category_image ) ) ) {
                     <div class="post-container">
                         <div class="category-meta">
                             <div class="category-image">
-                                <amp-img width="100" height="100" alt="List icon" lightbox="category"
-                                         src="<?php echo $category_image; ?>"></amp-img>
+                                <span>#</span>
                             </div>
                             <div class="category-title">
-                                <h3>
-									<?php echo $queriedObj->name; ?>
-                                </h3>
-                                <p><?php echo $queriedObj->category_description; ?></p>
+                                <h3>Tag</h3>
+                                <p><?php echo $queriedObj->name; ?></p>
                             </div>
                         </div>
 
@@ -41,7 +52,7 @@ if ( ( empty( $category_image ) ) ) {
 							$args  = array(
 								'post_type'      => array( 'post' ),
 								'posts_per_page' => get_option( 'posts_per_page' ),
-								'cat'            => $queriedObj->term_id,
+								'tag'            => $queriedObj->slug,
 								'paged'          => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
 							);
 							$posts = get_posts( $args );
@@ -55,7 +66,7 @@ if ( ( empty( $category_image ) ) ) {
 								$post_date      = get_the_date( 'd M', $post );
 								$post_readTime  = get_field( 'length', $post );
 								$post_type      = get_field( 'intent_type', $post );
-								$featured_image = get_field( 'featured_images', $post )[0];
+								$featured_image = get_field( 'featured_images', $post )[0]['sizes']['thumbnail'];
 								$post_type      = get_field( 'intent_type', $post );
 								if ( ( empty( $featured_image ) ) ) {
 									$featured_image = getRandomImageForCategory();

@@ -1,13 +1,22 @@
 <?php get_header();
-$dir_path       = get_template_directory_uri();
-$queriedObj     = get_queried_object();
-$image_array    = get_field( 'thumbnail', $queriedObj );
-$category_image = $image_array['url'];
-if ( ( empty( $category_image ) ) ) {
-	$category_image = getRandomImageForCategory();
+$dir_path     = get_template_directory_uri();
+$queriedObj   = get_queried_object();
+$image_array  = get_field( 'thumbnail', $queriedObj );
+$author_image = get_field( 'author_image', 'user_' . $queriedObj->data->ID )['sizes']['large'];
+if ( ( empty( $author_image ) ) ) {
+	$author_image = getRandomImageForCategory();
 }
 ?>
+    <style>
+        .category-image amp-img {
+            margin-top: 17px;
+        }
 
+        .category-title {
+            justify-content: unset;
+            margin-top: 17px;
+        }
+    </style>
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
             <div class="twimcast-sidebar-container">
@@ -25,24 +34,25 @@ if ( ( empty( $category_image ) ) ) {
                     <div class="post-container">
                         <div class="category-meta">
                             <div class="category-image">
-                                <amp-img width="100" height="100" alt="List icon" lightbox="category"
-                                         src="<?php echo $category_image; ?>"></amp-img>
+                                <amp-img width="70" height="70" alt="List icon" lightbox="category"
+                                         src="<?php echo $author_image; ?>"></amp-img>
                             </div>
                             <div class="category-title">
                                 <h3>
-									<?php echo $queriedObj->name; ?>
+									<?php echo $queriedObj->data->display_name; ?>
                                 </h3>
-                                <p><?php echo $queriedObj->category_description; ?></p>
+                                <p><?php echo $queriedObj->roles[0]; ?></p>
                             </div>
                         </div>
 
                         <div class="recomended-posts" style="border-bottom: 25px solid #f5f5f500;">
 							<?php
 							$args  = array(
-								'post_type'      => array( 'post' ),
-								'posts_per_page' => get_option( 'posts_per_page' ),
-								'cat'            => $queriedObj->term_id,
-								'paged'          => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
+								'post_type'        => array( 'post' ),
+								'posts_per_page'   => get_option( 'posts_per_page' ),
+								'author'           => $queriedObj->data->ID,
+								'category__not_in' => array( 1 ),
+								'paged'            => get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1
 							);
 							$posts = get_posts( $args );
 							foreach ( $posts as $post ) {
@@ -55,7 +65,7 @@ if ( ( empty( $category_image ) ) ) {
 								$post_date      = get_the_date( 'd M', $post );
 								$post_readTime  = get_field( 'length', $post );
 								$post_type      = get_field( 'intent_type', $post );
-								$featured_image = get_field( 'featured_images', $post )[0];
+								$featured_image = get_field( 'featured_images', $post )[0]['sizes']['thumbnail'];
 								$post_type      = get_field( 'intent_type', $post );
 								if ( ( empty( $featured_image ) ) ) {
 									$featured_image = getRandomImageForCategory();

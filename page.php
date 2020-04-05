@@ -3,11 +3,11 @@ $dir_path = get_template_directory_uri();
 ?>
 
 <main id="site-content" role="main" style="height:100vh;padding:0">
-    <section id="twimcast-sidebar">
+<amp-sidebar id="twimcast-sidebar" layout="nodisplay" side="right">
         <div class="twimcast-sidebar-container">
             <?php get_template_part('templates/twimcast', 'sidebar'); ?>
         </div>
-    </section>
+    </amp-sidebar>
     <section class="postArea">
         <div class="postArea-container">
             <div id="main-post-area" class="post-div">
