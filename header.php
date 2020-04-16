@@ -35,14 +35,16 @@
     </amp-analytics>
     <meta name="amp-script-src" content="sha384-fake_hash_of_local_script"/>
 
-	<?php if ( is_single() ) { ?>
+	<?php if ( is_single() ) {
+		?>
         <meta property="og:title" content="<?php echo the_title(); ?>">
         <meta property="og:site_name" content="Twimbit">
         <meta property="og:description" content="<?php echo strip_tags( get_the_excerpt( get_the_ID() ) ); ?>">
 
-        <meta property="og:image" content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
+        <meta property="og:image"
+              content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]['sizes']['large']; ?>">
         <meta property="og:image:secure_url"
-              content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
+              content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]['sizes']['large']; ?>">
         <meta property="og:url"
               content="<?php echo get_the_permalink( get_the_ID() ); ?>">
         <meta name="twitter:card" content="summary_large_image">
@@ -50,7 +52,8 @@
         <meta name="twitter:image:alt" content="Twimbit">
         <meta name="twitter:title" content="<?php echo the_title(); ?>">
         <meta name="twitter:description" content="<?php echo strip_tags( get_the_excerpt( get_the_ID() ) ); ?>">
-        <meta name="twitter:image" content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]; ?>">
+        <meta name="twitter:image"
+              content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]['sizes']['large']; ?>">
 	<?php } ?>
 
     <title>
@@ -157,22 +160,4 @@
     </div>
 </header>
 
-<script>
 
-    jQuery.ajax({
-        url: 'http://localhost/twimbit/wp-admin/admin-ajax.php',
-        type: "POST",
-        data: "action=query-attachments&post_id=0&query[post_mime_type]=audio&query[posts_per_page]=-1",
-        success: function (data) {
-            data.data.forEach(find_attachment);
-
-            function find_attachment(item, index) {
-                if (item.id == 12121) {
-                    console.log(item.fileLength);
-                }
-            }
-        }
-    });
-
-
-</script>

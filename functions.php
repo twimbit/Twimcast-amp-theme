@@ -987,3 +987,9 @@ function theme_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
+//print_r( get_field( 'category_tabs' ,'term_10'));
+
+//print_r( get_term_by( 'slug', 'digital-transformation', 'category' )->term_id);
+//wp_set_post_terms( 13352, 'instareads', 'post_tag', true );
+// filter for every field
+//add_filter( 'acf/load_value/name=category_tabs', 'category_tabs', 10, 3 );

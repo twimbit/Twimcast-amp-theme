@@ -1996,7 +1996,7 @@ section#twimcast-sidebar {
 
     .card-widget-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        grid-template-columns: repeat(3, minmax(230px, 1fr));
         grid-gap: 15px;
         margin-top: 20px;
         padding: 0 10px;
