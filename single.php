@@ -179,7 +179,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                         <div class="post-content-container" style="background-color: #fff">
                             <div class="entry-content">
 								<?php
-								echo get_post_field( 'post_content', get_the_ID() );
+								echo apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) );
 								if ( get_the_tags( get_queried_object()->term_id ) ) {
 									?>
                                     <div class="content-tags">
