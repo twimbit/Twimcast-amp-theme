@@ -815,12 +815,3 @@ table.wp-block-table td:last-child {
     margin-left: 0;
     margin-right: 0;
 }
-
-/*Acf */
-.acf-gallery {
-    height: 230px !important;
-}
-
-.acf-hl > li.acf-fr {
-    width: 110px;
-}

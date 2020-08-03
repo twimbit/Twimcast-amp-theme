@@ -33,16 +33,16 @@ wp.domReady(function () {
         exceedText.innerHTML = textArea.value.length + "/" + maxlen;
 
     });
-    (function ($) {
-        let domain = window.location.origin;
-        let parent = $('.edit-post-fullscreen-mode-close');
-        parent.empty();
-        let img = document.createElement('img');
-        img.src = domain + '/twimbit/wp-content/themes/twimbit/assets/images/logo.png';
-        img.style.height = '28px';
-        img.style.width = '20px';
-        parent[0].appendChild(img);
-    })(jQuery);
+    // (function ($) {
+    //     let domain = window.location.origin;
+    //     let parent = $('.edit-post-fullscreen-mode-close');
+    //     parent.empty();
+    //     let img = document.createElement('img');
+    //     img.src = domain + '/twimbit/wp-content/themes/twimbit/assets/images/logo.png';
+    //     img.style.height = '28px';
+    //     img.style.width = '20px';
+    //     parent[0].appendChild(img);
+    // })(jQuery);
 
 
 });
