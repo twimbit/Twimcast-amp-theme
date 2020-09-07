@@ -898,10 +898,11 @@ section.widget-area {
     text-align: left;
     letter-spacing: 0;
     opacity: 1;
+    font-weight: 900;
     font-size: 2.8rem;
+    color: #06485a;
     /* text-transform: capitalize; */
     /*font-family: "Open sans";*/
-    font-weight: 500;
     line-height: 1.5;
     margin: 0;
 }
