@@ -151,18 +151,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
         <section class="postArea" id="postTest">
             <div class="postArea-container">
                 <div id="main-post-area" class="post-div article">
-                    <div class="post-container article_content_wrapper">
-                        <!--                    <div class="post-image">-->
-                        <!--                        <amp-img src='--><?php //echo $featured_image;
-						?>
-                        <!--' height="--><?php //echo $height;
-						?>
-                        <!--" width="--><?php //echo $width;
-						?>
-                        <!--" layout="responsive" alt="a sample image"></amp-img>-->
-                        <!--                    </div>-->
+                    <div class="article_content_wrapper">
                         <div class="article_content">
-<!--                            <div class="post-title-player-area1">-->
+<!--                        <div class="post-title-player-area1">-->
                                 <div class="post-title">
                                     <div class="MuiBox-root jss162">
                                         <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"
@@ -222,22 +213,6 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                             <amp-social-share type="system" width="25" height="25"></amp-social-share>
                                         </div>
                                     </div>
-    <!--                                <hr style="margin: 0;height: 4px;width: 500px;position: absolute;background-color: #000;left: -500px;">-->
-    <!--                                <div class="post-author-name post-author-name-black-line">-->
-    <!---->
-    <!--                                    <span><a href="--><?php //echo $author_permalink; ?><!--">--><?php //echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?><!--</a></span><span>in</span>-->
-    <!---->
-    <!---->
-    <!--                                </div>-->
-    <!--                                <span style="margin-right: 5px;font-size: 15px;font-weight: 500;align-items: center;display: flex;"-->
-    <!--                                      class="show-desktop" hidden>•</span>-->
-    <!--                                <div class="post-read-time">-->
-    <!--                                    <p style="display: flex;align-items: center;">-->
-    <!--                                        <span>--><?php //echo get_the_date( "M d ,  Y" ); ?><!--</span>-->
-    <!--                                        <span style="margin:0 5px">•</span>-->
-    <!--                                        <span>--><?php //echo get_field( 'length', get_queried_object() ); ?><!-- mins</span>-->
-    <!--                                    </p>-->
-    <!--                                </div>-->
                                 </div>
                                 <div class="post-inta-reads">
                                     <div class="post-excerpt show-mobile">
@@ -295,12 +270,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                         <?php } ?>
                                     </div>
                                 </div>
-
 <!--                        </div>-->
-
-
                             <!-- Post text -->
-                            <div class="post-content-container article_text_content" style="background-color: #fff">
+                            <div class="post-content-container article_text_content">
                                 <div class="entry-content">
                                     <?php
                                     echo apply_filters( 'the_content', get_post_field( 'post_content', get_the_ID() ) );
