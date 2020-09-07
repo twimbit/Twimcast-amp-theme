@@ -126,6 +126,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
             padding-right: 12px;
             text-overflow: ellipsis;
         }
+        .MuiChip-label a{
+            text-decoration: none;
+        }
         @media (min-width: 770px) {
             .rending-title {
                 height: 59px;
