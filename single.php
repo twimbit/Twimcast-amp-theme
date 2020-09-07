@@ -43,6 +43,48 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
             top: auto;
         }
 
+        .MuiChip-root-category
+        {
+            align-items: center;
+            font-family: 'Segoe UI',SegoeUI, SegoeUI-Bold -apple-system, BlinkMacSystemFont,Helvetica, sans-serif;
+            white-space: nowrap;
+            border-radius: 16px;
+            vertical-align: middle;
+            justify-content: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            border: none;
+            height: 32px;
+            display: inline-flex;
+            outline: 0;
+            padding: 0;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: normal;
+            background-color: rgb(235, 106, 111);
+        }
+        .MuiChip-root-category a{
+            color: white !important;
+            text-transform: none !important;
+        }
+
+        .jss146
+        {
+            width: 50px;
+            height: 50px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+        .MuiChip-label
+        {
+            overflow: hidden;
+            white-space: nowrap;
+            padding-left: 12px;
+            padding-right: 12px;
+            text-overflow: ellipsis;
+        }
         @media (min-width: 770px) {
             .rending-title {
                 height: 59px;
@@ -78,10 +120,49 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
                         <div class="post-title-player-area">
                             <div class="post-title">
+                                <div class="MuiBox-root jss162">
+                                    <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"
+                                         tabindex="0"
+                                         role="button"
+                                         style=";">
+                                        <span class="MuiChip-label"><a href="<?php echo $category_permalink; ?>">
+                                                       <?php echo get_the_category( get_the_ID() )[0]->name; ?></a></span>
+                                        <span class="MuiTouchRipple-root"></span>
+                                    </div>
+                                </div>
                                 <h3>
                                     <!-- post content -->
 									<?php the_title(); ?>
                                 </h3>
+                            </div>
+                            <div class="MuiBox-root jss163 article_author">
+                                <a href="/@kaustubh/" style="text-transform: capitalize;">
+                                    <div class="MuiBox-root jss164 author_credentials">
+                                        <div class="MuiBox-root jss165" style="flex: 0.25 1 0%;">
+                                            <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox="user" class="jss146"
+                                                     src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>">
+                                            </amp-img>
+
+                                        </div>
+                                        <div class="MuiBox-root jss166" style="flex: 2 1 0%;">
+                                            <span class="MuiTypography-root jss147 MuiTypography-colorSecondary">
+                                                <span>
+                                                    <a href="<?php echo $author_permalink; ?>">
+                                                        <?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?>
+                                                    </a>
+                                                </span>
+                                            </span>
+                                            <span class="MuiTypography-root MuiTypography-colorSecondary" style="font-weight: 500;"></span>
+                                        </div>
+                                        <div class="MuiBox-root jss197">
+                                            <div class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary"
+                                                 style="font-size: 12px; height: 18px; padding: 10px; margin-bottom: 10px; text-transform: lowercase;">
+                                                <span class="MuiChip-label">6 min read</span>
+                                            </div>
+                                            <span class="MuiTypography-root MuiTypography-colorSecondary MuiTypography-alignCenter MuiTypography-displayBlock"> Jun 28, 2020</span>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                             <div class="post-meta-data ">
                                 <div class="post-share show-mobile">
@@ -98,11 +179,9 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                 </div>
                                 <hr style="margin: 0;height: 4px;width: 500px;position: absolute;background-color: #000;left: -500px;">
                                 <div class="post-author-name post-author-name-black-line">
-                                    <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox="user"
-                                             src="<?php echo ! empty( $author_image ) ? $author_image : $dir_path . '/assets/images/author.png' ?>"></amp-img>
+
                                     <span><a href="<?php echo $author_permalink; ?>"><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></a></span><span>in</span>
-                                    <a href="<?php echo $category_permalink; ?>"><span
-                                                class="post-author-cat"><?php echo get_the_category( get_the_ID() )[0]->name; ?></span></a>
+
 
                                 </div>
                                 <span style="margin-right: 5px;font-size: 15px;font-weight: 500;align-items: center;display: flex;"
