@@ -903,7 +903,7 @@ section.widget-area {
     color: #06485a;
      text-transform: capitalize;
     /*font-family: "Open sans";*/
-    line-height: 1.5;
+    line-height: 1.25;
     margin: 0;
 }
 
@@ -992,12 +992,12 @@ section.postArea {
     padding-left: 48px;
     /* overflow-x: hidden; */
     overflow-y: auto;
-    font-family: Segoe UI, SegoeUI, -apple-system, BlinkMacSystemFont,
-    Helvetica Neue, Helvetica, sans-serif;
+    /*font-family: Segoe UI, SegoeUI, -apple-system, BlinkMacSystemFont,*/
+    /*Helvetica Neue, Helvetica, sans-serif;*/
     font-size: 18px;
     font-weight: 300;
     text-align: left;
-    line-height: 1.58;
+    /*line-height: 1.58;*/
     letter-spacing: -0.004em;
     word-break: break-word;
     /*height: calc(100vh - 52px);*/
