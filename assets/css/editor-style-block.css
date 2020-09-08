@@ -402,6 +402,9 @@ html[lang="th"] .edit-post-visual-editor * {
 .editor-block-list__block ul:not(.wp-block-gallery),
 .block-library-list ul {
     list-style: disc;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
 }
 
 .edit-post-visual-editor ol,

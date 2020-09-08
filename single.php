@@ -81,6 +81,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
         {
             font-weight: 800;
             color: #06485a;
+            font-size: 16px;
             text-transform: capitalize;
             text-decoration: none;
         }
@@ -154,12 +155,11 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                     <div class="article_content_wrapper">
                         <div class="article_content">
 <!--                        <div class="post-title-player-area1">-->
-                                <div class="post-title">
+                                <div class="post-title article_text_header">
                                     <div class="MuiBox-root jss162">
                                         <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"
                                              tabindex="0"
-                                             role="button"
-                                             style=";">
+                                             role="button">
                                             <span class="MuiChip-label"><a href="<?php echo $category_permalink; ?>">
                                                            <?php echo get_the_category( get_the_ID() )[0]->name; ?></a></span>
                                             <span class="MuiTouchRipple-root"></span>

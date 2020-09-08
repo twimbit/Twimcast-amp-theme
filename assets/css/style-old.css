@@ -898,10 +898,10 @@ section.widget-area {
     text-align: left;
     letter-spacing: 0;
     opacity: 1;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 34px;
     color: #06485a;
-    /* text-transform: capitalize; */
+     text-transform: capitalize;
     /*font-family: "Open sans";*/
     line-height: 1.5;
     margin: 0;
@@ -2149,7 +2149,7 @@ section#twimcast-sidebar {
     }
 
     .post-content-container {;
-        padding-left: 40px;
+        /*padding-left: 40px;*/
     }
 
     .post-title-player-area {
