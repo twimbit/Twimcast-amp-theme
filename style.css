@@ -1,5 +1,5 @@
 /*
-Theme Name: Twimbit - AMP (new version)
+Theme Name: Twimbit - AMP (new version editor)
 Text Domain: Twimbit
 Version: v2.0
 Requires at least: 4.7
@@ -3284,3 +3284,35 @@ p strong{
 }
 
 
+.amp-carousel-button-prev {
+    background-position: 40% 36%;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23fff'%3E%3Cpath d='M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z'/%3E%3C/svg%3E");
+}
+
+.amp-carousel-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23fff'%3E%3Cpath d='M9 3L7.94 4.06l4.19 4.19H3v1.5h9.13l-4.19 4.19L9 15l6-6z'/%3E%3C/svg%3E");
+    background-size: 18px 18px;
+}
+
+.amp-carousel-button {
+    position: relative;
+    box-sizing: border-box;
+    height: 34px;
+    width: 34px;
+    margin: 16px;
+    border-style: none;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: 10;
+    pointer-events: all;
+    display: block;
+    top: auto;
+}
+
+@media (min-width: 770px) {
+    .rending-title {
+        height: 59px;
+    }
+}

@@ -15,128 +15,6 @@ $author_image       = get_field( 'author_image', 'user_' . get_queried_object()-
 $author_permalink   = get_author_posts_url( get_queried_object()->post_author );
 $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->term_id );
 ?>
-    <style>
-        .amp-carousel-button-prev {
-            background-position: 40% 36%;
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23fff'%3E%3Cpath d='M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z'/%3E%3C/svg%3E");
-        }
-
-        .amp-carousel-button-next {
-            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='%23fff'%3E%3Cpath d='M9 3L7.94 4.06l4.19 4.19H3v1.5h9.13l-4.19 4.19L9 15l6-6z'/%3E%3C/svg%3E");
-            background-size: 18px 18px;
-        }
-
-        .amp-carousel-button {
-            position: relative;
-            box-sizing: border-box;
-            height: 34px;
-            width: 34px;
-            margin: 16px;
-            border-style: none;
-            border-radius: 2px;
-            background-color: rgba(0, 0, 0, 0.5);
-            background-position: 50% 50%;
-            background-repeat: no-repeat;
-            z-index: 10;
-            pointer-events: all;
-            display: block;
-            top: auto;
-        }
-        .MuiChip-root-category
-        {
-            align-items: center;
-            font-family: 'Segoe UI',SegoeUI, SegoeUI-Bold -apple-system, BlinkMacSystemFont,Helvetica, sans-serif;
-            white-space: nowrap;
-            border-radius: 16px;
-            vertical-align: middle;
-            justify-content: center;
-            text-decoration: none;
-            box-sizing: border-box;
-            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            border: none;
-            height: 32px;
-            display: inline-flex;
-            outline: 0;
-            padding: 0;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            font-size: 14px;
-            font-weight: normal;
-            background-color: rgb(235, 106, 111);
-        }
-        .MuiChip-root-category a{
-            color: white !important;
-            text-transform: none !important;
-        }
-
-        .jss146
-        {
-            width: 50px;
-            height: 50px;
-            margin-right: 5px;
-            border-radius: 50%;
-        }
-
-        .author-name a
-        {
-            font-weight: 800;
-            color: #06485a;
-            font-size: 16px;
-            text-transform: capitalize;
-            text-decoration: none;
-        }
-        .MuiTypography-colorSecondary {
-            color: #06485a;
-        }
-        .read-time
-        {
-            font-size: 12px;
-            height: 18px;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-transform: lowercase;
-             border: 1px solid #06485a;
-            cursor: default;
-            display: inline-flex;
-            outline: 0;
-            box-sizing: border-box;
-            transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-            align-items: center;
-            font-family: 'Segoe UI',SegoeUI, SegoeUI-Bold -apple-system, BlinkMacSystemFont,Helvetica, sans-serif;
-            white-space: nowrap;
-            border-radius: 16px;
-            vertical-align: middle;
-            justify-content: center;
-            text-decoration: none;
-        }
-        .MuiTypography-alignCenter {
-            text-align: center;
-        }
-        .MuiTypography-root {
-            margin: 0;
-        }
-        .MuiTypography-displayBlock {
-            display: block;
-        }
-
-        .MuiChip-label
-        {
-            overflow: hidden;
-            white-space: nowrap;
-            padding-left: 12px;
-            padding-right: 12px;
-            text-overflow: ellipsis;
-        }
-        .MuiChip-label a{
-            text-decoration: none;
-        }
-        @media (min-width: 770px) {
-            .rending-title {
-                height: 59px;
-            }
-        }
-
-    </style>
 
     <main id="site-content" role="main">
         <div id="twimcast-sidebar-desk" class="show-desktop twimbit-sidebar-desktop">
@@ -171,7 +49,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                     </h3>
                                 </div>
                                 <div class="MuiBox-root jss163 article_author">
-                                    <a href="/@kaustubh/" style="text-transform: capitalize;">
+                                    <a href="" style="text-transform: capitalize;">
                                         <div class="MuiBox-root jss164 author_credentials">
                                             <div class="MuiBox-root jss165" style="flex: 0.25 1 0%;">
                                                 <amp-img width="20" height="20" layout="responsive" alt="List icon" lightbox="user" class="jss146"
@@ -327,7 +205,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">
                                             <h5 style="color: rgb(102, 96, 96);font-size: 12px;">Insight From</h5>
                                             <h3 class="post-writer" style="margin:0"><?php echo $cat_title; ?></h3>
-                                            <span style="color: gray;font-size: 12px;font-weight: 500;-webkit-line-clamp: 3;-webkit-box-orient: vertical;"><?php echo $cat_excerpt; ?></span>
+                                            <span class="insights"><?php echo $cat_excerpt; ?></span>
                                         </div>
                                     </div>
                                 </a>

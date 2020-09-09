@@ -3414,3 +3414,101 @@ section#twimcast-sidebar {
     font-size: 14px;
 }
 
+/*single.php css */
+
+.MuiChip-root-category
+{
+    align-items: center;
+    font-family: 'Segoe UI',SegoeUI, SegoeUI-Bold -apple-system, BlinkMacSystemFont,Helvetica, sans-serif;
+    white-space: nowrap;
+    border-radius: 16px;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border: none;
+    height: 32px;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    background-color: rgb(235, 106, 111);
+}
+.MuiChip-root-category a{
+    color: white !important;
+    text-transform: none !important;
+}
+
+.jss146
+{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.author-name a
+{
+    font-weight: 800;
+    color: #06485a;
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.MuiTypography-colorSecondary {
+    color: #06485a;
+}
+.read-time
+{
+    font-size: 12px;
+    height: 18px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-transform: lowercase;
+    border: 1px solid #06485a;
+    cursor: default;
+    display: inline-flex;
+    outline: 0;
+    box-sizing: border-box;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    align-items: center;
+    font-family: 'Segoe UI',SegoeUI, SegoeUI-Bold -apple-system, BlinkMacSystemFont,Helvetica, sans-serif;
+    white-space: nowrap;
+    border-radius: 16px;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+}
+.MuiTypography-alignCenter {
+    text-align: center;
+}
+.MuiTypography-root {
+    margin: 0;
+}
+.MuiTypography-displayBlock {
+    display: block;
+}
+
+.MuiChip-label
+{
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-overflow: ellipsis;
+}
+.MuiChip-label a{
+    text-decoration: none;
+}
+.insights
+{
+    color: gray;
+    font-size: 12px;
+    font-weight: 500;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

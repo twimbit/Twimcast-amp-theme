@@ -29,7 +29,7 @@
     </div>
 </div>
 <div class="sidebar-search">
-    <form action="<?php echo site_url(); ?>" class="sidebar-form">
+    <form action="<?php echo site_url(); ?>" class="sidebar-form" target="_top">
         <div class="search d-flex">
 
             <input type=text required=required placeholder="Search..." name=s class="searchTerm"
