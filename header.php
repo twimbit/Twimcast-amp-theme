@@ -1,5 +1,5 @@
 <!doctype html>
-<html amp lang="en" class="no-js">
+<html class="no-js" lang="en-US" amp="">
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -17,9 +17,8 @@
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
     <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 
-
     <!--  Amp analytics-->
-<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<!--<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>-->
     <meta name="amp-script-src" content="sha384-fake_hash_of_local_script"/>
 
 	<?php if ( is_single() ) {
