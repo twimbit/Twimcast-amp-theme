@@ -1,10 +1,8 @@
 <!doctype html>
-
 <html class="no-js" lang="en-US" amp="">
-
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Amp scripts -->
     <script async="" src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
@@ -12,27 +10,15 @@
     <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-fx-collection"
             src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
     <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 
-    <!-- Amp analytics
-	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script> -->
-    <amp-analytics type="gtag" data-credentials="include">
-        <script type="application/json">
-            {
-                "vars": {
-                    "gtag_id": "UA-103191945-11",
-                    "config": {
-                        "UA-103191945-11": {
-                            "groups": "default"
-                        }
-                    }
-                }
-            }
-        </script>
-    </amp-analytics>
+    <!--  Amp analytics-->
+<!--<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>-->
     <meta name="amp-script-src" content="sha384-fake_hash_of_local_script"/>
 
 	<?php if ( is_single() ) {
@@ -40,7 +26,6 @@
         <meta property="og:title" content="<?php echo the_title(); ?>">
         <meta property="og:site_name" content="Twimbit">
         <meta property="og:description" content="<?php echo strip_tags( get_the_excerpt( get_the_ID() ) ); ?>">
-
         <meta property="og:image"
               content="<?php echo get_field( 'featured_images', get_queried_object()->ID )[0]['sizes']['large']; ?>">
         <meta property="og:image:secure_url"
@@ -73,15 +58,27 @@
 		}
 		?>
     </title>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="amp-google-client-id-api" content="googleanalytics">
-    <!--     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<?php wp_head(); ?>
 
-</head>
 
+
+
+</head>
 <body>
+<amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+        {
+            "vars": {
+                "gtag_id": "UA-103191945-11",
+                "config": {
+                    "UA-103191945-11": {
+                        "groups": "default"
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics>
 <header class="main-footer show-mobile" amp-fx='float-in-top'>
     <div class="footer-container">
         <a href="<?php echo home_url(); ?>" class="footer-home footer-icon">
@@ -159,5 +156,6 @@
 
     </div>
 </header>
+
 
 

@@ -1,5 +1,5 @@
 /*
-Theme Name: Twimbit - AMP
+Theme Name: Twimbit - AMP (new version editor)
 Text Domain: Twimbit
 Version: v2.0
 Requires at least: 4.7
@@ -13,8 +13,6 @@ License: GNU General Public License v2 or later
 License URI: https://twimbit.com
 
 */
-
-
 html,
 body {
     border: none;
@@ -95,8 +93,8 @@ html {
 body {
     box-sizing: border-box;
     color: #000;
-    font-family: 'Segoe UI Regular', 'Segoe UI Symbol', -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    Helvetica, sans-serif;
+    font-family: "Segoe UI Regular", "Segoe UI Symbol", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
     /* letter-spacing: -0.015em; */
     text-align: left;
@@ -179,6 +177,17 @@ i i,
 cite em,
 cite i {
     font-weight: bolder;
+}
+
+p  em::before {
+    content: "";
+    display: block;
+    margin: 20px 0;
+    width: 40px;
+    height: 40px;
+    background-image: url(./icons/quote.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 big {
@@ -470,6 +479,32 @@ iframe.instagram-media {
     margin: auto !important;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 30px;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 0.2px solid rgb(236, 233, 233);
+    font-size: 11.5px;
+}
+
+th td {
+    font-size: 14px;
+    color: white;
+    background-color: #09485a;
+    color: white;
+    border-bottom: none;
+}
+
+tr {
+    background-color: #eef0f8;
+}
+
 /* Base Transitions -------------------------- */
 
 a,
@@ -517,7 +552,9 @@ ul {
 
 .entry-content p,
 .entry-content li {
-    line-height: 1.4;
+    font-size: 14px !important;
+    line-height: 27px;
+    color: #4d4e4e;
 }
 
 .entry-content h1,
@@ -526,6 +563,8 @@ ul {
 .entry-content h4,
 .entry-content h5 {
     margin: 3.5rem auto 2rem;
+    color: #09485a;
+    font-size: 2.2rem;
 }
 
 .entry-content ul ul,
@@ -539,6 +578,16 @@ ul {
     margin: 4rem auto;
 }
 
+.entry-content ul li,
+.entry-content ul ul li,
+.entry-content ol ul li {
+    background-color: #e1eef9;
+    padding: 15px;
+    border-radius: 10px;
+    list-style: none;
+    margin: 0 0 10px 0;
+}
+
 /* Font Families ----------------------------- */
 
 .entry-content p,
@@ -546,13 +595,11 @@ ul {
 .entry-content ul,
 .entry-content dl,
 .entry-content dt {
-    font-family: 'Merriweather', serif;
-    font-size: 17px;
+    font-family: "Merriweather", serif;
+    font-size: 14px;
     letter-spacing: normal;
     font-weight: 400;
 }
-
-
 
 .entry-content cite,
 .entry-content figcaption,
@@ -611,7 +658,6 @@ ul {
 }
 
 /* Wide */
-
 
 [class*="__inner-container"] > .alignwide {
     width: 100%;
@@ -737,7 +783,7 @@ ul {
 
     .entry-content p,
     .entry-content li {
-        line-height: 1.476;
+        line-height: 27px;
     }
 
     .entry-content h1,
@@ -1667,8 +1713,7 @@ iframe {
 .wp-block-file a.wp-block-file__button:visited {
     border-radius: 3px;
     background: linear-gradient(145deg, #f7f7f7, #ffffff);
-    box-shadow: 35px 35px 69px #e0e0e0,
-    -35px -35px 69px #ffffff;
+    box-shadow: 35px 35px 69px #e0e0e0, -35px -35px 69px #ffffff;
 }
 
 .wp-block-file * + .wp-block-file__button {
@@ -2000,6 +2045,8 @@ iframe {
 
 .wp-block-image img {
     max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 2px #93919136;
 }
 
 .wp-block-image.aligncenter {
@@ -2044,8 +2091,9 @@ iframe {
 }
 
 .wp-block-image figcaption {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    font-style: italic;
+    margin: 3.5rem 0;
+    color: black;
 }
 
 .is-style-circle-mask img {
@@ -2053,7 +2101,7 @@ iframe {
 }
 
 @supports ((-webkit-mask-image: none) or (mask-image: none)) or
-  (-webkit-mask-image: none) {
+	(-webkit-mask-image: none) {
     .is-style-circle-mask img {
         -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
         mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');
@@ -2281,8 +2329,7 @@ iframe {
         grid-row: 1;
     }
 
-    .wp-block-media-text.has-media-on-the-right
-    .wp-block-media-text__media,
+    .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media,
     .wp-block-media-text .wp-block-media-text__content {
         -ms-grid-column: 1;
         grid-column: 1;
@@ -2290,8 +2337,7 @@ iframe {
         grid-row: 2;
     }
 
-    .wp-block-media-text.has-media-on-the-right
-    .wp-block-media-text__content {
+    .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
         -ms-grid-column: 1;
         grid-column: 1;
         -ms-grid-row: 1;
@@ -2302,7 +2348,6 @@ iframe {
         -ms-grid-columns: 100% !important;
         grid-template-columns: 100% !important;
     }
-
 }
 
 .is-small-text {
@@ -2923,10 +2968,18 @@ p.wp-block-subhead {
 
 .wp-block-table {
     overflow-x: auto;
+    border-radius: 10px !important;
+}
+.wp-block-table td {
+    border-bottom: 0.5px solid grey !important;
+}
+.wp-block-table tr:last-child td {
+    border-bottom: none !important;
 }
 
 .wp-block-table table {
     width: 100%;
+    padding: 0 10px !important;
 }
 
 .wp-block-table .has-fixed-layout {
@@ -2979,7 +3032,7 @@ p.wp-block-subhead {
 }
 
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-    background-color: #f3f4f5;
+    /* background-color: #f3f4f5; */
 }
 
 .wp-block-table.is-style-stripes.has-subtle-light-gray-background-color
@@ -3189,9 +3242,9 @@ pre.wp-block-verse {
     font-size: 42px;
 }
 
-.has-text-align-center {
-    text-align: center;
-}
+/* .has-text-align-center {
+	text-align: center;
+} */
 
 .has-text-align-left {
     text-align: left;
@@ -3205,3 +3258,29 @@ pre.wp-block-verse {
     font-weight: bold;
     color: black;
 }
+
+
+.wp-block-table.is-style-stripes tr:nth-child(1){
+    background-color: #09485A;
+    color:#FFFFFF;
+    font-size: 14px;
+}
+
+.wp-block-table.is-style-stripes tr:nth-child(1) > td, .wp-block-table.is-style-stripes tr:nth-child(1) > th{
+    font-size: 14px !important;
+    font-weight: 700;
+}
+
+.wp-block-media-text__media a img{
+    width:100%;
+}
+p em{
+    color:black;
+}
+p strong{
+    /* display: block;
+    margin:20px auto; */
+    font-weight: 100;
+}
+
+

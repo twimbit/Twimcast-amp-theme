@@ -1,7 +1,7 @@
 <?php $dir_path = get_template_directory_uri(); ?>
-<div class="post-right">
+<div class="post-right content-right-nav no-print">
     <div class="post-right-container" id="post-right-anim">
-        <div href="#" role="button" tabindex="1" style="outline:none">
+        <div role="button" tabindex="1" style="outline:none">
             <div class="post-share">
                 <div class="share-text" hidden>
                     Share
