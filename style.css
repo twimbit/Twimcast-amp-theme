@@ -179,16 +179,6 @@ cite i {
     font-weight: bolder;
 }
 
-p  em::before {
-    content: "";
-    display: block;
-    margin: 20px 0;
-    width: 40px;
-    height: 40px;
-    background-image: url(./icons/quote.png);
-    background-repeat: no-repeat;
-    background-position: center;
-}
 
 big {
     font-size: 1.2em;
@@ -500,6 +490,10 @@ th td {
     color: white;
     border-bottom: none;
 }
+td {
+
+    padding: 9px;
+}
 
 tr {
     background-color: #eef0f8;
@@ -557,6 +551,9 @@ ul {
     color: #4d4e4e;
 }
 
+.entry-content li{
+    margin-left: 15px;
+}
 .entry-content h1,
 .entry-content h2,
 .entry-content h3,
@@ -596,9 +593,11 @@ ul {
 .entry-content dl,
 .entry-content dt {
     font-family: "Merriweather", serif;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: normal;
     font-weight: 400;
+    color: #4d4e4e;
+    line-height: 23px;
 }
 
 .entry-content cite,
@@ -3283,4 +3282,15 @@ p strong{
     font-weight: 100;
 }
 
+
+p em:before {
+    content: "";
+    display: block;
+    margin: 20px 0;
+    width: 40px;
+    height: 40px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAbCAYAAADh0qZQAAAABHNCSVQICAgIfAhkiAAAAfZJREFUWEftl89qE1EUxr9vxmhDoVKdSf2DLsVV0VL0IZRubOk2G6EZyATxHRRELOkiQnwCSVci+AwiKILY7oRWQpyp0NJFS9PeIxNoq+mMOZPMcmY1DN/9nd+c3HOHEAnX5sJC8fzlqRmA07bFWQPcIuCI0ImWEDIJ0o7u3UadSZy452nYFuybZ+A/yuWx8eLEIsAXJEqa4lrJYdhnJHerVXfv0PqmlTt+AY3ksOx/JH973g2Dwoamc/2ZQZKjsE8kg7J3hcVz6yAvZi05KvtUsuKvknw0jOCgwQkrtfcgHgzL7kkGj707LBS+pIVQcCCQjgE6U69X7setD5aqd2lZn0dho8s5hl7tCYBXepCsG4NnR2b/w7Vmc+t/68Kl2lNYeKlmC9aMyPN+NgPPbxGcV4FENuyj/elLzeaOJp+GbUS+l8bsWS4v7/WzuVXxPwp5T1HUOGG7yFbrQJHtRVKwD52wPZ7EZuj5awBvKwpvu436pCJ3EsmKzbDi/wR5fXBx6biNlauDc6eJrNjR4IimcDTJpbSSGbHVkgACdvEw7oWcN/VPcc+1DQCkwy7n4hi/tttf00gmNjzps6iXTP4te4d5FqBcMu8kgCy2Ur4no3nNO6n5Av2dyY+g/AjKcnACr7aYdg/250uN+tvY/zgZsN0L1rs/ccMbmb1LKFAAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 

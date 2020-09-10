@@ -46,6 +46,12 @@ td {
     text-align: inherit;
 }
 
+td {
+
+    padding: 9px;
+    font-size: 12px;
+}
+
 h3.sidebar-title {
     margin-top: 34px;
     margin-left: 29px;
@@ -277,7 +283,7 @@ a:focus {
 
 ul,
 ol {
-    margin: 0 0 3rem 3rem;
+    margin: 0 0 3rem 2rem;
 }
 
 ul {
