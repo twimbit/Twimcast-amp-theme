@@ -546,7 +546,7 @@ ul {
 
 .entry-content p,
 .entry-content li {
-    font-size: 14px !important;
+    font-size: 14px;
     line-height: 27px;
     color: #4d4e4e;
 }
@@ -610,7 +610,7 @@ ul {
     .entry-content cite,
     .entry-content figcaption,
     .entry-content .wp-caption-text {
-        font-family: merriweather, "open-sans", sans-serif;
+        font-family: "open-sans", sans-serif, merriweather;
     }
 }
 
@@ -2970,7 +2970,7 @@ p.wp-block-subhead {
     border-radius: 10px !important;
 }
 .wp-block-table td {
-    border-bottom: 0.5px solid grey !important;
+    border-bottom: 1px solid #ece9e9 !important;
 }
 .wp-block-table tr:last-child td {
     border-bottom: none !important;
@@ -3256,6 +3256,7 @@ pre.wp-block-verse {
 .entry-content a {
     font-weight: bold;
     color: black;
+    text-decoration: none;
 }
 
 
@@ -3294,3 +3295,6 @@ p em:before {
     background-position: 50%;
 }
 
+.post-inta-reads{
+    margin-bottom: 29px;
+}
