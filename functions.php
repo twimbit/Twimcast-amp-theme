@@ -905,7 +905,9 @@ function final_allowed_block_types( $allowed_blocks ) {
 		'core/columns',
 		'core/embed',
 		'core/shortcode',
-		'core/html'
+		'core/html',
+        'twimbit/report',
+        'acf/twimbit-report'
 	);
 }
 
