@@ -26,7 +26,8 @@ function twentytwenty_theme_support() {
 	//add_theme_support('post-thumbnails');
 
 	// Set post thumbnail size.
-	//set_post_thumbnail_size(1200, 9999);
+	//set_post_thumbnail_size( 1200, 9999 );
+	add_theme_support( 'post-thumbnails' );
 
 	// Add custom image size used in Cover Template.
 	add_image_size( 'twentytwenty-fullscreen', 1980, 9999 );
@@ -965,34 +966,10 @@ function cptui_register_my_taxes_types() {
 }
 
 add_action( 'init', 'cptui_register_my_taxes_types' );
-//require_once( ABSPATH . 'wp-includes/ID3/getid3.php' );
-//$filename_url = get_fields( get_post( 45 ) )['audio_upload']['url'];
-//$filename     = tempnam( '/tmp', 'getid3' );
-//echo $filename;
-//file_put_contents( $filename, file_get_contents( $filename_url ) );
-//$getID3 = new getID3;
-//
-//$file             = $getID3->analyze( $filename );
-//$playtime_seconds = $file['playtime_seconds'];
-//echo $playtime_seconds;
 
-//add_action('init', 'update_posts');
-//print_r( get_field( 'add_widgets', 'options' ) );
-//update_field( 'add_widgets_1_select_order_card_order_by', 'ASC', 'options' );
-//update_field( 'add_widgets_1_select_order_card_order', 'date', 'options' );
-//print_r( get_field_object( 'category_widgets_' . 0 . '_posts', 'term_' . 72 ));
-//print_r( get_term_by('slug', 'featured', 'category')->term_id );
-//print_r( $post_reading_time = get_reading_time( 13346 ) );
 function theme_scripts() {
 	wp_enqueue_script( 'jquery' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
-
-//print_r( get_field( 'category_tabs' ,'term_10'));
-
-//print_r( get_term_by( 'slug', 'digital-transformation', 'category' )->term_id);
-//wp_set_post_terms( 13352, 'instareads', 'post_tag', true );
-// filter for every field
-//add_filter( 'acf/load_value/name=category_tabs', 'category_tabs', 10, 3 );

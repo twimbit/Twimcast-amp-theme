@@ -1,15 +1,6 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
-//$featured_image = get_the_post_thumbnail_url();
-// print_r($featured_image);
-// $image_array = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
-// $width = $image_array[1];
-// $height = $image_array[2];
-// if ((empty($featured_image))) {
-//     $featured_image = getRandomImageForPost();
-//     $width = 1;
-//     $height = 1;
-// }
+
 $insta_read         = get_field( 'featured_images', get_queried_object() );
 $author_image       = get_field( 'author_image', 'user_' . get_queried_object()->post_author )['sizes']['large'];
 $author_permalink   = get_author_posts_url( get_queried_object()->post_author );
