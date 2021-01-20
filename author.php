@@ -3,6 +3,7 @@ $dir_path     = get_template_directory_uri();
 $queriedObj   = get_queried_object();
 $image_array  = get_field( 'thumbnail', $queriedObj );
 $author_image = get_field( 'author_image', 'user_' . $queriedObj->data->ID )['sizes']['large'];
+
 if ( ( empty( $author_image ) ) ) {
 	$author_image = getRandomImageForCategory();
 }
