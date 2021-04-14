@@ -977,5 +977,3 @@ add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 function testing() {
 	//print_r( get_field( 'featured_images', get_post( 16956 ) ) );
 }*/
-
-
