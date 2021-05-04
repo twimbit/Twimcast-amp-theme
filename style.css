@@ -3277,11 +3277,13 @@ pre.wp-block-verse {
 p em{
     color:black;
 }
+/*
 p strong{
-    /* display: block;
-    margin:20px auto; */
+    !* display: block;
+    margin:20px auto; *!
     font-weight: 100;
 }
+*/
 
 
 p em:before {

@@ -850,7 +850,7 @@ function twentytwenty_get_elements_array() {
 }
 
 
-/* 
+/*
 
 Twimcast settings
 */
@@ -907,8 +907,8 @@ function final_allowed_block_types( $allowed_blocks ) {
 		'core/embed',
 		'core/shortcode',
 		'core/html',
-        'twimbit/report',
-        'acf/twimbit-report'
+		'twimbit/report',
+		'acf/twimbit-report'
 	);
 }
 
@@ -972,4 +972,10 @@ function theme_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
+
+/*add_action( 'init', 'testing' );
+function testing() {
+	//print_r( get_field( 'featured_images', get_post( 16956 ) ) );
+}*/
+
 
