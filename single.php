@@ -56,26 +56,22 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
             </div>
         </amp-sidebar>
 
-<!--        <div class="article_category">-->
-<!--            <div class="MuiBox-root jss1573 sc-fzplWN hRBsWH">-->
-<!--                <a href="--><?php //if ($post->categories->edges[0]->node->slug == get_category()) {
-//                    echo '/';
-//                } else {
-//                    echo 'https://twimbit.com/' . $post->categories->edges[0]->node->slug;
-//                } ?><!--">-->
-<!--                    <div class="MuiChip-root-category-box MuiChip-colorPrimary MuiChip-clickable category-box-name"-->
-<!--                         tabindex="0" role="button">-->
-<!--                        <span class="MuiChip-label">--><?php //echo $post->categories->edges[0]->node->name; ?><!--</span>-->
-<!--                        <span class="MuiTouchRipple-root"></span>-->
-<!--                    </div>-->
-<!---->
-<!--                    <h6 class="MuiTypography-root MuiTypography-subtitle1"-->
-<!--                        style="margin: 10px 5px;">-->
-<!--                        --><?//= get_description(); ?>
-<!--                    </h6>-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="article_category">
+            <div class="MuiBox-root jss1573 sc-fzplWN hRBsWH">
+                <a href="/">
+                    <div class="MuiChip-root-category-box MuiChip-colorPrimary MuiChip-clickable category-box-name"
+                         tabindex="0" role="button">
+                        <span class="MuiChip-label">Banking</span>
+                        <span class="MuiTouchRipple-root"></span>
+                    </div>
+
+                    <h6 class="MuiTypography-root MuiTypography-subtitle1"
+                        style="margin: 10px 5px;">
+                        Hey this is description
+                    </h6>
+                </a>
+            </div>
+        </div>
         <section class="postArea" id="postTest">
             <div class="postArea-container">
                 <div id="main-post-area" class="post-div article">
@@ -83,15 +79,15 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                         <div class="article_content">
 <!--                        <div class="post-title-player-area1">-->
                                 <div class="post-title article_text_header">
-                                    <div class="MuiBox-root jss162">
-                                        <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"
-                                             tabindex="0"
-                                             role="button">
-                                            <span class="MuiChip-label"><a href="<?php echo $category_permalink; ?>">
-                                                           <?php echo get_the_category( get_the_ID() )[0]->name; ?></a></span>
-                                            <span class="MuiTouchRipple-root"></span>
-                                        </div>
-                                    </div>
+<!--                                    <div class="MuiBox-root jss162">-->
+<!--                                        <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"-->
+<!--                                             tabindex="0"-->
+<!--                                             role="button">-->
+<!--                                            <span class="MuiChip-label"><a href="--><?php //echo $category_permalink; ?><!--">-->
+<!--                                                           --><?php //echo get_the_category( get_the_ID() )[0]->name; ?><!--</a></span>-->
+<!--                                            <span class="MuiTouchRipple-root"></span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <h3>
                                         <!-- post content -->
                                         <?php the_title(); ?>
