@@ -58,16 +58,16 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
         <div class="article_category">
             <div class="MuiBox-root jss1573 sc-fzplWN hRBsWH">
-                <a href="/">
+                <a href="<?php echo $category_permalink; ?>">
                     <div class="MuiChip-root-category-box MuiChip-colorPrimary MuiChip-clickable category-box-name"
                          tabindex="0" role="button">
-                        <span class="MuiChip-label">Banking</span>
+                        <span class="MuiChip-label"><?php echo get_the_category( get_the_ID() )[0]->name; ?></span>
                         <span class="MuiTouchRipple-root"></span>
                     </div>
 
                     <h6 class="MuiTypography-root MuiTypography-subtitle1"
                         style="margin: 10px 5px;">
-                        Hey this is description
+                        Hey this is description(Static message need to make it dynamic)
                     </h6>
                 </a>
             </div>
@@ -79,15 +79,6 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                         <div class="article_content">
 <!--                        <div class="post-title-player-area1">-->
                                 <div class="post-title article_text_header">
-<!--                                    <div class="MuiBox-root jss162">-->
-<!--                                        <div class="MuiButtonBase-root MuiChip-root-category MuiChip-clickable"-->
-<!--                                             tabindex="0"-->
-<!--                                             role="button">-->
-<!--                                            <span class="MuiChip-label"><a href="--><?php //echo $category_permalink; ?><!--">-->
-<!--                                                           --><?php //echo get_the_category( get_the_ID() )[0]->name; ?><!--</a></span>-->
-<!--                                            <span class="MuiTouchRipple-root"></span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
                                     <h3>
                                         <!-- post content -->
                                         <?php the_title(); ?>
