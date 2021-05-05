@@ -203,7 +203,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                             </div>
                         </div>
                         <!--Author and insight-->
-                        <div class="recomended-posts" style="grid-row-gap:0;">
+                        <div class="recomended-posts">
 							<?php
 							$author_url  = get_the_permalink( $post );
 							$post_author = get_the_author_meta( 'display_name', get_queried_object()->post_author );
@@ -235,7 +235,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 								}
 								?>
                                 <a href="<?php echo $category_permalink; ?>">
-                                    <div class="post-list author-cat">
+                                    <div class="category-list author-cat">
                                         <amp-img width="120" height="120" layout="responsive" object-fit="cover"
                                                  alt="List icon" src="<?php echo $cat_image; ?>" role=""></amp-img>
                                         <div style="flex:1;margin-left:25px;justify-content: center;display: flex;flex-direction: column;">

@@ -724,10 +724,6 @@ ul#menu-home-screen {
     transition: box-shadow 0.3s;
 }
 
-.recomended-posts > div:hover {
-    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
-}
-
 #myTrendingList > div:hover {
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
@@ -1313,12 +1309,26 @@ header.main-footer {
 
 .post-list {
     display: flex;
-    height: 100%;
-    margin: 0;
-    padding: 12px 0;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    /*background: transparent linear-gradient(270deg, #fff 0%, #fff 51%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;*/
+    padding: 20px;
+    max-width: 100%;
+    background: white;
+    box-shadow: rgb(225 222 222) 1px 4px 8px 1px;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.category-list{
+    display: flex;
+    padding: 20px;
+    max-width: 100%;
+    box-shadow: rgb(225 222 222) 1px 4px 8px 1px;
+    margin-top: 18px;
+    height:100%;
+    background: white;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
 }
 
 .rending-title {
@@ -1379,10 +1389,6 @@ li,
 ul {
     transition: all 0.15s linear;
     /* width: 100%; */
-}
-
-.recomended-posts > div:hover {
-    /*box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);*/
 }
 
 .featured-widget {
