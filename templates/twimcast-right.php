@@ -1,22 +1,6 @@
 <?php $dir_path = get_template_directory_uri(); ?>
 <div class="post-right content-right-nav no-print">
     <div class="post-right-container" id="post-right-anim">
-        <div role="button" tabindex="1" style="outline:none">
-            <div class="post-share">
-                <div class="share-text" hidden>
-                    Share
-                </div>
-
-                <div class="share-icon">
-                    <span>999</span>
-                    <amp-social-share class="rounded" type="facebook" width="20" height="20"
-                                      data-share-endpoint="http://www.facebook.com/sharer.php"></amp-social-share>
-                    <amp-social-share class="rounded" type="linkedin" width="20" height="20"></amp-social-share>
-                    <amp-social-share class="rounded" type="twitter" width="20" height="20"></amp-social-share>
-                    <amp-social-share type="system" width="20" height="20"></amp-social-share>
-                </div>
-            </div>
-        </div>
 		<?php if ( ( is_single() ) || ( is_page() ) ) {
 			$audio_url = get_field( 'audio_upload' )['url'];
 			if ( ! ( empty( $audio_url ) ) ) { ?>
@@ -29,14 +13,8 @@
                         </amp-audio>
                     </div>
                 </div>
-                <hr style="width: 100%;margin: 25px 0;">
 			<?php } ?>
 
-            <div class="post-excerpt">
-                <h5 style="font-weight: 400;font-size: 15px;color: #000;">Topic:</h5>
-                <p style="padding-bottom: 5px;font-weight: 600;color: #000;"><?php echo get_the_category( get_the_ID() )[0]->name; ?></p>
-                <p style="font-size: 14px;color: #000;font-weight: 400;"><?php echo get_the_category( get_the_ID() )[0]->description; ?></p>
-            </div>
 		<?php } ?>
         <div class="light-share-container hide-player" id="amp-share">
             <svg on="tap:amp-share.toggleClass(class='hide-player')" version="1.1"  x="0px" y="0px"
