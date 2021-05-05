@@ -1,6 +1,5 @@
 <?php get_header();
 $dir_path = get_template_directory_uri();
-
 $insta_read         = get_field( 'featured_images', get_queried_object() );
 $author_image       = get_field( 'author_image', 'user_' . get_queried_object()->post_author )['sizes']['large'];
 $author_permalink   = get_author_posts_url( get_queried_object()->post_author );
@@ -295,6 +294,26 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
             </div>
         </section>
     </main><!-- #site-content -->
+
+    <script>
+
+        $(window).scroll(function () {
+
+            if ($('.article_category').offset().top > $('.recomended-posts').offset().top) {
+                $('.article_category').attr('style', 'visibility:hidden;opacity:0');
+            } else {
+                $('.article_category').attr('style', 'visibility:visible;opacity:1');
+            }
+
+            if ($('.share_single').offset().top > $('.recomended-posts').offset().top) {
+                $('.share_single').attr('style', 'visibility:hidden;opacity:0');
+            } else {
+                $('.share_single').attr('style', 'visibility:visible;opacity:1');
+            }
+        });
+
+
+    </script>
 
 <?php
 get_footer();
