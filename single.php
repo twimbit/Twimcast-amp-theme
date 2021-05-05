@@ -55,6 +55,27 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 				<?php get_template_part( 'templates/twimcast', 'sidebar' ); ?>
             </div>
         </amp-sidebar>
+
+<!--        <div class="article_category">-->
+<!--            <div class="MuiBox-root jss1573 sc-fzplWN hRBsWH">-->
+<!--                <a href="--><?php //if ($post->categories->edges[0]->node->slug == get_category()) {
+//                    echo '/';
+//                } else {
+//                    echo 'https://twimbit.com/' . $post->categories->edges[0]->node->slug;
+//                } ?><!--">-->
+<!--                    <div class="MuiChip-root-category-box MuiChip-colorPrimary MuiChip-clickable category-box-name"-->
+<!--                         tabindex="0" role="button">-->
+<!--                        <span class="MuiChip-label">--><?php //echo $post->categories->edges[0]->node->name; ?><!--</span>-->
+<!--                        <span class="MuiTouchRipple-root"></span>-->
+<!--                    </div>-->
+<!---->
+<!--                    <h6 class="MuiTypography-root MuiTypography-subtitle1"-->
+<!--                        style="margin: 10px 5px;">-->
+<!--                        --><?//= get_description(); ?>
+<!--                    </h6>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
         <section class="postArea" id="postTest">
             <div class="postArea-container">
                 <div id="main-post-area" class="post-div article">
@@ -106,20 +127,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
                                         </div>
                                     </a>
                                 </div>
-                                <div class="post-meta-data ">
-                                    <div class="post-share show-mobile">
-                                        <div class="share-icon">
-                                            <span>999</span>
-                                            <amp-social-share class="rounded" type="facebook" width="25" height="25"
-                                                              data-share-endpoint="http://www.facebook.com/sharer.php?u="></amp-social-share>
-                                            <amp-social-share class="rounded" type="linkedin" width="25"
-                                                              height="25"></amp-social-share>
-                                            <amp-social-share class="rounded" type="twitter" width="25"
-                                                              height="25"></amp-social-share>
-                                            <amp-social-share type="system" width="25" height="25"></amp-social-share>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="post-inta-reads">
                                     <div class="post-excerpt show-mobile">
                                         <?php if ( is_single() ) {

@@ -778,7 +778,7 @@ ul#menu-home-screen {
 }
 
 .insta-read-desktop-carousel amp-img {
-    width: 32.5%;
+    width: 32.5%!important;
 }
 
 .sidebar-back {
