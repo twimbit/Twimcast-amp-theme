@@ -67,7 +67,7 @@ $category_permalink = get_category_link( get_the_category( get_the_ID() )[0]->te
 
                     <h6 class="MuiTypography-root MuiTypography-subtitle1"
                         style="margin: 10px 5px;">
-                        Hey this is description(Static message need to make it dynamic)
+                        <?php echo get_the_category( get_the_ID() )[0]->description; ?>
                     </h6>
                 </a>
             </div>
