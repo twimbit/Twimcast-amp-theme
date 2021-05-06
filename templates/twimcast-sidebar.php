@@ -3,7 +3,7 @@
 
 <div class="sidebar jss7">
     <div class="topic jss8">
-        <a href="https://twimbit.com/?">
+        <a href="javascript:void(0)" style="cursor: default;">
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" iewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient
                                 id="linear-gradient" x1="0.156" y1="0.283" x2="0.805" y2="0.778"
                                 gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#2c3036"></stop><stop
@@ -39,7 +39,7 @@
 
 
     <div class="home jss8">
-        <a href="https://twimbit.com/?">
+        <a href="javascript:void(0)" style="cursor: default;">
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 23.448 19.931" aria-hidden="true">
                 <defs>
                     <linearGradient id="linear-gradient-home" x1="0.5" y1="0.5" x2="0.149" gradientUnits="objectBoundingBox">
@@ -55,7 +55,7 @@
     </div>
 
     <div class="explore jss8">
-        <a href="https://twimbit.com/explore">
+        <a href="javascript:void(0)" style="cursor: default;">
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="0 0 19.522 19.522" aria-hidden="true">
                 <defs>
                     <linearGradient id="linear-gradient-explore" x1="0.5" y1="0.5" x2="0.149" gradientUnits="objectBoundingBox">
@@ -70,7 +70,7 @@
     </div>
 
     <div class="club jss8">
-        <a href="https://club.twimbit.com/" target="blank">
+        <a href="/" onclick="return false;">
             <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge" focusable="false" viewBox="8 8 21 21" aria-hidden="true"><defs><linearGradient
                                     id="linear-gradient" x1="0.156" y1="0.283" x2="0.805" y2="0.778"
                                     gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#2c3036"></stop><stop

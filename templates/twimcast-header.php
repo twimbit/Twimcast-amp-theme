@@ -7,7 +7,7 @@
 
     <div class="header-3">
         <a href="/">
-            <img src="https://twimbit.com/static/media/logo.7d441538.svg" alt="">
+            <img src="https://twimbit.com/static/media/logo.7d441538.svg" alt="Twimbit logo">
         </a>
     </div>
     <div class="progress-top">
